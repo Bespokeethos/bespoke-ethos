@@ -85,6 +85,9 @@ Feature toggles allow new UI to ship dark while sharing the same branch.
 
 ## Deployment
 
+- GitHub repo: [Uptonr3421/bespoke-ethos](https://github.com/Uptonr3421/bespoke-ethos)
+- Vercel project: [vercel.com/upton-rands-projects/bespoke-ethos](https://vercel.com/upton-rands-projects/bespoke-ethos)
+- Branch policy: **single branch**. Always `git pull origin main` before work and `git push origin main` after commits. No feature branches.
 - Vercel project deploys automatically from `main`.
 - Preview deployments are disabled; run `pnpm dev` locally for QA.
 - Tag production releases after deploy: `git tag release-YYYYMMDDHHMM && git push --tags`.
