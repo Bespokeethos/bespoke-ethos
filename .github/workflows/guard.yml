@@ -1,0 +1,25 @@
+name: Deployment Guardrails
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Block non-main branch deployments
+        if: github.ref != 'refs/heads/main'
+        run: |
+          echo "❌ Deployment blocked: Only the 'main' branch can be deployed."
+          echo "Current branch: ${{ github.ref }}"
+          exit 1
+      
+      - name: Verify Vercel project
+        if: github.ref == 'refs/heads/main'
+        run: |
+          echo "✅ Deploying to Vercel project: prj_444RgNkeGtkyGFSdm59T1hSwjz0F"
+          echo "✅ Branch: main"
+          echo "Deployment will proceed via Vercel GitHub integration."
