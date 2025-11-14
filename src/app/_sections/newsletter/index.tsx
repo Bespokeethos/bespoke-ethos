@@ -104,8 +104,6 @@ export function Newsletter() {
       ]}
     >
       {async ([{ site }]) => {
-        "use server";
-
         const copy: NewsletterCopy = {
           title: site.footer.newsletter?.title ?? "Stay in the loop",
           description:
