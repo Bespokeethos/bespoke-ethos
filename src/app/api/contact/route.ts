@@ -166,6 +166,62 @@ export async function POST(req: NextRequest) {
       console.warn("[CONTACT_FORM_SUBMISSION] RESEND_API_KEY not configured, skipping email notification");
     }
 
+    // Persist to Airtable when credentials are present
+    const airtableApiKey = process.env.AIRTABLE_API_KEY;
+    const airtableBaseId = process.env.AIRTABLE_BASE_ID;
+    const airtableTableId = process.env.AIRTABLE_CONTACT_TABLE_ID;
+    if (airtableApiKey && airtableBaseId && airtableTableId) {
+      try {
+          const messageLines = [
+            sanitize(data.message || "(no message)"),
+            "",
+            `Company: ${sanitize(data.company) || "n/a"}`,
+            `Use case: ${sanitize(data.useCase) || "n/a"}`,
+            `Budget: ${sanitize(data.budget) || "n/a"}`,
+            `Timeline: ${sanitize(data.timeline) || "n/a"}`,
+            `Consent: ${Boolean(sanitize(data.consent)) ? "yes" : "no"}`,
+            `IP: ${ip}`,
+            `User agent: ${userAgent}`,
+          ];
+
+          const response = await fetch(
+            `https://api.airtable.com/v0/${airtableBaseId}/${airtableTableId}`,
+            {
+              method: "POST",
+              headers: {
+                Authorization: `Bearer ${airtableApiKey}`,
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                fields: {
+                  "Full Name": name || "(not provided)",
+                  "Email Address": email,
+                  "Message Content": messageLines.join("\n"),
+                  "Submission Date": new Date(now).toISOString().split("T")[0] ?? "",
+                  Status: "New",
+                },
+              }),
+            },
+          );
+
+          if (!response.ok) {
+            const text = await response.text();
+            console.error("[CONTACT_FORM_SUBMISSION] Airtable returned non-200 response:", text);
+          } else {
+            const airtableRecord = (await response.json()) as { id?: string };
+            console.info(
+              `[CONTACT_FORM_SUBMISSION] Saved to Airtable successfully${
+                airtableRecord?.id ? ` (record ${airtableRecord.id})` : ""
+              }`,
+            );
+          }
+      } catch (airtableError) {
+        console.error("[CONTACT_FORM_SUBMISSION] Failed to persist to Airtable:", airtableError);
+      }
+    } else {
+      console.warn("[CONTACT_FORM_SUBMISSION] Airtable credentials missing, skipping Airtable persistence");
+    }
+
     // Optional: Persist to BaseHub events when ingest key is provided
     const ingestKey = process.env
       .CONTACT_EVENTS_INGEST_KEY as Parameters<typeof sendEvent>[0] | undefined;

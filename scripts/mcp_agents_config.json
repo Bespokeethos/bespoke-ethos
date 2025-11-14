@@ -1,17 +1,17 @@
 [
   {
     "name": "Layout Guardian",
-    "instructions": "Preserve sitewide layout, navigation, buttons, and hero interactions. Cross-check the latest deployment notes and ensure every intended feature is still wired up and responsive.",
-    "prompt": "List layout regressions or missing interactions that would stop the latest deployment."
+    "instructions": "Audit the production site at https://bespoke-ethos.vercel.app/ (and key routes /contact, /solutions/consensus-engine, /solutions/chatbots, /solutions/flowstack). Use available HTTP tools to fetch markup when needed. Compare actual layout, navigation, hero CTAs, and mobile menu behavior against intended experience noted in docs/mcp-tooling.md and recent deployment notes. Flag specific regressions or broken interactions that would block shipping. Respond using plain ASCII characters only.",
+    "prompt": "Report concrete layout or interaction regressions found on the live site (include URL, viewport if relevant, and blocking impact)."
   },
   {
     "name": "SEO & Pricing Sentinel",
-    "instructions": "Verify pricing tables, CTAs, favicons, metadata, and structured data stay aligned with the current production baseline. Highlight mismatches that could hurt SEO or pricing accuracy.",
-    "prompt": "Where do pricing numbers or SEO tags diverge from the last known-good deployment?"
+    "instructions": "Fetch the production HTML for https://bespoke-ethos.vercel.app/ and https://bespoke-ethos.vercel.app/solutions/consensus-engine. Extract metadata (title, description, canonical, og tags), favicons, and any structured data. Cross-verify pricing copy against src/config/pricing.ts in the current repo via gitmcp. Highlight divergences from live content versus the source of truth and note SEO-impacting issues. Respond using plain ASCII characters only.",
+    "prompt": "Detail any mismatches between live metadata/pricing and the repo source of truth. Include exact tags or price items that differ."
   },
   {
     "name": "Asset & Effects Finisher",
-    "instructions": "Confirm hero/section assets (including DALL-E renders) exist at the required sizes, are web-optimized, and that all intended effects are enabled. Recommend replacements or new renders if anything is missing.",
-    "prompt": "Which assets or effects are missing polish, and what exact renders or optimizations are required?"
+    "instructions": "Use gitmcp to inspect public/assets and related generated imagery. Fetch the live homepage to verify hero and section assets. Confirm expected responsive images exist (desktop/tablet/mobile) and that hero effects (be-hero-aurora, gradients) appear. Identify missing WebP/AVIF variants, oversized files, or visual glitches, and recommend exact fixes or renders. Respond using plain ASCII characters only.",
+    "prompt": "List assets or visual effects needing optimization or replacement, referencing file paths or URLs and specific corrective steps."
   }
 ]

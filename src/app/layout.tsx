@@ -13,7 +13,7 @@ import { OrganizationJsonLd } from "./_components/seo/organization-jsonld";
 import { WebsiteJsonLd } from "./_components/seo/website-jsonld";
 import { LocalBusinessJsonLd } from "./_components/seo/localbusiness-jsonld";
 
-const SKIP_REMOTE_DATA = process.env.SKIP_REMOTE_DATA === "1";
+const SKIP_REMOTE_DATA = process.env.SKIP_REMOTE_DATA !== "0";
 
 const DEFAULT_SITE_URL = "https://www.bespokeethos.com";
 
