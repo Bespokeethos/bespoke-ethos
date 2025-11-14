@@ -5,13 +5,13 @@ import { Heading } from "@/common/heading";
 
 import { ChangelogLayout } from "./_components/changelog-header";
 import { changelogListFragment } from "./_components/changelog.fragment";
-import { ChangelogList } from "./_components/changelog-list";
+import { ChangelogListWrapper as ChangelogList } from "./_components/changelog-list-wrapper";
 import { PageView } from "../_components/page-view";
 import type { Metadata } from "next";
 import { basehub } from "basehub";
 import { notFound } from "next/navigation";
 
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
 
 export const generateMetadata = async (): Promise<Metadata | undefined> => {
   const data = await basehub({ draft: (await draftMode()).isEnabled }).query({
