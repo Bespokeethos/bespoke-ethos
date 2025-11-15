@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://nextjs-marketing-website.basehub.com
+Host: https://www.bespokeethos.com
 
 # Sitemaps
-Sitemap: https://nextjs-marketing-website.basehub.com/sitemap.xml
+Sitemap: https://www.bespokeethos.com/sitemap.xml

@@ -38,7 +38,7 @@ type LogoVariant = {
   alt: string | null;
   width: number;
   height: number;
-  aspectRatio: string; // Basehub optimized image uses string ratios like "3/1"
+  aspectRatio: string;
   blurDataURL: string;
 };
 
