@@ -8,16 +8,19 @@ import { BLOG_POSTS, getPostBySlug } from "../posts";
 
 export const revalidate = 1800;
 
-type Params = {
-  slug: string;
+type PageProps = {
+  params: Promise<{
+    slug: string;
+  }>;
 };
 
-export function generateStaticParams(): Params[] {
+export function generateStaticParams() {
   return BLOG_POSTS.map((post) => ({ slug: post.slug }));
 }
 
-export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
-  const post = getPostBySlug(params.slug);
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const resolvedParams = await params;
+  const post = getPostBySlug(resolvedParams.slug);
   if (!post) return {};
 
   const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com";
@@ -42,8 +45,9 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   };
 }
 
-export default function BlogPostPage({ params }: { params: Params }) {
-  const post = getPostBySlug(params.slug);
+export default async function BlogPostPage({ params }: PageProps) {
+  const resolvedParams = await params;
+  const post = getPostBySlug(resolvedParams.slug);
 
   if (!post) {
     notFound();
@@ -87,4 +91,3 @@ export default function BlogPostPage({ params }: { params: Params }) {
     </Section>
   );
 }
-

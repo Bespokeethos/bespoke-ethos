@@ -4,6 +4,7 @@ import { Section } from "@/common/layout";
 import { PRICING, formatMoney } from "@/config/pricing";
 import { Breadcrumbs } from "@/app/_components/seo/breadcrumbs";
 import Link from "next/link";
+import Image from "next/image";
 import { ButtonLink } from "@/common/button";
 
 export const revalidate = 1800;
