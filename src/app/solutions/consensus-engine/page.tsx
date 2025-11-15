@@ -27,7 +27,7 @@ export default function ConsensusEnginePage() {
             src="/assets/generated/hero-consensus-desktop.webp"
             alt="Abstract ribbons of light converging into one clear decision point on a strategist's screen"
             fill
-            className="object-cover"
+            className="object-cover object-center"
             sizes="(max-width: 768px) 100vw, 960px"
             priority
           />

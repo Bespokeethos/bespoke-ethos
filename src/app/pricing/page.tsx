@@ -22,12 +22,12 @@ export default function PricingPage() {
       <OfferCatalogJsonLd />
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Pricing" }]} />
       <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary">
-        <div className="relative h-40 w-full sm:h-52 lg:h-60">
+        <div className="relative h-52 w-full sm:h-64 lg:h-72">
           <Image
             src="/assets/generated/hero-flowstack-desktop.webp"
             alt="Calm workspace with an automation dashboard open beside a notebook and coffee"
             fill
-            className="object-cover object-bottom"
+            className="object-cover object-center"
             sizes="(max-width: 768px) 100vw, 960px"
             priority={false}
           />

@@ -82,12 +82,12 @@ export default function FaqPage() {
     <Section className="gap-8">
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "FAQ" }]} />
       <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary">
-        <div className="relative h-40 w-full sm:h-52 lg:h-60">
+        <div className="relative h-52 w-full sm:h-64 lg:h-72">
           <Image
             src="/assets/generated/hero-consensus-desktop.webp"
             alt="Founder meeting at a small table reviewing clear strategy notes together"
             fill
-            className="object-cover"
+            className="object-cover object-center"
             sizes="(max-width: 768px) 100vw, 960px"
           />
         </div>

@@ -26,7 +26,7 @@ export default function FlowstackPage() {
             src="/assets/generated/hero-flowstack-desktop.webp"
             alt="Founder's desk transformed from cluttered paperwork to a calm automation dashboard"
             fill
-            className="object-cover"
+            className="object-cover object-center"
             sizes="(max-width: 768px) 100vw, 960px"
             priority
           />

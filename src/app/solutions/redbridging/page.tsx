@@ -25,7 +25,7 @@ export default function RedbridgingPage() {
             src="/assets/generated/hero-redbridging-desktop.webp"
             alt="Stylized bridge of circuit traces connecting chaos on one side to calm, stable operations on the other"
             fill
-            className="object-cover"
+            className="object-cover object-center"
             sizes="(max-width: 768px) 100vw, 960px"
             priority
           />
