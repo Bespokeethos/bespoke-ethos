@@ -18,9 +18,9 @@ export function TrustCredentials() {
           We&rsquo;re not just another AI consultant. We&rsquo;re vetted, certified, and battle-tested.
         </p>
 
-        <div className="mt-12 grid gap-8 md:grid-cols-3">
+        <div className="mt-12 grid gap-8 md:grid-cols-3 items-stretch">
           {/* NGLCC Certified */}
-          <div className="flex flex-col items-center rounded-xl border border-border bg-surface-secondary p-8 dark:border-dark-border dark:bg-dark-surface-secondary">
+          <div className="flex h-full flex-col items-center rounded-xl border border-border bg-surface-secondary p-8 text-center dark:border-dark-border dark:bg-dark-surface-secondary">
             <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-accent-500/10">
               <IconCertificate className="h-8 w-8 text-accent-500" />
             </div>
@@ -49,7 +49,7 @@ export function TrustCredentials() {
           </div>
 
           {/* Catalant Vetted */}
-          <div className="flex flex-col items-center rounded-xl border border-border bg-surface-secondary p-8 dark:border-dark-border dark:bg-dark-surface-secondary">
+          <div className="flex h-full flex-col items-center rounded-xl border border-border bg-surface-secondary p-8 text-center dark:border-dark-border dark:bg-dark-surface-secondary">
             <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-accent-500/10">
               <IconBriefcase className="h-8 w-8 text-accent-500" />
             </div>
@@ -65,7 +65,7 @@ export function TrustCredentials() {
           </div>
 
           {/* AI Experience */}
-          <div className="flex flex-col items-center rounded-xl border border-border bg-surface-secondary p-8 dark:border-dark-border dark:bg-dark-surface-secondary">
+          <div className="flex h-full flex-col items-center rounded-xl border border-border bg-surface-secondary p-8 text-center dark:border-dark-border dark:bg-dark-surface-secondary">
             <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-accent-500/10">
               <IconRobot className="h-8 w-8 text-accent-500" />
             </div>
@@ -84,7 +84,7 @@ export function TrustCredentials() {
         </div>
 
         {/* 25% Discount Callout with Animated Button */}
-        <div className="mt-12 rounded-2xl border-2 border-accent-500/20 bg-gradient-to-br from-accent-500/5 to-accent-600/10 p-8">
+        <div className="mt-12 mx-auto max-w-4xl rounded-2xl border-2 border-accent-500/20 bg-gradient-to-br from-accent-500/5 to-accent-600/10 p-8 text-center">
           <h3 className="text-2xl font-semibold text-text-primary dark:text-dark-text-primary">
             25% Off for LGBTQ+ Businesses
           </h3>
