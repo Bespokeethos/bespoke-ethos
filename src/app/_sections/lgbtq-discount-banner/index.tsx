@@ -29,7 +29,7 @@ export function LGBTQDiscountBanner() {
                 className="group relative inline-flex items-center justify-center overflow-hidden rounded-full px-8 py-3 text-sm font-semibold transition-all duration-300 hover:scale-[1.02] lgbtq-rainbow-button"
               >
                 <span className="absolute inset-0 rounded-full lgbtq-rainbow-ring" />
-                <span className="absolute inset-[3px] rounded-full bg-surface-primary dark:bg-dark-surface-primary" />
+                <span className="absolute inset-[3px] rounded-full lgbtq-button-inner" />
                 <span className="relative z-10 flex items-center bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 bg-clip-text text-transparent">
                   Claim Your 25% Discount
                   <svg
@@ -49,4 +49,3 @@ export function LGBTQDiscountBanner() {
     </Section>
   );
 }
-

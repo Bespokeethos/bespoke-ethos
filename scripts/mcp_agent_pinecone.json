@@ -1,0 +1,7 @@
+[
+  {
+    "name": "Pinecone QA Ranger",
+    "instructions": "Use gitmcp + filesystem only. Inspect scripts/test-pinecone.mjs, any Pinecone env vars, and API routes to note missing config or test blockers. Keep output concise (<1200 ASCII chars).",
+    "prompt": "State Pinecone env coverage, test blockers, and immediate fixes."
+  }
+]

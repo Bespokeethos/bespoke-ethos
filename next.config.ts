@@ -18,8 +18,8 @@ const securityHeaders = [
       "img-src 'self' https: data: blob:",
       // Fonts from self + data URLs
       "font-src 'self' data:",
-      // XHR/fetch destinations (BaseHub API + Turnstile verify)
-      "connect-src 'self' https://api.basehub.com https://challenges.cloudflare.com",
+      // XHR/fetch destinations (BaseHub API + Turnstile verify + Sanity APIs)
+      "connect-src 'self' https://challenges.cloudflare.com https://*.sanity.io",
       // Embeds (Turnstile iframes)
       "frame-src https://challenges.cloudflare.com https://*.cloudflare.com",
       // Forms are local only
@@ -48,7 +48,9 @@ const nextConfig = {
     },
   },
   images: {
-    remotePatterns: [{ hostname: "assets.basehub.com" }, { hostname: "basehub.earth" }],
+    remotePatterns: [
+      { hostname: "cdn.sanity.io" },
+    ],
   },
   async headers() {
     return [

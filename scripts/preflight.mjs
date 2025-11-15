@@ -32,16 +32,11 @@ if (!canonical) warn('NEXT_PUBLIC_SITE_URL not set (OK locally). Set to https://
 else if (canonical !== 'https://www.bespokeethos.com') fail(`NEXT_PUBLIC_SITE_URL mismatch: ${canonical}`);
 else log('Canonical URL OK');
 
-// 4) BASEHUB_TOKEN presence
-const requireBasehub = process.env.VERCEL === '1' || process.env.CI === '1';
-const skipFlag = (process.env.SKIP_REMOTE_DATA ?? '').trim();
-if (!process.env.BASEHUB_TOKEN) {
-  if (requireBasehub && skipFlag !== '1') {
-    fail('BASEHUB_TOKEN missing but required for CI/Vercel builds. Sync it via Vercel env vars.');
-  }
-  warn('BASEHUB_TOKEN missing (OK locally when SKIP_REMOTE_DATA=1). Ensure it is set in Vercel.');
+// 4) BASEHUB_TOKEN (legacy)
+if (process.env.BASEHUB_TOKEN) {
+  warn('BASEHUB_TOKEN is set but BaseHub has been removed; consider deleting this env var.');
 } else {
-  log('BASEHUB_TOKEN present');
+  log('BASEHUB_TOKEN not set (expected post-migration).');
 }
 
 // 5) Required assets (allow either responsive webp set OR new hero pngs)

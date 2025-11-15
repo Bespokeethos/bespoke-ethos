@@ -233,12 +233,21 @@ export default function CadencePage() {
   );
 }
 
-function Step({ title, body, outcome }: { title: string; body: string; outcome: string }) {
+function Step({
+  title,
+  body,
+  outcome,
+}: {
+  title: string;
+  body: string;
+  outcome: string;
+}) {
   return (
-    <article className="rounded-lg border border-border p-5 dark:border-dark-border">
-      <h3 className="text-lg font-semibold">{title}</h3>
-      <p className="mt-2 text-text-secondary dark:text-dark-text-secondary">{body}</p>
-      <p className="mt-2 text-sm text-text-tertiary dark:text-dark-text-tertiary">{outcome}</p>
+    <article className="relative overflow-hidden rounded-xl border border-border bg-surface-secondary/80 p-5 shadow-sm dark:border-dark-border dark:bg-dark-surface-secondary/80">
+      <div className="pointer-events-none absolute -left-10 top-1/2 hidden h-24 w-24 -translate-y-1/2 rotate-[-18deg] rounded-full bg-accent-500/15 blur-2xl md:block" />
+      <h3 className="text-lg font-semibold text-text-primary dark:text-dark-text-primary">{title}</h3>
+      <p className="mt-2 text-sm text-text-secondary dark:text-dark-text-secondary">{body}</p>
+      <p className="mt-3 text-xs font-medium text-accent-700 dark:text-accent-300">{outcome}</p>
     </article>
   );
 }

@@ -13,7 +13,6 @@ const config = [
       "coverage/**",
       ".vercel/**",
       "pnpm-lock.yaml",
-      "basehub-types.d.ts",
     ],
   },
 ];

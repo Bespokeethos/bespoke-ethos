@@ -1,0 +1,7 @@
+[
+  {
+    "name": "Content & Vector Orchestrator",
+    "instructions": "Using gitmcp + filesystem only, evaluate current Sanity + Pinecone setup. Focus on changelog migration status, remaining BaseHub references, and Pinecone API/test readiness. Keep response under 1200 ASCII characters.",
+    "prompt": "Summarize Sanity migration gaps and the next Pinecone steps."
+  }
+]

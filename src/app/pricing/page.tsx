@@ -4,13 +4,14 @@ import { Section } from "@/common/layout";
 import { PRICING, formatMoney } from "@/config/pricing";
 import { Breadcrumbs } from "@/app/_components/seo/breadcrumbs";
 import Link from "next/link";
+import { ButtonLink } from "@/common/button";
 
 export const revalidate = 1800;
 
 export const metadata: Metadata = {
   title: "Pricing | Bespoke Ethos",
   description:
-    "Simple, transparent pricing for small business: Flowstack™ setup $399 + $59.99/mo, with Chatbots and Redbridging options.",
+    "Simple, transparent pricing for small business: FlowstackT setup $399 + $59.99/mo, with Chatbots and Redbridging options.",
   alternates: { canonical: "/pricing" },
 };
 
@@ -25,9 +26,12 @@ export default function PricingPage() {
       <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary">
         NGLCC-certified, Catalant-vetted • 25% discount for LGBTQ-owned businesses
       </p>
+
+      {/* Core subscriptions */}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+        {/* Flowstack */}
         <div className="rounded-lg border border-border p-5 dark:border-dark-border">
-          <h2 className="text-lg font-semibold">Flowstack™™</h2>
+          <h2 className="text-lg font-semibold">FlowstackT</h2>
           <p className="mt-1 text-text-secondary dark:text-dark-text-secondary">
             {formatMoney(PRICING.flowstack.setup)} setup • {formatMoney(PRICING.flowstack.monthly)}/mo
           </p>
@@ -38,8 +42,14 @@ export default function PricingPage() {
             <li>Ships fast; you retain full ownership</li>
           </ul>
         </div>
-        <div className="rounded-lg border border-border p-5 dark:border-dark-border">
-          <h2 className="text-lg font-semibold">Chatbots</h2>
+
+        {/* Chatbots – featured plan with neon green highlight */}
+        <div className="pricing-featured-card rounded-2xl border border-success bg-surface-secondary/95 p-5 dark:border-success dark:bg-dark-surface-secondary/95">
+          <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-success/60 bg-success/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-success">
+            <span className="h-2 w-2 rounded-full bg-success shadow-[0_0_0_2px_rgba(0,0,0,0.75)]" />
+            Most popular
+          </div>
+          <h2 className="text-lg font-semibold text-text-primary dark:text-dark-text-primary">Chatbots</h2>
           <p className="mt-1 text-text-secondary dark:text-dark-text-secondary">
             {formatMoney(PRICING.chatbots.standardMonthly)}/mo (Standard)
           </p>
@@ -48,21 +58,33 @@ export default function PricingPage() {
             <li>Trained on your FAQs and tone</li>
             <li>Lead capture and analytics</li>
           </ul>
+          <div className="mt-4">
+            <ButtonLink
+              href="/book"
+              unstyled
+              className="inline-flex items-center justify-center rounded-full bg-success px-4 py-2 text-sm font-semibold text-black shadow-[0_0_0_1px_rgba(0,0,0,0.85),0_0_32px_rgba(20,201,162,0.75)] transition-transform duration-200 hover:scale-[1.02]"
+            >
+              Get started
+            </ButtonLink>
+          </div>
         </div>
+
+        {/* Redbridging */}
         <div className="rounded-lg border border-border p-5 dark:border-dark-border">
-          <h2 className="text-lg font-semibold">Redbridging™</h2>
+          <h2 className="text-lg font-semibold">RedbridgingT</h2>
           <p className="mt-1 text-text-secondary dark:text-dark-text-secondary">
-            {formatMoney(PRICING.redbridging.standaloneLow)}/mo standalone or free with Flowstack™™/Cadence™
+            {formatMoney(PRICING.redbridging.standaloneLow)}/mo standalone or free with FlowstackT/CadenceT
           </p>
           <ul className="mt-3 list-disc pl-5 text-sm text-text-secondary dark:text-dark-text-secondary">
             <li>Rescue brittle automations quickly</li>
             <li>Monitoring, alerts, and retries</li>
-            <li>Included with Flowstack™™ and Cadence™ subscriptions</li>
+            <li>Included with FlowstackT and CadenceT subscriptions</li>
           </ul>
         </div>
 
+        {/* Consensus Engine */}
         <div className="rounded-lg border border-border p-5 dark:border-dark-border">
-          <h2 className="text-lg font-semibold">Consensus Engine™</h2>
+          <h2 className="text-lg font-semibold">Consensus EngineT</h2>
           <p className="mt-1 text-text-secondary dark:text-dark-text-secondary">
             {formatMoney(PRICING.consensusEngine.monthly)}/mo for up to {PRICING.consensusEngine.queryLimit} research queries
           </p>
@@ -72,11 +94,14 @@ export default function PricingPage() {
             <li>Includes one free research query with consultation</li>
           </ul>
           <p className="mt-4 text-sm text-text-tertiary">
-            <Link href="/solutions/consensus-engine" className="underline">Need a single report? Try a free consultation.</Link>
+            <Link href="/solutions/consensus-engine" className="underline">
+              Need a single report? Try a free consultation.
+            </Link>
           </p>
         </div>
       </div>
 
+      {/* One-time services */}
       <Heading subtitle="Quick, high-impact solutions" align="left" className="mt-12">
         <h2>One-Time Services</h2>
       </Heading>
@@ -104,7 +129,7 @@ export default function PricingPage() {
           </ul>
         </div>
         <div className="rounded-lg border border-border p-5 dark:border-dark-border">
-          <h3 className="text-lg font-semibold">Chatbot Audit & Tune-up</h3>
+          <h3 className="text-lg font-semibold">Chatbot Audit &amp; Tune-up</h3>
           <p className="mt-1 text-text-secondary dark:text-dark-text-secondary">
             {formatMoney(PRICING.redbridging.chatbotAuditTuneUp)} one-time
           </p>
@@ -126,7 +151,7 @@ export default function PricingPage() {
           </ul>
         </div>
         <div className="rounded-lg border border-border p-5 dark:border-dark-border">
-          <h3 className="text-lg font-semibold">Redbridging™ Rescue</h3>
+          <h3 className="text-lg font-semibold">RedbridgingT Rescue</h3>
           <p className="mt-1 text-text-secondary dark:text-dark-text-secondary">
             {formatMoney(PRICING.redbridging.standaloneALaCarte)} one-time
           </p>
@@ -162,7 +187,7 @@ function OfferCatalogJsonLd() {
       {
         "@type": "Offer",
         url: `${base}/solutions/flowstack`,
-        itemOffered: { "@type": "Service", name: "Flowstack™" },
+        itemOffered: { "@type": "Service", name: "FlowstackT" },
         priceCurrency: currency,
         price: PRICING.flowstack.setup,
         priceSpecification: {
@@ -203,3 +228,4 @@ function OfferCatalogJsonLd() {
   } as const;
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
 }
+

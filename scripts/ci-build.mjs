@@ -14,7 +14,6 @@ function run(cmd, args, opts = {}) {
 run('node', ['scripts/prepare-logo.cjs']);
 run('node', ['scripts/prepare-hero-webp.cjs']);
 run('node', ['scripts/copy-guides-assets.cjs']);
-run('node', ['scripts/maybe-basehub.cjs']);
 
 // Force local fallbacks unless explicitly disabled in env
 const env = { ...process.env };

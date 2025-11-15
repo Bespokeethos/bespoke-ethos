@@ -8,12 +8,12 @@ export function FounderStory() {
         <div className="grid gap-12 md:grid-cols-2 md:gap-16 items-center">
           {/* Image */}
           <div className="order-2 md:order-1">
-            <div className="relative aspect-[3/4] w-full max-w-sm mx-auto overflow-hidden rounded-2xl shadow-2xl md:max-w-xs">
+            <div className="relative aspect-[3/4] w-full max-w-sm mx-auto overflow-hidden rounded-2xl shadow-2xl md:max-w-[220px]">
               <Image
                 src="/assets/generated/founderimage-1.avif"
                 alt="Upton Rand, Founder of Bespoke Ethos"
                 fill
-                className="object-cover"
+                className="object-cover scale-110"
                 priority
               />
             </div>

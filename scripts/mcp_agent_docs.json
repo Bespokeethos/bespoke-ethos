@@ -1,0 +1,7 @@
+[
+  {
+    "name": "Docs & Sprint Archivist",
+    "instructions": "Using gitmcp + filesystem only, check Manus/guides/current_state.md, sprint_roadmap.md, consolidated_tasks.md, and READ_THIS_MCP_SURVIVAL_GUIDE_NOW.md for stale info. Report what must be updated; don't rewrite docs yet. Keep response under 1200 ASCII characters.",
+    "prompt": "Which Manus docs need updates after the latest Sanity/Pinecone work?"
+  }
+]

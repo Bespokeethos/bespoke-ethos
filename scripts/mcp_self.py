@@ -33,7 +33,12 @@ import asyncio
 import os
 from typing import Any, Dict
 
+from dotenv import load_dotenv
 from agents import Agent, HostedMCPTool, Runner
+
+
+load_dotenv()
+load_dotenv(".env.local")
 
 
 def build_arg_parser() -> argparse.ArgumentParser:

@@ -48,11 +48,56 @@ import argparse
 import asyncio
 import json
 import os
+import random
+import urllib.request
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional
 
+from dotenv import load_dotenv
 from agents import Agent, HostedMCPTool, Runner
 from agents.mcp import MCPServerSse, MCPServerStreamableHttp, MCPServerStdio
+
+
+load_dotenv()
+load_dotenv(".env.local")
+
+MAX_TURNS = int(os.environ.get("MCP_MAX_TURNS", "25"))
+MAX_AGENT_ATTEMPTS = int(os.environ.get("MCP_AGENT_MAX_ATTEMPTS", "3"))
+BASE_BACKOFF_SECONDS = float(os.environ.get("MCP_AGENT_BASE_BACKOFF", "1.5"))
+STATUS_URL = os.environ.get("OPENAI_STATUS_URL", "https://status.openai.com/api/v2/status.json")
+
+try:
+    from openai import (
+        APIConnectionError,
+        APIError,
+        APITimeoutError,
+        APIStatusError,
+        RateLimitError,
+    )
+except ImportError:  # pragma: no cover
+    APIConnectionError = APIError = APITimeoutError = APIStatusError = RateLimitError = None
+
+RETRYABLE_ERROR_TYPES = tuple(
+    err
+    for err in (
+        APIError,
+        APIConnectionError,
+        APITimeoutError,
+        APIStatusError,
+        RateLimitError,
+        asyncio.TimeoutError,
+    )
+    if err is not None
+)
+
+
+def safe_print(text: str) -> None:
+    """Print text without crashing on unsupported console encodings."""
+    import sys
+
+    encoding = sys.stdout.encoding or "utf-8"
+    safe = text.encode(encoding, errors="replace").decode(encoding, errors="replace")
+    print(safe)
 
 
 def parse_args() -> argparse.ArgumentParser:
@@ -127,6 +172,60 @@ def ensure_api_key() -> None:
         raise RuntimeError("OPENAI_API_KEY must be configured to use MCP tooling.")
 
 
+def report_openai_status() -> None:
+    """Fetch OpenAI status once so operators know about active incidents."""
+    try:
+        with urllib.request.urlopen(STATUS_URL, timeout=5) as resp:
+            payload = json.load(resp)
+    except Exception as exc:  # pragma: no cover - network hiccups just emit warning
+        print(
+            f"!!  Unable to fetch OpenAI status ({exc}). Continuing without status hint."
+        )
+        return
+
+    status = payload.get("status", {})
+    description = status.get("description") or "Unknown"
+    indicator = (status.get("indicator") or "none").lower()
+
+    if indicator != "none":
+        print(f"!!  OpenAI status: {description}")
+    else:
+        print(f"OpenAI status: {description}")
+
+
+def is_retryable_exception(exc: Exception) -> bool:
+    if not RETRYABLE_ERROR_TYPES:
+        return False
+
+    if not isinstance(exc, RETRYABLE_ERROR_TYPES):
+        return False
+
+    status_code = getattr(exc, "status_code", None) or getattr(exc, "status", None)
+    if status_code and 400 <= int(status_code) < 500 and status_code not in (408, 429):
+        return False
+    return True
+
+
+async def run_agent_with_retry(agent: Agent, prompt: str):
+    attempt = 0
+    while True:
+        attempt += 1
+        try:
+            return await Runner.run(agent, prompt, max_turns=MAX_TURNS)
+        except Exception as exc:  # noqa: PERF203 - we want to intercept all relevant errors
+            if attempt >= MAX_AGENT_ATTEMPTS or not is_retryable_exception(exc):
+                raise
+
+            delay = BASE_BACKOFF_SECONDS * (2 ** (attempt - 1))
+            jitter = random.uniform(0, delay * 0.35)
+            delay += jitter
+            name = getattr(agent, "name", "agent")
+            print(
+                f"!!  {name} hit {exc.__class__.__name__}: {exc}. Retrying in {delay:.1f}s (attempt {attempt+1}/{MAX_AGENT_ATTEMPTS})"
+            )
+            await asyncio.sleep(delay)
+
+
 async def run_with_hosted(args: argparse.Namespace, specs: Iterable[Dict[str, Any]]) -> None:
     tool = HostedMCPTool(
         tool_config={
@@ -145,8 +244,8 @@ async def run_with_hosted(args: argparse.Namespace, specs: Iterable[Dict[str, An
         )
         prompt = spec.get("prompt", args.default_prompt)
         print(f"\n=== Running {agent.name} ===")
-        result = await Runner.run(agent, prompt)
-        print(result.final_output)
+        result = await run_agent_with_retry(agent, prompt)
+        safe_print(result.final_output)
 
 
 async def run_with_server(
@@ -171,8 +270,8 @@ async def run_with_server(
             )
             prompt = spec.get("prompt", args.default_prompt)
             print(f"\n=== Running {agent.name} ===")
-            result = await Runner.run(agent, prompt)
-            print(result.final_output)
+            result = await run_agent_with_retry(agent, prompt)
+            safe_print(result.final_output)
 
 
 def build_tool_filter(args: argparse.Namespace):
@@ -197,6 +296,7 @@ async def main() -> None:
     args = parser.parse_args()
     ensure_api_key()
     specs = load_agent_specs(args.config)
+    report_openai_status()
 
     if args.mode == "hosted":
         await run_with_hosted(args, specs)

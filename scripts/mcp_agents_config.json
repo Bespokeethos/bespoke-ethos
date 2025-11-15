@@ -1,17 +1,32 @@
 [
   {
-    "name": "Layout Guardian",
-    "instructions": "Audit the production site at https://bespoke-ethos.vercel.app/ (and key routes /contact, /solutions/consensus-engine, /solutions/chatbots, /solutions/flowstack). Use available HTTP tools to fetch markup when needed. Compare actual layout, navigation, hero CTAs, and mobile menu behavior against intended experience noted in docs/mcp-tooling.md and recent deployment notes. Flag specific regressions or broken interactions that would block shipping. Respond using plain ASCII characters only.",
-    "prompt": "Report concrete layout or interaction regressions found on the live site (include URL, viewport if relevant, and blocking impact)."
+    "name": "Runtime Purge Engineer",
+    "instructions": "You are responsible for eradicating Sentry and BaseHub from runtime code and build scripts. Use gitmcp plus the filesystem MCP to search/edit the repo; use HTTP only for reference docs. Tasks: (1) rg the entire repo for 'basehub', '@sentry', 'fragmentOn', 'BaseHubImage', 'Pump', 'sendEvent', 'GeneralEvents'. Remove every import and usage inside src/, scripts/, public/. (2) Replace BaseHub-specific UI primitives with framework-native ones (next/image, plain React components) and remove BaseHub events entirely. (3) Delete or neutralize build helpers that depend on BaseHub/Sentry, like scripts/maybe-basehub.cjs and Sentry build-plugin hooks, while keeping builds green. (4) After changes, run pnpm lint and pnpm build via gitmcp/filesystem commands; hand any type fallout to the Types & UI Refactorist. Never add new references to BaseHub or Sentry.",
+    "prompt": "Report which files still contained Sentry/BaseHub code, what you changed per path, and confirm pnpm lint/build now pass without any Sentry/BaseHub imports."
   },
   {
-    "name": "SEO & Pricing Sentinel",
-    "instructions": "Fetch the production HTML for https://bespoke-ethos.vercel.app/ and https://bespoke-ethos.vercel.app/solutions/consensus-engine. Extract metadata (title, description, canonical, og tags), favicons, and any structured data. Cross-verify pricing copy against src/config/pricing.ts in the current repo via gitmcp. Highlight divergences from live content versus the source of truth and note SEO-impacting issues. Respond using plain ASCII characters only.",
-    "prompt": "Detail any mismatches between live metadata/pricing and the repo source of truth. Include exact tags or price items that differ."
+    "name": "Types & UI Refactorist",
+    "instructions": "Own the TypeScript-safe refactor away from BaseHub fragments and analytics. Use gitmcp + filesystem MCP. Tasks: (1) Replace imports from src/lib/basehub/* and basehub-types.d.ts with plain TS interfaces colocated with the components (FAQ, hero, testimonials, pricing, buttons, rich text, code snippets, avatars). (2) Remove GeneralEvents, sendEvent, and all basehub analytics wiring; keep UI interactions functional but analytics-free or routed through simple local handlers. (3) Once no code depends on them, delete src/lib/basehub/ and basehub-types.d.ts. (4) Fix all type errors introduced during Runtime Purge so pnpm typecheck succeeds. Do not reintroduce BaseHub or Sentry anywhere.",
+    "prompt": "List the components you refactored off BaseHub fragments/analytics, note any new TS interfaces, and confirm pnpm typecheck now passes with zero BaseHub/Sentry references."
   },
   {
-    "name": "Asset & Effects Finisher",
-    "instructions": "Use gitmcp to inspect public/assets and related generated imagery. Fetch the live homepage to verify hero and section assets. Confirm expected responsive images exist (desktop/tablet/mobile) and that hero effects (be-hero-aurora, gradients) appear. Identify missing WebP/AVIF variants, oversized files, or visual glitches, and recommend exact fixes or renders. Respond using plain ASCII characters only.",
-    "prompt": "List assets or visual effects needing optimization or replacement, referencing file paths or URLs and specific corrective steps."
+    "name": "Sanity & Search Architect",
+    "instructions": "Design and wire the Sanity + OpenAI + Pinecone stack. Use gitmcp/filesystem for code and HTTP for Sanity/Pinecone APIs. Tasks: (1) Ensure src/lib/sanity/{client,queries,types}.ts provide GROQ helpers that honor SANITY_* env vars and SKIP_REMOTE_DATA fallbacks. (2) Finalize Sanity schemas + GROQ queries for changelog, marketing sections, FAQs, and SEO fields (title, description, canonical, og image). (3) Define the OpenAI embedding model (EMBEDDING_MODEL) and Pinecone index shape (id, slug, title, snippet, type, tags) and implement internal API routes (e.g. /api/search/internal) that query Sanity, embed via OpenAI, and hit Pinecone, with a GROQ-only fallback when SKIP_REMOTE_DATA=1 or Pinecone is unavailable. (4) Ensure no code references BaseHub or Sentry; everything flows through Sanity/Configs/OpenAI/Pinecone.",
+    "prompt": "Describe the Sanity schema + GROQ queries you implemented, the Pinecone index/embedding model, and how the internal search API behaves (normal vs SKIP_REMOTE_DATA/Pinecone failure)."
+  },
+  {
+    "name": "Env & Secrets Steward",
+    "instructions": "Keep env vars minimal and accurate. Use filesystem MCP plus gitmcp; HTTP only for reference docs. Tasks: (1) Remove BASEHUB_TOKEN and every Sentry-related env var from .env.example/.env.local/docs, or clearly mark them legacy-only. (2) Ensure Airtable, Resend, Turnstile, Sanity, OpenAI, and Pinecone vars are present and consistent; document them in Manus/guides/current_state.md. (3) Align .env.example and .env.local, noting intentional differences in Manus. (4) Run node scripts/test-pinecone.mjs and adjust PINECONE_* + EMBEDDING_MODEL until it passes (serverless index, cosine metric, correct dimensions). (5) Add a WEB_SEARCH_API_KEY placeholder for future live web search and explain its purpose.",
+    "prompt": "Summarize the final env surface (which vars per service), confirm BaseHub/Sentry vars are gone or marked legacy, and report the outcome of scripts/test-pinecone.mjs plus any Pinecone env tweaks."
+  },
+  {
+    "name": "Docs & MCP Orchestrator",
+    "instructions": "Align Manus/docs + agent tooling with the new stack (Sanity + Airtable + OpenAI/Pinecone). Use gitmcp + filesystem MCP. Tasks: (1) Update Manus/CONSOLIDATED_DOCUMENTATION.md, Manus/guides/current_state.md, Manus/consolidated_tasks.md, docs/DEPENDENCIES.md, DEPLOYMENT.md, READ_THIS_MCP_SURVIVAL_GUIDE_NOW.md so they state Sanity is the active CMS, BaseHub/Sentry are legacy removed, and outline the Sanity schema + search architecture. (2) Document allowed connectors (gitmcp, filesystem MCP, HTTP to Sanity/Pinecone/web-search) and blocked ones. (3) Ensure scripts/mcp_agents_config.json contains exactly these six agents with the troubleshooting rule (after two failed attempts, perform up to four focused web searches and record URLs/outcomes). (4) Note in the docs how OpenAI + Pinecone power search, while Airtable remains for forms.",
+    "prompt": "List every doc file updated and the major changes, and show the final six-agent roster (names + scopes) now defined in scripts/mcp_agents_config.json without any Sentry/BaseHub instructions."
+  },
+  {
+    "name": "QA & Release Sentinel",
+    "instructions": "Validate the system end-to-end. Use gitmcp/filesystem for commands and HTTP to hit live pages. Tasks: (1) Run pnpm lint, pnpm typecheck, pnpm build, scripts/smoke-pages.mjs, scripts/check-images.mjs, and document results. (2) Smoke-test /, /solutions/*, /pricing, /faq, /contact, /changelog, /changelog/[slug], /testimonials to ensure no BaseHub/Sentry errors, working navigation, and correct SEO metadata. (3) Submit contact + newsletter forms (manual/browser) to confirm Turnstile, Airtable, Resend integrations; also test search with Pinecone enabled/disabled (SKIP_REMOTE_DATA=1) to verify graceful fallbacks. (4) Confirm built assets/logs contain zero BaseHub or Sentry references before authorizing deploy.",
+    "prompt": "Provide a readiness report that covers lint/typecheck/build status, smoke-test outcomes for each key route, form + search verification (normal vs SKIP_REMOTE_DATA), and explicit confirmation that BaseHub/Sentry no longer appear anywhere in runtime assets or logs."
   }
 ]
