@@ -1,8 +1,7 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import { Section } from "@/common/layout";
-import { IconCertificate, IconBriefcase, IconRobot } from "@tabler/icons-react";
-import { CatalantModernBadge } from "@/app/_components/catalant-modern-badge";
+import { IconCertificate, IconBriefcase, IconRobot, IconCheck } from "@tabler/icons-react";
 
 export function TrustCredentials() {
   return (
@@ -56,11 +55,12 @@ export function TrustCredentials() {
             <h3 className="text-xl font-semibold text-text-primary dark:text-dark-text-primary">
               Catalant Certified
             </h3>
-              <p className="mt-3 text-sm text-text-secondary dark:text-dark-text-secondary">
-                Vetted and approved as a professional business consultant through Catalant&rsquo;s rigorous screening process.
-              </p>
-            <div className="mt-6 flex items-center justify-center">
-              <CatalantModernBadge size={120} />
+            <p className="mt-3 text-sm text-text-secondary dark:text-dark-text-secondary">
+              Vetted and approved as a professional business consultant through Catalant&rsquo;s rigorous screening process.
+            </p>
+            <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-accent-500/10 px-4 py-2 text-xs font-semibold text-accent-600">
+              <IconCheck className="h-4 w-4" />
+              <span>Catalant vetted consultant</span>
             </div>
           </div>
 
