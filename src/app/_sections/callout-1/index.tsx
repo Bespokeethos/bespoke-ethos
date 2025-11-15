@@ -1,22 +1,24 @@
 import clsx from "clsx";
 
 import { Section } from "@/common/layout";
-import { fragmentOn } from "basehub";
+import { TrackedButtonLink } from "@/app/_components/tracked_button";
 
 import s from "./callout-1.module.scss";
-import { TrackedButtonLink } from "@/app/_components/tracked_button";
-import { buttonFragment } from "@/lib/basehub/fragments";
-import { GeneralEvents } from "@/../basehub-types";
 
-export const calloutFragment = fragmentOn("CalloutComponent", {
-  _analyticsKey: true,
-  title: true,
-  subtitle: true,
-  actions: buttonFragment,
-});
-type Callout = fragmentOn.infer<typeof calloutFragment>;
+export interface CalloutAction {
+  id: string;
+  href: string;
+  label: string;
+  type?: "primary" | "secondary" | "tertiary" | null;
+}
 
-export function Callout(callout: Callout & { eventsKey: GeneralEvents["ingestKey"] }) {
+export interface CalloutProps {
+  title: string;
+  subtitle: string;
+  actions?: CalloutAction[];
+}
+
+export function Callout({ title, subtitle, actions = [] }: CalloutProps) {
   return (
     <Section>
       <article className="border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary relative flex flex-col items-center justify-center gap-9 self-stretch overflow-hidden rounded-xl border p-6">
@@ -43,17 +45,17 @@ export function Callout(callout: Callout & { eventsKey: GeneralEvents["ingestKey
         {/* -------- */}
         <div className="relative z-20 flex flex-col items-center gap-2 text-center">
           <h4 className="text-text-primary dark:text-dark-text-primary text-center text-3xl font-medium tracking-tighter sm:max-w-full sm:px-0 md:text-4xl">
-            {callout.title}
+            {title}
           </h4>
           <p className="text-text-secondary dark:text-dark-text-secondary text-lg md:text-xl">
-            {callout.subtitle}
+            {subtitle}
           </p>
         </div>
         <div className="relative z-10 flex items-center gap-2">
-          {callout.actions?.map((action) => (
+          {actions.map((action) => (
             <TrackedButtonLink
-              key={action._id}
-              analyticsKey={callout.eventsKey}
+              key={action.id}
+              // Analytics previously used BaseHub; now purely navigational.
               href={action.href}
               intent={action.type}
               name="secondary_cta_click"

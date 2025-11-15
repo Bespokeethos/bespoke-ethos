@@ -1,6 +1,4 @@
 import type { Metadata, Viewport } from "next";
-
-import { draftMode } from "next/headers";
 import { Inter } from "next/font/google";
 
 import "./globals.css";
@@ -8,7 +6,6 @@ import { Footer } from "./_components/footer";
 import { Header } from "./_components/header";
 import { Newsletter } from "./_sections/newsletter";
 import { Providers } from "./providers";
-import { basehub } from "basehub";
 import { OrganizationJsonLd } from "./_components/seo/organization-jsonld";
 import { WebsiteJsonLd } from "./_components/seo/website-jsonld";
 import { LocalBusinessJsonLd } from "./_components/seo/localbusiness-jsonld";
@@ -68,135 +65,39 @@ const inter = Inter({
 });
 
 export const generateMetadata = async (): Promise<Metadata> => {
-  if (SKIP_REMOTE_DATA) {
-    return {
-      title: {
-        default: FALLBACK_METADATA.defaultTitle,
-        template: FALLBACK_METADATA.titleTemplate,
+  return {
+    title: {
+      default: FALLBACK_METADATA.defaultTitle,
+      template: FALLBACK_METADATA.titleTemplate,
+    },
+    applicationName: FALLBACK_METADATA.sitename,
+    metadataBase: metadataBaseUrl,
+    description: FALLBACK_METADATA.defaultDescription,
+    icons: [
+      {
+        url: FALLBACK_METADATA.favicon.url,
+        rel: "icon",
+        type: FALLBACK_METADATA.favicon.mimeType,
       },
-      applicationName: FALLBACK_METADATA.sitename,
-      metadataBase: metadataBaseUrl,
-      description: FALLBACK_METADATA.defaultDescription,
-      icons: [
+      { url: FALLBACK_METADATA.appleTouchIcon, rel: "apple-touch-icon" },
+    ],
+    manifest: FALLBACK_METADATA.manifest,
+    openGraph: {
+      type: "website",
+      images: [
         {
-          url: FALLBACK_METADATA.favicon.url,
-          rel: "icon",
-          type: FALLBACK_METADATA.favicon.mimeType,
-        },
-        { url: FALLBACK_METADATA.appleTouchIcon, rel: "apple-touch-icon" },
-      ],
-      manifest: FALLBACK_METADATA.manifest,
-      openGraph: {
-        type: "website",
-        images: [
-          { url: FALLBACK_METADATA.ogImageUrl, alt: "Bespoke Ethos — Cleveland AI automation for small business" },
-        ],
-        siteName: FALLBACK_METADATA.sitename,
-      },
-      twitter: {
-        card: "summary_large_image",
-        images: [FALLBACK_METADATA.ogImageUrl],
-        site: FALLBACK_METADATA.sitename,
-      },
-    };
-  }
-
-  try {
-    const data = await basehub({ cache: "no-store", draft: (await draftMode()).isEnabled }).query({
-      site: {
-        settings: {
-          metadata: {
-            sitename: true,
-            titleTemplate: true,
-            defaultTitle: true,
-            defaultDescription: true,
-            favicon: {
-              url: true,
-              mimeType: true,
-            },
-            ogImage: {
-              url: true,
-            },
-            xAccount: {
-              url: true,
-            },
-          },
-        },
-      },
-    });
-
-    const images = [
-      { url: data.site.settings.metadata.ogImage.url, alt: "Bespoke Ethos — Cleveland AI automation for small business" },
-    ];
-
-    let xAccount: string | undefined = undefined;
-
-    if (data.site.settings.metadata.xAccount) {
-      try {
-        const xUrl = new URL(data.site.settings.metadata.xAccount.url);
-        const split = xUrl.pathname.split("/");
-
-        xAccount = split[split.length - 1];
-      } catch {
-        // invalid url noop
-      }
-    }
-
-    return {
-      title: {
-        default: data.site.settings.metadata.defaultTitle,
-        template: data.site.settings.metadata.titleTemplate,
-      },
-      applicationName: data.site.settings.metadata.sitename,
-      metadataBase: metadataBaseUrl,
-      description: data.site.settings.metadata.defaultDescription,
-      icons: [
-        {
-          url: data.site.settings.metadata.favicon.url,
-          rel: "icon",
-          type: data.site.settings.metadata.favicon.mimeType,
-        },
-        { url: FALLBACK_METADATA.appleTouchIcon, rel: "apple-touch-icon" },
-      ],
-      manifest: FALLBACK_METADATA.manifest,
-      openGraph: { type: "website", images, siteName: data.site.settings.metadata.sitename },
-      twitter: {
-        card: "summary_large_image",
-        images,
-        site: data.site.settings.metadata.sitename,
-        creator: xAccount,
-      },
-    };
-  } catch {
-    return {
-      title: {
-        default: FALLBACK_METADATA.defaultTitle,
-        template: FALLBACK_METADATA.titleTemplate,
-      },
-      applicationName: FALLBACK_METADATA.sitename,
-      metadataBase: metadataBaseUrl,
-      description: FALLBACK_METADATA.defaultDescription,
-      icons: [
-        {
-          url: FALLBACK_METADATA.favicon.url,
-          rel: "icon",
-          type: FALLBACK_METADATA.favicon.mimeType,
+          url: FALLBACK_METADATA.ogImageUrl,
+          alt: "Bespoke Ethos - Cleveland AI automation for small business",
         },
       ],
-      openGraph: {
-        type: "website",
-        images: [
-          { url: FALLBACK_METADATA.ogImageUrl, alt: "Bespoke Ethos — Cleveland AI automation for small business" },
-        ],
-        siteName: FALLBACK_METADATA.sitename,
-      },
-      twitter: {
-        card: "summary_large_image",
-        images: [FALLBACK_METADATA.ogImageUrl],
-        site: FALLBACK_METADATA.sitename,
-      },
-    };
-  }
+      siteName: FALLBACK_METADATA.sitename,
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: [FALLBACK_METADATA.ogImageUrl],
+      site: FALLBACK_METADATA.sitename,
+    },
+  };
 };
 
 export const viewport: Viewport = {

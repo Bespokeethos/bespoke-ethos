@@ -1,233 +1,154 @@
 "use client";
+
 import * as React from "react";
-import { useSearch, SearchBox, type Hit } from "basehub/react-search";
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
-import NextLink from "next/link";
 import clsx from "clsx";
-import * as Popover from "@radix-ui/react-popover";
 
-import { useSearchHits } from "@/context/search-hits-context";
-import { type AuthorFragment } from "@/lib/basehub/fragments";
-import { getArticleSlugFromSlugPath } from "@/lib/basehub/utils";
+type SearchResult = {
+  id: string;
+  title: string;
+  slug?: string;
+  snippet?: string;
+  type?: string;
+  score?: number;
+  tags?: string[];
+};
 
-import { Avatar } from "../avatar";
-import { AvatarsGroup } from "../avatars-group";
+type SearchResponse = {
+  query: string;
+  source: "pinecone" | "sanity" | "disabled" | "error-fallback";
+  mode: "vector" | "fallback" | "disabled" | "error";
+  results: SearchResult[];
+};
 
-export function SearchContent({ _searchKey }: { _searchKey: string }) {
-  const search = useSearch({
-    _searchKey,
-    queryBy: ["_title", "body", "description", "categories", "authors"],
-    limit: 20,
-  });
-
-  const [open, setOpen] = React.useState(false);
-  const searchInputRef = React.useRef<HTMLInputElement>(null);
+export function SearchContent() {
+  const [query, setQuery] = React.useState("");
+  const [results, setResults] = React.useState<SearchResult[]>([]);
+  const [loading, setLoading] = React.useState(false);
+  const [error, setError] = React.useState<string | null>(null);
+  const [meta, setMeta] = React.useState<Pick<SearchResponse, "source" | "mode"> | null>(null);
 
   React.useEffect(() => {
-    if (search.query) setOpen(true);
-    else setOpen(false);
-  }, [search.query]);
+    const trimmed = query.trim();
 
-  React.useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "k" && event.metaKey) {
-        event.preventDefault();
-        searchInputRef.current?.blur();
-        searchInputRef.current?.focus();
-      }
-    };
+    if (!trimmed) {
+      setResults([]);
+      setError(null);
+      setMeta(null);
+      return;
+    }
 
-    document.addEventListener("keydown", handleKeyDown);
+    let cancelled = false;
+    setLoading(true);
+    setError(null);
 
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-    };
-  }, []);
+    const handle = window.setTimeout(async () => {
+      try {
+        const res = await fetch("/api/search/internal", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ query: trimmed }),
+        });
 
-  return (
-    <SearchBox.Root search={search}>
-      <Popover.Root open={open} onOpenChange={setOpen}>
-        <Popover.Anchor asChild>
-          <label
-            className={clsx(
-              "ml-auto flex w-full cursor-text items-center gap-x-1 rounded-full border border-border px-3.5 py-2.5 ring-accent-500! focus-within:ring-3 dark:border-dark-border md:max-w-[280px]",
-            )}
-          >
-            <MagnifyingGlassIcon
-              className="pointer-events-none size-5 shrink-0 text-text-secondary transition-colors duration-75 dark:text-dark-text-secondary"
-              color="currentColor"
-            />
-            <SearchBox.Input
-              asChild
-              className="outline-hidden outline-0"
-              onFocus={() => {
-                if (search.query) setOpen(true);
-              }}
-            >
-              <input
-                className="grow bg-transparent outline-hidden! placeholder:text-text-tertiary focus-visible:outline-hidden dark:placeholder:text-dark-text-tertiary"
-                placeholder="Search"
-                type="text"
-              />
-            </SearchBox.Input>
-          </label>
-        </Popover.Anchor>
-
-        <Popover.Portal>
-          <Popover.Content
-            asChild
-            align="end"
-            className="z-modal"
-            sideOffset={8}
-            onOpenAutoFocus={(e) => {
-              e.preventDefault();
-            }}
-          >
-            <div className="relative mx-5 min-h-20 w-[calc(100vw_-_2.5rem)] scroll-py-2 overflow-y-auto overscroll-y-contain rounded-xl border border-surface-tertiary bg-surface-primary p-2 shadow-md dark:border-dark-surface-tertiary dark:bg-dark-surface-primary md:mx-0 md:max-h-[320px] md:w-[550px]">
-              <SearchBox.Empty asChild>
-                <div className="absolute left-1/2 top-1/2 w-fit max-w-full -translate-x-1/2 -translate-y-1/2 items-center overflow-hidden text-ellipsis whitespace-nowrap px-2 py-1 text-dark-text-tertiary">
-                  No results for <span className="font-medium">&ldquo;{search.query}&rdquo;</span>
-                </div>
-              </SearchBox.Empty>
-
-              <SearchBox.Placeholder className="space-y-2">
-                <div className="box-content h-[88px] animate-pulse rounded-md bg-surface-tertiary px-4 py-3 dark:bg-dark-surface-secondary" />
-                <div className="box-content h-[88px] animate-pulse rounded-md bg-surface-tertiary px-4 py-3 dark:bg-dark-surface-secondary" />
-                <div className="box-content h-[88px] animate-pulse rounded-md bg-surface-tertiary px-4 py-3 dark:bg-dark-surface-secondary" />
-              </SearchBox.Placeholder>
-
-              <HitList hits={search.result?.hits ?? []} />
-            </div>
-          </Popover.Content>
-        </Popover.Portal>
-      </Popover.Root>
-    </SearchBox.Root>
-  );
-}
-
-function HitList({ hits }: { hits: Hit[] }) {
-  return (
-    <SearchBox.HitList className="space-y-2">
-      {hits.map((hit) => {
-        const pathname = getArticleSlugFromSlugPath(hit.document._slugPath ?? "");
-
-        const field = hit._getField("authors");
-        let firstHighlightedAuthorId: string | undefined = undefined;
-
-        for (const h of hit.highlights) {
-          if (h.fieldPath.startsWith("authors")) {
-            const index = h.fieldPath.split(".")[1];
-
-            if (!index) continue;
-            const id = hit._getField(`authors.${index}._id`);
-
-            if (typeof id === "string") {
-              firstHighlightedAuthorId = id;
-            }
-            break;
-          }
+        if (!res.ok) {
+          throw new Error(`Search failed (${res.status})`);
         }
 
-        return (
-          <div key={hit._key} className="relative w-full">
-            <SearchBox.HitItem asChild hit={hit} href={pathname}>
-              <NextLink
-                className={clsx(
-                  "flex grid-rows-[auto_1fr_auto] flex-col gap-y-0.5 rounded-md px-4 py-3",
-                  "data-[selected='true']:bg-surface-tertiary",
-                  "dark:data-[selected='true']:bg-dark-surface-tertiary",
-                  "[&_mark]:bg-transparent [&_mark]:text-accent-500",
-                )}
-                href={pathname}
-              >
-                <SearchBox.HitSnippet
-                  components={{
-                    container: HitTitleContainer,
-                  }}
-                  fieldPath="_title"
-                />
-                <SearchBox.HitSnippet
-                  components={{
-                    container: HitBodyContainer,
-                  }}
-                  fallbackFieldPaths={["description"]}
-                  fieldPath="body"
-                />
-                <div className="mt-3 flex justify-between gap-x-1">
-                  <CustomAvatarHit
-                    authors={field as AuthorFragment[]}
-                    match={firstHighlightedAuthorId}
-                  />
-                  <SearchBox.HitSnippet
-                    components={{
-                      container: HitContainer,
-                    }}
-                    fieldPath="categories"
-                  />
-                </div>
-              </NextLink>
-            </SearchBox.HitItem>
-          </div>
-        );
-      })}
-    </SearchBox.HitList>
-  );
-}
+        const data = (await res.json()) as SearchResponse;
+        if (cancelled) return;
 
-function HitTitleContainer({ children }: React.PropsWithChildren) {
+        setResults(data.results ?? []);
+        setMeta({ source: data.source, mode: data.mode });
+      } catch (err) {
+        if (cancelled) return;
+        setError(err instanceof Error ? err.message : "Search failed");
+        setResults([]);
+        setMeta(null);
+      } finally {
+        if (!cancelled) {
+          setLoading(false);
+        }
+      }
+    }, 300);
+
+    return () => {
+      cancelled = true;
+      window.clearTimeout(handle);
+    };
+  }, [query]);
+
+  const showResults = query.trim().length > 0 && (loading || error || results.length > 0);
+
   return (
-    <p className="truncate leading-normal text-text-primary dark:text-dark-text-primary">
-      {children}
-    </p>
-  );
-}
-
-function HitBodyContainer({ children }: React.PropsWithChildren) {
-  return (
-    <p className="truncate text-sm text-text-tertiary dark:text-dark-text-tertiary">{children}</p>
-  );
-}
-
-function CustomAvatarHit({
-  match,
-  authors,
-}: {
-  match: string | undefined;
-  authors: { _title: string; _id: string }[];
-}) {
-  const { authorsAvatars } = useSearchHits();
-
-  if (match) {
-    const author = authorsAvatars[match];
-
-    if (!author) return null;
-
-    return (
-      <div className="flex items-center gap-x-1.5">
-        <Avatar {...author} />
-        <SearchBox.HitSnippet
-          components={{
-            container: HitContainer,
-          }}
-          fieldPath="authors"
+    <div className="relative ml-auto w-full md:max-w-[320px]">
+      <label
+        className={clsx(
+          "flex w-full items-center gap-x-1 rounded-full border border-border px-3.5 py-2.5 ring-accent-500! focus-within:ring-3 dark:border-dark-border",
+        )}
+      >
+        <MagnifyingGlassIcon
+          className="pointer-events-none size-5 shrink-0 text-text-secondary transition-colors duration-75 dark:text-dark-text-secondary"
+          color="currentColor"
         />
-      </div>
-    );
-  }
-
-  return (
-    <AvatarsGroup>
-      {authors.map((author) => {
-        const avatar = authorsAvatars[author._id];
-
-        if (!avatar) return null;
-
-        return <Avatar key={author._id} {...avatar} alt={author._title} />;
-      })}
-    </AvatarsGroup>
+        <input
+          className="grow bg-transparent outline-hidden! placeholder:text-text-tertiary focus-visible:outline-hidden dark:placeholder:text-dark-text-tertiary"
+          placeholder="Search docs & changelog"
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+      </label>
+      {showResults ? (
+        <div className="border-border bg-surface-primary dark:border-dark-border dark:bg-dark-surface-primary absolute right-0 top-[calc(100%+6px)] z-20 w-[min(420px,100vw-2rem)] rounded-lg border p-2 shadow-lg">
+          {loading ? (
+            <p className="text-xs text-text-tertiary dark:text-dark-text-tertiary px-1 py-0.5">
+              Searching&hellip;
+            </p>
+          ) : error ? (
+            <p className="text-xs text-destructive px-1 py-0.5">Search error: {error}</p>
+          ) : results.length === 0 ? (
+            <p className="text-xs text-text-tertiary dark:text-dark-text-tertiary px-1 py-0.5">
+              No matches yet. Try another phrase.
+            </p>
+          ) : (
+            <ul className="flex max-h-80 flex-col gap-1 overflow-auto">
+              {results.map((result) => {
+                const href = result.slug ? `/changelog/${result.slug}` : "#";
+                return (
+                  <li key={result.id}>
+                    <a
+                      className="hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary block rounded-md px-2 py-1.5 text-sm"
+                      href={href}
+                    >
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="font-medium">{result.title}</span>
+                        {result.type ? (
+                          <span className="text-[10px] uppercase tracking-wide text-text-tertiary dark:text-dark-text-tertiary">
+                            {result.type}
+                          </span>
+                        ) : null}
+                      </div>
+                      {result.snippet ? (
+                        <p className="text-xs text-text-tertiary dark:text-dark-text-tertiary line-clamp-2">
+                          {result.snippet}
+                        </p>
+                      ) : null}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+          {meta ? (
+            <p className="text-[10px] text-text-tertiary dark:text-dark-text-tertiary mt-1 px-1">
+              Source: {meta.source === "pinecone" ? "semantic (Pinecone + embeddings)" : "Sanity"}
+              {meta.mode === "fallback" || meta.mode === "disabled"
+                ? " (fallback mode)"
+                : undefined}
+            </p>
+          ) : null}
+        </div>
+      ) : null}
+    </div>
   );
-}
-
-function HitContainer({ children }: React.PropsWithChildren) {
-  return <p className="text-sm text-text-secondary dark:text-dark-text-secondary">{children}</p>;
 }

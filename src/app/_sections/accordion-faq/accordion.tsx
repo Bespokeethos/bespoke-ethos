@@ -2,16 +2,12 @@
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { MinusCircledIcon, PlusCircledIcon } from "@radix-ui/react-icons";
 import * as React from "react";
-import { type Faq } from "../faq";
-import { sendEvent } from "basehub/events";
-import { GeneralEvents } from "@/../basehub-types";
+import type { FaqQuestion } from "../faq";
 
 export function Accordion({
   items,
-  eventsKey,
 }: {
-  items: Faq["questions"]["items"];
-  eventsKey: GeneralEvents["ingestKey"];
+  items: FaqQuestion[];
 }) {
   const [activeItems, setActiveItems] = React.useState<string[]>([]);
 
@@ -26,7 +22,6 @@ export function Accordion({
         <AccordionItem
           key={item._title}
           {...item}
-          eventsKey={eventsKey}
           isActive={activeItems.includes(item._title)}
         />
       ))}
@@ -38,18 +33,12 @@ function AccordionItem({
   _title,
   answer,
   isActive,
-  eventsKey,
-}: Faq["questions"]["items"][0] & { isActive: boolean; eventsKey: GeneralEvents["ingestKey"] }) {
+}: FaqQuestion & { isActive: boolean }) {
   return (
     <AccordionPrimitive.Item key={_title} className="flex flex-col" value={_title}>
       <AccordionPrimitive.Header>
         <AccordionPrimitive.Trigger
           className="ring-accent-500 flex w-full items-start gap-3 rounded-md py-2 text-lg leading-relaxed font-medium tracking-tighter outline-hidden focus-visible:ring-3"
-          onClick={() => {
-            sendEvent(eventsKey, {
-              eventType: "faq_expanded",
-            });
-          }}
         >
           {isActive ? (
             <MinusCircledIcon className="my-1.5 size-4 shrink-0" />

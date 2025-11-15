@@ -38,11 +38,10 @@ pnpm exec python scripts/mcp_self.py \
 
 ## Multi-agent activator (`scripts/mcp_agents.py`)
 
-Use this script to spin up three or more agents that share the same MCP tooling. The included `scripts/mcp_agents_config.json` defines a default trio (`Docs Navigator`, `Code Reviewer`, `QA Verifier`) so you can run the full setup immediately:
+Use this script to spin up multiple agents that share the same MCP tooling. The included `scripts/mcp_agents_config.json` defines the sprint agents (Runtime Purge Engineer, Types & UI Refactorist, Sanity & Search Architect, Env & Secrets Steward, Docs & MCP Orchestrator, QA & Release Sentinel).
 
 ```bash
-pnpm exec python scripts/mcp_agents.py \
-  --mode hosted \
+pnpm exec python scripts/mcp_agents.py hosted \
   --config scripts/mcp_agents_config.json \
   --server-label gitmcp \
   --server-url https://gitmcp.io/openai/codex
@@ -50,8 +49,8 @@ pnpm exec python scripts/mcp_agents.py \
 
 Transport options map directly to the OpenAI guide:
 
-- `--mode hosted` attaches a `HostedMCPTool`.
-- `--mode stdio`, `--mode streamable-http`, and `--mode sse` spin up `MCPServerStdio`, `MCPServerStreamableHttp`, or `MCPServerSse` respectively. Pass `--server-params '{"command":"npx","args":["-y","@modelcontextprotocol/server-filesystem","."]}'` (or similar) to mirror the doc examples.
+- `hosted` attaches a `HostedMCPTool`.
+- `stdio`, `streamable-http`, and `sse` spin up `MCPServerStdio`, `MCPServerStreamableHttp`, or `MCPServerSse` respectively. Pass `--server-params '{"command":"npx","args":["-y","@modelcontextprotocol/server-filesystem","."]}'` (or similar) to mirror the doc examples.
 - Optional `--tool-allow/--tool-block` flags enable the “Tool filtering” flow; `--cache-tools` mirrors the caching guidance in the same doc.
 
 Each agent entry may define `instructions` and a kickoff `prompt`; otherwise the script falls back to `--default-prompt`.
@@ -64,7 +63,7 @@ Each agent entry may define `instructions` and a kickoff `prompt`; otherwise the
 4. `export OPENAI_API_KEY=...` (PowerShell example above).
 5. Run either helper:
    - Personal: `pnpm exec python scripts/mcp_self.py ...`.
-   - Multi-agent: `pnpm exec python scripts/mcp_agents.py --config scripts/mcp_agents_config.json ...`.
+   - Multi-agent (hosted MCP): `pnpm exec python scripts/mcp_agents.py hosted --config scripts/mcp_agents_config.json --server-label gitmcp --server-url https://gitmcp.io/openai/codex`.
 6. Capture the outputs and, per `docs/system-guardrails.md`, run `pnpm run check` before pushing any code that depends on MCP outputs.
 
 Following these steps keeps our local automation aligned with the upstream-held “law” copy while still letting us prototype MCP flows safely.

@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import { sendEvent } from "basehub/events";
 import { Resend } from "resend";
 
 type Body = {
@@ -220,17 +219,6 @@ export async function POST(req: NextRequest) {
       }
     } else {
       console.warn("[CONTACT_FORM_SUBMISSION] Airtable credentials missing, skipping Airtable persistence");
-    }
-
-    // Optional: Persist to BaseHub events when ingest key is provided
-    const ingestKey = process.env
-      .CONTACT_EVENTS_INGEST_KEY as Parameters<typeof sendEvent>[0] | undefined;
-    if (ingestKey) {
-      try {
-        await sendEvent(ingestKey, logPayload as Parameters<typeof sendEvent>[1]);
-      } catch (e) {
-        console.warn("[CONTACT_FORM_SUBMISSION] Failed to persist via ingest key", e);
-      }
     }
 
     if (isFormPost) {

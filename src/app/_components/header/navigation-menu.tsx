@@ -13,7 +13,7 @@ import {
   type NavigationMenuLinkProps,
 } from "@radix-ui/react-navigation-menu";
 import { Button, ButtonLink } from "@/common/button";
-import type { HeaderFragment, HeaderLiksFragment } from ".";
+import type { HeaderData, HeaderNavLink } from ".";
 import { useToggleState } from "@/hooks/use-toggle-state";
 import { useHasRendered } from "@/hooks/use-has-rendered";
 
@@ -26,7 +26,7 @@ export function NavigationMenuHeader({
   links,
   className,
 }: {
-  links: HeaderLiksFragment[];
+  links: HeaderNavLink[];
   className?: string;
 }) {
   return (
@@ -71,7 +71,7 @@ function NavigationMenuLink({
   );
 }
 
-function NavigationMenuLinkWithMenu({ _title, href, sublinks }: HeaderLiksFragment) {
+function NavigationMenuLinkWithMenu({ _title, href, sublinks }: HeaderNavLink) {
   const [closeOnClick, setCloseOnClick] = React.useState(false);
   const timeoutRef = React.useRef<number | null>(null);
 
@@ -129,16 +129,23 @@ function NavigationMenuLinkWithMenu({ _title, href, sublinks }: HeaderLiksFragme
         <div className="flex flex-col gap-1">
           <ul className="flex flex-col">
             {sublinks.items.map((sublink) => {
+              const link = sublink.link;
+              if (!link) {
+                return null;
+              }
+
               const { href, _title } =
-                sublink.link.__typename === "PageReferenceComponent"
+                link.__typename === "PageReferenceComponent" && link.page
                   ? {
-                      href: sublink.link.page.pathname,
-                      _title: sublink.link.page._title,
+                      href: link.page.pathname,
+                      _title: link.page._title,
                     }
                   : {
-                      href: sublink.link.text,
+                      href: link.text ?? "#",
                       _title: sublink._title,
                     };
+
+              const hrefValue = href || "#";
 
               return (
                 <li key={sublink._id}>
@@ -146,12 +153,12 @@ function NavigationMenuLinkWithMenu({ _title, href, sublinks }: HeaderLiksFragme
                     <ButtonLink
                       unstyled
                       className="hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary flex w-full items-center gap-3 rounded-md px-3 py-2 transition-colors duration-150"
-                      href={href}
+                      href={hrefValue}
                     >
                       {/* thumbnail preview */}
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
-                        src={getPreviewSrc(href || _title)}
+                        src={getPreviewSrc(hrefValue || _title)}
                         alt=""
                         width={32}
                         height={32}
@@ -173,7 +180,7 @@ function NavigationMenuLinkWithMenu({ _title, href, sublinks }: HeaderLiksFragme
   );
 }
 
-export function DesktopMenu({ navbar, rightCtas }: HeaderFragment) {
+export function DesktopMenu({ navbar, rightCtas }: HeaderData) {
   return (
     <>
       <NavigationMenuHeader className="hidden lg:flex" links={navbar.items} />
@@ -195,7 +202,7 @@ export function DesktopMenu({ navbar, rightCtas }: HeaderFragment) {
 /*                                   Mobile                                   */
 /* -------------------------------------------------------------------------- */
 
-export function MobileMenu({ navbar, rightCtas }: HeaderFragment) {
+export function MobileMenu({ navbar, rightCtas }: HeaderData) {
   const { handleToggle, isOn, handleOff } = useToggleState();
 
   return (
@@ -278,7 +285,7 @@ function ItemWithSublinks({
 }: {
   _id: string;
   _title: string;
-  sublinks: HeaderLiksFragment["sublinks"]["items"];
+  sublinks: HeaderNavLink["sublinks"]["items"];
   onClick: () => void;
 }) {
   const { isOn, handleOff, handleOn } = useToggleState(false);
@@ -329,22 +336,29 @@ function ItemWithSublinks({
         )}
       >
         {sublinks.map((sublink) => {
+          const link = sublink.link;
+          if (!link) {
+            return null;
+          }
+
           const { href, _title } =
-            sublink.link.__typename === "PageReferenceComponent"
+            link.__typename === "PageReferenceComponent" && link.page
               ? {
-                  href: sublink.link.page.pathname,
-                  _title: sublink.link.page._title,
+                  href: link.page.pathname,
+                  _title: link.page._title,
                 }
               : {
-                  href: sublink.link.text,
+                  href: link.text ?? "#",
                   _title: sublink._title,
                 };
+
+          const hrefValue = href || "#";
 
           return (
             <li key={sublink._id}>
               <Link
                 className="text-text-tertiary dark:text-dark-text-tertiary flex items-center gap-2 rounded-md px-3 py-2 text-sm"
-                href={href}
+                href={hrefValue}
                 onClick={onClick}
               >
                 {_title}

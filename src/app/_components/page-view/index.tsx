@@ -1,15 +1,9 @@
 "use client";
 
-import { GeneralEvents } from "@/../basehub-types";
-import { sendEvent } from "basehub/events";
 import * as React from "react";
 
-export function PageView({ ingestKey }: { ingestKey: GeneralEvents["ingestKey"] }) {
-  React.useEffect(() => {
-    sendEvent(ingestKey, {
-      eventType: "view",
-    });
-  }, [ingestKey]);
-
+export function PageView() {
+  // Legacy BaseHub page-view analytics removed; component kept as a no-op.
+  React.useEffect(() => {}, []);
   return null;
 }

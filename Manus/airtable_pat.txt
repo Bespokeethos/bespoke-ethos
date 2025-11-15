@@ -1,0 +1,65 @@
+Title: Airtable | Everyone's app platform
+
+URL Source: https://airtable.com/developers/web/guides/personal-access-tokens
+
+Markdown Content:
+Personal access tokens
+----------------------
+
+Personal access tokens are used to authenticate requests to Airtable's API when developing an integration for yourself, your client, or for your company.
+
+Personal access tokens act as your user account, and should be kept secret and not shared with any third-party services or integrations.
+
+> If you are building an integration that allow other users to grant your integration access to Airtable, you should instead create an [OAuth integration](https://airtable.com/developers/web/guides/oauth-integrations).
+
+The personal access tokens panel can be accessed at [/create/tokens](https://airtable.com/create/tokens). Here, you can create new tokens and manage your existing tokens.
+
+[](https://airtable.com/developers/web/guides/personal-access-tokens#creating-a-token)Creating a token
+------------------------------------------------------------------------------------------------------
+
+1.   From [/create/tokens](https://airtable.com/create/tokens), click the “Create new token” button to create a new personal access token.
+
+2.   Give your token a unique name. This name will be visible in record revision history.
+
+3.   Choose the [scopes](https://airtable.com/developers/web/api/scopes) to grant to your token. This controls what API endpoints the token will be able to use.
+
+4.   Click ‘add a base’ to grant the token access to a base or workspace.
+
+You can grant access to any combination and number of bases and workspaces. You can also grant access to all workspaces and bases under your account. Keep in mind that the token will only be able to read and write data within the bases and workspaces that have been assigned to it.
+
+5.   Once your token is created, we will only show it to you once, so we encourage you to copy it to your clipboard and store it somewhere safe. While you will be able to manage it in [/create/tokens](https://airtable.com/create/tokens), the sensitive token itself is not stored for security purposes.
+
+If you are an enterprise admin, you can also create a personal access token for a [service account](https://support.airtable.com/docs/service-accounts-overview) from the Admin Panel—refer to this [support article](https://support.airtable.com/docs/service-accounts-overview) for details.
+
+[](https://airtable.com/developers/web/guides/personal-access-tokens#using-personal-access-tokens)Using personal access tokens
+------------------------------------------------------------------------------------------------------------------------------
+
+Personal access tokens should be passed with your API requests as a `Authorization: Bearer header`. Refer to the [authentication reference page](https://airtable.com/developers/web/api/authentication) for more details.
+
+Personal access tokens can be used to make requests to all public Airtable API endpoints, including endpoints that were previously limited in availability such as the Metadata API endpoints.
+
+Tokens act as the account of the user who created it, with additional limitations according to the scopes and bases and workspaces that were granted to it. It can only make API requests that correspond to the scopes it was granted, and can only access the granted bases and workspaces.
+
+> Note: While personal access tokens are prefixed with their ID, they should be otherwise treated as opaque, variable-length strings. In particular, do not rely on tokens having a particular length or format. Changes to the token format (for newly created tokens) are not considered to be breaking changes.
+
+[](https://airtable.com/developers/web/guides/personal-access-tokens#managing-existing-tokens)Managing existing tokens
+----------------------------------------------------------------------------------------------------------------------
+
+### [](https://airtable.com/developers/web/guides/personal-access-tokens#updating-permissions)Updating permissions
+
+You can update the scopes, bases, and workspaces granted to your token by selecting the token's detail page from [/create/tokens](https://airtable.com/create/tokens).
+
+### [](https://airtable.com/developers/web/guides/personal-access-tokens#regenerating-tokens)Regenerating tokens
+
+You can regenerate tokens from the personal access tokens panel or from the detail page for a token.
+
+After the token has been regenerated, any API requests that attempt to use the previous token will be rejected. The name and permissions of the token are unchanged from before.
+
+### [](https://airtable.com/developers/web/guides/personal-access-tokens#deleting-tokens)Deleting tokens
+
+You can delete tokens from the personal access tokens panel or from the detail page for a token.
+
+You will be prompted before fully deleting the token. After the token has been deleted, any API requests that attempt to use the token will be rejected.
+
+You can also bulk delete tokens using the checkboxes on [/create/tokens](https://airtable.com/create/tokens).
+

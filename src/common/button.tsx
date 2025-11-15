@@ -1,6 +1,5 @@
 import { type VariantProps, cva } from "class-variance-authority";
 import Link, { type LinkProps } from "next/link";
-import { Icon } from "basehub/react-icon";
 
 export const $button = cva(
   "gap-1 font-normal shrink-0 rounded-full ring-control focus-visible:ring-2 outline-hidden outline-0",
@@ -73,7 +72,7 @@ export const Button = ({
       {...props}
     >
       {children}
-      {icon ? <span>{typeof icon === "string" ? <Icon content={icon} /> : icon}</span> : null}
+      {icon ? <span>{icon}</span> : null}
     </button>
   );
 };

@@ -1,10 +1,15 @@
 "use client";
 import * as React from "react";
 
-import { type AvatarFragment } from "@/lib/basehub/fragments";
+export interface SearchAvatar {
+  url: string;
+  alt?: string | null;
+  width?: number;
+  height?: number;
+}
 
 interface SearchHitsContextType {
-  authorsAvatars: Record<string, AvatarFragment>;
+  authorsAvatars: Record<string, SearchAvatar>;
 }
 
 const SearchHitsContext = React.createContext<SearchHitsContextType | undefined>(undefined);

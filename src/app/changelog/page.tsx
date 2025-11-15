@@ -1,103 +1,42 @@
-import { draftMode } from "next/headers";
-
-import { Pump } from "basehub/react-pump";
-import { Heading } from "@/common/heading";
-import { ChangelogLayout } from "./_components/changelog-header";
-import { changelogListFragment } from "./_components/changelog.fragment";
-import { ChangelogListWrapper as ChangelogList } from "./_components/changelog-list-wrapper";
-import { PageView } from "../_components/page-view";
 import type { Metadata } from "next";
-import { basehub } from "basehub";
 import { notFound } from "next/navigation";
 
+import { Heading } from "@/common/heading";
+import { ChangelogLayout } from "./_components/changelog-header";
+import { ChangelogListWrapper as ChangelogList } from "./_components/changelog-list-wrapper";
+import { sanityFetch } from "@/lib/sanity/client";
+import { changelogListQuery } from "@/lib/sanity/queries";
+import type {
+  SanityChangelogHeader,
+  SanityChangelogPost,
+} from "@/lib/sanity/types";
+import type { ChangelogListItem } from "./_components/changelog.fragment";
+
 const SKIP_REMOTE_DATA = (process.env.SKIP_REMOTE_DATA ?? "").trim() === "1";
+
+type ChangelogQueryResponse = {
+  header?: SanityChangelogHeader;
+  posts: SanityChangelogPost[];
+};
 
 export const dynamic = "force-dynamic";
 
 export const generateMetadata = async (): Promise<Metadata | undefined> => {
   if (SKIP_REMOTE_DATA) {
-    return {
-      title: "Changelog",
-      description:
-        "A changelog of Bespoke Ethos releases. Content will return once the new CMS is available.",
-      alternates: { canonical: "/changelog" },
-    };
+    return fallbackMetadata;
   }
 
-  const data = await basehub({ draft: (await draftMode()).isEnabled }).query({
-    site: {
-      changelog: {
-        metadata: {
-          title: true,
-          description: true,
-        },
-      },
-    },
-  });
+  const data = await getChangelogData();
+  if (!data?.header) {
+    return fallbackMetadata;
+  }
 
   return {
-    title: data.site.changelog.metadata.title ?? undefined,
-    description: data.site.changelog.metadata.description ?? undefined,
+    title: data.header.title ?? fallbackMetadata.title,
+    description: data.header.subtitle ?? fallbackMetadata.description,
     alternates: { canonical: "/changelog" },
   };
 };
-
-async function renderBaseHubChangelog() {
-  return (
-    <Pump
-      queries={[
-        {
-          site: {
-            changelog: {
-              _analyticsKey: true,
-              title: true,
-              subtitle: true,
-              posts: {
-                __args: {
-                  orderBy: "publishedAt__DESC",
-                },
-                items: changelogListFragment,
-              },
-            },
-            generalEvents: {
-              ingestKey: true,
-            },
-          },
-        },
-      ]}
-    >
-      {async ([
-        {
-          site: { changelog, generalEvents },
-        },
-      ]) => {
-        "use server";
-
-        if (changelog.posts.items.length === 0) {
-          return notFound();
-        }
-
-        return (
-          <>
-            <PageView ingestKey={generalEvents.ingestKey} />
-            <ChangelogLayout>
-              <Heading
-                align="left"
-                className="flex-1 flex-col-reverse!"
-                subtitle={changelog.subtitle}
-              >
-                <h1>{changelog.title}</h1>
-              </Heading>
-            </ChangelogLayout>
-            <div className="mx-auto max-w-(--breakpoint-md) px-8 pt-16">
-              <ChangelogList changelogPosts={changelog.posts.items} />
-            </div>
-          </>
-        );
-      }}
-    </Pump>
-  );
-}
 
 export default async function ChangelogPage() {
   if (SKIP_REMOTE_DATA) {
@@ -114,5 +53,80 @@ export default async function ChangelogPage() {
     );
   }
 
-  return renderBaseHubChangelog();
+  const data = await getChangelogData();
+  const posts = data?.posts ?? [];
+  if (!posts.length) {
+    return notFound();
+  }
+
+  const mappedPosts = posts
+    .map(mapSanityPostToListItem)
+    .filter((post): post is ChangelogListItem => Boolean(post && post.slug));
+
+  if (!mappedPosts.length) {
+    return notFound();
+  }
+
+  const headerTitle = data?.header?.title ?? "Changelog";
+  const headerSubtitle = data?.header?.subtitle ?? "Latest releases & fixes";
+
+  return (
+    <>
+      <ChangelogLayout
+        socialLinks={data?.header?.socialLinks?.map((link) => ({
+          id: link.id,
+          href: link.url,
+          label: link.label,
+          icon: link.iconUrl,
+        }))}
+        socialLinksTitle={data?.header?.socialLinksTitle}
+      >
+        <Heading align="left" className="flex-1 flex-col-reverse!" subtitle={headerSubtitle}>
+          <h1>{headerTitle}</h1>
+        </Heading>
+      </ChangelogLayout>
+      <div className="mx-auto max-w-(--breakpoint-md) px-8 pt-16">
+        <ChangelogList changelogPosts={mappedPosts} />
+      </div>
+    </>
+  );
+}
+
+const fallbackMetadata: Metadata = {
+  title: "Changelog",
+  description:
+    "A changelog of Bespoke Ethos releases. Content will return once the new CMS is available.",
+  alternates: { canonical: "/changelog" },
+};
+
+async function getChangelogData() {
+  return sanityFetch<ChangelogQueryResponse>(changelogListQuery, {});
+}
+
+function mapSanityPostToListItem(post: SanityChangelogPost): ChangelogListItem | null {
+  if (!post.slug) {
+    return null;
+  }
+
+  return {
+    id: post._id ?? post.slug,
+    title: post.title ?? "Untitled release",
+    slug: post.slug,
+    excerpt: post.excerpt,
+    publishedAt: post.publishedAt,
+    image: post.image
+      ? {
+          url: post.image.url,
+          width: post.image.width,
+          height: post.image.height,
+          blurDataURL: post.image.blurDataURL,
+          alt: post.image.alt ?? post.title,
+        }
+      : undefined,
+    authors: (post.authors ?? []).map((author) => ({
+      id: author.id ?? author.name ?? "author",
+      name: author.name,
+      imageUrl: author.imageUrl,
+    })),
+  };
 }

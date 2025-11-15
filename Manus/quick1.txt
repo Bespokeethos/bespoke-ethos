@@ -1,0 +1,153 @@
+Title: Setting up your studio
+
+URL Source: https://www.sanity.io/docs/next-js-quickstart
+
+Published Time: 2025-05-13T16:54:11Z
+
+Markdown Content:
+Setting up your studio | Sanity Docs
+
+===============
+
+Opens in a new window Opens an external website Opens an external website in a new window
+
+This website utilizes technologies such as cookies to enable essential site functionality, as well as for analytics, personalization, and targeted advertising. [Privacy Policy](https://www.sanity.io/legal/privacy)
+
+Accept Deny Preferences 
+
+[Documentation =============](https://www.sanity.io/docs)
+
+Search or Ask AI...CTRL K
+
+*   Getting started 
+
+    *   [Overview](https://www.sanity.io/docs/getting-started)
+    *   [Platform introduction](https://www.sanity.io/docs/getting-started/the-sanity-content-operating-system-an-introduction)
+    *   [Next.js quickstart](https://www.sanity.io/docs/next-js-quickstart)
+    *   [Nuxt.js quickstart](https://www.sanity.io/docs/nuxt-js-quickstart)
+    *   [Astro quickstart](https://www.sanity.io/docs/astro-quickstart)
+    *   [React Router quickstart](https://www.sanity.io/docs/react-router-quickstart)
+    *   [Studio quickstart](https://www.sanity.io/docs/sanity-studio-quickstart)
+
+*   Platform 
+
+    *   [Content Lake](https://www.sanity.io/docs/content-lake)
+    *   [Compute and AI](https://www.sanity.io/docs/compute-and-ai)
+    *   [APIs and SDKs](https://www.sanity.io/docs/apis-and-sdks)
+    *   [Platform management](https://www.sanity.io/docs/platform-management)
+
+*   Apps 
+
+    *   [Dashboard](https://www.sanity.io/docs/dashboard)
+    *   [Studio](https://www.sanity.io/docs/studio)
+    *   [Canvas](https://www.sanity.io/docs/canvas)
+    *   [Media Library](https://www.sanity.io/docs/media-library)
+    *   [App SDK](https://www.sanity.io/docs/app-sdk)
+    *   [Content Agent](https://www.sanity.io/docs/content-agent)
+
+*   Reference 
+
+    *   [HTTP API](https://www.sanity.io/docs/http-reference)
+    *   [CLI](https://www.sanity.io/docs/cli-reference)
+    *   [Libraries](https://www.sanity.io/docs/libraries)
+    *   [Specifications](https://www.sanity.io/docs/specifications)
+
+*   Resources 
+
+    *   [Changelog](https://www.sanity.io/docs/changelog)
+    *   [User guides](https://www.sanity.io/docs/user-guides)
+    *   [Developer guides](https://www.sanity.io/docs/developer-guides)
+    *   [Courses and certifications](https://www.sanity.io/learn)
+    *   [Join the community](https://snty.link/community)
+    *   [Templates](https://www.sanity.io/templates)
+
+[Login](https://www.sanity.io/entry?ref=docs)[Get started](https://www.sanity.io/get-started?ref=docs)
+
+Search or Ask AI...CTRL K
+
+[Login](https://www.sanity.io/entry?ref=docs)[Get started](https://www.sanity.io/get-started?ref=docs)
+
+###### Next.js quickstart
+
+* * *
+
+*   Quickstart guide
+
+[Setting up your studio](https://www.sanity.io/docs/next-js-quickstart/setting-up-your-studio) [Defining a schema](https://www.sanity.io/docs/next-js-quickstart/defining-a-schema) [Displaying content in Next.js](https://www.sanity.io/docs/next-js-quickstart/diplaying-content-in-next-js) [Deploying Studio and inviting editors](https://www.sanity.io/docs/next-js-quickstart/deploying-studio-and-inviting-editors) 
+
+* * * 
+*   Next steps
+
+[Work-ready Next.js courses](https://www.sanity.io/learn/track/work-ready-next-js) [Next.js toolkit for Sanity](https://github.com/sanity-io/next-sanity) 
+
+* * * 
+*   [← Back to all getting started guides](https://www.sanity.io/docs/getting-started) 
+
+Next.js quickstart Last updated September 11, 2025
+
+Setting up your studio
+======================
+
+Copy article
+
+Quickstart for getting up and running with Sanity from scratch.
+
+![Image 1](https://cdn.sanity.io/images/3do82whm/next/9e5c688bbbbad2589b4b090910736489ce6cf989-1920x1080.png?w=3840&q=75&fit=clip&auto=format)
+
+[1 Create a new Studio with Sanity CLI -------------------------------------](https://www.sanity.io/docs/next-js-quickstart#k6c2c85bb1d4f "Copy link to this section")
+
+Run the command in your Terminal to initialize your project on your local computer.
+
+See the documentation if you are [having issues with the CLI](https://www.sanity.io/docs/help/cli-errors).
+
+Terminal
+
+```
+npm create sanity@latest -- --dataset production --template clean --typescript --output-path studio-hello-world
+cd studio-hello-world
+```
+
+[2 Run Sanity Studio locally ---------------------------](https://www.sanity.io/docs/next-js-quickstart#k8d9e0293cf7d "Copy link to this section")
+
+Inside the directory of the Studio, start the development server by running the following command.
+
+Terminal
+
+```
+# in studio-hello-world 
+npm run dev
+```
+
+[3 Log in to the Studio ----------------------](https://www.sanity.io/docs/next-js-quickstart#k0d651ad1eeb2 "Copy link to this section")
+
+**Open** the Studio running locally in your browser from [http://localhost:3333](http://localhost:3333/).
+
+You should now see a screen prompting you to log in to the Studio. Use the same service (Google, GitHub, or email) that you used when you logged in to the CLI.
+
+[Next ### Defining a schema](https://www.sanity.io/docs/next-js-quickstart/defining-a-schema)
+
+Was this page helpful?
+
+Report issue
+
+On this page
+------------
+
+*   [Create a new Studio with Sanity CLI](https://www.sanity.io/docs/next-js-quickstart#k6c2c85bb1d4f)
+*   [Run Sanity Studio locally](https://www.sanity.io/docs/next-js-quickstart#k8d9e0293cf7d)
+*   [Log in to the Studio](https://www.sanity.io/docs/next-js-quickstart#k0d651ad1eeb2)
+
+[sanity.io](https://www.sanity.io/?ref=next-js-quickstart-setting-up-your-studio "Go to marketing site")[All Systems Operational](https://www.sanity-status.com/ "Status: All Systems Operational")© Sanity 2025 Cookie preferences Change Site Theme
+
+Light mode
+
+ 
+
+System theme
+
+ 
+
+Dark mode
+
+ ![Image 5](https://t.co/i/adsct?bci=3&dv=UTC%26en-US%26Google%20Inc.%26Linux%20x86_64%26255%26800%26600%264%2624%26800%26600%260%26na&eci=2&event_id=5159e20f-3865-4a3c-97ea-43139a7ca264&events=%5B%5B%22pageview%22%2C%7B%7D%5D%5D&integration=advertiser&p_id=Twitter&p_user_id=0&pl_id=3998e7de-1a16-4e8e-95c7-b0e80f626d5b&pt=Setting%20up%20your%20studio%20%7C%20Sanity%20Docs&tw_document_href=https%3A%2F%2Fwww.sanity.io%2Fdocs%2Fnext-js-quickstart%2Fsetting-up-your-studio&tw_iframe_status=0&tw_order_quantity=0&tw_sale_amount=0&txn_id=o0kpz&type=javascript&version=2.3.34)![Image 6](https://analytics.twitter.com/i/adsct?bci=3&dv=UTC%26en-US%26Google%20Inc.%26Linux%20x86_64%26255%26800%26600%264%2624%26800%26600%260%26na&eci=2&event_id=5159e20f-3865-4a3c-97ea-43139a7ca264&events=%5B%5B%22pageview%22%2C%7B%7D%5D%5D&integration=advertiser&p_id=Twitter&p_user_id=0&pl_id=3998e7de-1a16-4e8e-95c7-b0e80f626d5b&pt=Setting%20up%20your%20studio%20%7C%20Sanity%20Docs&tw_document_href=https%3A%2F%2Fwww.sanity.io%2Fdocs%2Fnext-js-quickstart%2Fsetting-up-your-studio&tw_iframe_status=0&tw_order_quantity=0&tw_sale_amount=0&txn_id=o0kpz&type=javascript&version=2.3.34)
+

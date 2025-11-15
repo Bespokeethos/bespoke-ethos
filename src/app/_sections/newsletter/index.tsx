@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import { Section } from "@/common/layout";
-import { Pump } from "basehub/react-pump";
 import { Input } from "@/common/input";
 
 type NewsletterCopy = {
@@ -10,8 +9,12 @@ type NewsletterCopy = {
   description: string;
 };
 
-function NewsletterForm({ copy }: { copy: NewsletterCopy }) {
+const FALLBACK_COPY: NewsletterCopy = {
+  title: "Stay in the loop",
+  description: "Get AI workflow tactics and launch notes directly in your inbox once a month.",
+};
 
+function NewsletterForm({ copy }: { copy: NewsletterCopy }) {
   const [email, setEmail] = React.useState("");
   const [status, setStatus] = React.useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = React.useState<string | null>(null);
@@ -88,31 +91,5 @@ function NewsletterForm({ copy }: { copy: NewsletterCopy }) {
 }
 
 export function Newsletter() {
-  return (
-    <Pump
-      queries={[
-        {
-          site: {
-            footer: {
-              newsletter: {
-                title: true,
-                description: true,
-              },
-            },
-          },
-        },
-      ]}
-    >
-      {async ([{ site }]) => {
-        const copy: NewsletterCopy = {
-          title: site.footer.newsletter?.title ?? "Stay in the loop",
-          description:
-            site.footer.newsletter?.description ??
-            "Get AI workflow tactics, founder-proof automations, and launch notes once a month.",
-        };
-
-        return <NewsletterForm copy={copy} />;
-      }}
-    </Pump>
-  );
+  return <NewsletterForm copy={FALLBACK_COPY} />;
 }

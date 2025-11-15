@@ -2,14 +2,10 @@ import type { ComponentType } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { IconBrandLinkedin } from "@tabler/icons-react";
-import { BaseHubImage } from "basehub/next-image";
-import { Pump } from "basehub/react-pump";
 
 import { ThemeSwitcher } from "../theme-switcher";
 import { ButtonLink } from "@/common/button";
 import { DarkLightImageAutoscale } from "@/common/dark-light-image";
-
-const SKIP_REMOTE_DATA = (process.env.SKIP_REMOTE_DATA ?? "").trim() === "1";
 
 type NavLink = { title: string; url: string };
 type SocialLink = {
@@ -79,6 +75,10 @@ type FooterLayoutProps = {
   logoIsLocal?: boolean;
   backgroundSrc?: string;
 };
+
+function isExternalLink(url: string): boolean {
+  return /^https?:\/\//.test(url);
+}
 
 function FooterLayout({
   logo,
@@ -197,7 +197,7 @@ function FooterLayout({
                   {IconComponent ? (
                     <IconComponent className="size-5" />
                   ) : link.iconAsset ? (
-                    <BaseHubImage alt={link.title} height={24} src={link.iconAsset} width={24} />
+                    <Image alt={link.title} height={24} src={link.iconAsset} width={24} />
                   ) : link.iconUrl ? (
                     <Image alt={link.title} height={24} src={link.iconUrl} width={24} />
                   ) : (
@@ -213,146 +213,16 @@ function FooterLayout({
   );
 }
 
-function isExternalLink(url: string | null | undefined) {
-  return !!url && /^https?:\/\//.test(url);
-}
-
 export async function Footer() {
-  if (SKIP_REMOTE_DATA) {
-    return (
-      <FooterLayout
-        logo={FALLBACK_LOGO}
-        navItems={FALLBACK_NAV_LINKS}
-        socialLinks={FALLBACK_SOCIAL_LINKS}
-        copyright={FALLBACK_COPYRIGHT}
-        showUseTemplate={false}
-        logoIsLocal
-        backgroundSrc="/assets/generated/footer-wave.svg"
-      />
-    );
-  }
-
   return (
-    <Pump
-      queries={[
-        {
-          site: {
-            settings: {
-              logo: {
-                dark: {
-                  url: true,
-                  height: true,
-                  width: true,
-                  alt: true,
-                  aspectRatio: true,
-                  blurDataURL: true,
-                },
-                light: {
-                  url: true,
-                  height: true,
-                  width: true,
-                  alt: true,
-                  aspectRatio: true,
-                  blurDataURL: true,
-                },
-              },
-              showUseTemplate: true,
-            },
-            footer: {
-              copyright: true,
-              navbar: {
-                items: {
-                  _title: true,
-                  url: true,
-                },
-              },
-              socialLinks: {
-                _title: true,
-                icon: {
-                  url: true,
-                },
-                url: true,
-              },
-            },
-          },
-        },
-      ]}
-    >
-      {async ([
-        {
-          site: { footer, settings },
-        },
-      ]) => {
-        "use server";
-
-        let navItems: NavLink[] = footer.navbar.items.length
-          ? footer.navbar.items.map(({ _title, url }) => ({ title: _title, url: url ?? "#" }))
-          : [...FALLBACK_NAV_LINKS];
-
-        // Normalize to a minimal set for consistency
-        navItems = [
-          { title: "Home", url: "/" },
-          { title: "Products", url: "/solutions" },
-          { title: "Contact", url: "/contact" },
-        ];
-
-        const socialLinks: SocialLink[] = footer.socialLinks.length
-          ? footer.socialLinks
-              .map((link) => ({ title: link._title, url: link.url ?? '#', iconAsset: link.icon?.url ?? undefined }))
-              .filter((l) => (l.title || '').toLowerCase().includes('linkedin'))
-          : FALLBACK_SOCIAL_LINKS;
-
-        // Force local dark logo for both themes to avoid CMS defaults
-        const normalizedLogo: FooterLogo = {
-          dark: {
-            url: "/assets/logo-dark.png",
-            alt: "Bespoke Ethos logo",
-            width: 200,
-            height: 60,
-            aspectRatio: "3/1",
-            blurDataURL: "",
-          },
-          light: {
-            url: "/assets/logo-light.png",
-            alt: "Bespoke Ethos logo",
-            width: 200,
-            height: 60,
-            aspectRatio: "3/1",
-            blurDataURL: "",
-          },
-        };
-
-        return (
-          <FooterLayout
-            logo={normalizedLogo}
-            navItems={navItems}
-            socialLinks={socialLinks}
-            // Always use local copyright to avoid stale CMS text
-            copyright={FALLBACK_COPYRIGHT}
-            showUseTemplate={false}
-            logoIsLocal
-          />
-        );
-      }}
-    </Pump>
-  );
-}
-
-function PoweredByBasehub({ className }: { className?: string }) {
-  return (
-    <ButtonLink
-      unstyled
-      className={className}
-      href="https://basehub.com/basehub/marketing-website"
-      target="_blank"
-    >
-      <Image
-        alt="Use BaseHub Template"
-        className="h-7 w-auto"
-        height={28}
-        src="https://basehub.com/template-button.svg"
-        width={150}
-      />
-    </ButtonLink>
+    <FooterLayout
+      logo={FALLBACK_LOGO}
+      navItems={FALLBACK_NAV_LINKS}
+      socialLinks={FALLBACK_SOCIAL_LINKS}
+      copyright={FALLBACK_COPYRIGHT}
+      showUseTemplate={false}
+      logoIsLocal
+      backgroundSrc="/assets/generated/footer-wave.svg"
+    />
   );
 }

@@ -1,11 +1,9 @@
 "use client";
 
-import { sendEvent } from "basehub/events";
 import { Button, ButtonLink } from "@/common/button";
-import { GeneralEvents } from "@/../basehub-types";
 
 interface TrackProps {
-  analyticsKey: GeneralEvents["ingestKey"];
+  analyticsKey?: string;
   name: string;
 }
 
@@ -24,9 +22,7 @@ export const TrackedButton = ({
       {...props}
       ref={ref}
       onClick={(e) => {
-        sendEvent(analyticsKey, {
-          eventType: name,
-        });
+        // Analytics disabled; keep API surface but no-op
         if (onClick) {
           onClick(e);
         }
@@ -52,9 +48,7 @@ export const TrackedButtonLink = ({
       {...props}
       ref={ref}
       onClick={(e) => {
-        sendEvent(analyticsKey, {
-          eventType: name,
-        });
+        // Analytics disabled; keep API surface but no-op
         if (onClick) {
           onClick(e);
         }

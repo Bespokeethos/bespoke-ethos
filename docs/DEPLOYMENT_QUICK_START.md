@@ -62,9 +62,11 @@ git push origin main
 
 ## Environment Variables
 
-Already set in Vercel (no action needed):
-- `BASEHUB_TOKEN` - For blog/CMS features
-- `NEXT_PUBLIC_SITE_URL` - Production URL
+Already set in Vercel (no action needed for typical deploys):
+- Core site: `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_SITE_NAME`
+- Forms: `RESEND_API_KEY`, `NEXT_PUBLIC_TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET`, Airtable keys
+- CMS: `SANITY_PROJECT_ID`, `SANITY_DATASET`, `SANITY_API_VERSION`
+- Search (if enabled): `OPENAI_API_KEY`, `PINECONE_API_KEY`, `PINECONE_INDEX_NAME`, `PINECONE_PROJECT_NAME`, `PINECONE_HOST`, `EMBEDDING_MODEL`
 
 ---
 

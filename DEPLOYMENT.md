@@ -24,8 +24,10 @@ Before deploying, ensure:
    ```
 
 3. **Environment variables are set in Vercel:**
-   - `BASEHUB_TOKEN` = `bshb_pk_ykswlw1qlep768ti6hmyqrhhl5bgvpj7e8xovewkdrv8hy4wet58hgrrbf3ga4af`
-   - Set for: Production, Preview, Development
+   - Core site + branding: `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_SITE_NAME`
+   - Forms: `RESEND_API_KEY`, `NEXT_PUBLIC_TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET`, Airtable keys
+   - CMS: `SANITY_PROJECT_ID`, `SANITY_DATASET`, `SANITY_API_VERSION`, optional `SANITY_API_TOKEN`
+   - Search (optional but recommended): `OPENAI_API_KEY`, `PINECONE_API_KEY`, `PINECONE_INDEX_NAME`, `PINECONE_PROJECT_NAME`, `PINECONE_HOST`, `EMBEDDING_MODEL`
 
 ---
 
@@ -85,14 +87,19 @@ git push origin main
 - React: `19.2.0` (exact)
 
 **Required Environment Variables:**
-- `BASEHUB_TOKEN` - Set in Vercel for all environments
-- `NEXT_PUBLIC_SITE_URL` - Optional, defaults to Vercel URL
+- `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_SITE_NAME`
+- `RESEND_API_KEY`
+- `NEXT_PUBLIC_TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET`
+- `AIRTABLE_API_KEY`, `AIRTABLE_BASE_ID`, `AIRTABLE_CONTACT_TABLE_ID`, `AIRTABLE_NEWSLETTER_TABLE_ID`
+- `SANITY_PROJECT_ID`, `SANITY_DATASET`, `SANITY_API_VERSION`
+- `OPENAI_API_KEY` (for embeddings + MCP agents)
+- `PINECONE_API_KEY`, `PINECONE_INDEX_NAME`, `PINECONE_PROJECT_NAME`, `PINECONE_HOST`, `EMBEDDING_MODEL`
 
 **Sync secrets from `.env.local`:**
 1. Run `vercel env ls` in `C:\vercel` to confirm you are targeting the correct project.
-2. For each key in `.env.local` (at minimum `BASEHUB_TOKEN`, `NEXT_PUBLIC_TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET`) run `vercel env add <KEY> production` and paste the value when prompted.
+2. For each key in `.env.local` (at minimum `RESEND_API_KEY`, `NEXT_PUBLIC_TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET`, Airtable, Sanity, OpenAI, Pinecone) run `vercel env add <KEY> production` and paste the value when prompted.
 3. Repeat the `vercel env add` step for `preview` and `development`.
-4. Re-deploy (Dashboard “Redeploy” or `vercel --prod`) so the build picks up the new secrets.
+4. Re-deploy (Dashboard "Redeploy" or `vercel --prod`) so the build picks up the new secrets.
 5. Keep `.env.local` out of git; it remains the authoritative source for local testing.
 
 **Installation Command:**
@@ -114,14 +121,11 @@ pnpm install --frozen-lockfile  # ALWAYS use this, never just 'pnpm install'
 1. Image optimization (logos, hero images)
 2. TypeScript compilation
 3. Next.js static generation
-4. BaseHub CMS data fetching (requires `BASEHUB_TOKEN`)
+4. Sanity CMS data fetching for changelog (honors `SKIP_REMOTE_DATA` and `SANITY_*` envs)
 
 ---
 
 ## 🐛 Common Issues & Solutions
-
-### Issue: Build fails with "BASEHUB_TOKEN not found"
-**Solution:** Ensure `BASEHUB_TOKEN` is set in Vercel environment variables for all environments.
 
 ### Issue: Middleware deprecation warning
 **Status:** Known issue with Next.js 16.0.0. Does not break builds. Middleware uses correct `NextRequest` signature.

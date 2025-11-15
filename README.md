@@ -15,10 +15,9 @@ pnpm install
 pnpm dev
 ```
 
-Local development uses mocked data unless a BaseHub token is provided.
+Local development uses static/Sanity-backed content and does not require any BaseHub configuration.
 
-- To connect to live BaseHub content export `BASEHUB_TOKEN` in `.env.local`.
-- To disable remote calls completely (recommended for CI or dry runs) set `SKIP_REMOTE_DATA=1`.
+- To force all routes to skip external CMS/search calls (recommended for CI or when env keys are missing), set `SKIP_REMOTE_DATA=1`.
 
 ## Operational Guardrails
 
@@ -48,8 +47,8 @@ Feature toggles allow new UI to ship dark while sharing the same branch.
 
 | Command | Description |
 | --- | --- |
-| `pnpm dev` | Run Next.js in dev mode (with BaseHub CLI if configured). |
-| `pnpm build` | Production build (requires BaseHub token unless `SKIP_REMOTE_DATA=1`). |
+| `pnpm dev` | Run Next.js in dev mode. |
+| `pnpm build` | Production build. |
 | `pnpm start` | Serve the built site. |
 | `pnpm lint` | ESLint with Next.js config. |
 | `pnpm typecheck` | TypeScript `--noEmit` check. |
@@ -76,12 +75,10 @@ Feature toggles allow new UI to ship dark while sharing the same branch.
 
 | Variable | Scope | Purpose |
 | --- | --- | --- |
-| `BASEHUB_TOKEN` | Server | Enables BaseHub queries for live content. |
 | `FEATURE_FLAGS` | Server | JSON payload overriding feature defaults. |
 | `NEXT_PUBLIC_FEATURE_FLAGS` | Client | JSON payload for browser-controlled toggles. |
-| `SKIP_REMOTE_DATA` | Server | When `1`, skips BaseHub entirely (CI safe). |
+| `SKIP_REMOTE_DATA` | Server | When `1`, skips remote CMS/search calls and uses local fallbacks. |
 | `OPENAI_API_KEY` | Server/CLI | Required for the image generation scripts (`pnpm run generate:images`). |
-| `CONTACT_EVENTS_INGEST_KEY` | Server | Optional BaseHub Events ingest key used to persist contact form submissions. |
 
 ## Deployment
 

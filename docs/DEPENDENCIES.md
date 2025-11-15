@@ -50,11 +50,12 @@ This project uses specific versions that are tested and working. Updating depend
 
 ### CMS & Content
 ```json
-"basehub": "^9.5.2"
+"@sanity/client": "^7.12.1",
+"groq": "^4.15.0"
 ```
-**Purpose:** BaseHub CMS integration for blog/changelog  
-**Update Policy:** Only update if BaseHub team recommends  
-**Required Env Var:** `BASEHUB_TOKEN`
+**Purpose:** Sanity CMS integration for changelog and future marketing content  
+**Update Policy:** Only update if Sanity client or GROQ APIs require it  
+**Required Env Vars:** `SANITY_PROJECT_ID`, `SANITY_DATASET`, `SANITY_API_VERSION`, optional `SANITY_API_TOKEN` for draft content
 
 ### Image Processing
 ```json
@@ -78,25 +79,26 @@ This project uses specific versions that are tested and working. Updating depend
 
 ### Required for Production Build
 ```bash
-BASEHUB_TOKEN=bshb_pk_ykswlw1qlep768ti6hmyqrhhl5bgvpj7e8xovewkdrv8hy4wet58hgrrbf3ga4af
-```
-**Purpose:** Fetch blog/changelog content from BaseHub CMS  
-**Location:** Set in Vercel dashboard for Production, Preview, Development  
-**Note:** Build will skip blog pages if missing (not critical for main site)
-
-### Optional
-```bash
 NEXT_PUBLIC_SITE_URL=https://www.bespokeethos.com
+SANITY_PROJECT_ID=3zm8j5u6
+SANITY_DATASET=production
+SANITY_API_VERSION=2025-02-01
+OPENAI_API_KEY=sk-...
+PINECONE_API_KEY=...
+PINECONE_INDEX_NAME=...
+PINECONE_PROJECT_NAME=...
+PINECONE_HOST=https://...pinecone.io
+EMBEDDING_MODEL=text-embedding-3-small
 ```
-**Purpose:** Base URL for OG images and canonical URLs  
-**Default:** Falls back to Vercel URL if not set
+**Purpose:** Site URL for metadata plus Sanity, OpenAI, and Pinecone configuration for changelog + internal search  
+**Location:** Set in Vercel dashboard for Production, Preview, Development
 
 ### Local Development Only
 ```bash
 SKIP_REMOTE_DATA=1
 ```
-**Purpose:** Skip BaseHub API calls during local development  
-**Usage:** `pnpm run dev-skip-basehub`
+**Purpose:** Skip remote Sanity/Pinecone calls in local development (renders fallbacks instead)  
+**Usage:** Set in `.env.local` when you want purely local/static behavior
 
 ---
 

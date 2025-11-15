@@ -1,39 +1,42 @@
-import { BaseHubImage } from "basehub/next-image";
+import Image from "next/image";
+import clsx from "clsx";
 
-import { fragmentOn } from "basehub";
 import { Heading } from "@/common/heading";
 import { Section } from "@/common/layout";
-import { darkLightImageFragment, headingFragment } from "@/lib/basehub/fragments";
-import { Pump } from "basehub/react-pump";
-import clsx from "clsx";
-import { DarkLightImage } from "@/common/dark-light-image";
+import { DarkLightImage, type DarkLightImageProps } from "@/common/dark-light-image";
 import { TrackedButtonLink } from "@/app/_components/tracked_button";
 
 import s from "./hero.module.scss";
-import { GeneralEvents } from "@/../basehub-types";
 
-export const featureHeroFragment = fragmentOn("FeatureHeroComponent", {
-  _analyticsKey: true,
-  heroLayout: true,
-  heading: headingFragment,
-  image: darkLightImageFragment,
-  actions: {
-    _id: true,
-    href: true,
-    label: true,
-    type: true,
-  },
-});
+export type FeatureHeroLayout = "Image bottom" | "Image Right" | "full image" | "gradient";
 
-type FeatureHero = fragmentOn.infer<typeof featureHeroFragment>;
+export interface FeatureHeroHeading {
+  title: string;
+  subtitle?: string;
+  align?: "left" | "center" | "right";
+  tag?: string | null;
+}
+
+export interface FeatureHeroAction {
+  id: string;
+  href: string;
+  label: string;
+  type?: "primary" | "secondary" | "tertiary";
+}
+
+export interface FeatureHeroProps {
+  heading: FeatureHeroHeading;
+  heroLayout: FeatureHeroLayout;
+  image: DarkLightImageProps;
+  actions?: FeatureHeroAction[];
+}
 
 export default function FeatureHero({
   heading,
   heroLayout,
   image,
-  actions,
-  eventsKey,
-}: FeatureHero & { eventsKey: GeneralEvents["ingestKey"] }) {
+  actions = [],
+}: FeatureHeroProps) {
   switch (heroLayout) {
     case "Image bottom": {
       return (
@@ -43,10 +46,9 @@ export default function FeatureHero({
               <h4>{heading.title}</h4>
             </Heading>
             <div className="flex justify-center gap-3">
-              {actions?.map((action) => (
+              {actions.map((action) => (
                 <TrackedButtonLink
-                  key={action._id}
-                  analyticsKey={eventsKey}
+                  key={action.id}
                   href={action.href}
                   intent={action.type}
                   name="cta_click"
@@ -74,10 +76,9 @@ export default function FeatureHero({
                 <h4>{heading.title}</h4>
               </Heading>
               <div className="flex justify-start gap-3">
-                {actions?.map((action) => (
+                {actions.map((action) => (
                   <TrackedButtonLink
-                    key={action._id}
-                    analyticsKey={eventsKey}
+                    key={action.id}
                     href={action.href}
                     intent={action.type}
                     name="cta_click"
@@ -114,8 +115,7 @@ export default function FeatureHero({
                 <div className="flex gap-3">
                   {actions.map((action) => (
                     <TrackedButtonLink
-                      key={action._id}
-                      analyticsKey={eventsKey}
+                      key={action.id}
                       href={action.href}
                       intent={action.type}
                       name="cta_click"
@@ -135,55 +135,28 @@ export default function FeatureHero({
       return (
         <Section>
           <div className="z-10 flex flex-col items-center gap-8">
-            <Pump
-              queries={[
-                {
-                  site: {
-                    settings: {
-                      logoLite: {
-                        url: true,
-                        width: true,
-                        height: true,
-                        alt: true,
-                      },
-                    },
-                  },
-                },
-              ]}
-            >
-              {async ([{ site }]) => {
-                "use server";
-
-                return (
-                  <BaseHubImage
-                    priority
-                    alt={site.settings.logoLite.alt ?? "Logo"}
-                    className="size-20"
-                    height={site.settings.logoLite.height}
-                    src={site.settings.logoLite.url}
-                    width={site.settings.logoLite.width}
-                  />
-                );
-              }}
-            </Pump>
+            <Image
+              alt="Bespoke Ethos logo"
+              className="size-20"
+              height={80}
+              src="/assets/logo-mobile.png"
+              width={80}
+            />
             <Heading {...heading}>
               <h4>{heading.title}</h4>
             </Heading>
             <div className="flex gap-3">
-              {actions
-                ? actions.map((action) => (
-                    <TrackedButtonLink
-                      key={action._id}
-                      analyticsKey={eventsKey}
-                      href={action.href}
-                      intent={action.type}
-                      name="cta_click"
-                      size="lg"
-                    >
-                      {action.label}
-                    </TrackedButtonLink>
-                  ))
-                : null}
+              {actions.map((action) => (
+                <TrackedButtonLink
+                  key={action.id}
+                  href={action.href}
+                  intent={action.type}
+                  name="cta_click"
+                  size="lg"
+                >
+                  {action.label}
+                </TrackedButtonLink>
+              ))}
             </div>
           </div>
           {/* Gradient */}

@@ -1,25 +1,22 @@
-import { BaseHubImage } from "basehub/next-image";
+import Image from "next/image";
 import clsx from "clsx";
 
 import { Section } from "@/common/layout";
-import { fragmentOn } from "basehub";
 
 import s from "./companies.module.scss";
 
-export const companiesFragment = fragmentOn("CompaniesComponent", {
-  subtitle: true,
-  companies: {
-    _title: true,
-    url: true,
-    image: {
-      url: true,
-    },
-  },
-});
+export interface CompanyLogo {
+  title: string;
+  url?: string;
+  imageUrl: string;
+}
 
-type Companies = fragmentOn.infer<typeof companiesFragment>;
+export interface CompaniesProps {
+  subtitle?: string;
+  companies: CompanyLogo[];
+}
 
-export function Companies(props: Companies) {
+export function Companies(props: CompaniesProps) {
   return (
     <Section container="full">
       <h2 className="text-center tracking-tight text-dark-text-tertiary opacity-50">
@@ -33,14 +30,14 @@ export function Companies(props: Companies) {
         >
           {props.companies.map((company) => (
             <figure
-              key={company.image?.url ?? company._title}
+              key={company.imageUrl ?? company.title}
               className="flex h-16 items-center px-2 py-3 lg:p-4"
             >
-              <BaseHubImage
-                alt={company._title}
+              <Image
+                alt={company.title}
                 className="w-24 lg:w-32"
                 height={20}
-                src={company.image!.url}
+                src={company.imageUrl}
                 width={32}
               />
             </figure>

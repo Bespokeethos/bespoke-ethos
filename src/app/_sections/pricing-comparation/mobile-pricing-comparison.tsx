@@ -26,13 +26,57 @@ import {
   QuestionMarkCircledIcon,
 } from "@radix-ui/react-icons";
 import { SimpleTooltip } from "@/common/tooltip";
-import { type PlanFragment, type PricingTableProps } from ".";
+
+export interface MobilePlan {
+  _id: string;
+  _title: string;
+  price: string;
+}
+
+export interface PricingFeatureValueBoolean {
+  __typename: "BooleanComponent";
+  boolean: boolean;
+}
+
+export interface PricingFeatureValueText {
+  __typename: "CustomTextComponent";
+  text: string;
+}
+
+export type PricingFeatureValuePrimitive =
+  | PricingFeatureValueBoolean
+  | PricingFeatureValueText
+  | string
+  | null;
+
+export interface PricingFeatureValue {
+  plan: { _id: string };
+  value: PricingFeatureValuePrimitive;
+}
+
+export interface PricingFeature {
+  _id: string;
+  _title: string;
+  tooltip?: string | null;
+  values: { items: PricingFeatureValue[] };
+}
+
+export interface PricingCategory {
+  _id: string;
+  _title: string;
+  features: { items: PricingFeature[] };
+}
+
+export interface PricingTableProps {
+  categories: { items: PricingCategory[] };
+}
 
 export function MobilePricingComparison({
   categories,
   plans,
-}: Pick<PricingTableProps, "categories"> & {
-  plans: PlanFragment[];
+}: {
+  categories: PricingTableProps["categories"];
+  plans: MobilePlan[];
 }) {
   const [activePlan, setActivePlan] = React.useState<string>(plans[0]?._id ?? "");
 
@@ -157,7 +201,7 @@ function FeatureValue({
   feature,
   activePlan,
 }: {
-  feature: PricingTableProps["categories"]["items"][number]["features"]["items"][number];
+  feature: PricingFeature;
   activePlan: string;
 }) {
   const value = feature.values.items.find((value) => value.plan._id === activePlan);
@@ -166,20 +210,28 @@ function FeatureValue({
 
   return (
     <td className="text-text-secondary dark:text-dark-text-secondary flex flex-1 items-center justify-end text-sm font-normal">
-      {value.value?.__typename === "BooleanComponent" ? (
-        value.value.boolean ? (
-          <span className="bg-success/10 flex items-center justify-center rounded-full p-1.5">
-            <CheckIcon className="text-success size-5" />
+      {value.value && typeof value.value === "object" && "__typename" in value.value ? (
+        value.value.__typename === "BooleanComponent" ? (
+          value.value.boolean ? (
+            <span className="bg-success/10 flex items-center justify-center rounded-full p-1.5">
+              <CheckIcon className="text-success size-5" />
+            </span>
+          ) : (
+            <span className="text-text-tertiary/50 dark:text-dark-text-tertiary/50">
+              &mdash;
+            </span>
+          )
+        ) : value.value.__typename === "CustomTextComponent" ? (
+          <span className="text-text-secondary dark:text-dark-text-secondary text-right">
+            {value.value.text}
           </span>
-        ) : (
-          <span className="text-text-tertiary/50 dark:text-dark-text-tertiary/50">&mdash;</span>
-        )
-      ) : value.value?.__typename === "CustomTextComponent" ? (
-        <span className="text-text-secondary dark:text-dark-text-secondary text-right">
-          {value.value.text}
+        ) : null
+      ) : typeof value.value === "string" ? (
+        <span className="text-text-secondary dark:text-dark-text-secondary">
+          {value.value}
         </span>
       ) : (
-        <span className="text-text-secondary dark:text-dark-text-secondary">{value.value}</span>
+        <span className="text-text-tertiary/50 dark:text-dark-text-tertiary/50">&mdash;</span>
       )}
     </td>
   );

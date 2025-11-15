@@ -1,0 +1,90 @@
+Title: Visual Editing with Next.js App Router
+
+URL Source: https://www.sanity.io/guides/nextjs-app-router-live-preview
+
+Published Time: 2024-12-07T21:01:59Z
+
+Markdown Content:
+Visual Editing Last updated October 21, 2025
+
+*   [Article](https://www.sanity.io/docs/visual-editing/visual-editing-with-next-js-app-router)
+*   [Changelog](https://www.sanity.io/docs/visual-editing/visual-editing-with-next-js-app-router/changelog)
+
+Get started with Sanity Visual Editing in a new or existing Next.js application using App Router.
+
+Following this guide will enable you to:
+
+*   Render overlays in your application, allowing content editors to jump directly from Sanity content to its source in Sanity Studio.
+*   Edit your content and see changes reflected in an embedded preview of your application in Sanity’s Presentation tool.
+*   **Optional:** Provide live content updates and seamless switching between draft and published content.
+
+[Prerequisites -------------](https://www.sanity.io/guides/nextjs-app-router-live-preview#f623ffa4bbe8 "Copy link to this section")
+*   A Sanity project with [a hosted or embedded Studio](https://www.sanity.io/docs/studio/deployment). If using an embedded studio, make sure you use [route groups](https://nextjs.org/docs/app/building-your-application/routing/route-groups) to separate your app and studio layouts.
+*   A Next.js application using App Router. Follow [this documentation](https://nextjs.org/docs/app/getting-started) to set one up.
+
+[Next.js application setup -------------------------](https://www.sanity.io/guides/nextjs-app-router-live-preview#k368f89ce3130 "Copy link to this section")
+The following steps should be performed in your Next.js application.
+
+[### Install dependencies](https://www.sanity.io/guides/nextjs-app-router-live-preview#k99130b2e10ad "Copy link to this section")
+Install the dependencies that will provide your application with data fetching and Visual Editing capabilities.
+
+[### Set environment variables](https://www.sanity.io/guides/nextjs-app-router-live-preview#ef8434724f06 "Copy link to this section")
+Create a `.env` file in your application’s root directory to provide Sanity specific configuration.
+
+You can use [Manage](https://www.sanity.io/manage) to find your project ID and dataset, and to create a token with [Viewer permissions](https://www.sanity.io/docs/user-guides/roles#e2daad192df9) which will be used to fetch preview content.
+
+The URL of your Sanity Studio will depend on where it is [hosted](https://www.sanity.io/docs/studio/deployment) or [embedded](https://www.sanity.io/docs/studio/embedding-sanity-studio).
+
+[Application setup -----------------](https://www.sanity.io/guides/nextjs-app-router-live-preview#k531e7691943a "Copy link to this section")[### Configure the Sanity client](https://www.sanity.io/guides/nextjs-app-router-live-preview#k812ff552253d "Copy link to this section")
+Create a Sanity client instance to handle fetching data from Content Lake.
+
+Configuring the `stega` option enables automatic overlays for basic data types when preview mode is enabled. You can read more about how stega works [here](https://www.sanity.io/docs/visual-editing/stega).
+
+[### Draft mode](https://www.sanity.io/guides/nextjs-app-router-live-preview#k14b99dbbdae3 "Copy link to this section")
+Draft mode allows authorized content editors to view and interact with draft content.
+
+Create an API endpoint to enable draft mode when viewing your application in Presentation tool.
+
+Create a server action which can be used to disable draft mode. Add a delay to ensure a loading state is shown.
+
+Create a new component for disabling draft mode. We will render this for content authors when viewing draft content in a non-Presentation context.
+
+[### Enable Visual Editing](https://www.sanity.io/guides/nextjs-app-router-live-preview#k8d0292c2aa11 "Copy link to this section")
+The `<VisualEditing>` component handles rendering overlays, enabling click to edit, and refreshing pages in your application when content changes.
+
+Import it into your root layout, and render it conditionally when draft mode is enabled alongside the `<DisableDraftMode>` component you created above.
+
+[### Render a page in preview mode](https://www.sanity.io/guides/nextjs-app-router-live-preview#k8000bb5ab4e1 "Copy link to this section")
+Add configuration to your `client.fetch` calls when draft mode is enabled in order to fetch up-to-date preview content with stega encoding.
+
+[Studio setup ------------](https://www.sanity.io/guides/nextjs-app-router-live-preview#k694fa27a56ad "Copy link to this section")
+To setup Presentation tool in your Sanity Studio, import the tool from `sanity/presentation`, add it to your `plugins` array, and configure `previewUrl`, optionally passing an origin, path, and endpoints to enable and disable preview mode.
+
+We similarly recommend using environment variables loaded via a `.env` file to support development and production environments.
+
+See more available [previewUrl options](https://reference.sanity.io/sanity/presentation/PreviewUrlResolverOptions/).
+
+[Optional Extras ---------------](https://www.sanity.io/guides/nextjs-app-router-live-preview#k0a87a8b597ad "Copy link to this section")[### Live Content API](https://www.sanity.io/guides/nextjs-app-router-live-preview#k1bcfec412a8b "Copy link to this section")
+[The Live Content API](https://www.sanity.io/docs/content-lake/live-content-api)can be used to receive real time updates in your application when viewing both draft content in contexts like Presentation tool, and published content in your user-facing production application.
+
+Implementing Visual Editing using the Live Content API is recommended for the best experience for both users and content editors.
+
+[### Update Sanity client](https://www.sanity.io/guides/nextjs-app-router-live-preview#e9bf7d9730c2 "Copy link to this section")
+First, update your client configuration. The token can be removed from the base client instance as we pass it as configuration in the next step.
+
+[### Configure `defineLive`](https://www.sanity.io/guides/nextjs-app-router-live-preview#k5aaad9daaeaa "Copy link to this section")
+Configure`defineLive`to enable automatic revalidation and refreshing of your fetched content.
+
+The Viewer token can be used as both`browserToken`and`serverToken`, as the`browserToken`is only shared with the browser when draft mode is enabled.
+
+[### Layout and pages](https://www.sanity.io/guides/nextjs-app-router-live-preview#k48e41109059c "Copy link to this section")
+The`<SanityLive>`component is responsible for making all`sanityFetch`calls in your application _live_, so should always be rendered. It will also enable seamless switching between draft and published content when viewing your application in Presentation tool.
+
+Replace your `client.fetch` calls with the newly exported `sanityFetch` function.
+
+Explicitly passing the options parameter based on the draft mode status is no longer necessary as `sanityFetch` handles setting the correct options internally.
+
+[Previous ### Introduction](https://www.sanity.io/docs/visual-editing/introduction-to-visual-editing)[Next ### Next.js (Pages Router)](https://www.sanity.io/docs/visual-editing/visual-editing-with-next-js-pages-router)
+
+Was this page helpful?
+
