@@ -8,12 +8,12 @@ export function FounderStory() {
         <div className="grid gap-12 md:grid-cols-2 md:gap-16 items-center">
           {/* Image */}
           <div className="order-2 md:order-1">
-            <div className="relative aspect-[3/4] w-full max-w-sm mx-auto overflow-hidden rounded-2xl shadow-2xl md:max-w-[220px]">
+            <div className="relative aspect-square w-full max-w-[220px] mx-auto overflow-hidden rounded-2xl shadow-2xl">
               <Image
-                src="/assets/generated/founderimage-1.avif"
+                src="/founder-upton-rand.jpg"
                 alt="Upton Rand, Founder of Bespoke Ethos"
                 fill
-                className="object-cover scale-110"
+                className="object-cover"
                 priority
               />
             </div>
@@ -32,16 +32,16 @@ export function FounderStory() {
 
             <div className="space-y-4 text-text-secondary dark:text-dark-text-secondary leading-relaxed">
               <p>
-                Six months into my first business—a publishing house I built from scratch—I was drowning. I was a creator, a storyteller, not a logistics expert or a CRM guru. Every minute felt like an hour.
+                Six months into my first business—a publishing house I built from scratch—I was drowning. I was a creator and a storyteller, not a logistics expert or a CRM guru. Every minute felt like an hour.
               </p>
               <p>
-                That&rsquo;s when I turned to my five years of experience in AI. I taught an AI to be my “second brain,” automating the overwhelming tasks that were holding me back. It saved my business.
+                That&rsquo;s when I turned to my five years of experience in AI. I taught an AI to be my second brain, automating the overwhelming tasks that were holding me back. It saved my business.
               </p>
               <p>
-                I founded <strong className="text-text-primary dark:text-dark-text-primary">Bespoke Ethos</strong> for one reason: to bring that same relief to fellow entrepreneurs and creators. The power of AI shouldn&rsquo;t be reserved for Fortune 500 companies. It belongs in the hands of the passionate one-person-bands, the small businesses, and the dreamers.
+                I founded <strong className="text-text-primary dark:text-dark-text-primary">Bespoke Ethos</strong> for one reason: to bring that same relief to fellow entrepreneurs and creators. The power of AI shouldn&rsquo;t be reserved for Fortune 500 companies. It belongs in the hands of small businesses, solo founders, and the teams who actually talk to customers every day.
               </p>
               <p className="text-text-primary dark:text-dark-text-primary font-medium">
-                I&rsquo;m not just a consultant; I&rsquo;m a guide who has walked this path and can show you the way through.
+                I&rsquo;m not just a consultant; I&rsquo;m a guide who has walked this path and can show you the way through, one pragmatic workflow at a time.
               </p>
               <p className="text-sm italic">
                 — Upton Rand, Founder & CEO

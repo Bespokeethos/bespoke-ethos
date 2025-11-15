@@ -20,10 +20,11 @@ export const metadata: Metadata = {
 const ALT = {
   hero: "Candid, joyful small-business owner in workshop, future-focused and freeCadence chatbot product hero background",
   asset1:
-    "Male artist in messy blue apron and green T-shirt, profile view mid-laugh with slight motion blurauthentic, imperfect, joyous moment",
+    "Small-business founder in a studio workshop, laughing mid-conversation with a customer just off-frame, natural light, authentic candid moment",
   asset2:
-    "Small business owner inside shop, hands arranging product with care and intention, warm natural light, authentic candid moment",
-  newAsset: "Man in a button-down shirt on a phone call while working on a laptop in a coffee shop with a city view",
+    "Shop owner carefully arranging products on a shelf in warm window light, focused expression, cozy independent retail space",
+  newAsset:
+    "Operations lead working on a laptop in a small office, smiling while reviewing a simple automation dashboard, candid natural-light photo",
 };
 
 export default function CadencePage() {
@@ -144,7 +145,7 @@ export default function CadencePage() {
               "Pause timing and tone modeling",
               "Conversational bias alignment (favoring your products naturally, not pushy)",
             ]}
-            image={{ src: "/assets/generated/cadence-asset1.png", alt: ALT.asset1 }}
+            image={{ src: "/assets/generated/cadence-feature-voice-desktop.webp", alt: ALT.asset1 }}
           />
           <Feature
             title="Product Storytelling Engine"
@@ -152,7 +153,7 @@ export default function CadencePage() {
             benefit="Build brand loyalty automatically, 24/7."
             body="Customers don&apos;t just want specs—they want to know why your product matters. Cadence™ knows your backstories, craftsmanship details, and customer testimonials. It weaves them into every conversation."
             bullets={["Deep product knowledge ingestion", "Backstory/origin narrative integration", "Customer use case library", "Differentiation talking points (vs. competitors)"]}
-            image={{ src: "/assets/generated/cadence-asset2.png", alt: ALT.asset2 }}
+            image={{ src: "/assets/generated/cadence-feature-story-desktop.webp", alt: ALT.asset2 }}
           />
           <Feature
             title="Seamless Workflow Integration"
@@ -160,7 +161,7 @@ export default function CadencePage() {
             benefit="Cadence™ integrates with your existing tools to automate follow-ups and data entry."
             body="Cadence™ is designed to be a team member, not a silo. It can automatically create tickets, update CRM records, and trigger follow-up emails based on conversation outcomes."
             bullets={["Integrates with Zapier/Make", "CRM update automation", "Ticket creation and routing", "Post-conversation data logging"]}
-            image={{ src: "/assets/generated/cadence-asset-new.png", alt: ALT.newAsset }}
+            image={{ src: "/assets/generated/cadence-feature-workflow-desktop.webp", alt: ALT.newAsset }}
           />
         </div>
       </Section>

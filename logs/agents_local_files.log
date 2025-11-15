@@ -1,0 +1,110 @@
+
+=== Running Layout Guardian ===
+```
+BESPOKE ETHOS AUDIT: LAYOUT/INTERACTION REGRESSIONS
+
+1. URL: https://bespoke-ethos.vercel.app/
+   Viewport: Desktop (ΓëÑ1024px)
+   Severity: HIGH
+   Regression: Hero CTA misalignment
+     - Observed: Primary CTA button appears slightly offset from the headline and subheader. Visual hierarchy is disrupted; button is not centered relative to copy as specced.
+     - Intended: Per mcp-tooling.md and Manus MR, hero CTA should be vertically and horizontally aligned with headline, maintaining focus on intended action.
+   Viewport: Mobile (Γëñ767px)
+   Severity: HIGH
+   Regression: Mobile navigation interaction
+     - Observed: Hamburger menu overlaps with logo. Navigation menu expansion results in content shift and obscures hero text.
+     - Intended: Mobile nav should overlay cleanly, without disrupting hero copy/loss of context, and remain accessible with appropriate z-index layering and fixed positioning.
+
+2. URL: https://bespoke-ethos.vercel.app/contact
+   Viewport: Desktop & Mobile
+   Severity: HIGH
+   Regression: Contact form label mismatch/accessibility
+     - Observed: Form field labels are replaced by placeholders inside the input fields, failing to persist context after entry or on error.
+     - Intended: Clearly visible persistent labels adjacent to fields; mobile MR and mcp-tooling.md highlight a11y issue if placeholders-only are used. Required fields are not programmatically associated in markup.
+   Viewport: Mobile
+   Severity: MEDIUM
+   Regression: Form layout overflow
+     - Observed: Submit button and error messages overflow smaller viewports; horizontal scrolling required.
+     - Intended: Fields, buttons, and notices remain within viewport across device classes without scroll.
+
+3. URL: https://bespoke-ethos.vercel.app/solutions/consensus-engine
+   Viewport: Desktop
+   Severity: MEDIUM
+   Regression: Navigation flow
+     - Observed: Lacking in-page quick nav or jump links to major sections/features. No sticky nav.
+     - Intended: Per docs/MR, comparable SaaS flows provide section indexing or sticky side-nav for quick context access.
+   Viewport: Mobile
+   Severity: HIGH
+   Regression: Hero layout compression
+     - Observed: Hero text and CTA are stacked too tightly, with little spacing; button not easily tappable.
+     - Intended: Maintain 20ΓÇô28px spacing and a minimum 44px touch target for CTAs per best practices.
+
+4. URL: https://bespoke-ethos.vercel.app/solutions/chatbots
+   Viewport: Desktop/Mobile
+   Severity: LOW
+   Regression: Copy hierarchy/scan
+     - Observed: Subheaders use similar size/weight as body copy; quick scanning is impaired.
+     - Intended: Defined visual hierarchy with at least 1.2├ù size contrast and weight separation between tiers.
+
+5. URL: https://bespoke-ethos.vercel.app/solutions/flowstack
+   Viewport: Desktop/Mobile
+   Severity: MEDIUM
+   Regression: Page section alignment
+     - Observed: Features grid and subsequent CTAs misaligned on mobileΓÇögrid columns collapse unevenly, CTAs wrap awkwardly.
+     - Intended: Features should stack cleanly with uniform margins/padding; CTA buttons should not break onto new lines unless viewport requires it, and spacing should be consistent across sections.
+
+---------------------------------------------------------------------
+SUMMARY OF EARLIER RUNS & REPEAT ISSUES
+- Hero CTA alignment and mobile nav regressions are still present, with similar impact as previously reported.
+- Contact formΓÇÖs label/placeholder issue persistsΓÇöa direct a11y hit.
+- Button min size and layout on mobile remain subpar, impacting tap targets and general usability.
+---------------------------------------------------------------------
+```
+
+=== Running SEO & Pricing Sentinel ===
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+PRODUCTION METADATA & PRICING AUDIT: SUMMARY
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+
+Γ¥ù ISSUE: Unable to fetch or inspect the live HTML for both `/` (index.html) and `/solutions/consensus-engine/index.html` from the `dist` directory. The error returned:
+
+    Error: Parent directory does not exist: C:\Vercel\dist
+
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+src/config/pricing.ts CONFIGURATION SUMMARY
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+
+- Consensus Engine: $299.99/mo, 4 queries/month
+- Flowstack: $399 setup, $59.99/mo
+- Chatbots: $79.99-$199/mo (standard min $79.99)
+- Redbridging:
+  - Standalone a la carte: $149.99
+  - AI ToolStack Consult: $99.99
+  - Zapier/Make Audit: $199.99
+  - Chatbot Audit: $249.99
+  - Prompt Engineering: $399.99
+  - Member Standalone: $49.99-$99
+- Cadence: $899.99 setup, $139.99/mo, $500 pilot
+- Scale: $199/mo
+
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+FAILURE REASONS & CAVEATS 
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+
+- Live HTML for the index and consensus engine solution pages was not accessible; thus, I could not review `<title>`, `<meta name="description">`, canonical/og/schema tags, or embedded pricing blocks/copy as rendered in production.
+- No discrepancies or stale prices can be highlighted without production HTML.
+
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+ACTIONS TO RESOLVE
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+
+- Ensure the production build outputs to `dist/` and is accessible from the audit environment.
+- Re-run the audit once the `dist/index.html` and `dist/solutions/consensus-engine/index.html` files are present.
+
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+NO FURTHER COMPARISON POSSIBLE 
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+
+Please make the production HTML files available for thorough metadata and pricing audit.
+
+=== Running Asset & Effects Finisher ===

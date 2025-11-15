@@ -1,0 +1,109 @@
+Title: Background mode requests stuck in 'queued' forever - Responses API - API - OpenAI Developer Community
+
+URL Source: https://community.openai.com/t/background-mode-requests-stuck-in-queued-forever-responses-api/1364478
+
+Published Time: 2025-10-30T14:00:03+00:00
+
+Markdown Content:
+post by rus1243mor on Oct 30
+----------------------------
+
+[![Image 1](https://sea2.discourse-cdn.com/openai1/user_avatar/community.openai.com/rus1243mor/48/548362_2.png)](https://community.openai.com/u/rus1243mor)
+
+Has anyone else noticed recently that requests with `background: true` in the Responses API are getting stuck in ΓÇÿqueuedΓÇÖ status indefinitely?
+
+The model simply does not provide an answer, even the logs are empty.
+
+post by rus1243mor on Oct 30
+----------------------------
+
+[![Image 2](https://sea2.discourse-cdn.com/openai1/user_avatar/community.openai.com/rus1243mor/48/548362_2.png)](https://community.openai.com/u/rus1243mor)
+
+And sometimes it gives an error:
+
+> The request timed out. You can retry your request, or contact us through our help center at [help.openai.com](http://help.openai.com/) if the error persists.
+
+post by Chris_Gilmore on Oct 30
+-------------------------------
+
+[![Image 3](https://avatars.discourse-cdn.com/v4/letter/c/b38774/48.png)](https://community.openai.com/u/chris_gilmore)
+
+Im seeing the exact same thing!
+
+post by neilgd72 on Oct 30
+--------------------------
+
+[![Image 4](https://sea2.discourse-cdn.com/openai1/user_avatar/community.openai.com/neilgd72/48/695258_2.png)](https://community.openai.com/u/neilgd72)
+
+Yes, either stuck in queued or the requests time out
+
+post by arthur_acn on Oct 30
+----------------------------
+
+[![Image 5](https://sea2.discourse-cdn.com/openai1/user_avatar/community.openai.com/arthur_acn/48/511765_2.png)](https://community.openai.com/u/arthur_acn)
+
+Same problem here since this morning
+
+It stays in_queue for longer than usual then transitions to in_progress then failed.
+
+It looks like a time_out issue:
+
+[![Image 6: image](https://us1.discourse-cdn.com/openai1/optimized/4X/c/4/8/c48bc25e41d6d738ff945e5a02ae00e1f96a34bc_2_690x104.png)](https://us1.discourse-cdn.com/openai1/original/4X/c/4/8/c48bc25e41d6d738ff945e5a02ae00e1f96a34bc.png "image")
+
+Response_ids:
+
+*   resp_04e5c27ebae29b8200690391bbfce4819086d2591fe760a350
+*   resp_0572f4a507cb3ec70069038fc3361c81959010908289aa0dd7
+*   resp_0339b82e14cd672100690389a92818819784a3204c067e4732
+
+post by Zachary_Chen on Oct 30
+------------------------------
+
+[![Image 7](https://sea2.discourse-cdn.com/openai1/user_avatar/community.openai.com/zachary_chen/48/695276_2.png)](https://community.openai.com/u/zachary_chen)
+
+Seeing the same thing on a large scale project, across the board.
+
+post by maher.chamma on Oct 30
+------------------------------
+
+post by Paul15 on Oct 31
+------------------------
+
+post by Eddy_Morales on Oct 31
+------------------------------
+
+post by Rooster_Burton on Oct 31
+--------------------------------
+
+post by Ks_Ks on Oct 31
+-----------------------
+
+post by neilgd72 on Oct 31
+--------------------------
+
+post by Irwin on Oct 31
+-----------------------
+
+post by r.napierski on Oct 31
+-----------------------------
+
+post by shallon on Oct 31
+-------------------------
+
+post by Eddy_Morales on Oct 31
+------------------------------
+
+post by gabri67 on Oct 31
+-------------------------
+
+post by Eddy_Morales on Oct 31
+------------------------------
+
+post by Paul15 on Oct 31
+------------------------
+
+post by shallon on Oct 31
+-------------------------
+
+Load more posts below
+---------------------

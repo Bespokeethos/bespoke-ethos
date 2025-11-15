@@ -11,7 +11,7 @@ export const revalidate = 1800;
 export const metadata: Metadata = {
   title: "Pricing | Bespoke Ethos",
   description:
-    "Simple, transparent pricing for small business: FlowstackT setup $399 + $59.99/mo, with Chatbots and Redbridging options.",
+    "Simple, transparent pricing for small business: Flowstack\u2122 setup $399 + $59.99/mo, with Chatbots and Redbridging options.",
   alternates: { canonical: "/pricing" },
 };
 
@@ -20,6 +20,18 @@ export default function PricingPage() {
     <Section className="gap-8">
       <OfferCatalogJsonLd />
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Pricing" }]} />
+      <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary">
+        <div className="relative h-40 w-full sm:h-52 lg:h-60">
+          <Image
+            src="/assets/generated/hero-flowstack-desktop.webp"
+            alt="Calm workspace with an automation dashboard open beside a notebook and coffee"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 960px"
+            priority={false}
+          />
+        </div>
+      </div>
       <Heading subtitle="Simple, transparent pricing" align="left">
         <h1>Pricing</h1>
       </Heading>
@@ -31,7 +43,7 @@ export default function PricingPage() {
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
         {/* Flowstack */}
         <div className="rounded-lg border border-border p-5 dark:border-dark-border">
-          <h2 className="text-lg font-semibold">FlowstackT</h2>
+          <h2 className="text-lg font-semibold">Flowstack\u2122</h2>
           <p className="mt-1 text-text-secondary dark:text-dark-text-secondary">
             {formatMoney(PRICING.flowstack.setup)} setup • {formatMoney(PRICING.flowstack.monthly)}/mo
           </p>
@@ -71,20 +83,20 @@ export default function PricingPage() {
 
         {/* Redbridging */}
         <div className="rounded-lg border border-border p-5 dark:border-dark-border">
-          <h2 className="text-lg font-semibold">RedbridgingT</h2>
+          <h2 className="text-lg font-semibold">Redbridging\u2122</h2>
           <p className="mt-1 text-text-secondary dark:text-dark-text-secondary">
-            {formatMoney(PRICING.redbridging.standaloneLow)}/mo standalone or free with FlowstackT/CadenceT
+            {formatMoney(PRICING.redbridging.standaloneLow)}/mo standalone or free with Flowstack\u2122/Cadence\u2122
           </p>
           <ul className="mt-3 list-disc pl-5 text-sm text-text-secondary dark:text-dark-text-secondary">
             <li>Rescue brittle automations quickly</li>
             <li>Monitoring, alerts, and retries</li>
-            <li>Included with FlowstackT and CadenceT subscriptions</li>
+            <li>Included with Flowstack\u2122 and Cadence\u2122 subscriptions</li>
           </ul>
         </div>
 
         {/* Consensus Engine */}
         <div className="rounded-lg border border-border p-5 dark:border-dark-border">
-          <h2 className="text-lg font-semibold">Consensus EngineT</h2>
+          <h2 className="text-lg font-semibold">Consensus Engine\u2122</h2>
           <p className="mt-1 text-text-secondary dark:text-dark-text-secondary">
             {formatMoney(PRICING.consensusEngine.monthly)}/mo for up to {PRICING.consensusEngine.queryLimit} research queries
           </p>
@@ -151,7 +163,7 @@ export default function PricingPage() {
           </ul>
         </div>
         <div className="rounded-lg border border-border p-5 dark:border-dark-border">
-          <h3 className="text-lg font-semibold">RedbridgingT Rescue</h3>
+          <h3 className="text-lg font-semibold">Redbridging\u2122 Rescue</h3>
           <p className="mt-1 text-text-secondary dark:text-dark-text-secondary">
             {formatMoney(PRICING.redbridging.standaloneALaCarte)} one-time
           </p>
@@ -187,7 +199,7 @@ function OfferCatalogJsonLd() {
       {
         "@type": "Offer",
         url: `${base}/solutions/flowstack`,
-        itemOffered: { "@type": "Service", name: "FlowstackT" },
+        itemOffered: { "@type": "Service", name: "Flowstack\u2122" },
         priceCurrency: currency,
         price: PRICING.flowstack.setup,
         priceSpecification: {
@@ -228,4 +240,3 @@ function OfferCatalogJsonLd() {
   } as const;
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
 }
-

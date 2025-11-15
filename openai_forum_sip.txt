@@ -1,0 +1,127 @@
+Title: Realtime API unreliable over SIP - API - OpenAI Developer Community
+
+URL Source: https://community.openai.com/t/realtime-api-unreliable-over-sip/1366350
+
+Published Time: 2025-11-14T23:55:30+00:00
+
+Markdown Content:
+Realtime API unreliable over SIP - API - OpenAI Developer Community
+
+===============
+
+[Skip to main content](https://community.openai.com/t/realtime-api-unreliable-over-sip/1366350#main-container)
+
+[![Image 2: OpenAI Developer Community](https://us1.discourse-cdn.com/openai1/original/4X/c/1/9/c1909995c0738f84fa5431bd76e8c457831db792.svg)](https://community.openai.com/)
+
+*   [Docs](https://platform.openai.com/overview "Docs")
+*   [API](https://platform.openai.com/docs/api-reference "API")
+*   [Support](https://help.openai.com/en/articles/6614161-how-can-i-contact-support "Support")
+
+Sign Up Log In
+*    ΓÇï 
+
+*   [Topics](https://community.openai.com/latest "All topics")
+*    More 
+
+ Resources 
+
+*   [Documentation](https://platform.openai.com/overview)
+*   [API reference](https://platform.openai.com/docs/api-reference)
+*   [Help center](https://help.openai.com/)
+
+ Categories 
+
+*   [Announcements](https://community.openai.com/c/announcements/6 "Official updates related to building with OpenAI, the API, and more!")
+*   [API](https://community.openai.com/c/api/7 "Questions, feedback, and best practices around building with OpenAIΓÇÖs API. Please read the API docs before posting.")
+*   [Prompting](https://community.openai.com/c/prompting/8 "Learn more about prompting by sharing best practices, your favorite prompts, and more!")
+*   [Documentation](https://community.openai.com/c/documentation/14 "A place to share feedback on documentation and tutorials about OpenAI!")
+*   [Plugins / Actions builders](https://community.openai.com/c/gpts-builders/chat-plugins/20 "Please check out the plugin or action docs to learn more about making a plugin or action.")
+*   [All categories](https://community.openai.com/categories)
+
+ Tags 
+
+*   [chatgpt](https://community.openai.com/tag/chatgpt)
+*   [gpt-4](https://community.openai.com/tag/gpt-4)
+*   [api](https://community.openai.com/tag/api)
+*   [lost-user](https://community.openai.com/tag/lost-user)
+*   [assistants-api](https://community.openai.com/tag/assistants-api)
+*   [All tags](https://community.openai.com/tags)
+
+ Light mode 
+
+ ΓÇï 
+
+ ΓÇï 
+
+Welcome to the OpenAI Developer Community, a forum for **developers to meet and chat with other developers** while building with OpenAIΓÇÖs APIs and developer platform.
+
+This is not a place for ChatGPT discussion (with the exception of ChatGPT developer tools, like Codex). ChatGPT discussion takes place in the [OpenAI Discord community](https://discord.com/invite/openai).
+
+What to know:
+
+1.   This forum is community-run and maintained. Not all posts are monitored. To get in touch with OpenAI, reach out at [https://help.openai.com/en/?q=contact](https://help.openai.com/en/?q=contact).
+2.   Discussions related to the ChatGPT app and plans will be hidden, and your account may be suspended. (We must keep conversations focused on technical topics related to building with OpenAI, for the sake of the larger community here.)
+3.   Before posting a new topic, please [search the forum](https://community.openai.com/search) for similar topics. This prevents duplicate discussions.
+4.   Your use of this forum means you agree to the community guidelines, which include being nice, productive, and constructive. Read the full community guidelines: [FAQ - OpenAI Developer Community](https://community.openai.com/faq)
+
+[Realtime API unreliable over SIP](https://community.openai.com/t/realtime-api-unreliable-over-sip/1366350)
+===========================================================================================================
+
+[API](https://community.openai.com/c/api/7)
+
+[realtime](https://community.openai.com/tag/realtime),[sip](https://community.openai.com/tag/sip)
+
+You have selected **0** posts.
+
+[select all](https://community.openai.com/t/realtime-api-unreliable-over-sip/1366350)
+
+[cancel selecting](https://community.openai.com/t/realtime-api-unreliable-over-sip/1366350)
+
+post by andrew_tomis.tech 3 hours ago
+-------------------------------------
+
+[![Image 3](https://sea2.discourse-cdn.com/openai1/user_avatar/community.openai.com/andrew_tomis.tech/48/512396_2.png)](https://community.openai.com/u/andrew_tomis.tech)
+
+[andrew_tomis.tech](https://community.openai.com/u/andrew_tomis.tech)
+
+[3h](https://community.openai.com/t/realtime-api-unreliable-over-sip/1366350 "Post date")
+
+IΓÇÖve built a AI voice assistant using the Realtime API and connected it with a caller using an SIP connection with Twilio. The call is initiated when the caller dials my Twilio number, and Twilio creates an SIP connection with OpenAI. When the call connects, the AI is fantastic. But very frequently (at least 10% of the time) the call doesnΓÇÖt connect. On these occasions, the phone doesnΓÇÖt ring and my server is never sent the realtime.call.incoming webhook. After 10 seconds or so, Twilio gives up on connecting the call and sends the caller to a backup option (redirecting to a different phone number).
+
+Because Twilio is never dropping the call, IΓÇÖm lead to believe that the problem is OpenAI receiving the SIP connection, but when IΓÇÖve observed this problem there has never been an issue listed on the OpenAI Status page. Has anyone else experienced this issue? Is this a known problem? Are there improvements scheduled for the Realtime SIP connection? I didnΓÇÖt have these issues when I was using my server as a middleman and connecting to Twilio and OpenAI through websocket connections.
+
+ ΓÇï 
+
+ ΓÇï 
+
+9 views 
+
+Reply
+
+### Related topics
+
+Topic list, column headers with buttons are sortable.| Topic | Replies | Views | Activity |
+| --- | --- | --- | --- |
+| [Realtime API using SIP - Call dropping after 1 second - BYE from OpenAI](https://community.openai.com/t/realtime-api-using-sip-call-dropping-after-1-second-bye-from-openai/1362581) [API](https://community.openai.com/c/api/7) [realtime](https://community.openai.com/tag/realtime) | [2](https://community.openai.com/t/realtime-api-using-sip-call-dropping-after-1-second-bye-from-openai/1362581/1) | 151 | [Oct 15](https://community.openai.com/t/realtime-api-using-sip-call-dropping-after-1-second-bye-from-openai/1362581/3) |
+| [Twilio to OpenAI SIP returns 408. Is project SIP gated per project?](https://community.openai.com/t/twilio-to-openai-sip-returns-408-is-project-sip-gated-per-project/1358239) [API](https://community.openai.com/c/api/7) [realtime](https://community.openai.com/tag/realtime) | [1](https://community.openai.com/t/twilio-to-openai-sip-returns-408-is-project-sip-gated-per-project/1358239/1) | 134 | [Sep 18](https://community.openai.com/t/twilio-to-openai-sip-returns-408-is-project-sip-gated-per-project/1358239/2) |
+| [Delayed speech_stopped Event in Call Center System Using OpenAI Realtime API with Twilio](https://community.openai.com/t/delayed-speech-stopped-event-in-call-center-system-using-openai-realtime-api-with-twilio/1017512) [API](https://community.openai.com/c/api/7) [realtime](https://community.openai.com/tag/realtime),[api-realtime](https://community.openai.com/tag/api-realtime),[api-realtime-speech](https://community.openai.com/tag/api-realtime-speech) | [1](https://community.openai.com/t/delayed-speech-stopped-event-in-call-center-system-using-openai-realtime-api-with-twilio/1017512/1) | 244 | [Dec 2024](https://community.openai.com/t/delayed-speech-stopped-event-in-call-center-system-using-openai-realtime-api-with-twilio/1017512/2) |
+| [OpenAi RealTime API integrated with Plivo to connect phone calls with customers](https://community.openai.com/t/openai-realtime-api-integrated-with-plivo-to-connect-phone-calls-with-customers/1095644) [Community](https://community.openai.com/c/community/21) [chatgpt](https://community.openai.com/tag/chatgpt),[gpt-4](https://community.openai.com/tag/gpt-4),[api](https://community.openai.com/tag/api),[api-realtime-speech](https://community.openai.com/tag/api-realtime-speech) | [2](https://community.openai.com/t/openai-realtime-api-integrated-with-plivo-to-connect-phone-calls-with-customers/1095644/1) | 321 | [Jan 19](https://community.openai.com/t/openai-realtime-api-integrated-with-plivo-to-connect-phone-calls-with-customers/1095644/3) |
+| [Realtime API Not Responding](https://community.openai.com/t/realtime-api-not-responding/1143391) [Bugs](https://community.openai.com/c/api/bugs/30) [realtime](https://community.openai.com/tag/realtime),[api-realtime](https://community.openai.com/tag/api-realtime),[api-realtime-speech](https://community.openai.com/tag/api-realtime-speech) | [2](https://community.openai.com/t/realtime-api-not-responding/1143391/1) | 678 | [Mar 15](https://community.openai.com/t/realtime-api-not-responding/1143391/3) |
+
+ Developer Community 
+
+ Connect with other developers building with the OpenAI Platform. 
+
+ Help 
+*   [Support](https://help.openai.com/en/articles/6614161-how-can-i-contact-support)
+
+ Developer Resources 
+*   [API Documentation](https://platform.openai.com/overview)
+*   [Service status](https://status.openai.com/)
+*   [Cookbook](https://github.com/openai/openai-cookbook)
+
+[Terms & policies](https://openai.com/policies)[Privacy policy](https://openai.com/policies/privacy-policy)
+
+[](https://twitter.com/OpenAIDevs "X / Twitter")[](https://github.com/openai "GitHub")
+
+ Invalid date  Invalid date

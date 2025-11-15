@@ -8,6 +8,7 @@ import { FounderStory } from "./_sections/founder-story";
 import { TrustCredentials } from "./_sections/trust-credentials";
 import { LGBTQDiscountBanner } from "./_sections/lgbtq-discount-banner";
 import { TrustStrip } from "./_components/trust-strip";
+import { HomepageTestimonialsStrip } from "./_sections/testimonials";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -28,16 +29,22 @@ export default function HomePageBackup() {
     href?: string;
   }> = [
     {
+      file: "love-founders-mug.avif",
+      alt: "Ceramic mug printed with the phrase 'We Founders Heart' on a founder's desk",
+      caption: "We founders - for people who are in it with you.",
+      href: "/about",
+    },
+    {
       file: "hero-cadence-desktop.webp",
-      alt: "CadenceT - Man in tool room working on chair",
-      caption: "CadenceT - Your AI assistant that learns your workflow",
+      alt: "Cadence\u2122 - Man in tool room working on chair",
+      caption: "Cadence\u2122 - Your AI assistant that learns your workflow",
       duration: 9000,
       href: "/products/cadence",
     },
     {
-      file: "hero-flowstack-desktop.webp",
-      alt: "FlowstackT automation visual with connected tasks",
-      caption: "FlowstackT - Automate your #1 task",
+      file: "hero-flowstack-square.webp",
+      alt: "Flowstack\u2122 automation visual with connected tasks",
+      caption: "Flowstack\u2122 - Automate your #1 task",
       href: "/solutions/flowstack",
     },
     {
@@ -75,15 +82,15 @@ export default function HomePageBackup() {
   }> = [
     {
       file: "cadence-hero.png",
-      alt: "CadenceT - Man in tool room working on chair",
-      caption: "CadenceT - Your AI assistant that learns your workflow",
+      alt: "Cadence\u2122 - Man in tool room working on chair",
+      caption: "Cadence\u2122 - Your AI assistant that learns your workflow",
       duration: 9000,
       href: "/products/cadence",
     },
     {
       file: "flowstack-hero.png",
-      alt: "FlowstackT automation visual with connected tasks",
-      caption: "FlowstackT - Automate your #1 task",
+      alt: "Flowstack\u2122 automation visual with connected tasks",
+      caption: "Flowstack\u2122 - Automate your #1 task",
       href: "/solutions/flowstack",
     },
     {
@@ -109,18 +116,6 @@ export default function HomePageBackup() {
       alt: "Redbridging reliability bridge with shield",
       caption: "Redbridging - Rescue brittle automations",
       href: "/solutions/redbridging",
-    },
-    {
-      file: "research_hero.png",
-      alt: "Founder reviewing insights on a clean AI dashboard",
-      caption: "Research - Decisions backed by learning and context",
-      href: "/solutions",
-    },
-    {
-      file: "research-hero.png",
-      alt: "Founder reviewing insights on a clean AI dashboard",
-      caption: "Research - Decisions backed by learning and context",
-      href: "/solutions",
     },
   ];
 
@@ -211,7 +206,7 @@ export default function HomePageBackup() {
               />
             </div>
             <p className="mt-3 text-xs text-text-tertiary dark:text-dark-text-tertiary">
-              Consensus EngineT and RedbridgingT are trademark pending.
+              Consensus Engine\u2122 and Redbridging\u2122 are trademark pending.
             </p>
           </div>
           <div className="order-1 motion-safe:animate-enterFromRight md:order-2">
@@ -219,10 +214,10 @@ export default function HomePageBackup() {
           </div>
         </div>
       </section>
+      <HomepageTestimonialsStrip />
       <FounderStory />
       <TrustCredentials />
       <LGBTQDiscountBanner />
     </main>
   );
 }
-

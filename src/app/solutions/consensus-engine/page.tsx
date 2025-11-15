@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 
 import { Breadcrumbs } from "@/app/_components/seo/breadcrumbs";
@@ -9,7 +10,7 @@ import { PRICING, formatMoney } from "@/config/pricing";
 export const revalidate = 1800;
 
 export const metadata: Metadata = {
-  title: "Consensus Engine - Decision Clarity | Bespoke Ethos",
+  title: "Consensus Engine\u2122 - Decision Clarity | Bespoke Ethos",
   description:
     "Four independent AI perspectives debate your toughest question, highlight risk, and deliver one actionable answer.",
   alternates: { canonical: "/solutions/consensus-engine" },
@@ -20,18 +21,32 @@ export default function ConsensusEnginePage() {
     <Section className="gap-6">
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Solutions", href: "/solutions" }, { name: "Consensus Engine" }]} />
       <ProductJsonLd />
+      <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary">
+        <div className="relative h-52 w-full sm:h-64 lg:h-72">
+          <Image
+            src="/assets/generated/hero-consensus-desktop.webp"
+            alt="Abstract ribbons of light converging into one clear decision point on a strategist's screen"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 960px"
+            priority
+          />
+        </div>
+      </div>
       <Heading subtitle="Clarity from multiple AI perspectives" align="left">
-        <h1>Consensus Engine™</h1>
+        <h1>Consensus Engine\u2122</h1>
       </Heading>
       <p className="text-lg font-medium text-text-secondary">
         {formatMoney(PRICING.consensusEngine.monthly)}/mo for up to {PRICING.consensusEngine.queryLimit} research queries.
       </p>
       <div className="space-y-4 text-text-secondary">
         <p>
-          When you&rsquo;re running a business alone, every big decision feels paralyzing. Should I raise prices? Pivot my messaging? Hire someone? I built Consensus Engine™ because I needed a trusted advisor who could see all sides of a problem—without the $10,000 consulting bill.
+          When you&rsquo;re running a business alone, every big decision feels paralyzing. Should I raise prices? Pivot my messaging? Hire someone? I built Consensus
+          Engine\u2122 because I needed a trusted advisor who could see all sides of a problem-without the $10,000 consulting bill.
         </p>
         <p>
-          Ask your biggest strategic question and see a structured debate—four independent perspectives that synthesize a recommendation with reasoning and tradeoffs. It&rsquo;s like having a board of advisors in your pocket.
+          Ask your biggest strategic question and see a structured debate-four independent perspectives that synthesize a recommendation with reasoning and tradeoffs.
+          It&rsquo;s like having a board of advisors in your pocket.
         </p>
       </div>
       <ul className="mt-2 list-disc pl-6 text-text-secondary">
@@ -42,7 +57,7 @@ export default function ConsensusEnginePage() {
       </ul>
       <div className="flex gap-3">
         <ButtonLink intent="primary" href="/book">
-          Book a free consultation & get your first report free
+          Book a free consultation &amp; get your first report free
         </ButtonLink>
         <ButtonLink intent="secondary" href="/contact">
           Talk to a human
@@ -57,7 +72,7 @@ function ProductJsonLd() {
   const json = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Consensus Engine™",
+    name: "Consensus Engine\u2122",
     description:
       "Four AI perspectives debate your strategic question, surface disagreements, and synthesize one actionable answer.",
     provider: {

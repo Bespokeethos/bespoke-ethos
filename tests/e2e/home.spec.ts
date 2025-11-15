@@ -69,4 +69,23 @@ test.describe("Home page", () => {
       await expect(noMatchMessage).toBeVisible();
     }
   });
+
+  test("products nav includes Cadence and clean labels", async ({ page }) => {
+    await page.goto("/");
+
+    const mainNav = page.getByRole("navigation", { name: /main/i });
+    const productsLink = mainNav.getByRole("link", { name: /products/i });
+
+    await productsLink.hover();
+
+    await expect(mainNav.getByRole("link", { name: /cadence/i })).toBeVisible();
+    await expect(mainNav.getByRole("link", { name: /flowstack/i })).toBeVisible();
+    await expect(mainNav.getByRole("link", { name: /consensus engine/i })).toBeVisible();
+    await expect(mainNav.getByRole("link", { name: /redbridging/i })).toBeVisible();
+
+    const badLabels = ["CadenceT", "FlowstackT", "Consensus EngineT", "RedbridgingT"];
+    for (const bad of badLabels) {
+      await expect(page.getByText(bad)).toHaveCount(0);
+    }
+  });
 });

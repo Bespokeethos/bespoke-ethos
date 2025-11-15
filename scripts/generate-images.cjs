@@ -47,6 +47,43 @@ const VARIANTS = [
     prompt:
       "Hero splash for RedBridging (TM) incident response. Stylized bridge constructed from luminous circuit traces spanning from a chaotic warm orange side (depicting incident) to a calm cool teal side (restored stability). Include a discreet shield-and-lock light icon guarding the midpoint, hinting at secure monitoring. Use cinematic depth, volumetric light, and ample negative space so hero copy remains legible. Clean reliable SaaS aesthetic, 16:9, no textual elements or logos.",
   },
+  // Cadence feature images - candid founders
+  {
+    id: "cadence-feature-voice",
+    prompt:
+      "Candid photo for a SaaS landing page section about brand voice mastery. Small-business founder in a studio or workshop, mid-conversation and laughing with a customer just off-frame. Natural light, slightly messy workspace, apron or casual clothes, no visible text or logos, 3:2 aspect ratio suitable for a product feature card.",
+  },
+  {
+    id: "cadence-feature-story",
+    prompt:
+      "Candid photo for a product storytelling feature. Small-business owner in a cozy shop carefully arranging products on a shelf, warm golden-hour window light, depth of field with products in soft focus, no visible watermarks, 3:2 aspect ratio for web.",
+  },
+  {
+    id: "cadence-feature-workflow",
+    prompt:
+      "Candid photo for a workflow integration feature. Founder or operations lead at a laptop in a small office, smiling while reviewing a simple dashboard, sticky notes and notebook nearby, soft natural and screen light, no watermarks, 3:2 aspect ratio for a feature card.",
+  },
+  // Blog hero images - candid small business owners
+  {
+    id: "blog-cleveland-ai-automation",
+    prompt:
+      "Hero image for a blog post titled 'Cleveland Small Business Guide to AI Automation.' Candid documentary-style photo of a small business owner in Cleveland standing at a shop counter, laptop open to a simple automation dashboard. Warm natural light through a window, hints of the Cleveland skyline or brick storefronts outside. Calm, hopeful mood, shallow depth of field, 16:9, no text or logos.",
+  },
+  {
+    id: "blog-what-to-automate-first",
+    prompt:
+      "Hero image for a blog post titled 'What to Automate First in Your Small Business.' Over-the-shoulder candid shot of a founder in a small studio or office prioritizing tasks on a whiteboard covered with sticky notes and arrows. Focus on the founder thinking, soft bokeh background, warm neutral tones, 16:9, no text or logos.",
+  },
+  {
+    id: "blog-redbridging-zapier-rescue",
+    prompt:
+      "Hero image for a blog post about rescuing broken Zapier or Make automations. Candid photo of an operations lead and a consultant at a laptop, reviewing error logs together in a small office. Expressions focused but calm, monitors showing abstract charts or graphs (no readable text). Mixed warm and cool lighting, 16:9, no logos or UI screenshots.",
+  },
+  {
+    id: "blog-on-brand-ai-chatbots",
+    prompt:
+      "Hero image for a blog post comparing on-brand AI chatbots to generic bots. Candid photo of a small business owner in a cozy shop smiling while looking at a laptop displaying a chat interface. Ambient warm lighting, subtle teal accent light from the screen, shelves or products softly out of focus behind them. 16:9, no visible text or logos.",
+  },
 ];
 
 async function ensureDir(dir) {
@@ -54,6 +91,14 @@ async function ensureDir(dir) {
 }
 
 async function generateWithOpenAI({ id, prompt }, client) {
+  const filename = `${id}.png`;
+  const filepath = path.join(OUTPUT_DIR, filename);
+
+  if (fs.existsSync(filepath)) {
+    console.log(`Skipping ${filename} (already exists)`);
+    return filepath;
+  }
+
   const response = await client.images.generate({
     model: "gpt-image-1",
     prompt,
@@ -66,8 +111,6 @@ async function generateWithOpenAI({ id, prompt }, client) {
   }
 
   const buffer = Buffer.from(image.b64_json, "base64");
-  const filename = `${id}.png`;
-  const filepath = path.join(OUTPUT_DIR, filename);
   await fs.promises.writeFile(filepath, buffer);
   console.log(`Generated ${filename}`);
   return filepath;

@@ -62,19 +62,24 @@ const FALLBACK_HEADER_NAV: HeaderNavLink[] = [
     sublinks: {
       items: [
         {
+          _id: "nav-products-cadence",
+          _title: "Cadence\u2122",
+          link: pageRef("/products/cadence", "Cadence\u2122"),
+        },
+        {
           _id: "nav-products-flowstack",
-          _title: "FlowstackT",
-          link: pageRef("/solutions/flowstack", "FlowstackT"),
+          _title: "Flowstack\u2122",
+          link: pageRef("/solutions/flowstack", "Flowstack\u2122"),
         },
         {
           _id: "nav-products-consensus",
-          _title: "Consensus EngineT",
-          link: pageRef("/solutions/consensus-engine", "Consensus EngineT"),
+          _title: "Consensus Engine\u2122",
+          link: pageRef("/solutions/consensus-engine", "Consensus Engine\u2122"),
         },
         {
           _id: "nav-products-redbridging",
-          _title: "RedbridgingT",
-          link: pageRef("/solutions/redbridging", "RedbridgingT"),
+          _title: "Redbridging\u2122",
+          link: pageRef("/solutions/redbridging", "Redbridging\u2122"),
         },
       ],
     },

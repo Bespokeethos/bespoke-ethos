@@ -15,11 +15,13 @@ export const metadata = {
 export default async function ContactPage({
   searchParams,
 }: {
-  searchParams?: Promise<{ sent?: string; error?: string }>;
+  searchParams?: Promise<{ sent?: string; error?: string; service?: string }>;
 }) {
   const params = (await searchParams) ?? {};
   const sent = params.sent === "1";
   const error = params.error;
+  const service = params.service;
+  const isLlmSetup = service === "llm-setups";
 
   return (
     <div className="container mx-auto max-w-2xl px-4 py-10 sm:px-6 sm:py-16">
@@ -30,6 +32,21 @@ export default async function ContactPage({
       <p className="mt-2 text-text-secondary dark:text-dark-text-secondary">
         Tell us a bit about your project. We usually reply within one business day.
       </p>
+
+      {isLlmSetup ? (
+        <div className="mt-4 rounded-lg border border-border bg-surface-secondary/70 p-4 text-sm text-text-secondary dark:border-dark-border dark:bg-dark-surface-secondary/70 dark:text-dark-text-secondary">
+          <p className="font-semibold text-text-primary dark:text-dark-text-primary">
+            LLM setups &amp; AI stack mapping
+          </p>
+          <p className="mt-1">
+            You&apos;re asking about large language model setups. In the message box, share where your data lives (docs, CRM, tools), what you want AI to help with,
+            and who will use it day-to-day. I&apos;ll respond with a concrete stack and next steps that fit your team and budget.
+          </p>
+          <p className="mt-1 text-xs text-text-tertiary dark:text-dark-text-tertiary">
+            Tip: list 2–3 workflows you&apos;d love to hand off to AI (e.g., intake, reporting, or customer support triage).
+          </p>
+        </div>
+      ) : null}
 
       {sent ? (
         <div className="mt-6 rounded-md border border-green-700/30 bg-green-500/10 p-4 text-sm text-green-700 dark:border-green-300/20 dark:text-green-300">
@@ -115,7 +132,10 @@ export default async function ContactPage({
         ) : null}
 
         <div className="mt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-          <button type="submit" className="inline-flex items-center gap-2 rounded-md bg-accent-primary px-5 py-2 text-sm font-medium text-white hover:opacity-90">
+          <button
+            type="submit"
+            className="inline-flex items-center gap-2 rounded-md bg-accent-600 px-5 py-2 text-sm font-medium text-white shadow-sm hover:brightness-110"
+          >
             Send message
           </button>
           <Link className="text-sm text-text-secondary underline-offset-4 hover:underline dark:text-dark-text-secondary" href="/book">
