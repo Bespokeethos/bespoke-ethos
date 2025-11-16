@@ -102,15 +102,20 @@ export default async function ContactPage({ searchParams }: PageProps) {
 
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <label className="flex flex-col gap-1">
-                  <span className="text-sm text-text-secondary dark:text-dark-text-secondary">Name</span>
+                  <span className="text-sm text-text-secondary dark:text-dark-text-secondary">
+                    Name <span className="text-red-600">*</span>
+                  </span>
                   <input
                     name="name"
                     type="text"
+                    required
                     className="rounded-md border border-border bg-surface-primary px-3 py-2 outline-none ring-0 focus:border-accent-primary/60 dark:border-dark-border dark:bg-dark-surface-primary"
                   />
                 </label>
                 <label className="flex flex-col gap-1">
-                  <span className="text-sm text-text-secondary dark:text-dark-text-secondary">Email</span>
+                  <span className="text-sm text-text-secondary dark:text-dark-text-secondary">
+                    Email <span className="text-red-600">*</span>
+                  </span>
                   <input
                     name="email"
                     type="email"
@@ -144,11 +149,14 @@ export default async function ContactPage({ searchParams }: PageProps) {
               </div>
 
               <label className="flex flex-col gap-1">
-                <span className="text-sm text-text-secondary dark:text-dark-text-secondary">What are you hoping to achieve?</span>
+                <span className="text-sm text-text-secondary dark:text-dark-text-secondary">
+                  What are you hoping to achieve? <span className="text-red-600">*</span>
+                </span>
                 <input
                   name="useCase"
                   type="text"
                   placeholder="e.g., automate intake, rescue a Zapier flow, align on messaging"
+                  required
                   className="rounded-md border border-border bg-surface-primary px-3 py-2 outline-none ring-0 focus:border-accent-primary/60 dark:border-dark-border dark:bg-dark-surface-primary"
                 />
               </label>
@@ -168,7 +176,9 @@ export default async function ContactPage({ searchParams }: PageProps) {
               </label>
 
               <label className="flex flex-col gap-1">
-                <span className="text-sm text-text-secondary dark:text-dark-text-secondary">Message</span>
+                <span className="text-sm text-text-secondary dark:text-dark-text-secondary">
+                  Message <span className="text-red-600">*</span>
+                </span>
                 <textarea
                   name="message"
                   rows={6}
@@ -230,4 +240,3 @@ function ContactPageJsonLd() {
   } as const;
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
 }
-
