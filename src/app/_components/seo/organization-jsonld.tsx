@@ -10,7 +10,7 @@ export function OrganizationJsonLd() {
     logo: `${base}/assets/logo-light.png`,
     sameAs: ["https://www.linkedin.com/company/bespoke-ethos"],
     description:
-      "Bespoke Ethos builds dependable, human-in-the-loop AI for small businesses. NGLCC-certified and Catalant-vetted, we ship auditable workflows and chatbots with documented approvals, rollback paths, and a 20% discount for LGBTQ-owned businesses.",
+      "Bespoke Ethos builds dependable, human-in-the-loop AI for small businesses. NGLCC-certified and Catalant-vetted, we ship auditable workflows and chatbots with documented approvals, rollback paths, and a standing 25% discount on upfront project fees for LGBTQ-owned businesses.",
     contactPoint: [
       {
         "@type": "ContactPoint",

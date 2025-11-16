@@ -61,7 +61,6 @@ function buildCssVariables(accent: Record<string, string>, grayScale: Record<str
 }
 
 export function ThemeAccentProvider() {
-  // Use the same muted palette that the old BaseHub theme provider defaulted to
   const accent = colors.emerald ?? FALLBACK_ACCENT;
   const grayScale = FALLBACK_GRAYSCALE;
 
@@ -76,4 +75,3 @@ export function ThemeAccentProvider() {
     `}</style>
   );
 }
-

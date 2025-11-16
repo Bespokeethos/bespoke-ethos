@@ -14,11 +14,11 @@ const securityHeaders = [
       "script-src 'self' 'unsafe-inline' https://challenges.cloudflare.com https://*.cloudflare.com",
       // Styles are inline via Tailwind runtime classes
       "style-src 'self' 'unsafe-inline'",
-      // Images from self, BaseHub CDN and data URIs
+      // Images from self and trusted HTTPS origins
       "img-src 'self' https: data: blob:",
       // Fonts from self + data URLs
       "font-src 'self' data:",
-      // XHR/fetch destinations (BaseHub API + Turnstile verify + Sanity APIs)
+      // XHR/fetch destinations (Turnstile verify + Sanity APIs)
       "connect-src 'self' https://challenges.cloudflare.com https://*.sanity.io",
       // Embeds (Turnstile iframes)
       "frame-src https://challenges.cloudflare.com https://*.cloudflare.com",
@@ -53,17 +53,32 @@ const nextConfig = {
     ],
   },
   async headers() {
-    return [
-      { source: "/:path*", headers: securityHeaders },
-      // Extra CORS hardening for API routes (same-origin only)
-      {
-        source: "/api/:path*",
-        headers: [
-          { key: "Access-Control-Allow-Origin", value: "https://www.bespokeethos.com" },
-          { key: "Vary", value: "Origin" },
-        ],
-      },
-    ];
+    const headerConfigs: { source: string; headers: { key: string; value: string }[] }[] = [];
+
+    // Block preview deployments from search engines
+    if (
+      process.env.VERCEL_ENV === "preview" ||
+      process.env.NEXT_PUBLIC_VERCEL_ENV === "preview"
+    ) {
+      headerConfigs.push({
+        source: "/:path*",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+      });
+    }
+
+    // Security headers for all environments
+    headerConfigs.push({ source: "/:path*", headers: securityHeaders });
+
+    // Extra CORS hardening for API routes (same-origin only)
+    headerConfigs.push({
+      source: "/api/:path*",
+      headers: [
+        { key: "Access-Control-Allow-Origin", value: "https://www.bespokeethos.com" },
+        { key: "Vary", value: "Origin" },
+      ],
+    });
+
+    return headerConfigs;
   },
   async redirects() {
     return [

@@ -55,7 +55,6 @@ export function Callout({ title, subtitle, actions = [] }: CalloutProps) {
           {actions.map((action) => (
             <TrackedButtonLink
               key={action.id}
-              // Analytics previously used BaseHub; now purely navigational.
               href={action.href}
               intent={action.type}
               name="secondary_cta_click"

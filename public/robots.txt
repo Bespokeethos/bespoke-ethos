@@ -1,9 +1,7 @@
-# *
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /api/
 
-# Host
-Host: https://www.bespokeethos.com
-
-# Sitemaps
-Sitemap: https://www.bespokeethos.com/sitemap.xml
+Sitemap: https://bespokeethos.com/sitemap.xml
