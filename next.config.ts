@@ -55,11 +55,8 @@ const nextConfig = {
   async headers() {
     const headerConfigs: { source: string; headers: { key: string; value: string }[] }[] = [];
 
-    // Block preview deployments from search engines
-    if (
-      process.env.VERCEL_ENV === "preview" ||
-      process.env.NEXT_PUBLIC_VERCEL_ENV === "preview"
-    ) {
+    // Block only non-production deployments from search engines
+    if (process.env.VERCEL_ENV && process.env.VERCEL_ENV !== "production") {
       headerConfigs.push({
         source: "/:path*",
         headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
