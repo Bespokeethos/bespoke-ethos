@@ -20,7 +20,7 @@ export default function AboutPage() {
       <AboutPageJsonLd />
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "About" }]} />
 
-      <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary">
+      <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame">
         <div className="relative h-56 w-full sm:h-72 lg:h-80">
           <Image
             src="/assets/generated/hero-ai-automation-dashboard-desktop.webp"

@@ -1,7 +1,4 @@
 import Image from "next/image";
-import fs from "fs";
-import path from "node:path";
-
 import { ButtonLink } from "@/common/button";
 import { DesktopMenu, MobileMenu } from "./navigation-menu";
 import { HeaderAccent } from "./header-accent";
@@ -222,23 +219,21 @@ function HeaderShell({
                 priority
               />
             </span>
-            <span className="block dark:hidden">
+            <span className="hidden md:block dark:hidden relative h-12 sm:h-16 md:h-20 w-[200px]">
               <Image
                 src={logo.light.url}
                 alt={logo.light.alt ?? ""}
-                width={logo.light.width}
-                height={logo.light.height}
-                className="h-12 sm:h-16 md:h-20 w-auto logo-no-bg hidden md:block"
+                fill
+                className="logo-no-bg object-contain w-full h-full"
                 priority
               />
             </span>
-            <span className="hidden dark:block">
+            <span className="hidden md:block dark:block relative h-12 sm:h-16 md:h-20 w-[200px]">
               <Image
                 src={logo.dark.url}
                 alt={logo.dark.alt ?? ""}
-                width={logo.dark.width}
-                height={logo.dark.height}
-                className="h-12 sm:h-16 md:h-20 w-auto logo-no-bg hidden md:block"
+                fill
+                className="logo-no-bg object-contain w-full h-full"
                 priority
               />
             </span>
@@ -257,19 +252,8 @@ export async function Header() {
     navbar: { items: FALLBACK_HEADER_NAV },
     rightCtas: { items: FALLBACK_HEADER_CTAS },
   };
-
-  const genDir = path.join(process.cwd(), "public", "assets", "generated");
-  const lightHeader = fs.existsSync(path.join(genDir, "logo-header-light.png"))
-    ? "/assets/generated/logo-header-light.png"
-    : fs.existsSync(path.join(process.cwd(), "public", "assets", "logo_light2.png"))
-      ? "/assets/logo_light2.png"
-      : FALLBACK_HEADER_LOGO.light.url;
-  let darkHeader = fs.existsSync(path.join(genDir, "logo-header-dark.png"))
-    ? "/assets/generated/logo-header-dark.png"
-    : "";
-  if (!darkHeader) {
-    darkHeader = lightHeader;
-  }
+  const lightHeader = "/assets/logo-light-2.png";
+  const darkHeader = "/assets/logo-dark.png";
 
   const logo: LogoData = {
     dark: {

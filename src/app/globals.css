@@ -147,6 +147,29 @@ html.dark .trust-square-badge {
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
 }
 
+/* Polished image frame for hero/feature art */
+.be-image-frame {
+  border-radius: 20px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: radial-gradient(circle at 10% 0%, rgba(246, 173, 85, 0.16), transparent 55%),
+              radial-gradient(circle at 90% 100%, rgba(26, 54, 93, 0.18), transparent 55%),
+              var(--soft-white);
+  box-shadow:
+    0 18px 45px rgba(15, 23, 42, 0.18),
+    0 1px 0 rgba(255, 255, 255, 0.8) inset;
+  overflow: hidden;
+}
+
+html.dark .be-image-frame {
+  border-color: rgba(148, 163, 184, 0.4);
+  background: radial-gradient(circle at 10% 0%, rgba(246, 173, 85, 0.22), transparent 55%),
+              radial-gradient(circle at 90% 100%, rgba(15, 23, 42, 0.6), transparent 55%),
+              rgba(15, 23, 42, 0.98);
+  box-shadow:
+    0 20px 55px rgba(0, 0, 0, 0.65),
+    0 1px 0 rgba(148, 163, 184, 0.3) inset;
+}
+
 /* CADENCE CARD - READABLE TEXT OVERLAY */
 /* SCOPE: .cadence-card class ONLY - DO NOT apply globally */
 .cadence-card {

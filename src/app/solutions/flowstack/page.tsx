@@ -26,7 +26,7 @@ export default function FlowstackPage() {
         ]}
       />
       <ProductJsonLd />
-      <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary">
+      <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame">
         <div className="relative h-52 w-full sm:h-64 lg:h-72">
           <Image
             src="/assets/generated/hero-flowstack-desktop.webp"

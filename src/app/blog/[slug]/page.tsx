@@ -77,7 +77,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           </p>
         </header>
 
-        <div className="relative h-56 w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary">
+        <div className="relative h-56 w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame">
           <Image
             src={post.hero.src}
             alt={post.hero.alt}

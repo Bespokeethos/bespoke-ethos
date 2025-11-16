@@ -6,7 +6,8 @@ export const $button = cva(
   {
     variants: {
       intent: {
-        primary: "bg-accent-500 hover:bg-accent-600 text-text-on-accent-primary border-accent-600",
+        primary:
+          "bg-[var(--amber-cta)] hover:bg-[var(--gold-accent)] text-[var(--charcoal-text)] shadow-md hover:shadow-lg border-transparent",
         secondary:
           "bg-surface-secondary text-text-primary border-border border dark:bg-dark-surface-secondary dark:text-dark-text-primary dark:border-dark-border hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary",
         tertiary:
