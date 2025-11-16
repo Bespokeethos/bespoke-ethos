@@ -96,7 +96,7 @@ export default function TestimonialsPage() {
               </div>
             ) : null}
             <blockquote className="mt-2 border-l-2 border-accent-500 pl-3 text-sm italic text-text-primary dark:text-dark-text-primary">
-              "{t.quote}"
+              &quot;{t.quote}&quot;
             </blockquote>
             {!t.imageSrc ? (
               <p className="mt-2 text-xs text-text-tertiary dark:text-dark-text-tertiary">

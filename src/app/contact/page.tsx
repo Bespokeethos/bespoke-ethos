@@ -35,14 +35,14 @@ export default async function ContactPage({ searchParams }: PageProps) {
       <Section className="gap-6">
         <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Contact" }]} />
 
-        <div className="grid w-full items-start gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]">
-          <div className="space-y-6 text-left">
+        <div className="grid w-full items-start gap-8 -mt-4 sm:-mt-2 md:mt-0 md:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] md:items-stretch">
+          <div className="order-2 space-y-5 text-left md:order-1 md:space-y-6">
             <p className="inline-flex rounded-full bg-surface-secondary px-3 py-1 text-xs font-medium tracking-tight text-text-secondary dark:bg-dark-surface-secondary dark:text-dark-text-secondary">
               {isLlmSetup ? "Automation setups · Stack mapping · Guardrails" : "Small business automation • Founder-friendly"}
             </p>
 
             <div className="space-y-3">
-              <h1 className="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
+              <h1 className="text-balance text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl">
                 {isLlmSetup ? "Let’s map your LLM stack the right way." : "Tell us what you’re trying to ship."}
               </h1>
               <p className="text-base leading-relaxed text-text-secondary dark:text-dark-text-secondary">
@@ -68,9 +68,9 @@ export default async function ContactPage({ searchParams }: PageProps) {
               ) : (
                 <div className="rounded-2xl border border-border bg-surface-secondary/80 p-4 text-sm text-text-secondary shadow-sm dark:border-dark-border dark:bg-dark-surface-secondary/80 dark:text-dark-text-secondary">
                   <p className="font-semibold text-text-primary dark:text-dark-text-primary">
-                    What happens after you hit “Send”?
+                    What happens after you hit &quot;Send&quot;?
                   </p>
-                  <ul className="mt-2 list-disc space-y-1 pl-5">
+                  <ul className="mt-2 list-disc space-y-1 pl-5 text-xs md:text-sm">
                     <li>We read every message ourselves—no AI auto-replies.</li>
                     <li>You’ll get a plain-English response within one business day.</li>
                     <li>If there’s a fit, we’ll suggest a call; if not, we’ll still point you in the right direction.</li>
@@ -88,7 +88,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-border bg-surface-secondary/90 p-6 shadow-lg shadow-black/5 dark:border-dark-border dark:bg-dark-surface-secondary/90">
+          <div className="order-1 rounded-2xl border border-border bg-surface-secondary/90 p-4 shadow-lg shadow-black/5 dark:border-dark-border dark:bg-dark-surface-secondary/90 sm:order-2 sm:p-6">
             {sent ? (
               <div className="mb-6 rounded-md border border-green-700/30 bg-green-500/10 p-4 text-sm text-green-700 dark:border-green-300/20 dark:text-green-300">
                 <p className="font-medium">Thanks! Your message is on its way.</p>
@@ -97,13 +97,13 @@ export default async function ContactPage({ searchParams }: PageProps) {
               </div>
             ) : null}
 
-            <form method="post" action="/api/contact" className="grid grid-cols-1 gap-4">
+            <form method="post" action="/api/contact" className="grid grid-cols-1 gap-3 sm:gap-4">
               <input type="hidden" name="successRedirect" value="/contact?sent=1" />
               <input type="hidden" name="errorRedirect" value="/contact?error=1" />
 
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <label className="flex flex-col gap-1">
-                  <span className="text-sm text-text-secondary dark:text-dark-text-secondary">
+                  <span className="text-xs text-text-secondary dark:text-dark-text-secondary sm:text-sm">
                     Name <span className="text-red-600">*</span>
                   </span>
                   <input
@@ -114,7 +114,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
                   />
                 </label>
                 <label className="flex flex-col gap-1">
-                  <span className="text-sm text-text-secondary dark:text-dark-text-secondary">
+                  <span className="text-xs text-text-secondary dark:text-dark-text-secondary sm:text-sm">
                     Email <span className="text-red-600">*</span>
                   </span>
                   <input
@@ -128,7 +128,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
 
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <label className="flex flex-col gap-1">
-                  <span className="text-sm text-text-secondary dark:text-dark-text-secondary">Company (optional)</span>
+                  <span className="text-xs text-text-secondary dark:text-dark-text-secondary sm:text-sm">Company (optional)</span>
                   <input
                     name="company"
                     type="text"
@@ -136,7 +136,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
                   />
                 </label>
                 <label className="flex flex-col gap-1">
-                  <span className="text-sm text-text-secondary dark:text-dark-text-secondary">Timeline</span>
+                  <span className="text-xs text-text-secondary dark:text-dark-text-secondary sm:text-sm">Timeline</span>
                   <select
                     name="timeline"
                     className="rounded-md border border-border bg-surface-primary px-3 py-2 outline-none ring-0 focus:border-accent-primary/60 dark:border-dark-border dark:bg-dark-surface-primary"
@@ -150,7 +150,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
               </div>
 
               <label className="flex flex-col gap-1">
-                <span className="text-sm text-text-secondary dark:text-dark-text-secondary">
+                <span className="text-xs text-text-secondary dark:text-dark-text-secondary sm:text-sm">
                   What are you hoping to achieve? <span className="text-red-600">*</span>
                 </span>
                 <input
@@ -163,7 +163,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
               </label>
 
               <label className="flex flex-col gap-1">
-                <span className="text-sm text-text-secondary dark:text-dark-text-secondary">Budget (optional)</span>
+                <span className="text-xs text-text-secondary dark:text-dark-text-secondary sm:text-sm">Budget (optional)</span>
                 <select
                   name="budget"
                   className="rounded-md border border-border bg-surface-primary px-3 py-2 outline-none ring-0 focus:border-accent-primary/60 dark:border-dark-border dark:bg-dark-surface-primary"
@@ -177,12 +177,12 @@ export default async function ContactPage({ searchParams }: PageProps) {
               </label>
 
               <label className="flex flex-col gap-1">
-                <span className="text-sm text-text-secondary dark:text-dark-text-secondary">
+                <span className="text-xs text-text-secondary dark:text-dark-text-secondary sm:text-sm">
                   Message <span className="text-red-600">*</span>
                 </span>
                 <textarea
                   name="message"
-                  rows={6}
+                  rows={4}
                   required
                   className="rounded-md border border-border bg-surface-primary px-3 py-2 outline-none ring-0 focus:border-accent-primary/60 dark:border-dark-border dark:bg-dark-surface-primary"
                 />
@@ -208,7 +208,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
                 <p className="text-sm text-red-600 dark:text-red-400">Failed to send. Please try again.</p>
               ) : null}
 
-              <div className="mt-6 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+              <div className="mt-4 flex flex-col items-stretch justify-center gap-3 sm:mt-6 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
                 <button
                   type="submit"
                   className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-accent-600 px-5 py-2 text-sm font-medium text-white shadow-sm hover:brightness-110 sm:w-auto"

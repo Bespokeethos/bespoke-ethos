@@ -38,78 +38,38 @@ export default function HomePage() {
       <HomePageJsonLd />
 
       {/* Hero */}
-      <section
-        style={{
-          backgroundColor: "var(--cream-bg)",
-          padding: "80px 24px 64px",
-          textAlign: "center",
-        }}
-      >
-        <h1
-          style={{
-            fontSize: "56px",
-            fontWeight: 700,
-            color: "var(--charcoal-text)",
-            marginBottom: "24px",
-            lineHeight: "1.2",
-          }}
-        >
-          “Am I Doing This Right?”
-        </h1>
+      <section className="home-hero">
+        <div className="home-hero-inner">
+          <h1 className="home-hero-title">&quot;Am I Doing This Right?&quot;</h1>
 
-        <p
-          style={{
-            fontSize: "28px",
-            fontWeight: 600,
-            color: "var(--muted-text)",
-            marginBottom: "32px",
-          }}
-        >
-          We Handle Busywork. You Keep Control.
-        </p>
+          <p className="home-hero-subtitle">We Handle Busywork. You Keep Control.</p>
 
-        <p
-          style={{
-            fontSize: "20px",
-            color: "var(--muted-text)",
-            maxWidth: "700px",
-            margin: "0 auto 24px",
-            lineHeight: "1.6",
-          }}
-        >
-          Free 30-minute AI consultation + custom research report on your biggest uncertainty.
-          <br />
-          No jargon. No pressure. Just answers.
-        </p>
+          <p className="home-hero-body">
+            Free 30-minute AI consultation + custom research report on your biggest uncertainty.
+            <br />
+            No jargon. No pressure. Just answers.
+          </p>
 
-        <Link href="/contact?service=llm-setups" className="primary-cta inline-block" style={{ marginBottom: "32px" }}>
-          Schedule Your Free Consultation
-        </Link>
+          <Link href="/contact?service=llm-setups" className="primary-cta inline-block mb-8">
+            Schedule Your Free Consultation
+          </Link>
 
-        <p
-          style={{
-            fontSize: "18px",
-            color: "var(--muted-text)",
-            fontStyle: "italic",
-            maxWidth: "600px",
-            margin: "0 auto",
-            lineHeight: "1.6",
-          }}
-        >
-          You’re working your day job and building nights and weekends. We get it—we’re doing it too. Let’s figure this
-          out together.
-        </p>
+          <p className="home-hero-tagline">
+            You&apos;re working your day job and building nights and weekends. We get it-we&apos;re doing it too. Let&apos;s figure this
+            out together.
+          </p>
 
-        <div className="mt-8 mx-auto max-w-md sm:max-w-lg lg:max-w-2xl">
-          <div className="relative aspect-[5/3] w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame">
-            <Image
-              src="/assets/generated/hero-ai-automation-dashboard-desktop.webp"
-              alt="AI automation dashboard showing workflow connections between Gmail, Slack, Salesforce and Airtable for small business efficiency"
-              fill
-              className="h-full w-full object-cover"
-              sizes="(max-width: 768px) 100vw, 960px"
-              priority
-            />
+          <div className="mt-8 mx-auto max-w-md sm:max-w-lg lg:max-w-2xl">
+            <div className="relative aspect-[5/3] w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame">
+              <Image
+                src="/assets/generated/hero-ai-automation-dashboard-desktop.webp"
+                alt="AI automation dashboard showing workflow connections between Gmail, Slack, Salesforce and Airtable for small business efficiency"
+                fill
+                className="h-full w-full object-cover"
+                sizes="(max-width: 768px) 100vw, 960px"
+                priority
+              />
+            </div>
           </div>
         </div>
       </section>

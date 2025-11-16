@@ -102,6 +102,50 @@
   opacity: .55;
 }
 
+/* Homepage hero layout */
+.home-hero {
+  background-color: var(--cream-bg);
+  padding: 72px 24px 56px;
+  text-align: center;
+}
+
+.home-hero-inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.home-hero-title {
+  font-weight: 700;
+  color: var(--charcoal-text);
+  margin-bottom: 24px;
+  line-height: 1.2;
+  font-size: clamp(2.4rem, 5vw, 3.5rem); /* ~38–56px across breakpoints */
+}
+
+.home-hero-subtitle {
+  font-weight: 600;
+  color: var(--muted-text);
+  margin-bottom: 32px;
+  font-size: clamp(1.4rem, 3.2vw, 1.75rem); /* ~22–28px */
+}
+
+.home-hero-body {
+  font-size: 20px;
+  color: var(--muted-text);
+  max-width: 700px;
+  margin: 0 auto 24px;
+  line-height: 1.6;
+}
+
+.home-hero-tagline {
+  font-size: 18px;
+  color: var(--muted-text);
+  font-style: italic;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
 /* Trust badges – "sweet & savory" finish */
 .trust-thin-pill {
   display: inline-flex;
