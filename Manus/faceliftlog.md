@@ -39,7 +39,8 @@
 ## [TIMESTAMP] - Code Agent
 
 ### Components Implemented / Updated
-- Component name – short description of change
+- src/app/solutions/flowstack/page.tsx - updated product naming to Flowstack™ in metadata, heading, copy, and JSON-LD; clarified copy around first-use story and fixed minor punctuation.
+- src/app/layout.tsx - pointed global Open Graph image to the brand square logo at /assets/generated/logo-square-dark.png so social previews use the orange drop square instead of the old template OG.
 
 ### Integrations Completed
 - [ ] Sanity CMS  
@@ -67,4 +68,3 @@
 ---
 
 > Add additional sections for Research, Design, Copy/SEO, and Testing agents using similar headings.
-

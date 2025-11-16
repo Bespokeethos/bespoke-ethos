@@ -44,7 +44,7 @@ const FALLBACK_METADATA = {
     url: "/assets/favicon.png",
     mimeType: "image/png",
   },
-  ogImageUrl: "/og-image.png",
+  ogImageUrl: "/assets/generated/logo-square-dark.png",
   appleTouchIcon: "/apple-touch-icon.png",
   manifest: "/site.webmanifest",
 };

@@ -3,7 +3,7 @@ import { Heading } from "@/common/heading";
 import type { Metadata } from "next";
 import { Section } from "@/common/layout";
 import { ButtonLink } from "@/common/button";
-import { PRICING, formatMoney, planSummary } from "@/config/pricing";
+import { PRICING, planSummary } from "@/config/pricing";
 import { Breadcrumbs } from "@/app/_components/seo/breadcrumbs";
 
 export const revalidate = 1800;
@@ -18,7 +18,13 @@ export const metadata: Metadata = {
 export default function FlowstackPage() {
   return (
     <Section className="gap-6">
-      <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Solutions", href: "/solutions" }, { name: "Flowstack™" }]} />
+      <Breadcrumbs
+        items={[
+          { name: "Home", href: "/" },
+          { name: "Solutions", href: "/solutions" },
+          { name: "Flowstack™" },
+        ]}
+      />
       <ProductJsonLd />
       <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary">
         <div className="relative h-52 w-full sm:h-64 lg:h-72">
@@ -32,26 +38,33 @@ export default function FlowstackPage() {
           />
         </div>
       </div>
-      <Heading subtitle="Proprietary general automation for any business task. Own the results." align="left">
+      <Heading
+        subtitle="Proprietary general automation for any business task. Own the results."
+        align="left"
+      >
         <h1>Flowstack™</h1>
       </Heading>
       <div className="space-y-4 text-text-secondary">
         <p>
-          When I was drowning in my publishing business, I didn&rsquo;t need a fancy AI platform. I needed someone to automate the one task that was
-          stealing hours from my week. So I built Flowstack™ for myself first. It is our proprietary general automation package, designed to
-          handle any business task-from lead routing to inventory updates.
+          When I was drowning in my publishing business, I didn&rsquo;t need a
+          fancy AI platform. I needed someone to automate the one task that was
+          stealing hours from my week. So I built Flowstack™ for myself first.
+          It is our proprietary general automation package, designed to handle
+          any business task&mdash;from lead routing to inventory updates.
         </p>
         <p>
-          We map your real process, keep human approvals intact, and ship a production-ready automation in days. Every build ships with
-          documentation, audit trails, and rollback-because I learned the hard way that automation without guardrails creates more problems than it
-          solves.
+          We map your real process, keep human approvals intact, and ship a
+          production-ready automation in days. Every build ships with
+          documentation, audit trails, and rollback&mdash;because I learned the
+          hard way that automation without guardrails creates more problems than
+          it solves.
         </p>
       </div>
       <ul className="mt-2 list-disc pl-6 text-text-secondary">
         <li>Keeps humans in the approval loop where it matters</li>
         <li>Single source of truth with clear audit trails</li>
         <li>Rollback paths and alerts for safe operations</li>
-        <li>Ships in days, not months - start with your worst task</li>
+        <li>Ships in days, not months — start with your worst task</li>
       </ul>
       <div className="flex gap-3">
         <ButtonLink intent="primary" href="/contact">
@@ -88,7 +101,9 @@ function ProductJsonLd() {
         price: PRICING.flowstack.setup,
       },
       availability: "https://schema.org/InStock",
-      url: `${process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com"}/solutions/flowstack`,
+      url: `${
+        process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com"
+      }/solutions/flowstack`,
     },
     additionalType: "https://schema.org/Service",
     provider: {
@@ -96,5 +111,11 @@ function ProductJsonLd() {
       name: "Bespoke Ethos",
     },
   };
-  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }}
+    />
+  );
 }
+
