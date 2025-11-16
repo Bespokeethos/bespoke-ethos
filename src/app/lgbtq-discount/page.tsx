@@ -16,13 +16,13 @@ export const metadata: Metadata = {
 
 export default function LGBTQDiscountPage() {
   return (
-    <Section className="gap-8">
+    <Section className="gap-6">
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "LGBTQ+ Discount" }]} />
 
       <div className="relative w-full overflow-hidden rounded-3xl border border-border/80 bg-surface-secondary/95 p-6 shadow-xl dark:border-dark-border/80 dark:bg-dark-surface-secondary/95 sm:p-10">
         <div className="relative z-10 space-y-4 text-center sm:text-left">
           <p className="inline-flex items-center gap-2 rounded-full bg-accent-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-accent-600 dark:text-accent-300">
-            <span aria-hidden="true">🏳️‍🌈</span>
+            <span aria-hidden="true">Always On</span>
             <span>LGBTQ+ Founder Support</span>
           </p>
 
@@ -31,7 +31,7 @@ export default function LGBTQDiscountPage() {
           </Heading>
 
           <p className="text-base leading-relaxed text-text-secondary dark:text-dark-text-secondary sm:text-lg">
-            Starting a business as a minority is hard as hell. I know&mdash;I&apos;ve been there. That&apos;s why LGBTQ-owned
+            Starting a business as a minority is hard as hell. I know—I’ve been there. That’s why LGBTQ-owned
             businesses get a{" "}
             <strong className="text-text-primary dark:text-dark-text-primary">
               full-time, sitewide 25% discount on upfront project fees
@@ -54,7 +54,7 @@ export default function LGBTQDiscountPage() {
 
             <div className="space-y-2">
               <h2 className="text-sm font-semibold uppercase tracking-[0.16em] text-text-tertiary dark:text-dark-text-tertiary">
-                What it doesn&apos;t cover
+                What it doesn’t cover
               </h2>
               <ul className="list-disc pl-5 text-sm text-text-secondary dark:text-dark-text-secondary">
                 <li>
@@ -63,14 +63,14 @@ export default function LGBTQDiscountPage() {
                 <li>
                   Does <strong>not</strong> reduce third-party platform costs (Zapier, Make, etc.).
                 </li>
-                <li>Applies to our fees only&mdash;the work we directly deliver.</li>
+                <li>Applies to our fees only—the work we directly deliver.</li>
               </ul>
             </div>
           </div>
 
           <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary">
-            If you&apos;re LGBTQ+-owned or led, just mention it when you reach out. We&apos;ll apply the discount automatically to the
-            eligible parts of your proposal.
+            If you’re LGBTQ+-owned or led, just mention it when you reach out. We’ll apply the discount automatically to
+            the eligible parts of your proposal.
           </p>
 
           <div className="mt-6 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center">

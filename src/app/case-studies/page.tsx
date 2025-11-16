@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function CaseStudiesPage() {
   return (
-    <Section className="gap-10">
+    <Section className="gap-8">
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Case Studies" }]} />
 
       <Heading
@@ -122,4 +122,3 @@ export default function CaseStudiesPage() {
     </Section>
   );
 }
-

@@ -18,7 +18,7 @@ const LINK_SEPARATOR = <span className="text-text-tertiary">•</span>;
 
 export default function HelpPage() {
   return (
-    <Section className="gap-8">
+    <Section className="gap-6">
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Help" }]} />
       <Heading subtitle="What our products do and don&rsquo;t" align="left">
         <h1>Help & Product Overview</h1>

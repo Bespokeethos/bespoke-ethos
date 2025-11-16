@@ -32,7 +32,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
       <ContactPageJsonLd />
       <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" strategy="afterInteractive" async defer />
 
-      <Section className="gap-8">
+      <Section className="gap-6">
         <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Contact" }]} />
 
         <div className="grid w-full items-start gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]">
@@ -46,22 +46,23 @@ export default async function ContactPage({ searchParams }: PageProps) {
                 {isLlmSetup ? "Let’s map your LLM stack the right way." : "Tell us what you’re trying to ship."}
               </h1>
               <p className="text-base leading-relaxed text-text-secondary dark:text-dark-text-secondary">
-                You don’t need a 40-page strategy deck. You need clear next steps. Share where you&apos;re stuck and what a win would
-                look like, and we&apos;ll respond with practical options—no pressure, no hard sell.
+                You don’t need a 40-page strategy deck. You need clear next steps. Share where you’re stuck and what a win
+                would look like, and we’ll respond with practical options—no pressure, no hard sell.
               </p>
 
               {isLlmSetup ? (
                 <div className="rounded-2xl border border-border bg-surface-secondary/80 p-4 text-sm text-text-secondary shadow-sm dark:border-dark-border dark:bg-dark-surface-secondary/80 dark:text-dark-text-secondary">
                   <p className="font-semibold text-text-primary dark:text-dark-text-primary">
-                    You&apos;re asking about automation &amp; AI stack mapping.
+                    You’re asking about automation & AI stack mapping.
                   </p>
                   <p className="mt-2">
-                    In the message box, tell us where your data lives (docs, CRM, tools), who needs access, and what&apos;s breaking today.
-                    We&apos;ll outline 1–2 stack options and what they&apos;d cost—using tools that fit your size and budget.
+                    In the message box, tell us where your data lives (docs, CRM, tools), who needs access, and what’s
+                    breaking today. We’ll outline 1–2 stack options and what they’d cost—using tools that fit your size
+                    and budget.
                   </p>
                   <ul className="mt-3 list-disc space-y-1 pl-5 text-xs text-text-tertiary dark:text-dark-text-tertiary">
-                    <li>Mention 2–3 workflows you&apos;d love to hand off (intake, reporting, customer support triage, etc.).</li>
-                    <li>If you have broken Zaps/Scenarios, link them and we&apos;ll include a “rescue plan.”</li>
+                    <li>Mention 2–3 workflows you’d love to hand off (intake, reporting, customer support triage, etc.).</li>
+                    <li>If you have broken Zaps/Scenarios, link them and we’ll include a “rescue plan.”</li>
                   </ul>
                 </div>
               ) : (
@@ -71,8 +72,8 @@ export default async function ContactPage({ searchParams }: PageProps) {
                   </p>
                   <ul className="mt-2 list-disc space-y-1 pl-5">
                     <li>We read every message ourselves—no AI auto-replies.</li>
-                    <li>You&apos;ll get a plain-English response within one business day.</li>
-                    <li>If there&apos;s a fit, we&apos;ll suggest a call; if not, we&apos;ll still point you in the right direction.</li>
+                    <li>You’ll get a plain-English response within one business day.</li>
+                    <li>If there’s a fit, we’ll suggest a call; if not, we’ll still point you in the right direction.</li>
                   </ul>
                 </div>
               )}
@@ -80,7 +81,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
               <div className="rounded-xl border border-dashed border-border/70 bg-surface-secondary/40 p-4 text-xs text-text-secondary dark:border-dark-border/80 dark:bg-dark-surface-secondary/40 dark:text-dark-text-secondary">
                 <p>
                   <strong className="font-semibold text-text-primary dark:text-dark-text-primary">LGBTQ+ discount:</strong>{" "}
-                  If you&apos;re an LGBTQ+-owned business, mention it in your message. You may qualify for{" "}
+                  If you’re an LGBTQ+-owned business, mention it in your message. You may qualify for{" "}
                   <span className="font-semibold">25% off upfront project costs</span> (not subscriptions).
                 </p>
               </div>
@@ -91,7 +92,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
             {sent ? (
               <div className="mb-6 rounded-md border border-green-700/30 bg-green-500/10 p-4 text-sm text-green-700 dark:border-green-300/20 dark:text-green-300">
                 <p className="font-medium">Thanks! Your message is on its way.</p>
-                <p className="mt-1 opacity-90">We&apos;ll get back to you soon. Redirecting to the homepage.</p>
+                <p className="mt-1 opacity-90">We’ll get back to you soon. Redirecting to the homepage.</p>
                 <SuccessNotice />
               </div>
             ) : null}
@@ -189,7 +190,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
 
               <label className="mt-2 flex items-start gap-2 text-sm text-text-secondary dark:text-dark-text-secondary">
                 <input name="consent" type="checkbox" value="yes" className="mt-1" />
-                <span>You agree we may contact you about this request. We&apos;ll never share your email.</span>
+                <span>You agree we may contact you about this request. We’ll never share your email.</span>
               </label>
 
               {process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ? (

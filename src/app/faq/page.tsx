@@ -30,7 +30,7 @@ const questions = [
     _analyticsKey: "faq-3",
     _title: "Which tools do you work with?",
     answer:
-      "Zapier, Make, Airtable, HubSpot, QuickBooks, Google Workspace, and more-plus custom connectors when needed. If you already have tools in place, we start there instead of ripping them out.",
+      "Zapier, Make, Airtable, HubSpot, QuickBooks, Google Workspace, and more—plus custom connectors when needed. If you already have tools in place, we start there instead of ripping them out.",
   },
   {
     _analyticsKey: "faq-4",
@@ -42,25 +42,25 @@ const questions = [
     _analyticsKey: "faq-5",
     _title: "Do you replace my team or work with them?",
     answer:
-      "We design automations that take the busywork off your team&apos;s plate so they can stay focused on higher-value work. AI handles structured, repeatable tasks; humans still make the calls that matter.",
+      "We design automations that take the busywork off your team’s plate so they can stay focused on higher-value work. AI handles structured, repeatable tasks; humans still make the calls that matter.",
   },
   {
     _analyticsKey: "faq-6",
     _title: "What does a typical first project cost?",
     answer:
-      "Most first projects land in the $799-$2,500 range depending on scope. The pricing page breaks down Flowstack™, Chatbots, Consensus Engine™, and Redbridging™ packages, plus one-time services.",
+      "Most first projects land in the $799–$2,500 range depending on scope. The pricing page breaks down Flowstack™, Chatbots, Consensus Engine™, and Redbridging™ packages, plus one-time services.",
   },
   {
     _analyticsKey: "faq-7",
     _title: "Can you rescue broken automations I already have?",
     answer:
-      "Yes-that&apos;s exactly what Redbridging™ is for. We stabilize brittle Zapier/Make flows, add monitoring and alerts, and document everything so you&apos;re not dependent on a single person who &quot;knows the system.&quot;",
+      "Yes—that’s exactly what Redbridging™ is for. We stabilize brittle Zapier/Make flows, add monitoring and alerts, and document everything so you’re not dependent on a single person who “knows the system.”",
   },
   {
     _analyticsKey: "faq-8",
     _title: "How do we get started?",
     answer:
-      "Book a free assessment or send a quick note through the contact form. Share your top one or two pain points, your tools, and your rough budget. We&apos;ll respond with a concrete plan-not a generic sales deck.",
+      "Book a free assessment or send a quick note through the contact form. Share your top one or two pain points, your tools, and your rough budget. We’ll respond with a concrete plan—not a generic sales deck.",
   },
 ];
 
@@ -79,10 +79,10 @@ function FaqJsonLd() {
 
 export default function FaqPage() {
   return (
-    <Section className="gap-8">
+    <Section className="gap-6">
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "FAQ" }]} />
-      <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame">
-        <div className="relative h-52 w-full sm:h-64 lg:h-72">
+      <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame shadow-xl">
+        <div className="relative h-40 w-full sm:h-48 lg:h-56">
           <Image
             src="/assets/generated/hero-consensus-desktop.webp"
             alt="Founder meeting at a small table reviewing clear strategy notes together"

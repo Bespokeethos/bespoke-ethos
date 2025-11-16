@@ -62,7 +62,7 @@ export const metadata: Metadata = {
 
 export default function TestimonialsPage() {
   return (
-    <Section className="gap-8">
+    <Section className="gap-6">
       <TestimonialsJsonLd />
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Testimonials" }]} />
       <Heading align="left" subtitle="Proof in shipped outcomes">

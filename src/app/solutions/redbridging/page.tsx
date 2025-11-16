@@ -19,8 +19,8 @@ export default function RedbridgingPage() {
     <Section className="gap-6">
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Solutions", href: "/solutions" }, { name: "Redbridging" }]} />
       <ProductJsonLd />
-      <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame">
-        <div className="relative h-52 w-full sm:h-64 lg:h-72">
+      <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame shadow-xl">
+        <div className="relative h-40 w-full sm:h-48 lg:h-56">
           <Image
             src="/assets/generated/hero-redbridging-desktop.webp"
             alt="Stylized bridge of circuit traces connecting chaos on one side to calm, stable operations on the other"
@@ -29,6 +29,12 @@ export default function RedbridgingPage() {
             sizes="(max-width: 768px) 100vw, 960px"
             priority
           />
+          <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+            <div className="rounded-2xl bg-black/45 px-5 py-3 text-center text-sm sm:text-base font-medium text-white/95 shadow-2xl backdrop-blur-md">
+              <div className="mb-1 text-xs uppercase tracking-[0.22em] text-amber-200">Redbridging™</div>
+              <div className="text-sm sm:text-base">Automation Rescue &amp; Monitoring</div>
+            </div>
+          </div>
         </div>
       </div>
       <Heading subtitle="We rescue broken automations" align="left">

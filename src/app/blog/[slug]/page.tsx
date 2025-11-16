@@ -54,7 +54,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   }
 
   return (
-    <Section className="gap-8 items-start">
+    <Section className="gap-6 items-start">
       <BlogPostJsonLd slug={post.slug} />
       <Breadcrumbs
         items={[
@@ -77,7 +77,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           </p>
         </header>
 
-        <div className="relative h-56 w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame">
+        <div className="relative h-40 w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame shadow-xl">
           <Image
             src={post.hero.src}
             alt={post.hero.alt}

@@ -19,7 +19,7 @@ export default function BlogLandingPage() {
   const posts = getAllPosts();
 
   return (
-    <Section className="gap-8 items-start">
+    <Section className="gap-6 items-start">
       <BlogListingJsonLd />
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Blog" }]} />
       <div className="mx-auto flex w-full max-w-5xl flex-col gap-6">

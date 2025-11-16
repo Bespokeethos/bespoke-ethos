@@ -136,8 +136,8 @@ export function LGBTQDiscountModalTrigger({ children }: LGBTQDiscountModalTrigge
                 marginBottom: "24px",
               }}
             >
-              We know what it&apos;s like to build a business while navigating the unique challenges
-              our community faces. We&apos;ve been there. Still are, actually.
+              We know what it’s like to build a business while navigating the unique challenges our
+              community faces. We’ve been there. Still are, actually.
             </p>
 
             <p
@@ -148,7 +148,7 @@ export function LGBTQDiscountModalTrigger({ children }: LGBTQDiscountModalTrigge
                 marginBottom: "24px",
               }}
             >
-              That&apos;s why we offer{" "}
+              That’s why we offer{" "}
               <strong style={{ color: "var(--charcoal-text)" }}>
                 25% off all upfront project costs
               </strong>{" "}
@@ -171,7 +171,7 @@ export function LGBTQDiscountModalTrigger({ children }: LGBTQDiscountModalTrigge
                   marginBottom: "16px",
                 }}
               >
-                What&apos;s Included:
+                What’s Included:
               </p>
               <ul
                 style={{
@@ -205,7 +205,7 @@ export function LGBTQDiscountModalTrigger({ children }: LGBTQDiscountModalTrigge
                   marginBottom: "12px",
                 }}
               >
-                What&apos;s Not Included:
+                What’s Not Included:
               </p>
               <p
                 style={{
@@ -221,6 +221,7 @@ export function LGBTQDiscountModalTrigger({ children }: LGBTQDiscountModalTrigge
             </div>
 
             <p
+              className="hidden md:block"
               style={{
                 fontSize: "18px",
                 color: "var(--muted-text)",
@@ -229,10 +230,24 @@ export function LGBTQDiscountModalTrigger({ children }: LGBTQDiscountModalTrigge
               }}
             >
               <strong style={{ color: "var(--charcoal-text)" }}>How to claim:</strong> Just mention
-              you&apos;re an LGBTQ+-owned business during your free consultation. We&apos;ll ask for
-              simple verification (business registration, NGLCC certification if you have it, or
-              other documentation). No hoops to jump through&mdash;we&apos;re not here to gatekeep,
-              just to support our community.
+              you’re an LGBTQ+-owned business during your free consultation. We’ll ask for simple
+              verification (business registration, NGLCC certification if you have it, or other
+              documentation). No hoops to jump through—we’re not here to gatekeep, just to support
+              our community.
+            </p>
+
+            <p
+              className="md:hidden"
+              style={{
+                fontSize: "16px",
+                color: "var(--muted-text)",
+                lineHeight: 1.6,
+                marginBottom: "20px",
+              }}
+            >
+              <strong style={{ color: "var(--charcoal-text)" }}>How to claim:</strong> Mention
+              you’re an LGBTQ+-owned business during your free consultation. We’ll ask for simple,
+              one-time verification. No hoops or gatekeeping.
             </p>
 
             <p
@@ -240,13 +255,12 @@ export function LGBTQDiscountModalTrigger({ children }: LGBTQDiscountModalTrigge
                 fontSize: "18px",
                 color: "var(--muted-text)",
                 lineHeight: 1.8,
-                marginBottom: "32px",
+                marginBottom: "28px",
                 fontStyle: "italic",
                 textAlign: "center",
               }}
             >
-              We&apos;re NGLCC-certified ourselves. We know the journey. Let&apos;s build something
-              together.
+              We’re NGLCC-certified ourselves. We know the journey. Let’s build something together.
             </p>
 
             <div style={{ textAlign: "center" }}>

@@ -21,7 +21,7 @@ const ITEMS = [
 
 export default function ALaCartePage() {
   return (
-    <Section className="gap-8">
+    <Section className="gap-6">
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Solutions", href: "/solutions" }, { name: "A La Carte" }]} />
       <div className="relative overflow-hidden rounded-lg">
         <div className="hero-cloud-bg absolute inset-0 -z-10" />

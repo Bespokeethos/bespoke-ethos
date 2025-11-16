@@ -33,19 +33,19 @@ export const BLOG_POSTS: BlogPost[] = [
       return (
         <div className="prose prose-zinc max-w-none dark:prose-invert">
           <p>
-            Cleveland is full of owner-operated businesses that run on grit, reputation, and relationships. Most of them are still running on
-            spreadsheets, sticky notes, and late-night inbox cleanups. When people hear “AI automation,” they picture robots taking over—not
-            a calmer Tuesday.
+            Cleveland is full of owner-operated businesses that run on grit, reputation, and relationships. Most of them
+            are still running on spreadsheets, sticky notes, and late-night inbox cleanups. When people hear “AI
+            automation,” they picture robots taking over—not a calmer Tuesday.
           </p>
           <p>
-            This guide is for founders who want the calm Tuesday. We&apos;ll cover where to start, what to automate first, and how to stay in
-            control while AI handles the busywork.
+            This guide is for founders who want the calm Tuesday. We’ll cover where to start, what to automate first, and
+            how to stay in control while AI handles the busywork.
           </p>
 
           <h2>Start With One Messy Workflow</h2>
           <p>
-            The biggest mistake small businesses make with automation is trying to “redo everything” at once. That&apos;s a rebrand, not a
-            workflow fix. Instead, pick one process that is:
+            The biggest mistake small businesses make with automation is trying to “redo everything” at once. That’s a
+            rebrand, not a workflow fix. Instead, pick one process that is:
           </p>
           <ul>
             <li>Recurring (weekly or daily)</li>
@@ -67,18 +67,18 @@ export const BLOG_POSTS: BlogPost[] = [
           </p>
 
           <h2>What “Good” AI Automation Looks Like</h2>
-          <p>AI can be risky when it&apos;s bolted on without guardrails. For small businesses, good automation is defined by three rules:</p>
+          <p>AI can be risky when it’s bolted on without guardrails. For small businesses, good automation is defined by three rules:</p>
           <ol>
             <li>
               <strong>Approvals stay human for anything money- or relationship-critical.</strong> AI proposes; you approve. Tools like{" "}
               <Link href="/solutions/consensus-engine" className="underline">
                 Consensus Engine™
               </Link>{" "}
-              can support strategic decisions, but they don&apos;t get the final say.
+              can support strategic decisions, but they don’t get the final say.
             </li>
             <li>
-              <strong>There&apos;s a paper trail.</strong> Every automation should leave logs you can read: what ran, when, and why. That&apos;s
-              the core of how Bespoke Ethos builds workflows.
+              <strong>There’s a paper trail.</strong> Every automation should leave logs you can read: what ran, when, and why. That’s the core
+              of how Bespoke Ethos builds workflows.
             </li>
             <li>
               <strong>You can roll it back.</strong> If something behaves strangely, you can pause it, revert, and fix it—without taking your
@@ -87,7 +87,7 @@ export const BLOG_POSTS: BlogPost[] = [
           </ol>
 
           <h2>Three Cleveland-Friendly Starting Points</h2>
-          <p>If you&apos;re not sure which workflow to pick, here are three “starter automations” we routinely implement:</p>
+          <p>If you’re not sure which workflow to pick, here are three “starter automations” we routinely implement:</p>
           <ul>
             <li>
               <strong>Intake + triage for service businesses.</strong> Form submissions flow into Airtable, get tagged by service type, and
@@ -107,104 +107,22 @@ export const BLOG_POSTS: BlogPost[] = [
           </ul>
 
           <h2>How to Keep Risk Low</h2>
-          <p>Small businesses can&apos;t afford outages. To keep risk low:</p>
+          <p>Small businesses can’t afford outages. To keep risk low:</p>
           <ul>
-            <li>Run new automations in “shadow mode” first—log actions but don&apos;t perform them.</li>
+            <li>Run new automations in “shadow mode” first—log actions but don’t perform them.</li>
             <li>Alert humans before AI takes irreversible steps (refunds, cancellations, legal notices).</li>
-            <li>Document every connection so you&apos;re never dependent on one contractor who “knows the system.”</li>
+            <li>Document every connection so you’re never dependent on one contractor who “knows the system.”</li>
           </ul>
 
           <h2>Next Step for Cleveland Founders</h2>
           <p>
-            If you&apos;re in Cleveland (or act like a Cleveland founder even if you&apos;re not), your next move is simple: list one
-            workflow you&apos;d love never to think about again. Bring that to a{" "}
-            <Link href="/contact?service=llm-setups" className="underline">
-              free consultation call
-            </Link>{" "}
-            and we&apos;ll map out an automation that pays for itself in hours-not buzzwords.
-          </p>
-        </div>
-      );
-    },
-  },
-  {
-    slug: "what-to-automate-first-small-business",
-    title: "What to Automate First in Your Small Business",
-    description:
-      "A practical checklist for deciding which workflow to automate first so you save time without breaking what already works.",
-    publishedAt: "2025-11-15",
-    readingTimeMinutes: 7,
-    hero: {
-      src: "/assets/generated/blog-what-to-automate-first-desktop.webp",
-      alt: "Candid photo of a founder prioritizing tasks on a whiteboard in a small studio",
-    },
-    tags: ["automation strategy", "small business", "prioritization"],
-    content: function PostContent() {
-      return (
-        <div className="prose prose-zinc max-w-none dark:prose-invert">
-          <p>
-            “What should I automate first?” is the right question to ask. Automate the wrong thing and you burn time, budget, and trust. Automate
-            the right thing and you get hours back every week.
-          </p>
-
-          <h2>The 80/20 Automation Filter</h2>
-          <p>Before you plug anything into Zapier, Make, or custom code, run each candidate workflow through this filter:</p>
-          <ul>
-            <li>
-              <strong>Volume:</strong> Does this happen at least 10 times a month?
-            </li>
-            <li>
-              <strong>Repetition:</strong> Are the steps mostly the same each time?
-            </li>
-            <li>
-              <strong>Risk:</strong> If something goes wrong, can we fix it quickly?
-            </li>
-            <li>
-              <strong>Value:</strong> Does this save founder or senior team time—not just intern time?
-            </li>
-          </ul>
-          <p>The sweet spot for a first build is high volume, high repetition, low-to-medium risk, and high value.</p>
-
-          <h2>Good First-Automation Examples</h2>
-          <ul>
-            <li>Routing new leads into a CRM, tagging them, and sending a warm, on-brand first reply.</li>
-            <li>Syncing paid invoices into your bookkeeping system with clear notes for your accountant.</li>
-            <li>Collecting form responses into Airtable and notifying the right teammate in Slack or email.</li>
-          </ul>
-          <p>
-            These are exactly the kinds of workflows{" "}
-            <Link href="/solutions/flowstack" className="underline">
-              Flowstack™
-            </Link>{" "}
-            is designed to handle.
-          </p>
-
-          <h2>What Not to Automate First</h2>
-          <p>Resist the urge to start with:</p>
-          <ul>
-            <li>Big-bang lead scoring or full-funnel attribution projects.</li>
-            <li>Complex pricing logic where a mistake could lose you money or trust.</li>
-            <li>Anything that depends on fuzzy, subjective judgment you can&apos;t yet describe in words.</li>
-          </ul>
-
-          <h2>Human-in-the-Loop by Default</h2>
-          <p>
-            In our work with founders, the sweet spot is “AI does the grunt work; humans still make the call.” For early automations, design flows
-            so that:
-          </p>
-          <ul>
-            <li>AI drafts responses or updates; humans approve in one click.</li>
-            <li>Every automated action is logged with who/what/when.</li>
-            <li>Pausing or rolling back is always an option—no black boxes.</li>
-          </ul>
-
-          <h2>Your First Automation, in One Page</h2>
-          <p>
-            Want help deciding? Bring three candidate workflows to a{" "}
+            If you’re in Cleveland (or act like a Cleveland founder even if you’re not), your next move is simple: list
+            one workflow you’d love never to think about again. Bring that to a{" "}
             <Link href="/contact?service=llm-setups" className="underline">
               free consultation
             </Link>{" "}
-            and we&apos;ll sketch a one-page automation plan: what to automate, which tools to use, and how to know it&apos;s working.
+            and we’ll sketch a one-page automation plan: what to automate, which tools to use, and how to know it’s
+            working.
           </p>
         </div>
       );
@@ -226,8 +144,8 @@ export const BLOG_POSTS: BlogPost[] = [
       return (
         <div className="prose prose-zinc max-w-none dark:prose-invert">
           <p>
-            Nothing spikes founder stress like discovering a Zap or Make scenario has been failing silently for days. Missed invoices, lost leads,
-            angry customers—the stuff that keeps you up at night.
+            Nothing spikes founder stress like discovering a Zap or Make scenario has been failing silently for days.
+            Missed invoices, lost leads, angry customers—the stuff that keeps you up at night.
           </p>
           <p>This post walks you through a calm, step-by-step rescue plan.</p>
 
@@ -272,7 +190,7 @@ export const BLOG_POSTS: BlogPost[] = [
           </ul>
 
           <h2>Step 4: Fix, Then Harden</h2>
-          <p>Once you know the cause, don&apos;t just patch it—harden it:</p>
+          <p>Once you know the cause, don’t just patch it—harden it:</p>
           <ul>
             <li>Add alerts when a Zap or scenario errors more than a few times in a row.</li>
             <li>Introduce “circuit breakers” that stop automation instead of looping on bad input.</li>
@@ -283,22 +201,22 @@ export const BLOG_POSTS: BlogPost[] = [
           <p>Call in outside help when:</p>
           <ul>
             <li>The workflow touches revenue, compliance, or customer trust.</li>
-            <li>You&apos;ve already spent more than a day chasing the same error.</li>
+            <li>You’ve already spent more than a day chasing the same error.</li>
             <li>No one on your team “owns” the automation stack anymore.</li>
           </ul>
           <p>
-            Redbridging™ is designed for exactly these situations: we stabilize, monitor, and document brittle automations so the next outage
-            doesn&apos;t blindside you.
+            Redbridging™ is designed for exactly these situations: we stabilize, monitor, and document brittle
+            automations so the next outage doesn’t blindside you.
           </p>
 
           <h2>Next Steps</h2>
           <p>
-            If you&apos;re staring at a broken Zapier or Make setup right now,{" "}
+            If you’re staring at a broken Zapier or Make setup right now,{" "}
             <Link href="/contact?service=redbridging-rescue" className="underline">
               send a quick note
             </Link>{" "}
-            with a short description, screenshots, and which tools are involved. We&apos;ll let you know whether it&apos;s a quick fix or a
-            better fit for a structured Redbridging™ engagement.
+            with a short description, screenshots, and which tools are involved. We’ll let you know whether it’s a quick
+            fix or a better fit for a structured Redbridging™ engagement.
           </p>
         </div>
       );
@@ -306,9 +224,9 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "on-brand-ai-chatbots-vs-generic",
-    title: "On‑Brand AI Chatbots vs Generic Bots: Why Cadence™ Converts Better",
+    title: "On-Brand AI Chatbots vs Generic Bots: Why Cadence™ Converts Better",
     description:
-      "Most chatbots feel robotic because they’re trained on generic data. Here’s how an on‑brand chatbot like Cadence™ can actually build loyalty.",
+      "Most chatbots feel robotic because they’re trained on generic data. Here’s how an on-brand chatbot like Cadence™ can actually build loyalty.",
     publishedAt: "2025-11-15",
     readingTimeMinutes: 8,
     hero: {
@@ -320,33 +238,33 @@ export const BLOG_POSTS: BlogPost[] = [
       return (
         <div className="prose prose-zinc max-w-none dark:prose-invert">
           <p>
-            Most small-business chatbots are copy-paste templates with your logo slapped on top. They answer questions, but they don&apos;t sound
-            like you—and your customers can feel that.
+            Most small-business chatbots are copy-paste templates with your logo slapped on top. They answer questions,
+            but they don’t sound like you—and your customers can feel that.
           </p>
           <p>
-            Cadence™ was built to do the opposite: a chatbot that feels like part of your team. Here&apos;s what makes an on‑brand chatbot
-            different, and why it converts better.
+            Cadence™ was built to do the opposite: a chatbot that feels like part of your team. Here’s what makes an
+            on-brand chatbot different, and why it converts better.
           </p>
 
-          <h2>Generic Bots Answer; On‑Brand Bots Relate</h2>
-          <p>A generic bot focuses on accuracy. An on‑brand bot focuses on accuracy plus relationship:</p>
+          <h2>Generic Bots Answer; On-Brand Bots Relate</h2>
+          <p>A generic bot focuses on accuracy. An on-brand bot focuses on accuracy plus relationship:</p>
           <ul>
             <li>It knows your product stories, not just your SKU list.</li>
-            <li>It mirrors your tone—whether that&apos;s warm, nerdy, or no‑nonsense.</li>
+            <li>It mirrors your tone—whether that’s warm, nerdy, or no-nonsense.</li>
             <li>It understands when to escalate to a human and how to hand off gracefully.</li>
           </ul>
 
           <h2>What Goes Into Training Cadence™</h2>
-          <p>When we build Cadence™ for a client, we don&apos;t start with prompts. We start with:</p>
+          <p>When we build Cadence™ for a client, we don’t start with prompts. We start with:</p>
           <ul>
-            <li>Recorded conversations with you or your best customer‑facing team member.</li>
+            <li>Recorded conversations with you or your best customer-facing team member.</li>
             <li>Real emails, DMs, and support tickets that show how you talk when stakes are high.</li>
             <li>Product stories and objections you want handled consistently.</li>
           </ul>
           <p>That training data becomes the foundation for a chatbot that actually sounds like your brand.</p>
 
           <h2>Measuring “Better” in Real Numbers</h2>
-          <p>On‑brand chatbots outperform generic ones on metrics that matter:</p>
+          <p>On-brand chatbots outperform generic ones on metrics that matter:</p>
           <ul>
             <li>Higher completion rates on key flows (newsletter signups, quiz completions, consultation bookings).</li>
             <li>Better CSAT/feedback scores on conversations that start with the bot.</li>
@@ -355,16 +273,16 @@ export const BLOG_POSTS: BlogPost[] = [
 
           <h2>Where Cadence™ Fits in Your Stack</h2>
           <p>
-            Cadence™ plays nicely with tools you already use. It can collect leads into Airtable, create tickets, and hand off to humans via
-            email or your help desk—no custom platform required.
+            Cadence™ plays nicely with tools you already use. It can collect leads into Airtable, create tickets, and
+            hand off to humans via email or your help desk—no custom platform required.
           </p>
 
           <h2>Is Cadence™ Right for You?</h2>
           <p>Cadence™ is a good fit if:</p>
           <ul>
-            <li>Your brand voice is a real asset (founder‑led, story‑driven, values‑heavy).</li>
-            <li>You get repeat questions that a well‑trained bot could handle.</li>
-            <li>You&apos;re ready to invest in a pilot that proves ROI before you scale.</li>
+            <li>Your brand voice is a real asset (founder-led, story-driven, values-heavy).</li>
+            <li>You get repeat questions that a well-trained bot could handle.</li>
+            <li>You’re ready to invest in a pilot that proves ROI before you scale.</li>
           </ul>
 
           <p>
@@ -374,7 +292,7 @@ export const BLOG_POSTS: BlogPost[] = [
             </Link>{" "}
             or{" "}
             <Link href="/contact?subject=Cadence%20pilot" className="underline">
-              ask about a 30‑day pilot
+              ask about a 30-day pilot
             </Link>
             .
           </p>
@@ -391,3 +309,4 @@ export function getAllPosts() {
 export function getPostBySlug(slug: string) {
   return BLOG_POSTS.find((post) => post.slug === slug);
 }
+

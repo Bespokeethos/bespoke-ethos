@@ -36,6 +36,7 @@ export default function HomePage() {
   return (
     <main>
       <HomePageJsonLd />
+
       {/* Hero */}
       <section
         style={{
@@ -53,7 +54,7 @@ export default function HomePage() {
             lineHeight: "1.2",
           }}
         >
-          &quot;Am I Doing This Right?&quot;
+          “Am I Doing This Right?”
         </h1>
 
         <p
@@ -95,12 +96,12 @@ export default function HomePage() {
             lineHeight: "1.6",
           }}
         >
-          You&apos;re working your day job and building nights and weekends. We get it&mdash;we&apos;re
-          doing it too. Let&apos;s figure this out together.
+          You’re working your day job and building nights and weekends. We get it—we’re doing it too. Let’s figure this
+          out together.
         </p>
 
-        <div className="mt-10 mx-auto max-w-md sm:max-w-lg lg:max-w-2xl">
-          <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame">
+        <div className="mt-8 mx-auto max-w-md sm:max-w-lg lg:max-w-2xl">
+          <div className="relative aspect-[5/3] w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame">
             <Image
               src="/assets/generated/hero-ai-automation-dashboard-desktop.webp"
               alt="AI automation dashboard showing workflow connections between Gmail, Slack, Salesforce and Airtable for small business efficiency"
@@ -126,7 +127,7 @@ export default function HomePage() {
             fontSize: "42px",
             fontWeight: 700,
             color: "var(--charcoal-text)",
-            marginBottom: "16px",
+            marginBottom: "24px",
           }}
         >
           How we take the guesswork out of business decisions, with powerful AI.
@@ -140,7 +141,7 @@ export default function HomePage() {
             marginBottom: "48px",
           }}
         >
-          The Consensus Engine &mdash; Proprietary Multi-Agent Research
+          The Consensus Engine — Proprietary Multi-Agent Research
         </p>
 
         <div
@@ -169,8 +170,7 @@ export default function HomePage() {
               fontStyle: "italic",
             }}
           >
-            (&quot;Should I automate customer service?&quot; &quot;How do I price this?&quot; &quot;Will
-            this marketing work?&quot;)
+            (“Should I automate customer service?” “How do I price this?” “Will this marketing work?”)
           </p>
 
           <p
@@ -218,7 +218,7 @@ export default function HomePage() {
           >
             Each one researches independently using live internet data.
             <br />
-            Then they cross-reference each other&apos;s findings.
+            Then they cross-reference each other’s findings.
             <br />
             Then we compile it into a founder-friendly report with actionable next steps.
           </p>
@@ -259,7 +259,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* You&apos;re not alone */}
+      {/* You're Not Alone */}
       <section
         style={{
           backgroundColor: "var(--cream-bg)",
@@ -275,7 +275,7 @@ export default function HomePage() {
             textAlign: "center",
           }}
         >
-          You&apos;re Not Alone
+          You’re Not Alone
         </h2>
 
         <p
@@ -287,7 +287,7 @@ export default function HomePage() {
             textAlign: "center",
           }}
         >
-          We&apos;ve Been There
+          We’ve Been There
         </p>
 
         <div
@@ -308,14 +308,14 @@ export default function HomePage() {
             }}
           >
             <li>Working a day job while building your dream</li>
-            <li>Terrified you&apos;ll make the wrong call and lose everything</li>
+            <li>Terrified you’ll make the wrong call and lose everything</li>
             <li>Knowing AI is important but feeling completely overwhelmed</li>
             <li>Reading articles that make it sound easy, then trying and hitting walls</li>
           </ul>
 
           <div
             style={{
-              backgroundColor: "var(--soft-white)",
+              backgroundColor: "white",
               padding: "32px",
               borderRadius: "8px",
               textAlign: "center",
@@ -339,18 +339,18 @@ export default function HomePage() {
                 marginBottom: 0,
               }}
             >
-              Most don&apos;t know where to start.
+              Most don’t know where to start.
               <br />
-              That&apos;s exactly why we exist.
+              That’s exactly why we exist.
             </p>
           </div>
         </div>
       </section>
 
-      {/* The offer */}
+      {/* The Offer */}
       <section
         style={{
-          backgroundColor: "var(--soft-white)",
+          backgroundColor: "white",
           padding: "80px 24px",
         }}
       >
@@ -396,7 +396,7 @@ export default function HomePage() {
             }}
           >
             <li style={{ marginBottom: "16px" }}>Plain-English explanation of how AI works</li>
-            <li style={{ marginBottom: "16px" }}>Real talk about our experience (what worked, what didn&apos;t)</li>
+            <li style={{ marginBottom: "16px" }}>Real talk about our experience (what worked, what didn’t)</li>
             <li style={{ marginBottom: "16px" }}>Discussion of how AI could help your specific situation</li>
             <li style={{ marginBottom: "16px" }}>
               One free Consensus Engine research report on any topic you choose
@@ -419,7 +419,7 @@ export default function HomePage() {
                 marginBottom: "24px",
               }}
             >
-              After the consultation, you&apos;ll know:
+              After the consultation, you’ll know:
             </p>
             <ul
               style={{
@@ -432,7 +432,7 @@ export default function HomePage() {
               }}
             >
               <li>If AI makes sense for your business right now</li>
-              <li>What your next step should be (even if it&apos;s not working with us)</li>
+              <li>What your next step should be (even if it’s not working with us)</li>
               <li>Exactly what it would cost to implement</li>
             </ul>
           </div>
@@ -516,12 +516,12 @@ export default function HomePage() {
               marginBottom: "32px",
             }}
           >
-            We&apos;re not a fancy agency with marble lobbies.
+            We’re not a fancy agency with marble lobbies.
             <br />
-            We&apos;re founders who work manufacturing jobs and build businesses nights and weekends.
+            We’re founders who work manufacturing jobs and build businesses nights and weekends.
             <br />
             <br />
-            We&apos;ve filed for bankruptcy. We&apos;ve been terrified. We get it.
+            We’ve filed for bankruptcy. We’ve been terrified. We get it.
           </p>
 
           <div

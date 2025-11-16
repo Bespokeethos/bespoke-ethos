@@ -51,7 +51,7 @@ const solutions = [
 
 export default function SolutionsPage() {
   return (
-    <Section className="gap-10">
+    <Section className="gap-8">
       <SolutionsItemListJsonLd />
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Solutions" }]} />
       <Heading subtitle="Small business AI, without the chaos" align="left">
