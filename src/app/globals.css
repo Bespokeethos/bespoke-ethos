@@ -655,14 +655,15 @@ html.dark .be-page-slate {
   border-radius: 24px;
   border: 1px solid rgba(148, 163, 184, 0.7);
   background:
-    radial-gradient(circle at 0% 0%, rgba(148, 163, 184, 0.34), transparent 52%),
-    radial-gradient(circle at 100% 100%, rgba(15, 23, 42, 0.94), transparent 56%),
-    rgba(15, 23, 42, 0.78);
+    radial-gradient(circle at 0% 0%, rgba(148, 163, 184, 0.3), transparent 52%),
+    radial-gradient(circle at 100% 100%, rgba(15, 23, 42, 0.9), transparent 56%),
+    rgba(15, 23, 42, 0.64);
   backdrop-filter: blur(18px) saturate(160%);
   -webkit-backdrop-filter: blur(18px) saturate(160%);
   box-shadow:
-    0 26px 70px rgba(15, 23, 42, 0.88),
-    0 0 0 1px rgba(15, 23, 42, 0.95);
+    0 26px 70px rgba(15, 23, 42, 0.9),
+    0 0 0 1px rgba(15, 23, 42, 0.95),
+    0 0 38px rgba(248, 189, 104, 0.42);
   padding: 1rem;
 }
 
@@ -682,12 +683,22 @@ html.dark .be-page-slate {
 .be-form-glass-card::after {
   content: "";
   position: absolute;
-  inset: -6%;
+  inset: -10%;
   border-radius: inherit;
   pointer-events: none;
-  box-shadow:
-    0 0 0 1px rgba(248, 250, 252, 0.25),
-    0 0 60px rgba(248, 189, 104, 0.32);
+  background: conic-gradient(
+    from 210deg,
+    rgba(248, 189, 104, 0.0) 0deg,
+    rgba(248, 189, 104, 0.32) 80deg,
+    rgba(248, 189, 104, 0.0) 150deg,
+    rgba(244, 114, 182, 0.18) 220deg,
+    rgba(248, 189, 104, 0.35) 300deg,
+    rgba(248, 189, 104, 0.0) 360deg
+  );
+  opacity: 0;
+  filter: blur(26px);
+  mix-blend-mode: screen;
+  transition: opacity 0.6s ease-out;
 }
 
 @keyframes be-form-glass-shimmer {
@@ -708,11 +719,31 @@ html.dark .be-page-slate {
   animation: be-form-glass-shimmer 3.2s ease-in-out infinite alternate;
 }
 
+@keyframes be-form-glass-ring {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.be-form-glass-card:hover::after,
+.be-form-glass-card:focus-within::after {
+  opacity: 0.9;
+  animation: be-form-glass-ring 9s linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .be-form-glass-card:hover::before,
   .be-form-glass-card:focus-within::before {
     animation: none;
     opacity: 0.9;
+  }
+
+  .be-form-glass-card:hover::after,
+  .be-form-glass-card:focus-within::after {
+    animation: none;
   }
 }
 
