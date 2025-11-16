@@ -28,6 +28,7 @@ export default function FlowstackPage() {
             ]}
           />
           <ProductJsonLd />
+          <FlowstackServiceJsonLd />
 
           <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame shadow-xl">
             <div className="relative h-28 w-full sm:h-36 lg:h-44">
@@ -152,4 +153,28 @@ function ProductJsonLd() {
       dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }}
     />
   );
+}
+
+function FlowstackServiceJsonLd() {
+  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com";
+  const json = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${base}/solutions/flowstack#service`,
+    name: "Flowstack™",
+    description:
+      "Flowstack™ is Bespoke Ethos’s proprietary general automation package for small businesses in Cleveland, Ohio. We Take the Busywork—you Keep Control by automating your worst busywork first while keeping human approvals, audit trails, and rollback in place. LGBTQ-owned businesses receive 25% off upfront project fees on approved scopes.",
+    provider: {
+      "@type": "Organization",
+      name: "Bespoke Ethos",
+      url: base,
+    },
+    areaServed: {
+      "@type": "AdministrativeArea",
+      name: "Cleveland, OH",
+    },
+    url: `${base}/solutions/flowstack`,
+  } as const;
+
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
 }

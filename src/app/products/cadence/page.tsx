@@ -26,6 +26,7 @@ const ALT = {
 export default function CadencePage() {
   return (
     <main>
+      <CadenceProductJsonLd />
       {/* Hero */}
       <section className="relative cadence-card">
         <div className="absolute inset-0 -z-10">
@@ -192,12 +193,53 @@ type StepProps = {
   outcome: string;
 };
 
-function Step({ title, body, outcome }: StepProps) {
-  return (
+  function Step({ title, body, outcome }: StepProps) {
+    return (
     <div className="rounded-2xl border border-border bg-surface-secondary/80 p-5 text-sm shadow-sm dark:border-dark-border dark:bg-dark-surface-secondary/80">
       <h3 className="mb-2 text-base font-semibold text-text-primary dark:text-dark-text-primary">{title}</h3>
       <p className="mb-2 text-text-secondary dark:text-dark-text-secondary">{body}</p>
       <p className="text-xs font-medium text-text-tertiary dark:text-dark-text-tertiary">{outcome}</p>
-    </div>
-  );
+      </div>
+    );
+  }
+
+function CadenceProductJsonLd() {
+  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com";
+  const currency = PRICING.currency === "$" ? "USD" : "USD";
+  const json = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: "Cadence™",
+    description:
+      "Cadence™ is Bespoke Ethos’s flagship premium chatbot for small businesses in Cleveland, Ohio—trained on your products, voice, and stories so it can resolve real questions 24/7 while keeping humans in control.",
+    brand: {
+      "@type": "Brand",
+      name: "Bespoke Ethos",
+    },
+    provider: {
+      "@type": "Organization",
+      name: "Bespoke Ethos",
+      url: base,
+    },
+    areaServed: {
+      "@type": "AdministrativeArea",
+      name: "Cleveland, OH",
+    },
+    url: `${base}/products/cadence`,
+    offers: {
+      "@type": "Offer",
+      priceCurrency: currency,
+      price: PRICING.cadence.setup,
+      priceSpecification: {
+        "@type": "PriceSpecification",
+        name: "Initial setup for Cadence™ chatbot",
+        priceCurrency: currency,
+        price: PRICING.cadence.setup,
+      },
+      availability: "https://schema.org/InStock",
+      url: `${base}/products/cadence`,
+    },
+  } as const;
+
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
 }

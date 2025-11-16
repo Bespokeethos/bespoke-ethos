@@ -10,6 +10,24 @@ import { LGBTQDiscountModalTrigger } from "./_components/lgbtq-discount-modal-tr
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
+const homeFaqItems = [
+  {
+    question: "What kinds of businesses do you work with?",
+    answer:
+      "We focus on small businesses and founders in Cleveland, Ohio and similar markets—especially teams in “survival mode” who need practical wins, not 40-page decks.",
+  },
+  {
+    question: "What problems do you actually solve?",
+    answer:
+      "We Take the Busywork—you Keep Control. That means automating repetitive workflows, adding Cadence™, our flagship premium chatbot, and rescuing brittle automations so you get your time back without losing visibility.",
+  },
+  {
+    question: "How does the 25% LGBTQ+ discount work?",
+    answer:
+      "If you’re an LGBTQ-owned business, you get 25% off all upfront project fees on approved scopes. Monthly subscriptions are billed at standard rates.",
+  },
+];
+
 export const metadata: Metadata = {
   title: "AI Automation for Cleveland Small Businesses | Bespoke Ethos",
   description:
@@ -36,13 +54,14 @@ export default function HomePage() {
   return (
     <main>
       <HomePageJsonLd />
+      <HomeFaqJsonLd />
 
       {/* Hero */}
       <section className="home-hero">
         <div className="home-hero-inner">
           <h1 className="home-hero-title font-hero-accent">&quot;Am I Doing This Right?&quot;</h1>
 
-          <p className="home-hero-subtitle">We Handle Busywork. You Keep Control.</p>
+          <p className="home-hero-subtitle">We Take the Busywork. You Keep Control.</p>
 
           <p className="home-hero-body">
             Free 30-minute AI consultation + custom research report on your biggest uncertainty.
@@ -516,6 +535,94 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Quick answers (FAQ teaser) */}
+      <section
+        style={{
+          backgroundColor: "var(--soft-white)",
+          padding: "56px 24px 64px",
+        }}
+      >
+        <div
+          style={{
+            maxWidth: "880px",
+            margin: "0 auto",
+          }}
+        >
+          <h2
+            style={{
+              fontSize: "32px",
+              fontWeight: 700,
+              color: "var(--charcoal-text)",
+              marginBottom: "16px",
+              textAlign: "left",
+            }}
+          >
+            Quick answers for busy founders
+          </h2>
+          <p
+            style={{
+              fontSize: "18px",
+              color: "var(--muted-text)",
+              marginBottom: "24px",
+            }}
+          >
+            Three questions we hear most often from Cleveland small-business owners thinking about automation.
+          </p>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "minmax(0, 1fr)",
+              gap: "16px",
+            }}
+          >
+            {homeFaqItems.map((item) => (
+              <div
+                key={item.question}
+                style={{
+                  borderRadius: "12px",
+                  border: "1px solid var(--border)",
+                  backgroundColor: "var(--cream-bg)",
+                  padding: "16px 18px",
+                }}
+              >
+                <p
+                  style={{
+                    fontSize: "18px",
+                    fontWeight: 600,
+                    marginBottom: "8px",
+                    color: "var(--charcoal-text)",
+                  }}
+                >
+                  {item.question}
+                </p>
+                <p
+                  style={{
+                    fontSize: "16px",
+                    color: "var(--muted-text)",
+                    lineHeight: 1.6,
+                  }}
+                >
+                  {item.answer}
+                </p>
+              </div>
+            ))}
+          </div>
+          <p
+            style={{
+              marginTop: "20px",
+              fontSize: "16px",
+              color: "var(--muted-text)",
+            }}
+          >
+            Want more details? Our full{" "}
+            <Link href="/faq" style={{ textDecoration: "underline" }}>
+              FAQ
+            </Link>{" "}
+            page covers timelines, tools, pricing, and how we work.
+          </p>
+        </div>
+      </section>
+
       {/* Existing trust + founder + testimonials for depth */}
       <HomepageTestimonialsStrip />
       <FounderStory />
@@ -538,6 +645,25 @@ function HomePageJsonLd() {
     about: {
       "@id": `${base}/#organization`,
     },
+  } as const;
+
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
+}
+
+function HomeFaqJsonLd() {
+  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com";
+  const json = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: homeFaqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+    mainEntityOfPage: `${base}/`,
   } as const;
 
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;

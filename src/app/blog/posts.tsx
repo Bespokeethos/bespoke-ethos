@@ -212,7 +212,7 @@ export const BLOG_POSTS: BlogPost[] = [
           <h2>Next Steps</h2>
           <p>
             If you’re staring at a broken Zapier or Make setup right now,{" "}
-            <Link href="/contact?service=redbridging-rescue" className="underline">
+            <Link href="/contact" className="underline">
               send a quick note
             </Link>{" "}
             with a short description, screenshots, and which tools are involved. We’ll let you know whether it’s a quick
@@ -309,4 +309,3 @@ export function getAllPosts() {
 export function getPostBySlug(slug: string) {
   return BLOG_POSTS.find((post) => post.slug === slug);
 }
-

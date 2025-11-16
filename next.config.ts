@@ -48,20 +48,27 @@ const nextConfig = {
     },
   },
   images: {
-    remotePatterns: [
-      { hostname: "cdn.sanity.io" },
-    ],
+    remotePatterns: [{ hostname: "cdn.sanity.io" }],
   },
   async headers() {
     const headerConfigs: { source: string; headers: { key: string; value: string }[] }[] = [];
 
-    // Block only non-production deployments from search engines
-    if (process.env.VERCEL_ENV && process.env.VERCEL_ENV !== "production") {
-      headerConfigs.push({
-        source: "/:path*",
-        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
-      });
-    }
+    const isProd = process.env.VERCEL_ENV === "production";
+
+    // Always send an X-Robots-Tag header so search engines and LLMs
+    // have an explicit directive. Production is fully crawlable;
+    // non-production remains noindex to avoid duplicate content.
+    headerConfigs.push({
+      source: "/:path*",
+      headers: [
+        {
+          key: "X-Robots-Tag",
+          value: isProd
+            ? "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+            : "noindex, nofollow",
+        },
+      ],
+    });
 
     // Security headers for all environments
     headerConfigs.push({ source: "/:path*", headers: securityHeaders });

@@ -39,7 +39,7 @@ const FALLBACK_METADATA = {
   defaultTitle:
     "BespokeEthos AI Consulting - Ship Working Code, Not Slide Decks | Fixed-Price Cleveland AI Automation",
   defaultDescription:
-    "Auditable AI workflows, chatbots, and decision clarity for small businesses. Reclaim 15+ hours per week with human-in-the-loop approvals and rollback paths.",
+    "We Take the Busywork—you Keep Control. Bespoke Ethos builds small-business AI automation in Cleveland, OH, including Cadence™, our flagship premium chatbot, plus a standing 25% discount on upfront project fees for LGBTQ-owned businesses. Email contact@bespokeethos.com or visit our FAQ and contact pages to get started.",
   favicon: {
     url: "/assets/favicon.png",
     mimeType: "image/png",

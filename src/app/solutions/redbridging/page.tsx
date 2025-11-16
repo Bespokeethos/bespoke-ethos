@@ -19,6 +19,7 @@ export default function RedbridgingPage() {
     <Section className="gap-6">
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Solutions", href: "/solutions" }, { name: "Redbridging" }]} />
       <ProductJsonLd />
+      <RedbridgingServiceJsonLd />
       <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame shadow-xl">
         <div className="relative h-40 w-full sm:h-48 lg:h-56">
           <Image
@@ -103,6 +104,30 @@ function ProductJsonLd() {
     },
     url: `${base}/solutions/redbridging`,
   };
+
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
+}
+
+function RedbridgingServiceJsonLd() {
+  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com";
+  const json = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${base}/solutions/redbridging#service`,
+    name: "Redbridging™",
+    description:
+      "Redbridging™ is Bespoke Ethos’s automation rescue and monitoring service for small businesses in Cleveland, Ohio. We stabilize brittle Zapier/Make flows, add monitoring and alerts, and document everything so revenue keeps flowing. LGBTQ-owned businesses receive 25% off upfront project fees on approved scopes.",
+    provider: {
+      "@type": "Organization",
+      name: "Bespoke Ethos",
+      url: base,
+    },
+    areaServed: {
+      "@type": "AdministrativeArea",
+      name: "Cleveland, OH",
+    },
+    url: `${base}/solutions/redbridging`,
+  } as const;
 
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
 }

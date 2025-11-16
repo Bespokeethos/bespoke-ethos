@@ -21,6 +21,7 @@ export default function ConsensusEnginePage() {
     <Section className="gap-6">
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Solutions", href: "/solutions" }, { name: "Consensus Engine™" }]} />
       <ProductJsonLd />
+      <ConsensusServiceJsonLd />
       <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame shadow-xl">
         <div className="relative h-40 w-full sm:h-48 lg:h-56">
           <Image
@@ -108,6 +109,30 @@ function ProductJsonLd() {
     },
     url: `${base}/solutions/consensus-engine`,
   };
+
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
+}
+
+function ConsensusServiceJsonLd() {
+  const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com";
+  const json = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${base}/solutions/consensus-engine#service`,
+    name: "Consensus Engine™",
+    description:
+      "Consensus Engine™ is Bespoke Ethos’s AI research service for small-business founders in Cleveland, Ohio. Four independent AI perspectives debate your toughest question, surface risk, and synthesize one recommendation so you can move forward with confidence. LGBTQ-owned businesses receive 25% off upfront project fees on approved scopes.",
+    provider: {
+      "@type": "Organization",
+      name: "Bespoke Ethos",
+      url: base,
+    },
+    areaServed: {
+      "@type": "AdministrativeArea",
+      name: "Cleveland, OH",
+    },
+    url: `${base}/solutions/consensus-engine`,
+  } as const;
 
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
 }
