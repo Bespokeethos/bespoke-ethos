@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/app/_components/seo/breadcrumbs";
 import { Heading } from "@/common/heading";
 import { Section } from "@/common/layout";
+import { FounderBadge } from "@/app/_components/founder-badge";
 
 export const revalidate = 1800;
 
@@ -99,6 +100,7 @@ export default function HelpPage() {
           View case studies & solutions
         </Link>
       </div>
+      <FounderBadge />
     </Section>
   );
 }

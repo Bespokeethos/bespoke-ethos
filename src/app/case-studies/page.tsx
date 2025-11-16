@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Section } from "@/common/layout";
 import { ButtonLink } from "@/common/button";
 import { Breadcrumbs } from "@/app/_components/seo/breadcrumbs";
+import { FounderBadge } from "@/app/_components/founder-badge";
 
 export const revalidate = 1800;
 
@@ -121,6 +122,7 @@ export default function CaseStudiesPage() {
           Read implementation notes on the blog
         </ButtonLink>
       </div>
+      <FounderBadge />
         </div>
       </Section>
     </main>
