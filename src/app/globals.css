@@ -670,23 +670,10 @@ html.dark .be-page-slate {
     transform 0.5s ease-out;
 }
 
-/* Ensure form controls inside the glass tray read clearly */
-.be-form-glass-card {
-  color: #f9fafb;
-}
-
-.be-form-glass-card span,
-.be-form-glass-card label,
-.be-form-glass-card p,
-.be-form-glass-card li,
-.be-form-glass-card a {
-  color: #f9fafb;
-}
-
 .be-form-glass-card input,
 .be-form-glass-card select,
 .be-form-glass-card textarea {
-  color: #f9fafb;
+  color: #020617;
 }
 
 .be-form-glass-card input::placeholder,
