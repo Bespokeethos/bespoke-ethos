@@ -32,7 +32,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
       <ContactPageJsonLd />
       <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" strategy="afterInteractive" async defer />
 
-      <Section className="gap-5 -mt-9 md:gap-6 md:-mt-4">
+      <Section className="gap-5 -mt-14 md:gap-6 md:-mt-4">
         <div className="be-section-card space-y-6">
           <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Contact" }]} />
 
