@@ -139,6 +139,7 @@ export async function POST(req: NextRequest) {
         await resend.emails.send({
           from: "Bespoke Ethos Contact Form <contact@bespokeethos.com>",
           to: "contact@bespokeethos.com",
+          reply_to: email,
           subject: `New Contact: ${name || email}`,
           html: `
             <h2>New Contact Form Submission</h2>
