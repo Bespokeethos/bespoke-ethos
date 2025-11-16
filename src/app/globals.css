@@ -191,6 +191,40 @@ html.dark .trust-square-badge {
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
 }
 
+/* Warm section container card – soft tangerine glass */
+.be-section-card {
+  width: 100%;
+  max-width: 72rem;
+  margin: 0 auto;
+  border-radius: 24px;
+  border: 1px solid rgba(246, 173, 85, 0.55);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(246, 173, 85, 0.25), transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(236, 201, 75, 0.22), transparent 55%),
+    rgba(255, 250, 240, 0.96);
+  box-shadow:
+    0 22px 60px rgba(15, 23, 42, 0.22),
+    0 1px 0 rgba(255, 255, 255, 0.8) inset;
+  padding: 1.75rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .be-section-card {
+    padding: 2.25rem 2rem;
+  }
+}
+
+html.dark .be-section-card {
+  border-color: rgba(236, 201, 75, 0.55);
+  background:
+    radial-gradient(circle at 0% 0%, rgba(246, 173, 85, 0.28), transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(15, 23, 42, 0.9), transparent 55%),
+    rgba(15, 23, 42, 0.98);
+  box-shadow:
+    0 26px 70px rgba(0, 0, 0, 0.8),
+    0 1px 0 rgba(148, 163, 184, 0.45) inset;
+}
+
 /* Polished image frame for hero/feature art */
 .be-image-frame {
   border-radius: 20px;
@@ -212,6 +246,95 @@ html.dark .be-image-frame {
   box-shadow:
     0 20px 55px rgba(0, 0, 0, 0.65),
     0 1px 0 rgba(148, 163, 184, 0.3) inset;
+}
+
+/* Floating mobile menu sheet – glass with feathered border and soft glow */
+.be-mobile-menu-backdrop {
+  background:
+    radial-gradient(circle at 10% 0%, rgba(15, 23, 42, 0.45), transparent 60%),
+    radial-gradient(circle at 90% 100%, rgba(15, 23, 42, 0.55), transparent 60%),
+    rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+}
+
+.be-mobile-menu-card {
+  position: absolute;
+  inset-inline: 0.75rem;
+  border-radius: 22px;
+  border: 1px solid rgba(0, 0, 0, 0.55);
+  /* inner glass + soft inner glow from all edges */
+  background:
+    radial-gradient(circle at 0% 0%, rgba(255, 255, 255, 0.18), transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(148, 163, 184, 0.2), transparent 55%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.2) 0, transparent 15%),
+    rgba(248, 250, 252, 0.9);
+  box-shadow:
+    0 24px 70px rgba(15, 23, 42, 0.75),
+    0 0 0 1px rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+  animation: be-mobile-menu-glow 7s ease-in-out infinite alternate;
+}
+
+html.dark .be-mobile-menu-card {
+  background:
+    radial-gradient(circle at 0% 0%, rgba(148, 163, 184, 0.26), transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(15, 23, 42, 0.9), transparent 55%),
+    radial-gradient(circle at 50% 50%, rgba(148, 163, 184, 0.26) 0, transparent 15%),
+    rgba(15, 23, 42, 0.96);
+  box-shadow:
+    0 28px 80px rgba(0, 0, 0, 0.9),
+    0 0 0 1px rgba(15, 23, 42, 0.9);
+}
+
+.be-mobile-menu-card::before {
+  content: "";
+  position: absolute;
+  inset: -32px;
+  border-radius: inherit;
+  /* feathered black edge that fades inward */
+  background:
+    radial-gradient(circle at 50% 0%, rgba(0, 0, 0, 0.55), transparent 60%),
+    radial-gradient(circle at 50% 100%, rgba(0, 0, 0, 0.5), transparent 60%);
+  opacity: 0.35;
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+}
+
+.be-mobile-menu-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  /* subtle outer white shimmer extending beyond the border */
+  box-shadow:
+    0 0 0 1px rgba(248, 250, 252, 0.25),
+    0 0 40px rgba(255, 255, 255, 0.18);
+  pointer-events: none;
+}
+
+@keyframes be-mobile-menu-glow {
+  0% {
+    box-shadow:
+      0 24px 70px rgba(15, 23, 42, 0.72),
+      0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+  50% {
+    box-shadow:
+      0 28px 78px rgba(15, 23, 42, 0.82),
+      0 0 0 1px rgba(255, 255, 255, 0.08);
+  }
+  100% {
+    box-shadow:
+      0 26px 70px rgba(15, 23, 42, 0.76),
+      0 0 0 1px rgba(255, 255, 255, 0.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .be-mobile-menu-card {
+    animation: none;
+  }
 }
 
 /* CADENCE CARD - READABLE TEXT OVERLAY */

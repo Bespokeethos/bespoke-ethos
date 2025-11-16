@@ -208,7 +208,7 @@ export function MobileMenu({ navbar, rightCtas }: HeaderData) {
   return (
     <>
       <button
-        aria-label="Toggle Menu"
+        aria-label="Toggle menu"
         className="border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary col-start-3 flex items-center justify-center gap-2 justify-self-end rounded-sm border p-2 lg:hidden lg:h-7"
         onPointerDown={handleToggle}
       >
@@ -216,58 +216,98 @@ export function MobileMenu({ navbar, rightCtas }: HeaderData) {
       </button>
       <div className="block lg:hidden">
         {isOn ? (
-          <div className="bg-surface-primary dark:bg-dark-surface-primary fixed top-[calc(var(--header-height)+1px)] left-0 z-10 h-auto w-full">
-            <div className="flex flex-col gap-6 px-4 py-6">
-              <nav className="flex flex-col gap-2">
-                {navbar.items.map((link) =>
-                  link.sublinks.items.length > 0 ? (
-                    <ItemWithSublinks
-                      key={link._id}
-                      _id={link._id}
-                      _title={link._title}
-                      sublinks={link.sublinks.items}
-                      onClick={handleOff}
-                    />
-                  ) : (
-                    <Link
-                      key={link._id}
-                      className="flex items-center gap-2 rounded-sm px-3 py-2.5 text-base font-medium"
-                      href={link.href ?? "#"}
-                      onClick={handleOff}
-                    >
-                      {link._title}
-                    </Link>
-                  ),
-                )}
-              </nav>
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-start gap-3">
-                {/* Trust Badges for Mobile */}
-                <div className="flex w-full items-center justify-center gap-2.5 opacity-80 py-2 border-t border-border dark:border-dark-border">
-                  {/* NGLCC with caption */}
-                  <figure className="flex flex-col items-center">
-                    {/* light theme */}
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/assets/nglcc-badge-dark.svg" alt="NGLCC Certified" height={16} className="h-4 w-auto block dark:hidden" loading="lazy" decoding="async" />
-                    {/* dark theme */}
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src="/assets/nglcc-badge-light.svg" alt="NGLCC Certified" height={16} className="h-4 w-auto hidden dark:block" loading="lazy" decoding="async" />
-                    <figcaption className="mt-1 text-center text-[8pt] text-text-tertiary dark:text-dark-text-tertiary">
-                      Gay Mens Field Guide LLC.
-                    </figcaption>
-                  </figure>
-                  {/* Catalant (theme-aware) */}
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/assets/catalant-badge-dark.svg" alt="Catalant Vetted Consultant" height={16} className="h-4 w-auto block dark:hidden" loading="lazy" decoding="async" />
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/assets/catalant-badge-light.svg" alt="Catalant Vetted Consultant" height={16} className="h-4 w-auto hidden dark:block" loading="lazy" decoding="async" />
+          <div
+            className="be-mobile-menu-backdrop fixed inset-0 z-40"
+            onClick={handleOff}
+          >
+            <div
+              className="be-mobile-menu-card top-[calc(var(--header-height)+8px)] bottom-4 mx-auto max-w-md sm:max-w-lg"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex h-full flex-col">
+                <div className="flex-1 overflow-y-auto px-4 py-4">
+                  <nav className="flex flex-col gap-1.5">
+                    {navbar.items.map((link) =>
+                      link.sublinks.items.length > 0 ? (
+                        <ItemWithSublinks
+                          key={link._id}
+                          _id={link._id}
+                          _title={link._title}
+                          sublinks={link.sublinks.items}
+                          onClick={handleOff}
+                        />
+                      ) : (
+                        <Link
+                          key={link._id}
+                          className="flex items-center gap-2 rounded-lg px-3 py-2.5 text-base font-medium hover:bg-surface-secondary dark:hover:bg-dark-surface-secondary"
+                          href={link.href ?? "#"}
+                          onClick={handleOff}
+                        >
+                          {link._title}
+                        </Link>
+                      ),
+                    )}
+                  </nav>
                 </div>
-                {rightCtas.items.map((cta) => {
-                  return (
-                    <ButtonLink key={cta._id} href={cta.href} intent={cta.type} size="lg">
+                <div className="border-t border-border bg-surface-secondary/70 px-4 py-4 dark:border-dark-border dark:bg-dark-surface-secondary/70">
+                  <div className="flex items-center justify-center gap-3 pb-3">
+                    <figure className="flex flex-col items-center">
+                      {/* light theme */}
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src="/assets/nglcc-badge-dark.svg"
+                        alt="NGLCC Certified"
+                        height={16}
+                        className="block h-4 w-auto dark:hidden"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      {/* dark theme */}
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src="/assets/nglcc-badge-light.svg"
+                        alt="NGLCC Certified"
+                        height={16}
+                        className="hidden h-4 w-auto dark:block"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <figcaption className="mt-1 text-center text-[8pt] text-text-tertiary dark:text-dark-text-tertiary">
+                        Gay Mens Field Guide LLC.
+                      </figcaption>
+                    </figure>
+                    {/* Catalant (theme-aware) */}
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="/assets/catalant-badge-dark.svg"
+                      alt="Catalant Vetted Consultant"
+                      height={16}
+                      className="block h-4 w-auto dark:hidden"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src="/assets/catalant-badge-light.svg"
+                      alt="Catalant Vetted Consultant"
+                      height={16}
+                      className="hidden h-4 w-auto dark:block"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  {rightCtas.items.map((cta) => (
+                    <ButtonLink
+                      key={cta._id}
+                      href={cta.href}
+                      intent={cta.type}
+                      size="lg"
+                      className="w-full justify-center"
+                    >
                       {cta.label}
                     </ButtonLink>
-                  );
-                })}
+                  ))}
+                </div>
               </div>
             </div>
           </div>

@@ -33,6 +33,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
       <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" strategy="afterInteractive" async defer />
 
       <Section className="gap-6">
+        <div className="be-section-card space-y-6">
         <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Contact" }]} />
 
         <div className="grid w-full items-start gap-8 -mt-4 sm:-mt-2 md:mt-0 md:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] md:items-stretch">
@@ -224,6 +225,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
               </div>
             </form>
           </div>
+        </div>
         </div>
       </Section>
     </main>
