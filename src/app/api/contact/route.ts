@@ -133,6 +133,7 @@ export async function POST(req: NextRequest) {
 
     // Send email notification via Resend
     const resendApiKey = process.env.RESEND_API_KEY;
+    console.info(`[CONTACT_FORM_SUBMISSION] Resend API key present: ${resendApiKey ? 'YES' : 'NO'}`);
     if (resendApiKey) {
       try {
         const resend = new Resend(resendApiKey);
@@ -157,13 +158,14 @@ export async function POST(req: NextRequest) {
             <p style="color: #666; font-size: 12px;">IP: ${ip} | User Agent: ${userAgent}</p>
           `,
         });
-        console.info("[CONTACT_FORM_SUBMISSION] Email sent successfully via Resend");
+        console.info("[CONTACT_FORM_SUBMISSION] ✅ Email sent successfully via Resend");
       } catch (emailError) {
-        console.error("[CONTACT_FORM_SUBMISSION] Failed to send email via Resend:", emailError);
+        console.error("[CONTACT_FORM_SUBMISSION] ❌ Failed to send email via Resend:");
+        console.error(emailError);
         // Don't fail the request if email fails - still log the submission
       }
     } else {
-      console.warn("[CONTACT_FORM_SUBMISSION] RESEND_API_KEY not configured, skipping email notification");
+      console.warn("[CONTACT_FORM_SUBMISSION] ⚠️ RESEND_API_KEY not configured, skipping email notification");
     }
 
     // Persist to Airtable when credentials are present
