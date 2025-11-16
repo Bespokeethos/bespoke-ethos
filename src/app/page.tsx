@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 
 import { FounderStory } from "./_sections/founder-story";
 import { TrustCredentials } from "./_sections/trust-credentials";
@@ -97,6 +98,19 @@ export default function HomePage() {
           You&apos;re working your day job and building nights and weekends. We get it&mdash;we&apos;re
           doing it too. Let&apos;s figure this out together.
         </p>
+
+        <div className="mt-10 mx-auto max-w-5xl">
+          <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary">
+            <Image
+              src="/assets/generated/hero-ai-automation-dashboard-desktop.webp"
+              alt="AI automation dashboard showing workflow connections between Gmail, Slack, Salesforce and Airtable for small business efficiency"
+              fill
+              className="h-full w-full object-cover"
+              sizes="(max-width: 768px) 100vw, 960px"
+              priority
+            />
+          </div>
+        </div>
       </section>
 
       {/* Consensus Engine / How we work */}

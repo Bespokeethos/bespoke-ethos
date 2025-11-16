@@ -26,6 +26,12 @@ const VARIANTS = [
     prompt:
       "Footer wave background with layered flowing curves that suggest stability and forward motion. Teal, midnight charcoal, and softly glowing aquamarine accents, gentle lighting, wide negative space for content. Minimalist enterprise styling, 16:9, no text or logos.",
   },
+  // Homepage hero dashboard
+  {
+    id: "hero-ai-automation-dashboard",
+    prompt:
+      "Photorealistic 3D render of a modern AI automation dashboard displayed on a MacBook Pro. Screen shows a visual workflow builder with colorful connected nodes representing Gmail, Slack, Salesforce, and Airtable. Workflow connections are smooth curved lines in teal and purple. Small business owner's hands are visible on the keyboard, with a Cleveland skyline photo frame in soft focus on the desk. Warm golden-hour natural light, clean minimalist background, 16:9 composition with generous negative space for overlay copy, no visible text or logos.",
+  },
   // Hero slides (deterministic IDs)
   {
     id: "hero-flowstack",

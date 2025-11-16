@@ -13,6 +13,7 @@ const variants = [
 // Optional square variant for cards/left hero (1:1, center crop)
 const squareVariant = { suffix: "square", size: 1200 };
 const heroSlides = new Set([
+  "hero-ai-automation-dashboard",
   "hero-flowstack",
   "hero-chatbots",
   "hero-consensus",

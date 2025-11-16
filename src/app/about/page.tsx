@@ -19,7 +19,19 @@ export default function AboutPage() {
     <Section className="gap-10">
       <AboutPageJsonLd />
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "About" }]} />
-      
+
+      <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary">
+        <div className="relative h-56 w-full sm:h-72 lg:h-80">
+          <Image
+            src="/assets/generated/hero-ai-automation-dashboard-desktop.webp"
+            alt="AI automation dashboard showing workflow connections between Gmail, Slack, Salesforce and Airtable for small business efficiency"
+            fill
+            className="h-full w-full object-cover"
+            sizes="(max-width: 768px) 100vw, 960px"
+          />
+        </div>
+      </div>
+
       <div className="grid gap-10 md:grid-cols-2 md:gap-12">
         <div>
           <Heading subtitle="AI automation you can trust" align="left">

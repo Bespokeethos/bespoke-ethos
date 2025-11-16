@@ -1,9 +1,19 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Section } from "@/common/layout";
 
 export function LGBTQDiscountBanner() {
   return (
     <Section className="relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <Image
+          src="/assets/generated/hero-ai-automation-dashboard-desktop.webp"
+          alt=""
+          fill
+          className="h-full w-full object-cover opacity-20"
+          sizes="(max-width: 768px) 100vw, 960px"
+        />
+      </div>
       <div className="mx-auto max-w-4xl text-center py-8 sm:py-12">
         <div className="relative rounded-3xl border border-border/80 bg-surface-secondary/95 p-8 shadow-xl dark:border-dark-border/80 dark:bg-dark-surface-secondary/95 sm:p-12">
           <div className="relative z-10">
@@ -17,7 +27,7 @@ export function LGBTQDiscountBanner() {
             </h2>
 
             <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-text-secondary dark:text-dark-text-secondary sm:text-lg">
-              Starting a business as a minority is hard as hell. I know—I&rsquo;ve been there. That&rsquo;s why LGBTQ-owned businesses get{" "}
+              Starting a business as a minority is hard as hell. I know-I&rsquo;ve been there. That&rsquo;s why LGBTQ-owned businesses get{" "}
               <strong className="text-text-primary dark:text-dark-text-primary">25% off</strong>. No hoops, no fine print. Just mention it when you reach out.
             </p>
 
