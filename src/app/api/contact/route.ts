@@ -171,7 +171,7 @@ export async function POST(req: NextRequest) {
     // Persist to Airtable when credentials are present
     const airtableApiKey = process.env.AIRTABLE_API_KEY;
     const airtableBaseId = process.env.AIRTABLE_BASE_ID;
-    const airtableTableId = process.env.AIRTABLE_CONTACT_TABLE_ID;
+    const airtableTableId = process.env.AIRTABLE_CONTACT_ID;
     if (airtableApiKey && airtableBaseId && airtableTableId) {
       try {
           const messageLines = [
