@@ -25,7 +25,7 @@ export function LGBTQDiscountBanner() {
 
             <div className="mt-8 flex justify-center">
               <Link
-                href="/contact?subject=25%25%20LGBTQ%2B%20Discount"
+                href="/lgbtq-discount"
                 className="group relative inline-flex items-center justify-center overflow-hidden rounded-full px-8 py-3 text-sm font-semibold transition-all duration-300 hover:scale-[1.02] lgbtq-rainbow-button"
               >
                 <span className="absolute inset-0 rounded-full lgbtq-rainbow-ring" />

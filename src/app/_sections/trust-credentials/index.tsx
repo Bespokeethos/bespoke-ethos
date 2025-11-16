@@ -84,7 +84,7 @@ export function TrustCredentials() {
         </div>
 
         {/* 25% Discount Callout with Animated Button */}
-        <div className="mt-12 mx-auto max-w-4xl rounded-2xl border-2 border-accent-500/20 bg-gradient-to-br from-accent-500/5 to-accent-600/10 p-8 text-center">
+          <div className="mt-12 mx-auto max-w-4xl rounded-2xl border-2 border-accent-500/20 bg-gradient-to-br from-accent-500/5 to-accent-600/10 p-8 text-center">
           <h3 className="text-2xl font-semibold text-text-primary dark:text-dark-text-primary">
             25% Off for LGBTQ+ Businesses
           </h3>
@@ -93,12 +93,15 @@ export function TrustCredentials() {
           </p>
           <div className="mt-6 flex justify-center">
             <Link
-              href="/contact?subject=25%25%20LGBTQ%2B%20Discount"
-              className="group relative inline-flex items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-accent-600 to-accent-500 px-8 py-3 text-sm font-semibold text-white transition-all hover:scale-105 hover:shadow-lg"
+              href="/lgbtq-discount"
+              className="group relative inline-flex items-center justify-center overflow-hidden rounded-full px-8 py-3 text-sm font-semibold transition-all duration-300 hover:scale-[1.02] lgbtq-rainbow-button"
             >
-              <div className="aurora-glow absolute inset-0 -z-10 opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-100" />
-              <span className="relative z-10">Claim Your 25% Discount</span>
-              <svg className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <span className="absolute inset-0 rounded-full lgbtq-rainbow-ring" />
+              <span className="absolute inset-[3px] rounded-full lgbtq-button-inner" />
+              <span className="relative z-10 flex items-center bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 bg-clip-text text-transparent">
+                Learn about the 25% discount
+              </span>
+              <svg className="ml-2 h-4 w-4 text-purple-600 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
             </Link>
