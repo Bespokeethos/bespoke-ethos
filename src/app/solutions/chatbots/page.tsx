@@ -40,8 +40,8 @@ export default function ChatbotsPage() {
         <ButtonLink intent="primary" href="/contact">
           Try AI chatbot free
         </ButtonLink>
-        <ButtonLink intent="secondary" href="/book">
-          Schedule a free assessment
+        <ButtonLink intent="secondary" href="/contact?service=llm-setups">
+          Schedule a free consultation
         </ButtonLink>
       </div>
     </Section>

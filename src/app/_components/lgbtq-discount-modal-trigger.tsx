@@ -251,7 +251,7 @@ export function LGBTQDiscountModalTrigger({ children }: LGBTQDiscountModalTrigge
 
             <div style={{ textAlign: "center" }}>
               <Link
-                href="/book"
+                href="/contact?service=llm-setups"
                 className="primary-cta inline-block"
                 onClick={closeModal}
               >

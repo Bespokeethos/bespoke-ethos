@@ -118,10 +118,10 @@ export const BLOG_POSTS: BlogPost[] = [
           <p>
             If you&apos;re in Cleveland (or act like a Cleveland founder even if you&apos;re not), your next move is simple: list one
             workflow you&apos;d love never to think about again. Bring that to a{" "}
-            <Link href="/book" className="underline">
-              free assessment call
+            <Link href="/contact?service=llm-setups" className="underline">
+              free consultation call
             </Link>{" "}
-            and we&apos;ll map out an automation that pays for itself in hours—not buzzwords.
+            and we&apos;ll map out an automation that pays for itself in hours-not buzzwords.
           </p>
         </div>
       );
@@ -201,8 +201,8 @@ export const BLOG_POSTS: BlogPost[] = [
           <h2>Your First Automation, in One Page</h2>
           <p>
             Want help deciding? Bring three candidate workflows to a{" "}
-            <Link href="/book" className="underline">
-              free assessment
+            <Link href="/contact?service=llm-setups" className="underline">
+              free consultation
             </Link>{" "}
             and we&apos;ll sketch a one-page automation plan: what to automate, which tools to use, and how to know it&apos;s working.
           </p>

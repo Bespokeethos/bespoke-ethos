@@ -30,7 +30,7 @@ const SOLUTION_DATA = [
     heroDescription:
       "Flowstack™ eliminates swivel-chair work without inviting AI chaos. Discovery-first builds capture your nuance, document every dependency, and keep audit trails and rollback paths in reach.",
     primaryCTA: { label: "Automate My #1 Task", href: "/contact" },
-    secondaryCTA: { label: "Schedule a Free Assessment", href: "/book" },
+    secondaryCTA: { label: "Schedule a Free Consultation", href: "/contact?service=llm-setups" },
     pricing: [
       `${formatMoney(PRICING.flowstack.setup)} setup - deep discovery + architecture`,
       `${formatMoney(PRICING.flowstack.monthly)}/month - monitoring, tweaks, and on-call fixes`,
@@ -93,7 +93,7 @@ const SOLUTION_DATA = [
     heroDescription:
       "Consensus Engine™ compares qualitative insight and financial impact so your next rebrand, launch, or pricing move lands with certainty.",
     primaryCTA: { label: "Get Your Free Answer", href: "/solutions/consensus-engine" },
-    secondaryCTA: { label: "Book a Strategy Session", href: "/book" },
+    secondaryCTA: { label: "Book a Strategy Session", href: "/contact?service=llm-setups" },
     pricing: [
       "First decision is free — receive a full executive brief.",
       "Bundle follow-up questions by month or quarter.",
@@ -482,7 +482,7 @@ function FallbackStaticPage({ slug }: { slug?: string[] }) {
             <div className="mt-8 flex flex-wrap gap-3 motion-safe:animate-fadeIn">
               <Link href="/contact" className="bg-accent-600 hover:brightness-110 inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-semibold text-white">Automate My #1 Task</Link>
               <Link href="/solutions" className="border-border text-text-primary hover:bg-black/5 dark:border-dark-border dark:text-dark-text-primary dark:hover:bg-white/5 inline-flex items-center justify-center rounded-md border px-5 py-3 text-sm font-semibold">See Products</Link>
-              <Link href="/book" className="text-text-tertiary hover:text-text-primary dark:text-dark-text-tertiary dark:hover:text-dark-text-primary inline-flex items-center justify-center px-3 py-3 text-sm font-semibold">Free Assessment</Link>
+              <Link href="/contact?service=llm-setups" className="text-text-tertiary hover:text-text-primary dark:text-dark-text-tertiary dark:hover:text-dark-text-primary inline-flex items-center justify-center px-3 py-3 text-sm font-semibold">Free Consultation</Link>
             </div>
             <div className="mt-8 flex items-center gap-4">
               <Image

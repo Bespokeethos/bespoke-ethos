@@ -91,7 +91,7 @@ export default function HelpPage() {
           Contact us
         </Link>
         {LINK_SEPARATOR}
-        <Link className="text-accent-600 hover:underline" href="/book">
+        <Link className="text-accent-600 hover:underline" href="/contact?service=llm-setups">
           Book a free assessment
         </Link>
         {LINK_SEPARATOR}

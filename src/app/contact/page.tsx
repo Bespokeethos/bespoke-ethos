@@ -216,8 +216,8 @@ export default async function ContactPage({ searchParams }: PageProps) {
                 </button>
                 <Link
                   className="text-center text-sm text-text-secondary underline-offset-4 hover:underline dark:text-dark-text-secondary"
-                  href="/book"
-                >
+                  href="https://calendly.com/contact-bespokeethos/30min"
+                  >
                   Prefer to book a call?
                 </Link>
               </div>

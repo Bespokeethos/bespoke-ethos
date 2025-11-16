@@ -19,7 +19,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${siteUrl}/faq`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
     { url: `${siteUrl}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
     { url: `${siteUrl}/contact`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
-    { url: `${siteUrl}/book`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
   ];
 
   return staticRoutes;

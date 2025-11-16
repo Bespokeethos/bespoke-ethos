@@ -56,7 +56,7 @@ export default function ConsensusEnginePage() {
         <li>Perfect for pricing, positioning, prioritization</li>
       </ul>
       <div className="flex gap-3">
-        <ButtonLink intent="primary" href="/book">
+        <ButtonLink intent="primary" href="/contact?service=llm-setups">
           Book a free consultation &amp; get your first report free
         </ButtonLink>
         <ButtonLink intent="secondary" href="/contact">

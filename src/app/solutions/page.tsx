@@ -95,8 +95,8 @@ export default function SolutionsPage() {
       </ul>
 
       <div className="mt-6">
-        <Link className="text-accent-500 font-medium" href="/book">
-          Not sure where to start? Book a free assessment
+        <Link className="text-accent-500 font-medium" href="/contact?service=llm-setups">
+          Not sure where to start? Book a free consultation
         </Link>
       </div>
     </Section>

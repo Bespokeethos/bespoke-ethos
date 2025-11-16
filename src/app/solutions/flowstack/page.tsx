@@ -70,8 +70,8 @@ export default function FlowstackPage() {
         <ButtonLink intent="primary" href="/contact">
           Automate my #1 task
         </ButtonLink>
-        <ButtonLink intent="secondary" href="/book">
-          Schedule a free assessment
+        <ButtonLink intent="secondary" href="/contact?service=llm-setups">
+          Schedule a free consultation
         </ButtonLink>
       </div>
       <p className="mt-2 text-sm text-text-tertiary dark:text-dark-text-tertiary">

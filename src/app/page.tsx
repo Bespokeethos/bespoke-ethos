@@ -81,7 +81,7 @@ export default function HomePage() {
           No jargon. No pressure. Just answers.
         </p>
 
-        <Link href="/book" className="primary-cta inline-block" style={{ marginBottom: "32px" }}>
+        <Link href="/contact?service=llm-setups" className="primary-cta inline-block" style={{ marginBottom: "32px" }}>
           Schedule Your Free Consultation
         </Link>
 
@@ -451,7 +451,7 @@ export default function HomePage() {
         </div>
 
         <div style={{ textAlign: "center", marginBottom: "48px" }}>
-          <Link href="/book" className="primary-cta inline-block" style={{ marginBottom: "24px" }}>
+          <Link href="/contact?service=llm-setups" className="primary-cta inline-block" style={{ marginBottom: "24px" }}>
             Schedule Your Free Consultation
           </Link>
         </div>

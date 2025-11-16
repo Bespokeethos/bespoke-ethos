@@ -57,7 +57,7 @@ export default function CadencePage() {
                 <Link href="/solutions/flowstack" className="underline ml-1">Need something simpler? Try Flowstack™.</Link>
               </p>
               <ButtonLink intent="primary" href="#demo">See a Live Demo (2 min)</ButtonLink>
-              <ButtonLink intent="secondary" href="/book">Book a strategy call</ButtonLink>
+              <ButtonLink intent="secondary" href="/contact?service=llm-setups">Book a strategy call</ButtonLink>
               <ButtonLink unstyled className="underline underline-offset-4 text-white/90" href="/contact?subject=Cadence%20pilot">Start a 30-day pilot</ButtonLink>
             </div>
           </div>
@@ -183,7 +183,7 @@ export default function CadencePage() {
         </div>
         <div className="mt-2 flex gap-3">
           <ButtonLink intent="primary" href="#demo">See a Live Demo (2 min)</ButtonLink>
-          <ButtonLink intent="secondary" href="/book">Book a 20-minute strategy call</ButtonLink>
+          <ButtonLink intent="secondary" href="/contact?service=llm-setups">Book a 20-minute strategy call</ButtonLink>
         </div>
       </Section>
 
@@ -219,7 +219,7 @@ export default function CadencePage() {
         </div>
         <div className="flex flex-col gap-2">
           <ButtonLink intent="primary" href="#demo">See a Live Demo (2 min)</ButtonLink>
-          <ButtonLink unstyled className="text-accent-600 underline underline-offset-4" href="/book">
+          <ButtonLink unstyled className="text-accent-600 underline underline-offset-4" href="/contact?service=llm-setups">
             Or book a 20-minute strategy call to discuss your specific needs.
           </ButtonLink>
           <ul className="mt-2 text-sm text-text-tertiary dark:text-dark-text-tertiary">

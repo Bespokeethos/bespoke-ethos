@@ -73,7 +73,7 @@ export default function PricingPage() {
           </ul>
           <div className="mt-4">
             <ButtonLink
-              href="/book"
+              href="/contact?service=llm-setups"
               unstyled
               className="inline-flex items-center justify-center rounded-full bg-success px-4 py-2 text-sm font-semibold text-black shadow-md transition-transform duration-200 hover:scale-[1.02]"
             >
@@ -180,8 +180,8 @@ export default function PricingPage() {
         <Link className="text-accent-600 hover:underline" href="/contact">
           Contact us
         </Link>
-        <Link className="text-accent-600 hover:underline" href="/book">
-          Book a free assessment
+        <Link className="text-accent-600 hover:underline" href="/contact?service=llm-setups">
+          Book a free consultation
         </Link>
       </div>
     </Section>

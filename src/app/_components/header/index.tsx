@@ -146,17 +146,10 @@ const FALLBACK_HEADER_NAV: HeaderNavLink[] = [
 
 const FALLBACK_HEADER_CTAS: HeaderCtaItem[] = [
   {
-    _id: "cta-book",
-    label: "Book Free Assessment",
-    href: "/book",
-    type: "primary",
-    icon: null,
-  },
-  {
     _id: "cta-calendly",
-    label: "Schedule on Calendly",
+    label: "Book Free Consult",
     href: "https://calendly.com/contact-bespokeethos/30min",
-    type: "secondary",
+    type: "primary",
     icon: null,
   },
 ];
