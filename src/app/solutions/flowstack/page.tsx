@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export default function FlowstackPage() {
   return (
     <Section className="gap-6 -mt-6 md:-mt-4">
-      <div className="be-section-card space-y-6">
+      <div className="be-section-card space-y-6 pt-4 md:pt-5">
       <Breadcrumbs
         items={[
           { name: "Home", href: "/" },
@@ -27,8 +27,8 @@ export default function FlowstackPage() {
         ]}
       />
       <ProductJsonLd />
-      <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame shadow-xl">
-        <div className="relative h-40 w-full sm:h-48 lg:h-56">
+        <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame shadow-xl">
+          <div className="relative h-28 w-full sm:h-36 lg:h-44">
           <Image
             src="/assets/generated/hero-flowstack-desktop.webp"
             alt="Founder's desk transformed from cluttered paperwork to a calm automation dashboard"
