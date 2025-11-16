@@ -675,8 +675,8 @@ html.dark .be-page-slate {
   background:
     radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.14), transparent 18%),
     radial-gradient(circle at 0% 100%, rgba(236, 201, 75, 0.18), transparent 24%);
-  opacity: 0.78;
-  transition: opacity 0.35s ease-out;
+  opacity: 0;
+  transition: opacity 0.55s ease-out;
 }
 
 .be-form-glass-card::after {
@@ -692,21 +692,19 @@ html.dark .be-page-slate {
 
 @keyframes be-form-glass-shimmer {
   0% {
-    opacity: 0.72;
     transform: translate3d(-1.5%, -1.5%, 0);
   }
   50% {
-    opacity: 0.96;
     transform: translate3d(1.5%, 1.5%, 0);
   }
   100% {
-    opacity: 0.8;
     transform: translate3d(0, 0, 0);
   }
 }
 
 .be-form-glass-card:hover::before,
 .be-form-glass-card:focus-within::before {
+  opacity: 0.9;
   animation: be-form-glass-shimmer 3.2s ease-in-out infinite alternate;
 }
 
@@ -714,7 +712,7 @@ html.dark .be-page-slate {
   .be-form-glass-card:hover::before,
   .be-form-glass-card:focus-within::before {
     animation: none;
-    opacity: 0.8;
+    opacity: 0.9;
   }
 }
 
