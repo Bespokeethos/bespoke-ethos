@@ -9,7 +9,7 @@ import { Breadcrumbs } from "@/app/_components/seo/breadcrumbs";
 export const revalidate = 1800;
 
 export const metadata: Metadata = {
-  title: "FlowstackT - Automate Your #1 Task | Bespoke Ethos",
+  title: "Flowstack™ - Automate Your #1 Task | Bespoke Ethos",
   description:
     "Proprietary general automation package. Discovery-led builds that keep human approvals, audit trails, and rollback. Enterprise-grade automation you own.",
   alternates: { canonical: "/solutions/flowstack" },
@@ -24,7 +24,7 @@ export default function FlowstackPage() {
             items={[
               { name: "Home", href: "/" },
               { name: "Solutions", href: "/solutions" },
-              { name: "FlowstackT" },
+              { name: "Flowstack™" },
             ]}
           />
           <ProductJsonLd />
@@ -41,7 +41,7 @@ export default function FlowstackPage() {
               />
               <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
                 <div className="rounded-2xl bg-black/45 px-5 py-3 text-center text-sm sm:text-base font-medium text-white/95 shadow-2xl backdrop-blur-md">
-                  <div className="mb-1 text-xs uppercase tracking-[0.22em] text-amber-200">FlowstackT</div>
+                  <div className="mb-1 text-xs uppercase tracking-[0.22em] text-amber-200">Flowstack™</div>
                   <div className="text-sm sm:text-base">Automate Your #1 Task</div>
                 </div>
               </div>
@@ -50,17 +50,17 @@ export default function FlowstackPage() {
 
           <Heading
             subtitle="Proprietary general automation for any business task. Own the results."
-            align="left"
+            align="center"
           >
-            <h1 className="font-hero-accent">FlowstackT</h1>
+            <h1 className="font-hero-accent">Flowstack™</h1>
           </Heading>
 
           <div className="space-y-4 text-text-secondary">
             <p>
-              When I was drowning in my publishing business, I didn&rsquo;t need a fancy AI platform. I needed someone to
-              automate the one task that was stealing hours from my week. So I built FlowstackT for myself first. It is
-              our proprietary general automation package, designed to handle any business task&mdash;from lead routing to
-              inventory updates.
+              When I was drowning in my publishing business, I didn&rsquo;t need a fancy AI platform. I needed someone
+              to automate the one task that was stealing hours from my week. So I built Flowstack™ for myself first. It
+              is our proprietary general automation package, designed to handle any business task&mdash;from lead routing
+              to inventory updates.
             </p>
             <p>
               We map your real process, keep human approvals intact, and ship a production-ready automation in days.
@@ -92,7 +92,7 @@ export default function FlowstackPage() {
           <div className="mt-8 grid gap-4 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] items-start">
             <div className="space-y-3 text-text-secondary">
               <h2 className="text-base font-semibold text-text-primary dark:text-dark-text-primary">
-                See FlowstackT in action
+                See Flowstack™ in action
               </h2>
               <p>
                 Behind the scenes, FlowstackT is just a clean, auditable workflow: one trigger, a few well-designed
@@ -122,7 +122,7 @@ function ProductJsonLd() {
   const json = {
     "@context": "https://schema.org",
     "@type": "Product",
-    name: "FlowstackT",
+    name: "Flowstack™",
     description:
       "Custom automation for your most time-consuming task. Discovery-led build, human approvals, monitoring, documentation, and rollback.",
     offers: {
