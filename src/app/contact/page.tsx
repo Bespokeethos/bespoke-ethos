@@ -32,12 +32,12 @@ export default async function ContactPage({ searchParams }: PageProps) {
       <ContactPageJsonLd />
       <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" strategy="afterInteractive" async defer />
 
-      <Section className="gap-6 -mt-6 md:-mt-4">
+      <Section className="gap-5 -mt-8 md:-mt-4">
         <div className="be-section-card space-y-6">
         <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Contact" }]} />
 
         <div className="grid w-full items-start gap-8 -mt-4 sm:-mt-2 md:mt-0 md:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] md:items-stretch">
-          <div className="order-2 space-y-5 text-left md:order-1 md:space-y-6">
+          <div className="space-y-5 text-left md:space-y-6">
             <p className="inline-flex rounded-full bg-surface-secondary px-3 py-1 text-xs font-medium tracking-tight text-text-secondary dark:bg-dark-surface-secondary dark:text-dark-text-secondary">
               {isLlmSetup ? "Automation setups · Stack mapping · Guardrails" : "Small business automation • Founder-friendly"}
             </p>
@@ -89,7 +89,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
             </div>
           </div>
 
-          <div className="order-1 be-form-glass-card sm:order-2 sm:p-6">
+          <div className="be-form-glass-card sm:p-6">
             {sent ? (
               <div className="mb-6 rounded-md border border-green-700/30 bg-green-500/10 p-4 text-sm text-green-700 dark:border-green-300/20 dark:text-green-300">
                 <p className="font-medium">Thanks! Your message is on its way.</p>
@@ -98,7 +98,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
               </div>
             ) : null}
 
-            <form method="post" action="/api/contact" className="grid grid-cols-1 gap-3 sm:gap-4">
+            <form method="post" action="/api/contact" className="grid grid-cols-1 gap-2 sm:gap-4">
               <input type="hidden" name="successRedirect" value="/contact?sent=1" />
               <input type="hidden" name="errorRedirect" value="/contact?error=1" />
 
