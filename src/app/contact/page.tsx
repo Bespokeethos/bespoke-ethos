@@ -38,7 +38,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
         <div className="grid w-full items-start gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)]">
           <div className="space-y-6 text-left">
             <p className="inline-flex rounded-full bg-surface-secondary px-3 py-1 text-xs font-medium tracking-tight text-text-secondary dark:bg-dark-surface-secondary dark:text-dark-text-secondary">
-              {isLlmSetup ? "LLM setups • Stack mapping • Guardrails" : "Small business automation • Founder-friendly"}
+              {isLlmSetup ? "Automation setups · Stack mapping · Guardrails" : "Small business automation • Founder-friendly"}
             </p>
 
             <div className="space-y-3">
@@ -53,7 +53,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
               {isLlmSetup ? (
                 <div className="rounded-2xl border border-border bg-surface-secondary/80 p-4 text-sm text-text-secondary shadow-sm dark:border-dark-border dark:bg-dark-surface-secondary/80 dark:text-dark-text-secondary">
                   <p className="font-semibold text-text-primary dark:text-dark-text-primary">
-                    You&apos;re asking about LLM setups &amp; AI stack mapping.
+                    You&apos;re asking about automation &amp; AI stack mapping.
                   </p>
                   <p className="mt-2">
                     In the message box, tell us where your data lives (docs, CRM, tools), who needs access, and what&apos;s breaking today.
@@ -240,3 +240,4 @@ function ContactPageJsonLd() {
   } as const;
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
 }
+
