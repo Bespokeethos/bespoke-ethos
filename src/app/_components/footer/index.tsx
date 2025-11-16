@@ -57,7 +57,7 @@ const FALLBACK_LOGO: FooterLogo = {
     blurDataURL: "",
   },
   light: {
-    url: "/assets/logo-light.png",
+    url: "/assets/logo-light-2.png",
     alt: "Bespoke Ethos logo",
     width: 200,
     height: 60,

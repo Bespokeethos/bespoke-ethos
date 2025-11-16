@@ -209,17 +209,7 @@ function HeaderShell({
         <HeaderAccent className="absolute inset-0 -z-10" />
         <div className="container relative z-10 mx-auto grid w-full grid-cols-header place-items-center items-center px-4 sm:px-6 *:first:justify-self-start">
           <ButtonLink unstyled className="flex items-center ring-offset-2 header-logo-container" href="/">
-            <span className="block md:hidden">
-              <Image
-                src="/assets/logo-mobile.png"
-                alt="Bespoke Ethos"
-                width={48}
-                height={48}
-                className="h-12 w-12 logo-no-bg"
-                priority
-              />
-            </span>
-            <span className="hidden md:block dark:hidden relative h-12 sm:h-16 md:h-20 w-[200px]">
+            <span className="block dark:hidden relative h-10 sm:h-12 md:h-16 w-[200px]">
               <Image
                 src={logo.light.url}
                 alt={logo.light.alt ?? ""}
@@ -228,7 +218,7 @@ function HeaderShell({
                 priority
               />
             </span>
-            <span className="hidden md:block dark:block relative h-12 sm:h-16 md:h-20 w-[200px]">
+            <span className="hidden dark:block relative h-10 sm:h-12 md:h-16 w-[200px]">
               <Image
                 src={logo.dark.url}
                 alt={logo.dark.alt ?? ""}

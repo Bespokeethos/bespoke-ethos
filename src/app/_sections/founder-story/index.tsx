@@ -3,12 +3,12 @@ import { Section } from "@/common/layout";
 
 export function FounderStory() {
   return (
-    <Section className="bg-surface-secondary dark:bg-dark-surface-secondary -mt-8 md:-mt-12">
+    <Section className="bg-surface-secondary dark:bg-dark-surface-secondary -mt-8 md:-mt-12 pt-10 md:pt-12 pb-12 md:pb-16">
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-12 md:grid-cols-2 md:gap-16 items-center">
           {/* Image */}
           <div className="order-2 md:order-1">
-            <div className="relative aspect-square w-full max-w-[220px] mx-auto overflow-hidden rounded-2xl shadow-2xl">
+            <div className="relative aspect-square w-full max-w-[180px] md:max-w-[220px] mx-auto overflow-hidden rounded-2xl shadow-2xl be-image-frame">
               <Image
                 src="/founder-upton-rand.jpg"
                 alt="Upton Rand, Founder of Bespoke Ethos"
