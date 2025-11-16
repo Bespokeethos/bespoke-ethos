@@ -32,12 +32,12 @@ export default async function ContactPage({ searchParams }: PageProps) {
       <ContactPageJsonLd />
       <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" strategy="afterInteractive" async defer />
 
-      <Section className="gap-6 -mt-8 md:-mt-4">
+      <Section className="gap-5 -mt-9 md:gap-6 md:-mt-4">
         <div className="be-section-card space-y-6">
           <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Contact" }]} />
 
           {/* Mobile hero heading above the card */}
-          <div className="space-y-2 text-left md:hidden">
+          <div className="space-y-1 text-center md:hidden">
             <p className="inline-flex rounded-full bg-surface-secondary px-3 py-1 text-[11px] font-medium tracking-tight text-text-secondary dark:bg-dark-surface-secondary dark:text-dark-text-secondary">
               {isLlmSetup ? "Automation setups · Stack mapping · Guardrails" : "Small business automation · Founder-friendly"}
             </p>
@@ -46,7 +46,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
             </h1>
           </div>
 
-          <div className="grid w-full items-start gap-6 -mt-1 sm:gap-8 sm:-mt-2 md:mt-0 md:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] md:items-stretch">
+          <div className="grid w-full items-start gap-4 -mt-2 sm:gap-8 sm:-mt-2 md:mt-0 md:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] md:items-stretch">
           <div className="hidden space-y-5 text-left md:block md:space-y-6">
             <p className="inline-flex rounded-full bg-surface-secondary px-3 py-1 text-xs font-medium tracking-tight text-text-secondary dark:bg-dark-surface-secondary dark:text-dark-text-secondary">
               {isLlmSetup ? "Automation setups · Stack mapping · Guardrails" : "Small business automation • Founder-friendly"}
