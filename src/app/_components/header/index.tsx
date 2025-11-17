@@ -125,6 +125,12 @@ const FALLBACK_HEADER_NAV: HeaderNavLink[] = [
     sublinks: { items: [] },
   },
   {
+    _id: "nav-brutus-chat",
+    _title: "AI Chat",
+    href: "/chat",
+    sublinks: { items: [] },
+  },
+  {
     _id: "nav-blog",
     _title: "Blog",
     href: "/blog",

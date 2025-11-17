@@ -5,15 +5,17 @@ export const runtime = "nodejs";
 
 function buildClient() {
   const gatewayUrl = (process.env.AI_GATEWAY_URL ?? "").trim();
-  const gatewayKey = (process.env.AI_GATEWAY_KEY ?? "").trim();
+  const gatewayKey = (process.env.AI_GATEWAY_API_KEY ?? "").trim();
   const directKey = (process.env.OPENAI_API_KEY ?? "").trim();
 
-  const apiKey = gatewayKey || directKey;
+  const useGateway = Boolean(gatewayUrl && gatewayKey);
+
+  const apiKey = useGateway ? gatewayKey : directKey;
   if (!apiKey) {
     throw new Error("No OpenAI or AI Gateway API key configured.");
   }
 
-  const baseURL = gatewayUrl || undefined;
+  const baseURL = useGateway ? gatewayUrl : undefined;
 
   return new OpenAI({
     apiKey,
@@ -112,7 +114,10 @@ export async function POST(req: NextRequest) {
         model,
         message,
         usage: completion.usage,
-        viaGateway: Boolean((process.env.AI_GATEWAY_URL ?? "").trim()),
+        viaGateway: Boolean(
+          (process.env.AI_GATEWAY_URL ?? "").trim() &&
+            (process.env.AI_GATEWAY_API_KEY ?? "").trim(),
+        ),
       },
       { status: 200 },
     );
@@ -127,4 +132,3 @@ export async function POST(req: NextRequest) {
     );
   }
 }
-
