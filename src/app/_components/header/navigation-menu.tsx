@@ -217,11 +217,11 @@ export function MobileMenu({ navbar, rightCtas }: HeaderData) {
       <div className="block lg:hidden">
         {isOn ? (
           <div
-            className="be-mobile-menu-backdrop fixed inset-0 z-40"
+            className="be-mobile-menu-backdrop fixed inset-0 z-[120]"
             onClick={handleOff}
           >
             <div
-              className="be-mobile-menu-card top-[calc(var(--header-height)+8px)] bottom-4 mx-auto max-w-md sm:max-w-lg"
+              className="be-mobile-menu-card top-[4.5rem] bottom-4 mx-auto max-w-md sm:max-w-lg"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex h-full flex-col">
