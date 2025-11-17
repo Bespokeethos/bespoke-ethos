@@ -1,10 +1,12 @@
 'use client';
 
 import { useState, useRef, useEffect } from "react";
+import type React from "react";
 
 export default function ChatPage() {
   const [prompt, setPrompt] = useState("");
   const [password, setPassword] = useState("");
+  const [image, setImage] = useState<string | null>(null);
   const [response, setResponse] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -15,6 +17,20 @@ export default function ChatPage() {
       outputRef.current.scrollTop = outputRef.current.scrollHeight;
     }
   }, [response]);
+
+  function handleImageUpload(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const result = event.target?.result;
+      if (typeof result === "string") {
+        setImage(result);
+      }
+    };
+    reader.readAsDataURL(file);
+  }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -28,7 +44,7 @@ export default function ChatPage() {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ prompt, password }),
+        body: JSON.stringify({ prompt, password, image }),
       });
 
       if (!res.ok || !res.body) {
@@ -89,6 +105,38 @@ export default function ChatPage() {
                 className="w-full rounded-md border border-border bg-surface-primary px-3 py-2 text-sm outline-none ring-0 focus:border-accent-primary/60 dark:border-dark-border dark:bg-dark-surface-primary"
                 disabled={loading}
               />
+            </div>
+
+            <div className="space-y-2">
+              <label className="text-xs font-medium text-text-secondary dark:text-dark-text-secondary">
+                Upload image (optional)
+              </label>
+              <input
+                type="file"
+                accept="image/*"
+                onChange={handleImageUpload}
+                className="block w-full text-xs text-text-secondary file:mr-3 file:rounded-md file:border file:border-border file:bg-surface-secondary file:px-3 file:py-1.5 file:text-xs file:font-medium hover:file:bg-surface-secondary/80 dark:text-dark-text-secondary dark:file:border-dark-border dark:file:bg-dark-surface-secondary"
+                disabled={loading}
+              />
+              {image && (
+                <div className="mt-2 space-y-2">
+                  <div className="overflow-hidden rounded-md border border-border bg-surface-secondary/40 p-2 dark:border-dark-border dark:bg-dark-surface-secondary/40">
+                    <img
+                      src={image}
+                      alt="Uploaded preview"
+                      className="max-h-64 w-auto rounded-md object-contain"
+                    />
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => setImage(null)}
+                    className="text-xs font-medium text-red-600 hover:underline dark:text-red-400"
+                    disabled={loading}
+                  >
+                    Remove image
+                  </button>
+                </div>
+              )}
             </div>
 
             <textarea

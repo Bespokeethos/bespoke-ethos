@@ -26,6 +26,8 @@ export async function POST(req: Request) {
 
   const prompt =
     typeof (body as any)?.prompt === "string" ? (body as any).prompt : "";
+  const image =
+    typeof (body as any)?.image === "string" ? (body as any).image : "";
   const password =
     typeof (body as any)?.password === "string" ? (body as any).password : "";
 
@@ -43,9 +45,20 @@ export async function POST(req: Request) {
     return new Response("Prompt is required.", { status: 400 });
   }
 
+  const content: any[] = [{ type: "text", text: prompt }];
+
+  if (image) {
+    content.push({ type: "image", image });
+  }
+
   const result = streamText({
     model: openai("gpt-4.1"),
-    prompt,
+    messages: [
+      {
+        role: "user",
+        content,
+      },
+    ],
   });
 
   return result.toTextStreamResponse();
