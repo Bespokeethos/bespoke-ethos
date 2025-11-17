@@ -139,7 +139,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
 
               <div className="hidden gap-4 md:grid md:grid-cols-2">
                 <label className="flex flex-col gap-1">
-                  <span className="text-xs text-text-secondary dark:text-dark-text-secondary sm:text-sm">Company (optional)</span>
+                  <span className="text-xs text-white sm:text-sm">Company (optional)</span>
                   <input
                     name="company"
                     type="text"
@@ -147,7 +147,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
                   />
                 </label>
                 <label className="flex flex-col gap-1">
-                  <span className="text-xs text-text-secondary dark:text-dark-text-secondary sm:text-sm">Timeline</span>
+                  <span className="text-xs text-white sm:text-sm">Timeline</span>
                   <select
                     name="timeline"
                     className="rounded-md border border-border bg-surface-primary px-3 py-2 outline-none ring-0 focus:border-accent-primary/60 dark:border-dark-border dark:bg-dark-surface-primary"
@@ -161,7 +161,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
               </div>
 
               <label className="hidden flex-col gap-1 md:flex">
-                <span className="text-xs text-text-secondary dark:text-dark-text-secondary sm:text-sm">
+                <span className="text-xs text-white sm:text-sm">
                   What are you hoping to achieve? <span className="text-red-600">*</span>
                 </span>
                 <input
@@ -174,7 +174,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
               </label>
 
               <label className="flex flex-col gap-1">
-                <span className="text-xs text-text-secondary dark:text-dark-text-secondary sm:text-sm">Budget (optional)</span>
+                <span className="text-xs text-white sm:text-sm">Budget (optional)</span>
                 <select
                   name="budget"
                   className="rounded-md border border-border bg-surface-primary px-3 py-2 outline-none ring-0 focus:border-accent-primary/60 dark:border-dark-border dark:bg-dark-surface-primary"
@@ -188,7 +188,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
               </label>
 
               <label className="flex flex-col gap-1">
-                <span className="text-xs text-text-secondary dark:text-dark-text-secondary sm:text-sm">
+                <span className="text-xs text-white sm:text-sm">
                   Message <span className="text-red-600">*</span>
                 </span>
                 <textarea
@@ -199,7 +199,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
                 />
               </label>
 
-              <label className="mt-2 flex items-start gap-2 text-sm text-text-secondary dark:text-dark-text-secondary">
+              <label className="mt-2 flex items-start gap-2 text-sm text-white">
                 <input name="consent" type="checkbox" value="yes" className="mt-1" />
                 <span>You agree we may contact you about this request. We’ll never share your email.</span>
               </label>
@@ -219,7 +219,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
                 <p className="text-sm text-red-600 dark:text-red-400">Failed to send. Please try again.</p>
               ) : null}
 
-              <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:mt-6 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+                <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:mt-6 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
                 <button
                   type="submit"
                   className="inline-flex items-center justify-center gap-2 rounded-md bg-accent-600 px-6 py-2.5 text-sm font-medium text-white shadow-sm hover:brightness-110"
@@ -227,9 +227,9 @@ export default async function ContactPage({ searchParams }: PageProps) {
                   Send message
                 </button>
                 <Link
-                  className="text-center text-sm text-text-secondary underline-offset-4 hover:underline dark:text-dark-text-secondary"
+                  className="text-center text-sm text-white underline-offset-4 hover:underline"
                   href="https://calendly.com/contact-bespokeethos/30min"
-                  >
+                >
                   Prefer to book a call?
                 </Link>
               </div>
