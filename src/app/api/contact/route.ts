@@ -235,8 +235,8 @@ export async function POST(req: NextRequest) {
         errors.push("Email address is invalid.");
       }
     }
-    if (!message || message.length < 10) {
-      errors.push("Message must be at least 10 characters.");
+    if (!message) {
+      errors.push("Message is required.");
     }
 
     if (errors.length > 0) {
