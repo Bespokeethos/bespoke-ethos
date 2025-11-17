@@ -377,7 +377,7 @@ async function sendToAirtable(
 
     const fields = {
       "First Name": contact.firstName,
-      "Last name": contact.lastName,
+      "Last Name": contact.lastName,
       Email: contact.email,
       Phone: contact.phone || "",
       Company: contact.company || "",
