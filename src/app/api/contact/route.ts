@@ -372,6 +372,9 @@ async function sendToAirtable(
     tableName,
   )}`;
 
+    // Extract just the date portion (YYYY-MM-DD) for Airtable's date field
+    const submittedDate = contact.meta.submittedAt.split('T')[0];
+
     const fields = {
       "First Name": contact.firstName,
       "Last name": contact.lastName,
@@ -383,7 +386,7 @@ async function sendToAirtable(
       Budget: contact.meta.budget || "",
       Timeline: contact.meta.timeline || "",
       Consent: contact.meta.consent,
-      "Submitted at": contact.meta.submittedAt,
+      "Submitted at": submittedDate,
     };
 
   console.info(
