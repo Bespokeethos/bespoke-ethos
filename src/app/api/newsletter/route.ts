@@ -36,7 +36,6 @@ export async function POST(req: NextRequest) {
               "Email Address": email,
               "Signup Date": new Date().toISOString(),
               "Lead Source": "Website",
-              Status: "Subscribed",
               Notes: "Newsletter opt-in from website footer",
             },
           }),

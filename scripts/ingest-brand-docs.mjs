@@ -36,7 +36,12 @@ const DOCS = [
   {
     id: "founders-bible",
     title: "Founders Bible",
-    file: "founders-bible.txt",
+    file: path.join("Manus", "founders_bible.txt"),
+  },
+  {
+    id: "vercel-ai-gateway",
+    title: "Vercel AI Gateway Docs",
+    file: path.join("Manus", "vercel_ai_gateway.html"),
   },
   {
     id: "conversion-attack-plan",

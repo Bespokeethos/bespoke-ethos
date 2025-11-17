@@ -54,7 +54,14 @@ from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional
 
 from dotenv import load_dotenv
-from agents import Agent, HostedMCPTool, Runner
+from agents import (
+    Agent,
+    CodeInterpreterTool,
+    FileSearchTool,
+    HostedMCPTool,
+    Runner,
+    WebSearchTool,
+)
 from agents.mcp import MCPServerSse, MCPServerStreamableHttp, MCPServerStdio
 
 
@@ -159,6 +166,40 @@ def parse_args() -> argparse.ArgumentParser:
     return parser
 
 
+def build_builtin_tools() -> list[Any]:
+    tools: list[Any] = []
+
+    if os.environ.get("MCP_ENABLE_CODE_INTERPRETER", "1") == "1":
+        tools.append(
+            CodeInterpreterTool(
+                tool_config={
+                    "type": "code_interpreter",
+                    "container": {"type": "auto"},
+                }
+            )
+        )
+
+    file_search_ids = os.environ.get("MCP_FILE_SEARCH_VECTOR_STORE_IDS", "").strip()
+    if file_search_ids:
+        vector_store_ids = [item.strip() for item in file_search_ids.split(",") if item.strip()]
+        if vector_store_ids:
+            max_results_raw = os.environ.get("MCP_FILE_SEARCH_MAX_RESULTS", "").strip()
+            max_results = int(max_results_raw) if max_results_raw.isdigit() else None
+            include_results = os.environ.get("MCP_FILE_SEARCH_INCLUDE_RESULTS", "0") == "1"
+            tools.append(
+                FileSearchTool(
+                    vector_store_ids=vector_store_ids,
+                    max_num_results=max_results,
+                    include_search_results=include_results,
+                )
+            )
+
+    if os.environ.get("MCP_ENABLE_WEB_SEARCH", "1") == "1":
+        tools.append(WebSearchTool())
+
+    return tools
+
+
 def load_agent_specs(path: str) -> List[Dict[str, Any]]:
     config_path = Path(path)
     data = json.loads(config_path.read_text(encoding="utf-8"))
@@ -237,10 +278,11 @@ async def run_with_hosted(args: argparse.Namespace, specs: Iterable[Dict[str, An
     )
 
     for spec in specs:
+        tools = [tool, *build_builtin_tools()]
         agent = Agent(
             name=spec["name"],
             instructions=spec.get("instructions", "Use MCP tools responsibly."),
-            tools=[tool],
+            tools=tools,
         )
         prompt = spec.get("prompt", args.default_prompt)
         print(f"\n=== Running {agent.name} ===")
@@ -263,9 +305,11 @@ async def run_with_server(
         tool_filter=tool_filter,
     ) as server:
         for spec in specs:
+            tools = build_builtin_tools()
             agent = Agent(
                 name=spec["name"],
                 instructions=spec.get("instructions", "Use MCP tools responsibly."),
+                tools=tools,
                 mcp_servers=[server],
             )
             prompt = spec.get("prompt", args.default_prompt)

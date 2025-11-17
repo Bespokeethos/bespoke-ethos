@@ -372,16 +372,19 @@ async function sendToAirtable(
     tableName,
   )}`;
 
-  const fields = {
-    "First Name": contact.firstName,
-    "Last Name": contact.lastName,
-    Email: contact.email,
-    Phone: contact.phone || "",
-    Company: contact.company || "",
-    Message: contact.message,
-    "Submitted At": contact.meta.submittedAt,
-    Status: "New",
-  };
+    const fields = {
+      "First Name": contact.firstName,
+      "Last name": contact.lastName,
+      Email: contact.email,
+      Phone: contact.phone || "",
+      Company: contact.company || "",
+      Message: contact.message,
+      "Use Case": contact.meta.useCase || "",
+      Budget: contact.meta.budget || "",
+      Timeline: contact.meta.timeline || "",
+      Consent: contact.meta.consent,
+      "Submitted at": contact.meta.submittedAt,
+    };
 
   console.info(
     "[CONTACT_FORM_SUBMISSION] Sending record to Airtable",

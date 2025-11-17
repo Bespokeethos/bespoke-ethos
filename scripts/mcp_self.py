@@ -34,7 +34,14 @@ import os
 from typing import Any, Dict
 
 from dotenv import load_dotenv
-from agents import Agent, HostedMCPTool, Runner
+from agents import (
+    Agent,
+    CodeInterpreterTool,
+    FileSearchTool,
+    HostedMCPTool,
+    Runner,
+    WebSearchTool,
+)
 
 
 load_dotenv()
@@ -112,10 +119,41 @@ async def run_agent(args: argparse.Namespace) -> None:
         raise RuntimeError("OPENAI_API_KEY must be set before running the MCP scripts.")
 
     tool = HostedMCPTool(tool_config=build_tool_config(args))
+
+    tools = [tool]
+
+    if os.environ.get("MCP_ENABLE_CODE_INTERPRETER", "1") == "1":
+        tools.append(
+            CodeInterpreterTool(
+                tool_config={
+                    "type": "code_interpreter",
+                    "container": {"type": "auto"},
+                }
+            )
+        )
+
+    file_search_ids = os.environ.get("MCP_FILE_SEARCH_VECTOR_STORE_IDS", "").strip()
+    if file_search_ids:
+        vector_store_ids = [item.strip() for item in file_search_ids.split(",") if item.strip()]
+        if vector_store_ids:
+            max_results_raw = os.environ.get("MCP_FILE_SEARCH_MAX_RESULTS", "").strip()
+            max_results = int(max_results_raw) if max_results_raw.isdigit() else None
+            include_results = os.environ.get("MCP_FILE_SEARCH_INCLUDE_RESULTS", "0") == "1"
+            tools.append(
+                FileSearchTool(
+                    vector_store_ids=vector_store_ids,
+                    max_num_results=max_results,
+                    include_search_results=include_results,
+                )
+            )
+
+    if os.environ.get("MCP_ENABLE_WEB_SEARCH", "1") == "1":
+        tools.append(WebSearchTool())
+
     agent = Agent(
         name=args.agent_name,
         instructions=args.instructions,
-        tools=[tool],
+        tools=tools,
     )
 
     if args.stream:

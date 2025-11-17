@@ -1,0 +1,122 @@
+Project basics
+--------------
+- Repo path: `C:\vercel`
+- Framework: Next.js (app router) on Node 20 with pnpm.
+- Vercel project: `bespoke-ethos` (`prj_8cbai6JzE169NUytyFtCpSohZVka`)
+- Production domain: `https://www.bespokeethos.com`
+
+Key external services
+---------------------
+- OpenAI
+  - `OPENAI_API_KEY` required for `/api/search/internal` (embeddings + completion).
+- Cloudflare Turnstile
+  - `NEXT_PUBLIC_TURNSTILE_SITE_KEY` (public) for the widget on `/contact`.
+  - `TURNSTILE_SECRET` on the server for verification.
+- Airtable – Contact Form
+  - Base: “Client Engagement Hub” (`AIRTABLE_BASE_ID`).
+  - Table: “Contact Form Submissions” (`AIRTABLE_CONTACT_TABLE_ID`).
+  - Backend route: `src/app/api/contact/route.ts`.
+  - Fields written:
+    - `First Name`
+    - `Last name`
+    - `Email`
+    - `Phone`
+    - `Company`
+    - `Message`
+    - `Use Case`
+    - `Budget`
+    - `Timeline`
+    - `Consent` (boolean)
+    - `Submitted at` (ISO datetime)
+  - Status is *not* written from the API; manage it via Airtable defaults/automations.
+- Airtable – Newsletter / Leads
+  - Table: “Leads” (`AIRTABLE_NEWSLETTER_TABLE_ID`).
+  - Backend route: `src/app/api/newsletter/route.ts`.
+  - Fields written:
+    - `Full Name` (from email local part, or `"Newsletter Subscriber"`)
+    - `Email Address`
+    - `Signup Date` (ISO datetime)
+    - `Lead Source` = `"Website"`
+    - `Notes` = `"Newsletter opt-in from website footer"`
+  - Status is not written here either.
+- Resend
+  - `RESEND_API_KEY` used only by `/api/contact` to send:
+    - Confirmation email to the user.
+    - Internal notification email.
+  - Fail-open is acceptable: if Resend fails, the form still returns success but logs an error.
+- Pinecone + OpenAI
+  - Used by `/api/search/internal`.
+  - Env:
+    - `PINECONE_HOST`
+    - `PINECONE_API_KEY`
+    - `EMBEDDING_MODEL=text-embedding-3-small`
+  - Other Pinecone envs (`PINECONE_PROJECT_ID`, `VECTORDB_*`, etc.) are informational/telemetry.
+- Sanity
+  - `SANITY_PROJECT_ID`, `SANITY_DATASET`, and optionally `SANITY_API_TOKEN`.
+  - Current preference is to keep `SKIP_REMOTE_DATA=1` if Sanity is not actively used.
+- Stability AI
+  - `STABILITY_API_KEY` is present but not wired into the app yet.
+
+Env handling and Vercel
+-----------------------
+- Canonical local env file: `.env.local`.
+- Each key is annotated with:
+  - Whether it should be present in Vercel.
+  - Whether it is local-only, legacy, or unknown/unused.
+- Preferences:
+  - Do **not** delete env keys; mark unknown ones explicitly as `unknown/unused` or `legacy`.
+  - Keep Airtable, Resend, Turnstile, and OpenAI keys in Vercel in sync with `.env.local`.
+  - `GITHUB_TOKEN` and similar tooling keys stay local only; do not copy to Vercel.
+
+Tooling preferences
+-------------------
+- Use shell commands to:
+  - Run `pnpm install --frozen-lockfile`.
+  - Run `pnpm lint`, `pnpm typecheck`, and `pnpm build` when validating changes.
+  - Run small, direct API probes for Airtable, Resend, Pinecone, etc. to confirm env correctness.
+- Use `apply_patch` (or equivalent) for file edits; keep diffs minimal and in the existing style.
+- Use MCP/agents helpers under `scripts/` (e.g. `scripts/mcp_self.py`, `scripts/mcp_agents.py`) with Code Interpreter enabled for:
+  - Log analysis.
+  - Airtable schema checking and data triage.
+  - One-off automations around leads and contact submissions.
+- Document any new external integration by:
+  - Saving a snapshot or summary into `Manus/` (e.g. `*_api_reference.txt`).
+  - Updating `.env.local` comments to mark which keys are required in Vercel.
+
+Deployment workflow
+-------------------
+- Local validation:
+  - `pnpm install --frozen-lockfile`
+  - `pnpm lint`
+  - `pnpm typecheck`
+  - `pnpm build`
+- Git / branch:
+  - All work happens on `main` by default.
+  - Use `git status` to ensure the working tree is clean or intentionally dirty before deploying.
+- Vercel deployment:
+  - Once `vercel login` has been run (one time) on the machine:
+    - From `C:\vercel`, run:
+      - `vercel --prod`
+    - Or non-interactively:
+      - `vercel --prod --yes`
+  - The project is already bound via `.vercel/project.json`:
+    - `projectId`: `prj_8cbai6JzE169NUytyFtCpSohZVka`
+    - `orgId`: `team_UoS1OeILvPuGxYVAZyC5nhzO`
+- Post-deploy checks:
+  - Verify `/` and `/contact` render correctly in production.
+  - Submit a test contact form:
+    - Confirm success message.
+    - Confirm a new record appears in Airtable → “Contact Form Submissions” with all mapped fields.
+  - Submit a test newsletter signup from the footer:
+    - Confirm a new record in Airtable → “Leads”.
+
+Quick notes for future assistants
+---------------------------------
+- Avoid reintroducing writes to the Airtable `Status` field unless Airtable permissions are updated and tested.
+- Lead triage, reporting, and similar analysis should use:
+  - Airtable API + OpenAI via the existing search/analysis tooling.
+  - Scripts or agents documented under `Manus/` when possible, to keep workflows reproducible.
+- When in doubt about an external integration:
+  - Check `Manus/` for provider-specific docs.
+  - Verify the corresponding env vars exist and are annotated before changing code.
+
