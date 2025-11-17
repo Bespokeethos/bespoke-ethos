@@ -32,6 +32,34 @@ export default function ChatPage() {
     reader.readAsDataURL(file);
   }
 
+  function handlePaste(e: React.ClipboardEvent<HTMLTextAreaElement>) {
+    const items = e.clipboardData?.items;
+    if (!items) return;
+
+    for (let i = 0; i < items.length; i += 1) {
+      const item = items[i];
+      if (!item || !item.type.includes("image")) {
+        continue;
+      }
+
+      {
+        e.preventDefault();
+        const blob = item.getAsFile();
+        if (!blob) continue;
+
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          const result = event.target?.result;
+          if (typeof result === "string") {
+            setImage(result);
+          }
+        };
+        reader.readAsDataURL(blob);
+        break;
+      }
+    }
+  }
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!prompt.trim() || !password.trim() || loading) return;
@@ -48,7 +76,12 @@ export default function ChatPage() {
       });
 
       if (!res.ok || !res.body) {
-        throw new Error("API request failed");
+        if (res.status === 401) {
+          setError("Invalid Brutus password.");
+        } else {
+          setError("API request failed.");
+        }
+        return;
       }
 
       const reader = res.body.getReader();
@@ -62,7 +95,7 @@ export default function ChatPage() {
           setResponse((prev) => prev + text);
         }
       }
-    } catch (err) {
+    } catch {
       setError("Error: Failed to get response from Brutus.");
     } finally {
       setLoading(false);
@@ -71,6 +104,7 @@ export default function ChatPage() {
 
   function handleClear() {
     setPrompt("");
+    setImage(null);
     setResponse("");
     setError(null);
   }
@@ -81,14 +115,14 @@ export default function ChatPage() {
         <div className="be-section-card max-w-3xl mx-auto space-y-6">
           <div className="space-y-2">
             <p className="inline-flex rounded-full bg-surface-secondary px-3 py-1 text-[11px] font-medium tracking-tight text-text-secondary dark:bg-dark-surface-secondary dark:text-dark-text-secondary">
-              Brutus · GPT-4.1 via Vercel AI Gateway
+              Brutus · GPT-4.1 Vision via Vercel AI Gateway
             </p>
             <h1 className="font-hero-accent text-balance text-2xl font-semibold leading-snug md:text-3xl">
-              Brutus · Financial and engineering analyst chat
+              Brutus · Secure vision + code chat
             </h1>
             <p className="text-sm md:text-base text-text-secondary dark:text-dark-text-secondary">
-              Ask focused questions about automation, integrations, or financial analysis. Brutus runs
-              on GPT-4.1 through the Vercel AI Gateway using your custom prompt.
+              Paste screenshots or upload images and ask focused questions about workflows, integrations, or code. Brutus
+              runs on GPT-4.1 through the Vercel AI Gateway using your custom prompt.
             </p>
           </div>
 
@@ -109,7 +143,7 @@ export default function ChatPage() {
 
             <div className="space-y-2">
               <label className="text-xs font-medium text-text-secondary dark:text-dark-text-secondary">
-                Upload image (optional)
+                Upload image (or paste from clipboard)
               </label>
               <input
                 type="file"
@@ -142,7 +176,8 @@ export default function ChatPage() {
             <textarea
               value={prompt}
               onChange={(e) => setPrompt(e.target.value)}
-              placeholder="Ask Brutus about a workflow, integration, or financial scenario…"
+              onPaste={handlePaste}
+              placeholder="Ask Brutus about the image, a workflow, or a code issue. Paste screenshots with Ctrl+V."
               className="w-full h-32 rounded-md border border-border bg-surface-primary px-3 py-2 text-sm outline-none ring-0 focus:border-accent-primary/60 dark:border-dark-border dark:bg-dark-surface-primary"
               disabled={loading}
             />
@@ -150,10 +185,10 @@ export default function ChatPage() {
             <div className="flex flex-wrap items-center gap-3">
               <button
                 type="submit"
-                disabled={loading || !prompt.trim()}
+                disabled={loading || !prompt.trim() || !password.trim()}
                 className="inline-flex items-center justify-center rounded-md bg-accent-600 px-5 py-2 text-sm font-medium text-white shadow-sm disabled:opacity-60"
               >
-                {loading ? "Thinking…" : "Send to Brutus"}
+                {loading ? "Thinking..." : "Send to Brutus"}
               </button>
               <button
                 type="button"
