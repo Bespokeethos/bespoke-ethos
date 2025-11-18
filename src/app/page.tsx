@@ -60,7 +60,9 @@ export default function HomePage() {
       {/* Hero */}
       <section className="home-hero">
         <div className="home-hero-inner">
-          <h1 className="home-hero-title font-hero-accent">&quot;Am I Doing This Right?&quot;</h1>
+          <h1 className="home-hero-title font-hero-accent">
+            Stop guessing. Start growing. AI automation for Cleveland small businesses.
+          </h1>
 
           <p className="home-hero-subtitle">
             <span className="home-hero-subtitle-part">We help Cleveland small businesses</span>
@@ -76,23 +78,26 @@ export default function HomePage() {
           </p>
 
           <p className="home-hero-body">
-            Free 30-minute AI consultation + custom research report on your biggest uncertainty.
+            Risk-free AI readiness audit and a custom Consensus Engine research report on your biggest uncertainty.
           </p>
 
           <div className="relative inline-block mb-8">
             <BorderBeam borderWidth={1} lightWidth={360} duration={10} />
             <Link href="/contact?service=llm-setups" className="primary-cta relative inline-block z-[1]">
-              Schedule Your Free Consultation
+              Book Your Free AI Readiness Audit
             </Link>
           </div>
 
-          <p className="home-hero-tagline">No jargon. No overnight. Just practical automation.</p>
+          <p className="home-hero-tagline">
+            “Am I doing this right?” is where most non-technical Cleveland founders start. No jargon. No overnight. Just
+            practical automation.
+          </p>
 
           <div className="mt-8 mx-auto max-w-md sm:max-w-lg lg:max-w-2xl">
             <div className="relative aspect-[5/3] w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame">
               <Image
                 src="/assets/generated/hero-ai-automation-dashboard-desktop.webp"
-                alt="AI automation dashboard showing workflow connections between Gmail, Slack, Salesforce and Airtable for small business efficiency"
+                alt="AI automation dashboard for a Cleveland small business, showing workflow connections between Gmail, Slack, Salesforce and Airtable"
                 fill
                 className="h-full w-full object-cover"
                 sizes="(max-width: 768px) 100vw, 960px"
@@ -103,150 +108,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Consensus Engine / How we work */}
-      <section
-        style={{
-          backgroundColor: "var(--soft-white)",
-          padding: "64px 24px 72px",
-          textAlign: "center",
-        }}
-      >
-        <h2
-          style={{
-            fontSize: "42px",
-            fontWeight: 700,
-            color: "var(--charcoal-text)",
-            marginBottom: "24px",
-          }}
-        >
-          How we take the guesswork out of business decisions, with powerful AI.
-        </h2>
-
-        <p
-          style={{
-            fontSize: "24px",
-            fontWeight: 600,
-            color: "var(--amber-cta)",
-            marginBottom: "48px",
-          }}
-        >
-          The Consensus Engine — Proprietary Multi-Agent Research
-        </p>
-
-        <div
-          style={{
-            maxWidth: "800px",
-            margin: "0 auto",
-            textAlign: "left",
-          }}
-        >
-          <p
-            style={{
-              fontSize: "20px",
-              color: "var(--charcoal-text)",
-              marginBottom: "32px",
-              fontWeight: 600,
-            }}
-          >
-            You tell us your biggest question.
-          </p>
-
-          <p
-            style={{
-              fontSize: "18px",
-              color: "var(--muted-text)",
-              marginBottom: "16px",
-              fontStyle: "italic",
-            }}
-          >
-            (“Should I automate customer service?” “How do I price this?” “Will this marketing work?”)
-          </p>
-
-          <p
-            style={{
-              fontSize: "20px",
-              color: "var(--charcoal-text)",
-              marginBottom: "24px",
-              fontWeight: 600,
-            }}
-          >
-            We send 4 specialized AI researchers to work on it:
-          </p>
-
-          <ul
-            style={{
-              fontSize: "18px",
-              color: "var(--muted-text)",
-              lineHeight: 2,
-              listStyle: "none",
-              paddingLeft: 0,
-              marginBottom: "32px",
-            }}
-          >
-            <li>
-              <strong>Marketing Expert</strong> researches customer behavior and positioning
-            </li>
-            <li>
-              <strong>Financial Analyst</strong> researches costs, ROI, and pricing strategies
-            </li>
-            <li>
-              <strong>Case Study Specialist</strong> finds real businesses who tried this
-            </li>
-            <li>
-              <strong>Design Strategist</strong> researches implementation approaches
-            </li>
-          </ul>
-
-          <p
-            style={{
-              fontSize: "18px",
-              color: "var(--muted-text)",
-              lineHeight: 1.8,
-              marginBottom: "16px",
-            }}
-          >
-            Each one researches independently using live internet data.
-            <br />
-            Then they cross-reference each other’s findings.
-            <br />
-            Then we compile it into a founder-friendly report with actionable next steps.
-          </p>
-
-          <p
-            style={{
-              fontSize: "20px",
-              color: "var(--charcoal-text)",
-              fontWeight: 600,
-              marginBottom: "24px",
-            }}
-          >
-            All research is cited. All recommendations are verified.
-            <br />
-            You get the confidence to make the call.
-          </p>
-
-          <div
-            style={{
-              backgroundColor: "var(--cream-bg)",
-              padding: "24px",
-              borderRadius: "8px",
-              borderLeft: "4px solid var(--amber-cta)",
-              marginTop: "32px",
-            }}
-          >
-            <p
-              style={{
-                fontSize: "18px",
-                color: "var(--charcoal-text)",
-                fontWeight: 600,
-                margin: 0,
-              }}
-            >
-              Every consultation includes one free Consensus Engine report.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* You're Not Alone */}
 
       {/* You're Not Alone */}
       <section
@@ -352,7 +214,7 @@ export default function HomePage() {
             textAlign: "center",
           }}
         >
-          What You Get
+          Your First Step to Getting Your Time Back
         </h2>
 
         <p
@@ -364,7 +226,7 @@ export default function HomePage() {
             textAlign: "center",
           }}
         >
-          Free 30-Minute Consultation
+          Free AI Readiness Audit
         </p>
 
         <div
@@ -440,8 +302,12 @@ export default function HomePage() {
         </div>
 
         <div style={{ textAlign: "center", marginBottom: "48px" }}>
-          <Link href="/contact?service=llm-setups" className="primary-cta inline-block" style={{ marginBottom: "24px" }}>
-            Schedule Your Free Consultation
+          <Link
+            href="/contact?service=llm-setups"
+            className="primary-cta inline-block"
+            style={{ marginBottom: "24px" }}
+          >
+            Book Your Free AI Readiness Audit
           </Link>
         </div>
 
@@ -467,7 +333,12 @@ export default function HomePage() {
               <br />
               <span style={{ fontSize: "16px", opacity: 0.9 }}>*subscription fees not included</span>
             </p>
-            <LGBTQDiscountModalTrigger>Find Out More</LGBTQDiscountModalTrigger>
+            <Link
+              href="/lgbtq-discount"
+              className="relative z-[1] rounded-lg bg-white px-8 py-3 text-base font-semibold text-slate-900 shadow-lg transition-colors duration-200 hover:bg-slate-100"
+            >
+              Learn More About the Discount
+            </Link>
           </div>
         </div>
       </section>
@@ -545,6 +416,156 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Consensus Engine / How we work */}
+      <section
+        style={{
+          backgroundColor: "var(--soft-white)",
+          padding: "64px 24px 72px",
+          textAlign: "center",
+        }}
+      >
+        <h2
+          style={{
+            fontSize: "42px",
+            fontWeight: 700,
+            color: "var(--charcoal-text)",
+            marginBottom: "24px",
+          }}
+        >
+          How we take the guesswork out of business decisions, with powerful AI.
+        </h2>
+
+        <p
+          style={{
+            fontSize: "24px",
+            fontWeight: 600,
+            color: "var(--amber-cta)",
+            marginBottom: "48px",
+          }}
+        >
+          The Consensus Engine - Proprietary Multi-Agent Research
+        </p>
+
+        <div
+          style={{
+            maxWidth: "800px",
+            margin: "0 auto",
+            textAlign: "left",
+          }}
+        >
+          <p
+            style={{
+              fontSize: "20px",
+              color: "var(--charcoal-text)",
+              marginBottom: "32px",
+              fontWeight: 600,
+            }}
+          >
+            You tell us your biggest question.
+          </p>
+
+          <p
+            style={{
+              fontSize: "18px",
+              color: "var(--muted-text)",
+              marginBottom: "16px",
+              fontStyle: "italic",
+            }}
+          >
+            ("Should I automate customer service?" "How do I price this?" "Will this marketing work?")
+          </p>
+
+          <p
+            style={{
+              fontSize: "20px",
+              color: "var(--charcoal-text)",
+              marginBottom: "24px",
+              fontWeight: 600,
+            }}
+          >
+            We send 4 specialized AI researchers to work on it:
+          </p>
+
+          <ul
+            style={{
+              fontSize: "18px",
+              color: "var(--muted-text)",
+              lineHeight: 2,
+              listStyle: "none",
+              paddingLeft: 0,
+              marginBottom: "32px",
+            }}
+          >
+            <li>
+              <strong>Marketing Expert</strong> researches customer behavior and positioning
+            </li>
+            <li>
+              <strong>Financial Analyst</strong> researches costs, ROI, and pricing strategies
+            </li>
+            <li>
+              <strong>Case Study Specialist</strong> finds real businesses who tried this
+            </li>
+            <li>
+              <strong>Design Strategist</strong> researches implementation approaches
+            </li>
+          </ul>
+
+          <p
+            style={{
+              fontSize: "18px",
+              color: "var(--muted-text)",
+              lineHeight: 1.8,
+              marginBottom: "16px",
+            }}
+          >
+            Each one researches independently using live internet data.
+            <br />
+            Then they cross-reference each other's findings.
+            <br />
+            Then we compile it into a founder-friendly report with actionable next steps.
+          </p>
+
+          <p
+            style={{
+              fontSize: "20px",
+              color: "var(--charcoal-text)",
+              fontWeight: 600,
+              marginBottom: "24px",
+            }}
+          >
+            All research is cited. All recommendations are verified.
+            <br />
+            You get the confidence to make the call.
+          </p>
+
+          <div
+            style={{
+              backgroundColor: "var(--cream-bg)",
+              padding: "24px",
+              borderRadius: "8px",
+              borderLeft: "4px solid var(--amber-cta)",
+              marginTop: "32px",
+            }}
+          >
+            <p
+              style={{
+                fontSize: "18px",
+                color: "var(--charcoal-text)",
+                fontWeight: 600,
+                margin: 0,
+              }}
+            >
+              Every consultation includes one free Consensus Engine report.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Existing trust + founder + testimonials for depth */}
+      <HomepageTestimonialsStrip />
+      <FounderStory />
+      <TrustCredentials />
 
       {/* Quick answers (FAQ teaser) */}
       <section
@@ -633,11 +654,6 @@ export default function HomePage() {
           </p>
         </div>
       </section>
-
-      {/* Existing trust + founder + testimonials for depth */}
-      <HomepageTestimonialsStrip />
-      <FounderStory />
-      <TrustCredentials />
     </main>
   );
 }
