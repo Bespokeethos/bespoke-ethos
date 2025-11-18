@@ -6,6 +6,7 @@ import { FounderStory } from "./_sections/founder-story";
 import { TrustCredentials } from "./_sections/trust-credentials";
 import { HomepageTestimonialsStrip } from "./_sections/testimonials";
 import { LGBTQDiscountModalTrigger } from "./_components/lgbtq-discount-modal-trigger";
+import { BorderBeam } from "@/components/ui/border-beam";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -78,9 +79,12 @@ export default function HomePage() {
             Free 30-minute AI consultation + custom research report on your biggest uncertainty.
           </p>
 
-          <Link href="/contact?service=llm-setups" className="primary-cta inline-block mb-8">
-            Schedule Your Free Consultation
-          </Link>
+          <div className="relative inline-block mb-8">
+            <BorderBeam borderWidth={2} lightWidth={360} duration={8} />
+            <Link href="/contact?service=llm-setups" className="primary-cta relative inline-block z-[1]">
+              Schedule Your Free Consultation
+            </Link>
+          </div>
 
           <p className="home-hero-tagline">No jargon. No overnight. Just practical automation.</p>
 
@@ -441,29 +445,30 @@ export default function HomePage() {
           </Link>
         </div>
 
-        <div
-          style={{
-            backgroundColor: "var(--navy-primary)",
-            padding: "32px",
-            borderRadius: "8px",
-            textAlign: "center",
-            maxWidth: "800px",
-            margin: "0 auto",
-          }}
-        >
-          <p
+        <div className="relative mx-auto mt-4 max-w-[800px] rounded-2xl">
+          <BorderBeam borderWidth={3} lightWidth={420} duration={10} />
+          <div
             style={{
-              fontSize: "20px",
-              color: "#ffffff",
-              marginBottom: "24px",
-              lineHeight: 1.6,
+              backgroundColor: "var(--navy-primary)",
+              padding: "32px",
+              borderRadius: "16px",
+              textAlign: "center",
             }}
           >
-            <strong>LGBTQ+ small business owners:</strong> 25% off all upfront project costs*
-            <br />
-            <span style={{ fontSize: "16px", opacity: 0.9 }}>*subscription fees not included</span>
-          </p>
-          <LGBTQDiscountModalTrigger>Find Out More</LGBTQDiscountModalTrigger>
+            <p
+              style={{
+                fontSize: "20px",
+                color: "#ffffff",
+                marginBottom: "24px",
+                lineHeight: 1.6,
+              }}
+            >
+              <strong>LGBTQ+ small business owners:</strong> 25% off all upfront project costs*
+              <br />
+              <span style={{ fontSize: "16px", opacity: 0.9 }}>*subscription fees not included</span>
+            </p>
+            <LGBTQDiscountModalTrigger>Find Out More</LGBTQDiscountModalTrigger>
+          </div>
         </div>
       </section>
 

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Section } from "@/common/layout";
+import { BorderBeam } from "@/components/ui/border-beam";
 
 export function LGBTQDiscountBanner() {
   return (
@@ -32,9 +33,15 @@ export function LGBTQDiscountBanner() {
             </p>
 
             <div className="mt-8 flex justify-center">
-              <Link href="/lgbtq-discount" className="inline-flex">
-                <span className="lgbtq-discount-btn">Claim Your 25% Discount</span>
-              </Link>
+              <div className="relative inline-flex rounded-full">
+                <BorderBeam borderWidth={2} lightWidth={360} duration={8} />
+                <Link
+                  href="/lgbtq-discount"
+                  className="relative z-[1] inline-flex items-center rounded-full bg-white px-8 py-3 text-sm font-semibold text-slate-900 shadow-md transition-colors duration-200 hover:bg-slate-100"
+                >
+                  Claim Your 25% Discount
+                </Link>
+              </div>
             </div>
           </div>
         </div>

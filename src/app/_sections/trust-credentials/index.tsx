@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Section } from "@/common/layout";
 import { IconCertificate, IconBriefcase, IconRobot, IconCheck } from "@tabler/icons-react";
+import { BorderBeam } from "@/components/ui/border-beam";
 
 export function TrustCredentials() {
   return (
@@ -95,9 +96,15 @@ export function TrustCredentials() {
             Starting a business as a minority is hard as hell. I know—I&rsquo;ve been there. That&rsquo;s why LGBTQ-owned businesses get 25% off. No hoops, no fine print. Just mention it when you reach out.
           </p>
           <div className="mt-6 flex justify-center">
-            <Link href="/lgbtq-discount" className="inline-flex">
-              <span className="lgbtq-discount-btn text-sm">Learn about the 25% discount</span>
-            </Link>
+            <div className="relative inline-flex rounded-full">
+              <BorderBeam borderWidth={2} lightWidth={360} duration={8} />
+              <Link
+                href="/lgbtq-discount"
+                className="relative z-[1] inline-flex items-center rounded-full bg-white px-8 py-3 text-sm font-semibold text-slate-900 shadow-md transition-colors duration-200 hover:bg-slate-100"
+              >
+                Learn about the 25% discount
+              </Link>
+            </div>
           </div>
         </div>
       </div>

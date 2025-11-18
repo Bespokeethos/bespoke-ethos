@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 
 import { Breadcrumbs } from "@/app/_components/seo/breadcrumbs";
 import { Section } from "@/common/layout";
+import { BorderBeam } from "@/components/ui/border-beam";
 import { SuccessNotice } from "./success-notice";
 
 // Render on each request to honor querystring messages like ?sent=1
@@ -237,6 +238,28 @@ export default async function ContactPage({ searchParams }: PageProps) {
             </form>
           </div>
         </div>
+        </div>
+      </Section>
+
+      <Section className="pt-0">
+        <div className="relative mx-auto mb-12 mt-10 max-w-2xl">
+          <BorderBeam borderWidth={2} lightWidth={360} duration={8} />
+          <div className="relative rounded-xl bg-gradient-to-br from-slate-50 to-slate-100 p-8 shadow-lg dark:from-slate-800 dark:to-slate-900">
+            <h3 className="mb-4 text-3xl font-bold text-slate-900 dark:text-white">
+              25% Off for LGBTQ+ Businesses
+            </h3>
+            <p className="mb-6 text-lg text-slate-700 dark:text-slate-300">
+              Starting a business as a minority is hard as hell. I know&mdash;I&apos;ve been there.
+              That&apos;s why LGBTQ-owned businesses get 25% off upfront project costs on approved scopes.
+              No hoops, no fine print. Just mention it when you reach out.
+            </p>
+            <Link
+              href="/lgbtq-discount"
+              className="inline-flex items-center rounded-lg bg-gradient-to-r from-orange-400 to-orange-500 px-8 py-3 text-sm font-semibold text-white shadow-md transition-colors duration-200 hover:from-orange-500 hover:to-orange-600"
+            >
+              Learn More About Our Commitment
+            </Link>
+          </div>
         </div>
       </Section>
     </main>

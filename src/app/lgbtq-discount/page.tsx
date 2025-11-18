@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Section } from "@/common/layout";
 import { Heading } from "@/common/heading";
 import { Breadcrumbs } from "@/app/_components/seo/breadcrumbs";
+import { BorderBeam } from "@/components/ui/border-beam";
 
 export const revalidate = 1800;
 
@@ -75,14 +76,15 @@ export default function LGBTQDiscountPage() {
           </p>
 
           <div className="mt-6 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-            <Link
-              href="/contact?service=llm-setups&subject=25%25%20LGBTQ%2B%20Discount"
-              className="inline-flex w-full items-center justify-center sm:w-auto"
-            >
-              <button type="button" className="lgbtq-discount-btn w-full sm:w-auto">
+            <div className="relative inline-flex w-full rounded-full sm:w-auto">
+              <BorderBeam borderWidth={2} lightWidth={360} duration={8} />
+              <Link
+                href="/contact?service=llm-setups&subject=25%25%20LGBTQ%2B%20Discount"
+                className="relative z-[1] inline-flex w-full items-center justify-center rounded-full bg-white px-8 py-3 text-sm font-semibold text-slate-900 shadow-md transition-colors duration-200 hover:bg-slate-100 sm:w-auto"
+              >
                 Talk about my project
-              </button>
-            </Link>
+              </Link>
+            </div>
 
             <Link
               href="/pricing"

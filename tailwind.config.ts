@@ -161,6 +161,11 @@ const config: Config = {
             opacity: "0.5",
           },
         },
+        "border-beam": {
+          "100%": {
+            offsetDistance: "100%",
+          },
+        },
       },
       letterSpacing: {
         tighter: "-0.58px",
@@ -191,6 +196,7 @@ const config: Config = {
       exitToLeft: "exitToLeft 250ms ease",
       exitToRight: "exitToRight 250ms ease",
       pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+      "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
     },
   },
   plugins: [typography, radix],

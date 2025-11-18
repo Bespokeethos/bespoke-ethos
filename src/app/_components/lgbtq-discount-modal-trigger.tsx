@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import { BorderBeam } from "@/components/ui/border-beam";
 
 type LGBTQDiscountModalTriggerProps = {
   children?: React.ReactNode;
@@ -88,14 +89,17 @@ export function LGBTQDiscountModalTrigger({ children }: LGBTQDiscountModalTrigge
 
   return (
     <>
-      <button
-        ref={triggerRef}
-        type="button"
-        className="lgbtq-discount-btn"
-        onClick={openModal}
-      >
-        {children ?? "Find Out More"}
-      </button>
+      <div className="relative inline-flex">
+        <BorderBeam borderWidth={2} lightWidth={360} duration={8} />
+        <button
+          ref={triggerRef}
+          type="button"
+          className="relative z-[1] rounded-lg bg-white px-8 py-3 text-base font-semibold text-slate-900 shadow-lg transition-colors duration-200 hover:bg-slate-100"
+          onClick={openModal}
+        >
+          {children ?? "Find Out More"}
+        </button>
+      </div>
 
       {isOpen ? (
         <div className="modal-overlay" onClick={closeModal}>
