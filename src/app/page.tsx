@@ -15,7 +15,7 @@ const homeFaqItems = [
   {
     question: "What kinds of businesses do you work with?",
     answer:
-      "We focus on small businesses and founders in Cleveland, Ohio and similar markets—especially teams in “survival mode” who need practical wins, not 40-page decks.",
+      'We focus on small businesses and founders in Cleveland, Ohio and similar markets—especially teams in "survival mode" who need practical wins, not 40-page decks.',
   },
   {
     question: "What problems do you actually solve?",
