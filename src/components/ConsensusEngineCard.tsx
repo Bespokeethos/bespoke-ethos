@@ -28,7 +28,10 @@ export function ConsensusEngineCard() {
           />
 
           <div className="flex-1 text-center md:text-left">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white">
+            <h2
+              id="consensus-engine-heading"
+              className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white"
+            >
               The Consensus Engine
             </h2>
             <p className="text-slate-600 dark:text-slate-400 text-sm font-semibold mb-3">
@@ -108,12 +111,19 @@ export function ConsensusEngineCard() {
           type="button"
           onClick={() => setIsExpanded((prev) => !prev)}
           className="text-orange-500 font-semibold hover:underline mb-6 flex items-center gap-2 mx-auto"
+          aria-expanded={isExpanded}
+          aria-controls="consensus-agents-panel"
         >
           {isExpanded ? "Hide the 4 AI Agents" : "See the 4 AI Agents"}
         </button>
 
         {isExpanded && (
-          <div className="bg-white dark:bg-slate-800 rounded-lg p-6 mb-8 border border-slate-200 dark:border-slate-700">
+          <div
+            id="consensus-agents-panel"
+            className="bg-white dark:bg-slate-800 rounded-lg p-6 mb-8 border border-slate-200 dark:border-slate-700"
+            role="region"
+            aria-label="Details about the four Consensus Engine AI agents"
+          >
             <div className="grid md:grid-cols-2 gap-4">
               <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
                 <h5 className="font-bold mb-1">Cadence</h5>

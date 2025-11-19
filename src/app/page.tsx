@@ -55,16 +55,16 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <main>
+    <main aria-label="Bespoke Ethos homepage">
       <HomePageJsonLd />
       <HomeFaqJsonLd />
 
       {/* Hero */}
-      <section className="home-hero">
+      <section className="home-hero" aria-labelledby="home-hero-heading">
         <div className="be-hero-aurora" aria-hidden />
         <div className="home-hero-inner">
           <div className="home-hero-panel">
-            <h1 className="home-hero-title font-hero-accent">
+            <h1 id="home-hero-heading" className="home-hero-title font-hero-accent">
               Stop guessing. Start growing. AI automation for Cleveland small businesses.
             </h1>
 
@@ -117,6 +117,7 @@ export default function HomePage() {
       <section
         className="home-section home-section--cream"
         style={{ paddingTop: "48px", paddingBottom: "72px" }}
+        aria-labelledby="consensus-engine-heading"
       >
         <div className="home-section-inner">
           <ConsensusEngineCard />
@@ -124,11 +125,16 @@ export default function HomePage() {
       </section>
 
       {/* You're Not Alone */}
-      <section className="home-section home-section--cream">
+      <section
+        className="home-section home-section--cream"
+        aria-labelledby="youre-not-alone-heading"
+      >
         <div className="home-section-inner">
           <div className="be-section-card max-w-4xl mx-auto text-center">
             <header className="home-section-header">
-              <h2 className="home-section-title">You're Not Alone</h2>
+              <h2 id="youre-not-alone-heading" className="home-section-title">
+                You're Not Alone
+              </h2>
             </header>
 
             <p
@@ -157,12 +163,18 @@ export default function HomePage() {
       </section>
 
       {/* The Offer / What You Get */}
-      <section className="home-section home-section--white" id="book">
+      <section
+        className="home-section home-section--white"
+        id="book"
+        aria-labelledby="what-you-get-heading"
+      >
         <div className="home-section-inner">
           <div className="be-section-card">
             <header className="home-section-header text-center">
               <p className="home-section-eyebrow">Free AI Readiness Audit</p>
-              <h2 className="home-section-title">What You Get in 30 Minutes</h2>
+              <h2 id="what-you-get-heading" className="home-section-title">
+                What You Get in 30 Minutes
+              </h2>
             </header>
 
             <div className="grid gap-6 md:grid-cols-2 text-left mb-10">
@@ -258,11 +270,16 @@ export default function HomePage() {
       </section>
 
       {/* About / trust */}
-      <section className="home-section home-section--cream">
+      <section
+        className="home-section home-section--cream"
+        aria-labelledby="built-by-weekend-heading"
+      >
         <div className="home-section-inner text-center">
           <div className="be-section-card">
             <header className="home-section-header">
-              <h2 className="home-section-title">Built By Weekend Warriors, For Weekend Warriors</h2>
+              <h2 id="built-by-weekend-heading" className="home-section-title">
+                Built By Weekend Warriors, For Weekend Warriors
+              </h2>
             </header>
 
             <p
@@ -320,10 +337,14 @@ export default function HomePage() {
       <TrustCredentials />
 
       {/* Quick answers (FAQ teaser) */}
-      <section className="home-section home-section--soft">
+      <section
+        className="home-section home-section--soft"
+        aria-labelledby="home-faq-heading"
+      >
         <div className="home-section-inner">
           <div className="be-section-card">
             <h2
+              id="home-faq-heading"
               style={{
                 fontSize: "32px",
                 fontWeight: 700,

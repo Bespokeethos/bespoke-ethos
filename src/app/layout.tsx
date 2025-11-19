@@ -122,9 +122,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body
         className={`min-h-svh max-w-[100vw] bg-surface-primary text-text-primary dark:bg-dark-surface-primary dark:text-dark-text-primary ${inter.variable} ${playfair.variable} font-sans`}
       >
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
         <Providers>
           <Header />
-          <main className="min-h-[calc(100svh-var(--header-height))]">{children}</main>
+          <main id="main-content" className="min-h-[calc(100svh-var(--header-height))]">
+            {children}
+          </main>
           <Newsletter />
           <Footer />
           <OrganizationJsonLd />
