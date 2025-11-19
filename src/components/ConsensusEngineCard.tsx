@@ -16,17 +16,35 @@ export function ConsensusEngineCard() {
 
       {/* Header */}
       <div className="p-8 md:p-12">
-        <div className="flex items-center gap-4 mb-4">
-          <div className="w-16 h-16 bg-orange-500 rounded-lg flex items-center justify-center text-white text-2xl font-bold">
-            CE
-          </div>
-          <div>
+        <div className="flex flex-col items-center gap-6 mb-6 md:flex-row">
+          {/* 4-agent grid image (kept as a card, not a hero) */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="https://user-gen-media-assets.s3.amazonaws.com/gemini_images/3263390b-6a39-48e3-a2ea-11fd016ef15d.png"
+            alt="Cadence, Brutus, Finch, and Rex — the four Consensus Engine AI agents"
+            className="h-40 w-40 rounded-2xl object-cover shadow-xl"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <div className="flex-1 text-center md:text-left">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
               The Consensus Engine
             </h2>
-            <p className="text-slate-600 dark:text-slate-400 text-sm font-semibold">
-              Exclusive to BespokeEthos Clients
+            <p className="text-slate-600 dark:text-slate-400 text-sm font-semibold mb-3">
+              Exclusive to BespokeEthos clients
             </p>
+            <div className="flex flex-wrap justify-center gap-2 md:justify-start">
+              <span className="rounded-full bg-orange-100 px-3 py-1 text-xs font-semibold text-orange-700 dark:bg-orange-900/30 dark:text-orange-300">
+                4 AI Agents
+              </span>
+              <span className="rounded-full bg-orange-100 px-3 py-1 text-xs font-semibold text-orange-700 dark:bg-orange-900/30 dark:text-orange-300">
+                1000+ Sources
+              </span>
+              <span className="rounded-full bg-orange-100 px-3 py-1 text-xs font-semibold text-orange-700 dark:bg-orange-900/30 dark:text-orange-300">
+                Superhuman Speed
+              </span>
+            </div>
           </div>
         </div>
 
