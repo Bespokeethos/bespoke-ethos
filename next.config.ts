@@ -38,7 +38,8 @@ const securityHeaders = [
       "accelerometer=(), autoplay=(), camera=(), display-capture=(), encrypted-media=(), fullscreen=*, geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=*, publickey-credentials-get=(), usb=()",
   },
   { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
-  { key: "Cross-Origin-Resource-Policy", value: "same-site" },
+  // Allow static assets (like ad creatives) to be embedded from other origins.
+  { key: "Cross-Origin-Resource-Policy", value: "cross-origin" },
 ];
 
 const nextConfig = {
