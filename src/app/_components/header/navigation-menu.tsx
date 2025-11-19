@@ -211,7 +211,7 @@ export function MobileMenu({ navbar, rightCtas }: HeaderData) {
       <button
         aria-label="Toggle menu"
         className="border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary col-start-3 flex items-center justify-center gap-2 justify-self-end rounded-sm border p-2 xl:hidden xl:h-7"
-        onPointerDown={handleToggle}
+        onClick={handleToggle}
       >
         <HamburgerMenuIcon className="size-4" />
       </button>
