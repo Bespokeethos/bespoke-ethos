@@ -114,7 +114,10 @@ export default function HomePage() {
       </section>
 
       {/* Consensus Engine feature card */}
-      <section className="home-section home-section--cream">
+      <section
+        className="home-section home-section--cream"
+        style={{ paddingTop: "48px", paddingBottom: "72px" }}
+      >
         <div className="home-section-inner">
           <ConsensusEngineCard />
         </div>

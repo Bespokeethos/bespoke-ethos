@@ -6,7 +6,7 @@ export function ConsensusEngineCard() {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <div className="relative max-w-5xl mx-auto my-16 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900 rounded-2xl shadow-xl overflow-hidden">
+    <div className="relative max-w-5xl mx-auto my-20 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900 rounded-2xl shadow-xl overflow-hidden">
       {/* Proprietary Badge */}
       <div className="absolute top-6 right-6">
         <span className="px-4 py-2 bg-orange-500 text-white text-sm font-bold rounded-full shadow-lg">
@@ -15,7 +15,7 @@ export function ConsensusEngineCard() {
       </div>
 
       {/* Header */}
-      <div className="p-8 md:p-12">
+      <div className="p-10 md:p-14">
         <div className="flex flex-col items-center gap-6 mb-6 md:flex-row">
           {/* 4-agent grid image (kept as a card, not a hero) */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -28,7 +28,7 @@ export function ConsensusEngineCard() {
           />
 
           <div className="flex-1 text-center md:text-left">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white">
               The Consensus Engine
             </h2>
             <p className="text-slate-600 dark:text-slate-400 text-sm font-semibold mb-3">
@@ -50,10 +50,10 @@ export function ConsensusEngineCard() {
 
         {/* Simplified Value Prop */}
         <div className="mb-8 p-6 bg-orange-50 dark:bg-orange-900/20 rounded-xl border-2 border-orange-200 dark:border-orange-700">
-          <p className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-3">
+          <p className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-3">
             Got a big question? Get real answers.
           </p>
-          <p className="text-lg text-slate-700 dark:text-slate-300 mb-4">
+          <p className="text-xl text-slate-700 dark:text-slate-300 mb-4 leading-relaxed">
             Our proprietary AI research platform analyzes <strong>1000+ sources</strong> at superhuman speed—SEC filings,
             patents, medical journals, tax regulations, and more—then delivers one actionable report with citations.
           </p>
@@ -76,8 +76,8 @@ export function ConsensusEngineCard() {
             <div className="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center text-white text-4xl font-bold mx-auto mb-4">
               1
             </div>
-            <h3 className="text-xl font-bold mb-2">You Ask</h3>
-            <p className="text-slate-600 dark:text-slate-300">
+            <h3 className="text-2xl font-bold mb-2">You Ask</h3>
+            <p className="text-lg text-slate-600 dark:text-slate-300">
               Any business question. Pricing, automation, marketing, compliance—anything.
             </p>
           </div>
@@ -86,8 +86,8 @@ export function ConsensusEngineCard() {
             <div className="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center text-white text-4xl font-bold mx-auto mb-4">
               2
             </div>
-            <h3 className="text-xl font-bold mb-2">We Research</h3>
-            <p className="text-slate-600 dark:text-slate-300">
+            <h3 className="text-2xl font-bold mb-2">We Research</h3>
+            <p className="text-lg text-slate-600 dark:text-slate-300">
               4 AI agents independently analyze 1000+ sources, then cross-verify findings.
             </p>
           </div>
@@ -96,8 +96,8 @@ export function ConsensusEngineCard() {
             <div className="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center text-white text-4xl font-bold mx-auto mb-4">
               3
             </div>
-            <h3 className="text-xl font-bold mb-2">You Decide</h3>
-            <p className="text-slate-600 dark:text-slate-300">
+            <h3 className="text-2xl font-bold mb-2">You Decide</h3>
+            <p className="text-lg text-slate-600 dark:text-slate-300">
               Get one cited, actionable report. Make your call with confidence.
             </p>
           </div>
