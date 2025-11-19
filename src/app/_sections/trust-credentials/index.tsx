@@ -30,20 +30,13 @@ export function TrustCredentials() {
             <p className="mt-3 text-sm text-text-secondary dark:text-dark-text-secondary">
               Officially recognized as an LGBTQ-owned business by the National LGBT Chamber of Commerce.
             </p>
-            <div className="mt-6 flex items-center gap-4">
+            <div className="mt-6 flex items-center justify-center">
               <Image
-                src="/assets/nglcc-badge-dark.svg"
-                alt="NGLCC Certified dark version"
-                width={120}
-                height={32}
-                className="h-8 w-auto block dark:hidden"
-              />
-              <Image
-                src="/assets/nglcc-badge-light.svg"
-                alt="NGLCC Certified light version"
-                width={120}
-                height={32}
-                className="h-8 w-auto hidden dark:block"
+                src="/assets/nglcc_trust_badge.png"
+                alt="NGLCC Certified LGBT Business Enterprise"
+                width={140}
+                height={80}
+                className="h-10 w-auto"
               />
             </div>
           </div>
