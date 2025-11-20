@@ -86,7 +86,7 @@ export default function HomePage() {
               Risk-free AI readiness audit and a custom Consensus Engine research report on your biggest uncertainty.
             </p>
 
-            <div className="relative inline-block mb-8 rounded-full">
+            <div className="relative inline-block mb-6 sm:mb-8 rounded-full">
               <BorderBeam borderWidth={1} lightWidth={360} duration={10} />
               <Link href="/contact?service=llm-setups" className="primary-cta relative inline-block z-[1]">
                 Book Your Free AI Readiness Audit
@@ -99,7 +99,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="mt-8 mx-auto max-w-md sm:max-w-lg lg:max-w-2xl">
+          <div className="mt-6 mx-auto max-w-md sm:max-w-lg sm:mt-8 lg:max-w-2xl lg:mt-10">
             <div className="relative aspect-[5/3] w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame">
               <Image
                 src="/assets/generated/hero-ai-automation-dashboard-desktop.webp"
@@ -116,8 +116,7 @@ export default function HomePage() {
 
       {/* Consensus Engine feature card */}
       <section
-        className="home-section home-section--cream"
-        style={{ paddingTop: "48px", paddingBottom: "72px" }}
+        className="home-section home-section--cream py-12 sm:py-16 md:py-20"
         aria-labelledby="consensus-engine-heading"
       >
         <div className="home-section-inner">
@@ -138,25 +137,12 @@ export default function HomePage() {
               </h2>
             </header>
 
-            <p
-              style={{
-                fontSize: "20px",
-                color: "var(--muted-text)",
-                lineHeight: 1.8,
-                marginBottom: "20px",
-              }}
-            >
+            <p className="text-lg sm:text-xl text-text-secondary dark:text-dark-text-secondary leading-relaxed mb-4 sm:mb-5">
               Working a day job while building your dream. Terrified you&apos;ll make the wrong call. Reading articles that
               make it sound easy, then hitting walls when you try to do it yourself.
             </p>
 
-            <p
-              style={{
-                fontSize: "20px",
-                color: "var(--charcoal-text)",
-                fontWeight: 600,
-              }}
-            >
+            <p className="text-lg sm:text-xl font-semibold text-text-primary dark:text-dark-text-primary">
               78% of small business owners know they need AI. Most don&apos;t know where to start.
             </p>
           </div>
@@ -178,42 +164,24 @@ export default function HomePage() {
               </h2>
             </header>
 
-            <div className="grid gap-6 md:grid-cols-2 text-left mb-10">
+            <div className="grid gap-4 sm:gap-5 md:grid-cols-2 md:gap-6 text-left mb-8 sm:mb-10">
               <div className="home-section-card">
                 <p className="home-section-card-title">Plain-English AI Explanation</p>
-                <p
-                  style={{
-                    fontSize: "18px",
-                    color: "var(--muted-text)",
-                    lineHeight: 1.7,
-                  }}
-                >
+                <p className="text-base sm:text-lg text-text-secondary dark:text-dark-text-secondary leading-relaxed">
                   No jargon. No hype. Just a clear picture of what AI can and can&apos;t do for a business like yours.
                 </p>
               </div>
 
               <div className="home-section-card">
                 <p className="home-section-card-title">Real Talk About What Works</p>
-                <p
-                  style={{
-                    fontSize: "18px",
-                    color: "var(--muted-text)",
-                    lineHeight: 1.7,
-                  }}
-                >
+                <p className="text-base sm:text-lg text-text-secondary dark:text-dark-text-secondary leading-relaxed">
                   Our wins, our failures, and the patterns we&apos;ve seen across real Cleveland small businesses.
                 </p>
               </div>
 
               <div className="home-section-card">
                 <p className="home-section-card-title">Custom Consensus Engine Report</p>
-                <p
-                  style={{
-                    fontSize: "18px",
-                    color: "var(--muted-text)",
-                    lineHeight: 1.7,
-                  }}
-                >
+                <p className="text-base sm:text-lg text-text-secondary dark:text-dark-text-secondary leading-relaxed">
                   One free, cited research report on your biggest question&mdash;pricing, automation, marketing, or
                   anything else.
                 </p>
@@ -221,46 +189,26 @@ export default function HomePage() {
 
               <div className="home-section-card">
                 <p className="home-section-card-title">Your Next Step (Even If It&apos;s Not Us)</p>
-                <p
-                  style={{
-                    fontSize: "18px",
-                    color: "var(--muted-text)",
-                    lineHeight: 1.7,
-                  }}
-                >
+                <p className="text-base sm:text-lg text-text-secondary dark:text-dark-text-secondary leading-relaxed">
                   A concrete, founder-friendly recommendation on what to do next so you&apos;re not stuck guessing.
                 </p>
               </div>
             </div>
 
-            <div className="flex flex-col items-center gap-6">
+            <div className="flex flex-col items-center gap-4 sm:gap-6">
               <Link href="/contact?service=llm-setups" className="primary-cta inline-flex">
                 Book Your Free AI Readiness Audit
               </Link>
               <p className="home-section-note">
                 No pressure. No sales pitch. Just clarity.
               </p>
-              <div className="relative mx-auto mt-2 max-w-[800px] rounded-2xl">
+              <div className="relative mx-auto mt-2 max-w-[800px] w-full rounded-2xl px-4 sm:px-0">
                 <BorderBeam borderWidth={3} lightWidth={420} duration={10} />
-                <div
-                  style={{
-                    backgroundColor: "var(--navy-primary)",
-                    padding: "32px",
-                    borderRadius: "16px",
-                    textAlign: "center",
-                  }}
-                >
-                  <p
-                    style={{
-                      fontSize: "20px",
-                      color: "#ffffff",
-                      marginBottom: "24px",
-                      lineHeight: 1.6,
-                    }}
-                  >
+                <div className="bg-[var(--navy-primary)] p-6 sm:p-8 rounded-2xl text-center">
+                  <p className="text-base sm:text-lg md:text-xl text-white mb-4 sm:mb-6 leading-normal sm:leading-relaxed">
                     <strong>LGBTQ+ small business owners:</strong> 25% off all upfront project costs*
                     <br />
-                    <span style={{ fontSize: "16px", opacity: 0.9 }}>*subscription fees not included</span>
+                    <span className="text-sm sm:text-base opacity-90">*subscription fees not included</span>
                   </p>
                   <LGBTQDiscountModalTrigger>Learn More About the Discount</LGBTQDiscountModalTrigger>
                 </div>
@@ -285,7 +233,7 @@ export default function HomePage() {
               Cadence™ and Consensus Engine™ top the list, with Flowstack™ and Redbridging™ rounding out the workhorse set. Each card is a snapshot—6 to 9 words that make the promise clear before you click deeper.
             </p>
           </header>
-          <div className="grid gap-5 md:grid-cols-2">
+          <div className="grid gap-4 sm:gap-5 md:grid-cols-2 md:gap-6">
             <VogueCard
               imageSrc="/assets/logos/cadence.png"
               imageAlt="Cadence couture card"
@@ -331,14 +279,7 @@ export default function HomePage() {
               </h2>
             </header>
 
-            <p
-              style={{
-                fontSize: "20px",
-                color: "var(--muted-text)",
-                lineHeight: 1.8,
-                marginBottom: "32px",
-              }}
-            >
+            <p className="text-lg sm:text-xl text-text-secondary dark:text-dark-text-secondary leading-relaxed mb-6 sm:mb-8">
               We&apos;re not a fancy agency with marble lobbies.
               <br />
               We&apos;re founders who work manufacturing jobs and build businesses nights and weekends.
@@ -347,32 +288,11 @@ export default function HomePage() {
               We&apos;ve filed for bankruptcy. We&apos;ve been terrified. We get it.
             </p>
 
-            <div
-              style={{
-                display: "inline-block",
-                backgroundColor: "var(--soft-white)",
-                padding: "24px 48px",
-                borderRadius: "8px",
-                marginBottom: "32px",
-              }}
-            >
-              <p
-                style={{
-                  fontSize: "18px",
-                  color: "var(--charcoal-text)",
-                  fontWeight: 600,
-                  margin: "0 0 8px 0",
-                }}
-              >
+            <div className="inline-block bg-[var(--soft-white)] px-8 sm:px-12 py-5 sm:py-6 rounded-lg mb-6 sm:mb-8">
+              <p className="text-base sm:text-lg font-semibold text-text-primary dark:text-dark-text-primary mb-2">
                 NGLCC-Certified Gay-Owned Business
               </p>
-              <p
-                style={{
-                  fontSize: "16px",
-                  color: "var(--muted-text)",
-                  margin: 0,
-                }}
-              >
+              <p className="text-sm sm:text-base text-text-secondary dark:text-dark-text-secondary m-0">
                 Cleveland, Ohio
               </p>
             </div>
@@ -392,25 +312,10 @@ export default function HomePage() {
       >
         <div className="home-section-inner">
           <div className="be-section-card">
-            <h2
-              id="home-faq-heading"
-              style={{
-                fontSize: "32px",
-                fontWeight: 700,
-                color: "var(--charcoal-text)",
-                marginBottom: "16px",
-                textAlign: "left",
-              }}
-            >
+            <h2 id="home-faq-heading" className="text-2xl sm:text-3xl font-bold text-text-primary dark:text-dark-text-primary mb-3 sm:mb-4 text-left">
               Quick answers for busy founders
             </h2>
-            <p
-              style={{
-                fontSize: "18px",
-                color: "var(--muted-text)",
-                marginBottom: "24px",
-              }}
-            >
+            <p className="text-base sm:text-lg text-text-secondary dark:text-dark-text-secondary mb-5 sm:mb-6">
               Three questions we hear most often from Cleveland small-business owners thinking about automation.
             </p>
             <div className="mx-auto w-full max-w-2xl">
