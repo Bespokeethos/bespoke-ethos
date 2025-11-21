@@ -23,7 +23,7 @@ export default function HelpPage() {
       <Section className="gap-5 -mt-14 md:gap-6 md:-mt-4">
         <div className="be-section-card space-y-6">
           <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Help" }]} />
-          <Heading subtitle="What our products do and don’t" align="left">
+          <Heading subtitle="What our products do and don't" align="left">
             <h1 className="font-hero-accent">Help &amp; Product Overview</h1>
           </Heading>
 
@@ -80,8 +80,8 @@ export default function HelpPage() {
                 ]}
               />
               <Column
-                heading="Doesn’t"
-                items={["Offer black-box answers without evidence", "Replace your judgment or ownership"]}
+                heading="Doesn't"
+                items={["Offer mystery answers without evidence", "Replace your judgment or ownership"]}
               />
             </ProductCard>
 
@@ -118,6 +118,11 @@ export default function HelpPage() {
               View case studies &amp; solutions
             </Link>
           </div>
+          <p className="mt-4 max-w-3xl text-sm text-text-secondary dark:text-dark-text-secondary">
+            We work hard to avoid opaque tooling that gives you an answer without showing how it got there. With
+            FlowstackT, Cadence™, Consensus Engine™, and RedbridgingT you can always ask, &quot;Why did it do that?&quot;
+            and expect a plain-English explanation and a paper trail, not just &quot;because the AI said so.&quot;
+          </p>
 
           <FounderBadge />
         </div>

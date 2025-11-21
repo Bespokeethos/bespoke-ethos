@@ -58,8 +58,8 @@ function NewsletterForm({ copy }: { copy: NewsletterCopy }) {
   };
 
   return (
-    <Section className="bg-surface-secondary dark:bg-dark-surface-secondary py-10!" container="full">
-      <div className="container mx-auto flex flex-col gap-4 px-6 lg:flex-row lg:justify-between">
+    <Section className="bg-surface-secondary dark:bg-dark-surface-secondary py-10! overflow-hidden" container="full">
+      <div className="container mx-auto flex w-full max-w-4xl flex-col gap-4 px-4 sm:px-6 lg:flex-row lg:items-end lg:justify-between">
         <div className="flex flex-1 flex-col items-start gap-1">
           <h5 className="text-xl font-medium lg:text-2xl">{copy.title}</h5>
           <p className="text text-text-tertiary dark:text-dark-text-tertiary lg:text-lg">
@@ -67,8 +67,9 @@ function NewsletterForm({ copy }: { copy: NewsletterCopy }) {
           </p>
         </div>
 
-        <form className="flex w-full max-w-lg flex-col gap-2" onSubmit={onSubmit}>
+        <form className="flex w-full flex-col gap-2 sm:max-w-lg sm:flex-row sm:items-center" onSubmit={onSubmit}>
           <Input
+            className="w-full sm:flex-1"
             aria-label="Email address"
             autoComplete="email"
             buttonContent={status === "loading" ? "…" : "Subscribe"}
@@ -86,7 +87,9 @@ function NewsletterForm({ copy }: { copy: NewsletterCopy }) {
             value={email}
           />
           {status === "success" ? (
-            <p className="text-sm text-success">Thanks for subscribing! Check your inbox soon.</p>
+            <p className="text-sm text-success" role="status" aria-live="polite">
+              Thanks for subscribing! Check your inbox soon.
+            </p>
           ) : null}
         </form>
       </div>
@@ -97,3 +100,5 @@ function NewsletterForm({ copy }: { copy: NewsletterCopy }) {
 export function Newsletter() {
   return <NewsletterForm copy={FALLBACK_COPY} />;
 }
+
+

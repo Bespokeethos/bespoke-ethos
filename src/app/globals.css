@@ -196,6 +196,10 @@ header textarea,
   font-size: clamp(1.5rem, 3.4vw, 1.9rem); /* ~24-30px */
   margin-bottom: 32px;
   text-align: center;
+  width: 100%;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .home-hero-subtitle-part {
@@ -241,6 +245,36 @@ header textarea,
   inset-block-start: 0;
   opacity: 0;
   animation: home-hero-rotate 12s cubic-bezier(0.83, 0, 0.17, 1) infinite;
+}
+
+@media (max-width: 600px) {
+  .home-hero-subtitle {
+    flex-direction: column;
+    align-items: center;
+    row-gap: 0.25em;
+  }
+
+  .home-hero-subtitle-part {
+    white-space: normal;
+  }
+}
+
+/* Video hero fade from black overlay */
+.be-video-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #000;
+  opacity: 1;
+  pointer-events: none;
+  z-index: 1;
+  animation: be-video-hero-fade 0.3s ease-out 0.5s forwards;
+}
+
+@keyframes be-video-hero-fade {
+  to {
+    opacity: 0;
+  }
 }
 
 .home-hero-rotate span:nth-child(1) {

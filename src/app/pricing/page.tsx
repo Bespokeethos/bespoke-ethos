@@ -1,11 +1,12 @@
 import { Heading } from "@/common/heading";
 import type { Metadata } from "next";
 import { Section } from "@/common/layout";
-import { PRICING, formatMoney } from "@/config/pricing";
+import { PRICING, formatMoney, planSummary } from "@/config/pricing";
 import { Breadcrumbs } from "@/app/_components/seo/breadcrumbs";
 import Link from "next/link";
 import Image from "next/image";
 import { ButtonLink } from "@/common/button";
+import { ENTERPRISE_CONTACT, ENTERPRISE_OFFERINGS } from "../enterprise/data";
 
 export const revalidate = 1800;
 
@@ -121,7 +122,7 @@ export default function PricingPage() {
       </Heading>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
         <div className="rounded-lg border border-border p-5 dark:border-dark-border">
-          <h3 className="text-lg font-semibold">AI Tool Stack Consultation</h3>
+          <h3 className="text-lg font-semibold">AI Tool Setup Consultation</h3>
           <p className="mt-1 text-text-secondary dark:text-dark-text-secondary">
             {formatMoney(PRICING.redbridging.aiToolStackConsultation)} one-time
           </p>

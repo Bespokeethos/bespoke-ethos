@@ -146,7 +146,10 @@ function FooterLayout({
             <DarkLightImageAutoscale priority {...logo} />
           )}
         </Link>
-        <nav className="col-start-1 row-start-3 flex flex-col gap-x-3 gap-y-2 self-start sm:col-span-1 sm:col-start-2 sm:row-start-1 sm:flex-row sm:items-center sm:place-self-center md:gap-x-3 lg:gap-x-6">
+        <nav
+          aria-label="Footer quick links"
+          className="col-start-1 row-start-3 flex flex-col gap-x-3 gap-y-2 self-start sm:col-span-1 sm:col-start-2 sm:row-start-1 sm:flex-row sm:items-center sm:place-self-center md:gap-x-3 lg:gap-x-6"
+        >
           {navItems.map(({ title, url }) => (
             <ButtonLink
               key={title}
@@ -159,21 +162,25 @@ function FooterLayout({
             </ButtonLink>
           ))}
         </nav>
-        {/* Offerings submenu (soft animated) */}
-        <details className="col-span-2 row-start-2 mt-1 w-full sm:col-span-1 sm:col-start-2 sm:row-start-2">
-          <summary className="text-text-primary dark:text-dark-text-primary cursor-pointer list-none text-sm font-medium text-left">
-            Offerings
-          </summary>
-          <ul className="mt-2 grid grid-cols-2 gap-2 sm:grid-cols-4">
-            {[{ label: 'Flowstack™', href: '/solutions/flowstack' }, { label: 'Chatbots', href: '/solutions/chatbots' }, { label: 'Consensus Engine™', href: '/solutions/consensus-engine' }, { label: 'Redbridging™', href: '/solutions/redbridging' }].map((i) => (
+        <nav
+          aria-label="Product offerings"
+          className="col-span-2 row-start-2 mt-1 w-full space-y-2 sm:col-span-1 sm:col-start-2 sm:row-start-2"
+        >
+          <p className="text-sm font-semibold text-text-primary dark:text-dark-text-primary">Offerings</p>
+          <ul className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+            {[{ label: 'FlowstackT', href: '/solutions/flowstack' }, { label: 'Chatbots', href: '/solutions/chatbots' }, { label: 'Consensus Engine™', href: '/solutions/consensus-engine' }, { label: 'RedbridgingT', href: '/solutions/redbridging' }].map((i) => (
               <li key={i.href}>
-                <ButtonLink unstyled className="text-text-tertiary hover:text-text-primary dark:text-dark-text-tertiary dark:hover:text-dark-text-primary text-sm text-left" href={i.href}>
+                <ButtonLink
+                  unstyled
+                  className="text-left text-sm text-text-tertiary hover:text-text-primary dark:text-dark-text-tertiary dark:hover:text-dark-text-primary"
+                  href={i.href}
+                >
                   {i.label}
                 </ButtonLink>
               </li>
             ))}
           </ul>
-        </details>
+        </nav>
         {/* Theme switcher removed - site is light mode only */}
 
         <p className="col-span-2 sm:col-span-1 sm:col-start-1 sm:row-start-2 text-pretty text-[7pt] text-left sm:text-center mt-[4pt] text-text-tertiary dark:text-dark-text-tertiary">
@@ -226,3 +233,4 @@ export async function Footer() {
     />
   );
 }
+

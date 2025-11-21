@@ -15,6 +15,7 @@ This project runs as a single-production-branch deployment on Vercel. To keep th
 2. Run `pnpm run dev` to spot regressions in the hero slideshow and navigation.
 3. Push to `main`; GitHub Actions will lint, type-check, and execute the build.
 4. Only trigger a manual Vercel redeploy once CI succeeds.
+5. Treat the Vogue product cards as design-locked elements—do **not** alter their layout, copy, or assets without explicit approval documented in sprint notes.
 
 ## Repository Layout
 

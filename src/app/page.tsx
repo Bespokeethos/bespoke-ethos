@@ -10,6 +10,7 @@ import { Accordion } from "./_sections/accordion-faq";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { ConsensusEngineCard } from "@/components/ConsensusEngineCard";
 import { VogueCard } from "@/components/vogue-card";
+import { ButtonLink } from "@/common/button";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -23,19 +24,19 @@ const homeFaqItems = [
   {
     question: "What problems do you actually solve?",
     answer:
-      "We Take the Busywork—you Keep Control. That means automating repetitive workflows, adding Cadence™, our flagship premium chatbot, and rescuing brittle automations so you get your time back without losing visibility.",
+      "We take the busywork—you keep control. That means automating repetitive workflows, adding Cadence, our flagship premium chatbot, and rescuing brittle automations so you get your time back without losing visibility.",
   },
   {
     question: "How does the 25% LGBTQ+ discount work?",
     answer:
-      "If you’re an LGBTQ-owned business, you get 25% off all upfront project fees on approved scopes. Monthly subscriptions are billed at standard rates.",
+      "If you're an LGBTQ-owned business, you get 25% off all upfront project fees on approved scopes. Monthly subscriptions are billed at standard rates.",
   },
-];
+] as const;
 
 export const metadata: Metadata = {
   title: "AI Automation for Cleveland Small Businesses | Bespoke Ethos",
   description:
-    "Free 30-minute AI consultation and Consensus Engine™ research for Cleveland small-business founders who want clarity on their next move.",
+    "Free 30-minute AI consultation and one Consensus Engine research brief for Cleveland small-business founders who want clarity on their next move.",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
@@ -83,19 +84,20 @@ export default function HomePage() {
             </p>
 
             <p className="home-hero-body">
-              Risk-free AI readiness audit and a custom Consensus Engine research report on your biggest uncertainty.
+              Risk-free AI readiness audit and a free Consensus Engine research brief on your biggest uncertainty—bundled
+              with a 30-minute consultation.
             </p>
 
             <div className="relative inline-block mb-8 rounded-full">
               <BorderBeam borderWidth={1} lightWidth={360} duration={10} />
               <Link href="/contact?service=llm-setups" className="primary-cta relative inline-block z-[1]">
-                Book Your Free AI Readiness Audit
+                Book your free AI readiness audit
               </Link>
             </div>
 
             <p className="home-hero-tagline">
-              &ldquo;Am I doing this right?&rdquo; is where most non-technical Cleveland founders start. No jargon. No
-              overnight. Just practical automation.
+              “Am I doing this right?” is where most non-technical Cleveland founders start. No jargon. No overnight
+              promises. Just practical automation.
             </p>
           </div>
 
@@ -103,7 +105,7 @@ export default function HomePage() {
             <div className="relative aspect-[5/3] w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame">
               <Image
                 src="/assets/generated/hero-ai-automation-dashboard-desktop.webp"
-                alt="AI automation dashboard for a Cleveland small business, showing workflow connections between Gmail, Slack, Salesforce and Airtable"
+                alt="AI automation dashboard for a Cleveland small business, showing workflow connections between tools like Gmail, Slack, and a CRM"
                 fill
                 className="h-full w-full object-cover"
                 sizes="(max-width: 768px) 100vw, 960px"
@@ -114,303 +116,91 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Consensus Engine feature card */}
-      <section
-        className="home-section home-section--cream"
-        style={{ paddingTop: "48px", paddingBottom: "72px" }}
-        aria-labelledby="consensus-engine-heading"
-      >
+      {/* Flagship tools grid */}
+      <section className="home-section home-section--soft" aria-labelledby="flagship-heading">
         <div className="home-section-inner">
+          <div className="be-section-card space-y-4">
+            <h2 id="flagship-heading" className="text-2xl font-semibold text-text-primary dark:text-dark-text-primary">
+              Four tools, one goal: less busywork, more control
+            </h2>
+            <p className="text-sm text-text-secondary dark:text-dark-text-secondary">
+              From single-workflow automation to relationship-first chatbots and deep research, our flagship tools are
+              built to work together—but you can start with just one.
+            </p>
+            <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
+              <VogueCard
+                imageSrc="/assets/logos/flowstack.png"
+                imageAlt="Flowstack couture card"
+                title="Flowstack"
+                tagline="Workflow automation"
+                description="Automate the single task stealing the most hours from your week—without giving up approvals or audit trails."
+                href="/solutions/flowstack"
+              />
+              <VogueCard
+                imageSrc="/assets/logos/cadence.png"
+                imageAlt="Cadence couture card"
+                title="Cadence"
+                tagline="For people who hate chatbots"
+                description="A highly tailored customer chatbot that sounds like you, tells real stories, and builds relationships instead of pushing scripts."
+                href="/products/cadence"
+              />
+              <VogueCard
+                imageSrc="/assets/logos/consensus.png"
+                imageAlt="Consensus Engine couture card"
+                title="Consensus Engine"
+                tagline="Decision clarity"
+                description="Coordinated AI perspectives with citations and clear tradeoffs so your biggest calls come with receipts instead of guesses."
+                href="/solutions/consensus-engine"
+              />
+              <VogueCard
+                imageSrc="/assets/logos/RedBridging.png"
+                imageAlt="Redbridging couture card"
+                title="Redbridging"
+                tagline="Automation reliability"
+                description="We rescue brittle automations—stabilize, document, and maintain them so they stop breaking when you need them most."
+                href="/solutions/redbridging"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Consensus Engine cinematic card highlight */}
+      <section className="home-section" aria-labelledby="consensus-highlight-heading">
+        <div className="home-section-inner space-y-6">
+          <div className="be-section-card space-y-3">
+            <h2
+              id="consensus-highlight-heading"
+              className="text-2xl font-semibold text-text-primary dark:text-dark-text-primary"
+            >
+              A research brief, not a black-box answer
+            </h2>
+            <p className="text-sm text-text-secondary dark:text-dark-text-secondary">
+              Consensus Engine turns one big strategic question into a calm, cited brief. During your free consultation,
+              we’ll run one reasonable question through the engine so you can see what it feels like to have your problem
+              fully surrounded before you decide anything.
+            </p>
+          </div>
           <ConsensusEngineCard />
         </div>
       </section>
 
-      {/* You're Not Alone */}
-      <section
-        className="home-section home-section--cream"
-        aria-labelledby="youre-not-alone-heading"
-      >
-        <div className="home-section-inner">
-          <div className="be-section-card max-w-4xl mx-auto text-center">
-            <header className="home-section-header">
-              <h2 id="youre-not-alone-heading" className="home-section-title">
-                You&apos;re Not Alone
-              </h2>
-            </header>
-
-            <p
-              style={{
-                fontSize: "20px",
-                color: "var(--muted-text)",
-                lineHeight: 1.8,
-                marginBottom: "20px",
-              }}
-            >
-              Working a day job while building your dream. Terrified you&apos;ll make the wrong call. Reading articles that
-              make it sound easy, then hitting walls when you try to do it yourself.
-            </p>
-
-            <p
-              style={{
-                fontSize: "20px",
-                color: "var(--charcoal-text)",
-                fontWeight: 600,
-              }}
-            >
-              78% of small business owners know they need AI. Most don&apos;t know where to start.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* The Offer / What You Get */}
-      <section
-        className="home-section home-section--white"
-        id="book"
-        aria-labelledby="what-you-get-heading"
-      >
-        <div className="home-section-inner">
-          <div className="be-section-card">
-            <header className="home-section-header text-center">
-              <p className="home-section-eyebrow">Free AI Readiness Audit</p>
-              <h2 id="what-you-get-heading" className="home-section-title">
-                What You Get in 30 Minutes
-              </h2>
-            </header>
-
-            <div className="grid gap-6 md:grid-cols-2 text-left mb-10">
-              <div className="home-section-card">
-                <p className="home-section-card-title">Plain-English AI Explanation</p>
-                <p
-                  style={{
-                    fontSize: "18px",
-                    color: "var(--muted-text)",
-                    lineHeight: 1.7,
-                  }}
-                >
-                  No jargon. No hype. Just a clear picture of what AI can and can&apos;t do for a business like yours.
-                </p>
-              </div>
-
-              <div className="home-section-card">
-                <p className="home-section-card-title">Real Talk About What Works</p>
-                <p
-                  style={{
-                    fontSize: "18px",
-                    color: "var(--muted-text)",
-                    lineHeight: 1.7,
-                  }}
-                >
-                  Our wins, our failures, and the patterns we&apos;ve seen across real Cleveland small businesses.
-                </p>
-              </div>
-
-              <div className="home-section-card">
-                <p className="home-section-card-title">Custom Consensus Engine Report</p>
-                <p
-                  style={{
-                    fontSize: "18px",
-                    color: "var(--muted-text)",
-                    lineHeight: 1.7,
-                  }}
-                >
-                  One free, cited research report on your biggest question&mdash;pricing, automation, marketing, or
-                  anything else.
-                </p>
-              </div>
-
-              <div className="home-section-card">
-                <p className="home-section-card-title">Your Next Step (Even If It&apos;s Not Us)</p>
-                <p
-                  style={{
-                    fontSize: "18px",
-                    color: "var(--muted-text)",
-                    lineHeight: 1.7,
-                  }}
-                >
-                  A concrete, founder-friendly recommendation on what to do next so you&apos;re not stuck guessing.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex flex-col items-center gap-6">
-              <Link href="/contact?service=llm-setups" className="primary-cta inline-flex">
-                Book Your Free AI Readiness Audit
-              </Link>
-              <p className="home-section-note">
-                No pressure. No sales pitch. Just clarity.
-              </p>
-              <div className="relative mx-auto mt-2 max-w-[800px] rounded-2xl">
-                <BorderBeam borderWidth={3} lightWidth={420} duration={10} />
-                <div
-                  style={{
-                    backgroundColor: "var(--navy-primary)",
-                    padding: "32px",
-                    borderRadius: "16px",
-                    textAlign: "center",
-                  }}
-                >
-                  <p
-                    style={{
-                      fontSize: "20px",
-                      color: "#ffffff",
-                      marginBottom: "24px",
-                      lineHeight: 1.6,
-                    }}
-                  >
-                    <strong>LGBTQ+ small business owners:</strong> 25% off all upfront project costs*
-                    <br />
-                    <span style={{ fontSize: "16px", opacity: 0.9 }}>*subscription fees not included</span>
-                  </p>
-                  <LGBTQDiscountModalTrigger>Learn More About the Discount</LGBTQDiscountModalTrigger>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Flagship 2x2 Vogue grid */}
-      <section
-        className="home-section home-section--cream"
-        aria-labelledby="flagship-vogue-heading"
-      >
-        <div className="home-section-inner">
-          <header className="home-section-header text-center">
-            <p className="home-section-eyebrow">Bespoke Ethos Flagship Line</p>
-            <h2 id="flagship-vogue-heading" className="home-section-title">
-              Couture Tools for Small Business
-            </h2>
-            <p className="text-base text-text-secondary dark:text-dark-text-secondary max-w-3xl mx-auto">
-              Cadence™ and Consensus Engine™ top the list, with Flowstack™ and Redbridging™ rounding out the workhorse set. Each card is a snapshot—6 to 9 words that make the promise clear before you click deeper.
-            </p>
-          </header>
-          <div className="grid gap-5 md:grid-cols-2">
-            <VogueCard
-              imageSrc="/assets/logos/cadence.png"
-              imageAlt="Cadence couture card"
-              title="Cadence™"
-              tagline="Brand Rhythm"
-              description="Your 4 AM voice across chat, email, SMS."
-            />
-            <VogueCard
-              imageSrc="/assets/logos/consensus.png"
-              imageAlt="Consensus Engine couture card"
-              title="Consensus Engine™"
-              tagline="Collaborative Decisions"
-              description="Four AI perspectives deliver one auditable answer."
-            />
-            <VogueCard
-              imageSrc="/assets/logos/flowstack.png"
-              imageAlt="Flowstack couture card"
-              title="Flowstack™"
-              tagline="Workflow Automation"
-              description="Compliance-ready automation fabric with approvals + audits."
-            />
-            <VogueCard
-              imageSrc="/assets/logos/RedBridging.png"
-              imageAlt="Redbridging couture card"
-              title="Redbridging™"
-              tagline="AI Reliability"
-              description="Automation rescue, monitoring, and runbooks for real ops."
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* About / trust */}
-      <section
-        className="home-section home-section--cream"
-        aria-labelledby="built-by-weekend-heading"
-      >
-        <div className="home-section-inner text-center">
-          <div className="be-section-card">
-            <header className="home-section-header">
-              <h2 id="built-by-weekend-heading" className="home-section-title">
-                Built By Weekend Warriors, For Weekend Warriors
-              </h2>
-            </header>
-
-            <p
-              style={{
-                fontSize: "20px",
-                color: "var(--muted-text)",
-                lineHeight: 1.8,
-                marginBottom: "32px",
-              }}
-            >
-              We&apos;re not a fancy agency with marble lobbies.
-              <br />
-              We&apos;re founders who work manufacturing jobs and build businesses nights and weekends.
-              <br />
-              <br />
-              We&apos;ve filed for bankruptcy. We&apos;ve been terrified. We get it.
-            </p>
-
-            <div
-              style={{
-                display: "inline-block",
-                backgroundColor: "var(--soft-white)",
-                padding: "24px 48px",
-                borderRadius: "8px",
-                marginBottom: "32px",
-              }}
-            >
-              <p
-                style={{
-                  fontSize: "18px",
-                  color: "var(--charcoal-text)",
-                  fontWeight: 600,
-                  margin: "0 0 8px 0",
-                }}
-              >
-                NGLCC-Certified Gay-Owned Business
-              </p>
-              <p
-                style={{
-                  fontSize: "16px",
-                  color: "var(--muted-text)",
-                  margin: 0,
-                }}
-              >
-                Cleveland, Ohio
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Existing trust + founder + testimonials for depth */}
+      {/* Testimonials, founder story, and trust credentials */}
       <HomepageTestimonialsStrip />
       <FounderStory />
       <TrustCredentials />
 
       {/* Quick answers (FAQ teaser) */}
-      <section
-        className="home-section home-section--soft"
-        aria-labelledby="home-faq-heading"
-      >
+      <section className="home-section home-section--soft" aria-labelledby="home-faq-heading">
         <div className="home-section-inner">
           <div className="be-section-card">
             <h2
               id="home-faq-heading"
-              style={{
-                fontSize: "32px",
-                fontWeight: 700,
-                color: "var(--charcoal-text)",
-                marginBottom: "16px",
-                textAlign: "left",
-              }}
+              className="text-2xl font-semibold text-text-primary dark:text-dark-text-primary mb-2"
             >
               Quick answers for busy founders
             </h2>
-            <p
-              style={{
-                fontSize: "18px",
-                color: "var(--muted-text)",
-                marginBottom: "24px",
-              }}
-            >
+            <p className="text-sm text-text-secondary dark:text-dark-text-secondary mb-4">
               Three questions we hear most often from Cleveland small-business owners thinking about automation.
             </p>
             <div className="mx-auto w-full max-w-2xl">
@@ -421,13 +211,40 @@ export default function HomePage() {
                 }))}
               />
             </div>
-            <p className="home-faq-footer">
+            <p className="mt-4 text-xs text-text-tertiary dark:text-dark-text-tertiary">
               Want more details? Our full{" "}
-              <Link href="/faq" style={{ textDecoration: "underline" }}>
+              <Link href="/faq" className="underline">
                 FAQ
               </Link>{" "}
               page covers timelines, tools, pricing, and how we work.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* LGBTQ discount banner */}
+      <section className="home-section" aria-labelledby="lgbtq-banner-heading">
+        <div className="home-section-inner">
+          <div className="be-section-card flex flex-col items-start gap-4 md:flex-row md:items-center md:justify-between">
+            <div>
+              <h2
+                id="lgbtq-banner-heading"
+                className="text-lg font-semibold text-text-primary dark:text-dark-text-primary"
+              >
+                A helping hand for tech
+              </h2>
+              <p className="text-sm text-text-secondary dark:text-dark-text-secondary">
+                We know many founders are tired, under-resourced, and still carrying big visions. If these tools would
+                fundamentally move the needle for you but the budget feels tight, reach out—we keep a 25% discount for
+                LGBTQ-owned businesses and a small number of need-based grant slots each year.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+              <LGBTQDiscountModalTrigger />
+              <ButtonLink intent="secondary" href="/contact">
+                Tell me what you&apos;re building
+              </ButtonLink>
+            </div>
           </div>
         </div>
       </section>
@@ -451,6 +268,7 @@ function HomePageJsonLd() {
     },
   } as const;
 
+  // eslint-disable-next-line @next/next/no-sync-scripts
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
 }
 
@@ -470,5 +288,7 @@ function HomeFaqJsonLd() {
     mainEntityOfPage: `${base}/`,
   } as const;
 
+  // eslint-disable-next-line @next/next/no-sync-scripts
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
 }
+

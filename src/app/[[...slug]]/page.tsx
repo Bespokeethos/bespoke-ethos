@@ -32,7 +32,7 @@ const SOLUTION_DATA = [
     primaryCTA: { label: "Automate My #1 Task", href: "/contact" },
     secondaryCTA: { label: "Schedule a Free Consultation", href: "/contact?service=llm-setups" },
     pricing: [
-      `${formatMoney(PRICING.flowstack.setup)} setup - deep discovery + architecture`,
+      `${formatMoney(PRICING.flowstack.setup)} setup - process mapping + architecture`,
       `${formatMoney(PRICING.flowstack.monthly)}/month - monitoring, tweaks, and on-call fixes`,
       "Includes documentation, audit trails, and approval checkpoints.",
     ],
@@ -43,7 +43,7 @@ const SOLUTION_DATA = [
     ],
     process: [
       {
-        title: "Deep Discovery (1 hour)",
+        title: "Discovery Session (1 hour)",
         description:
           "We interview the people doing the work today so Flowstack™ mirrors your unique rules, exceptions, and tone.",
       },

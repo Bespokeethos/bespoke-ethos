@@ -18,6 +18,98 @@ export type BlogPost = {
 
 export const BLOG_POSTS: BlogPost[] = [
   {
+    slug: "last-180-days-with-the-future-of-ai",
+    title: "My Last 180 Days With the Future of AI",
+    description:
+      "What it feels like to work daily with a frontier AI model, why we built the Consensus Engine, and how small businesses can benefit without becoming test subjects.",
+    publishedAt: "2025-11-20",
+    readingTimeMinutes: 9,
+    hero: {
+      src: "/assets/consensus-infographic.png",
+      alt: "Abstract illustration of multiple AI perspectives converging into one clear decision point",
+    },
+    tags: ["AI futures", "ethics", "Consensus Engine"],
+    content: function PostContent() {
+      return (
+        <div className="prose prose-zinc max-w-none dark:prose-invert">
+          <p>
+            For the past eighteen months I&apos;ve been working hands-on with a frontier AI model that may become a
+            household name. Most days it doesn&apos;t feel like sci-fi. It feels like paperwork, debugging prompts,
+            and trying to get very smart systems to behave in very human spaces. But every so often it does something
+            that genuinely feels like magic.
+          </p>
+          <p>
+            By magic, I don&apos;t mean tricks or hype. I mean the moments where I run a question all the way through
+            our Consensus Engine™ and it hands back an option I never would have considered in a million years&mdash;and
+            it&apos;s better than anything I had on the table. Same constraints, same facts, completely different
+            vantage point.
+          </p>
+
+          <h2>Raw Power Isn&apos;t the Point</h2>
+          <p>
+            A single modern AI model is already a Ferrari. Most people never get close to driving it in fifth gear, and
+            that&apos;s okay. Raw power isn&apos;t the point. Vantage points are. What we care about at Bespoke Ethos
+            is how many honest angles we can look at a problem from without ever hiding the reasoning.
+          </p>
+          <p>
+            The Consensus Engine is what happens when you coordinate a small fleet of those Ferraris instead of just
+            one. You don&apos;t need to learn to drive like a race-car driver. You&apos;re effectively hiring someone to
+            run three cars in the same race and bring back first, second, and third place perspectives in a calm, cited
+            brief you can actually use.
+          </p>
+
+          <h2>Why We Built It for Davids, Not Goliaths</h2>
+          <p>
+            There are already tools built for the Goliaths: hedge funds, global consultancies, and teams with Bloomberg
+            terminals. I built the Consensus Engine because I wanted that level of research and perspective for people
+            who don&apos;t have a quant team in the next building. I wanted it for my own work first, and then for the
+            founders who kept asking questions that were too big for a yes/no answer.
+          </p>
+          <p>
+            It&apos;s not designed for superficial &quot;What should I tweet today?&quot; questions. It&apos;s designed
+            for the decisions where you find yourself pacing at 2 AM: Should we raise prices? Kill this product? Enter
+            a new market? Hire before we&apos;re comfortable? The engine surrounds those questions with perspectives,
+            tradeoffs, and recommendations instead of vibes and hunches.
+          </p>
+
+          <h2>Ethics, Alignment, and Walking Away</h2>
+          <p>
+            Working this close to the frontier comes with responsibility. We&apos;ve said no to projects where the
+            intended use of AI didn&apos;t line up with our ethics. Sometimes that meant walking away from very
+            attractive work. I&apos;m not telling you that to sound noble; I&apos;m telling you because it&apos;s part
+            of the product. The same values that make us decline certain projects are the values baked into how we
+            design your automations and research flows.
+          </p>
+          <p>
+            Bespoke Ethos wasn&apos;t named by accident. Our job is to bend the path a few degrees toward better, not
+            to hand over more levers to whoever shouts &quot;disruption&quot; the loudest. That&apos;s why every
+            engagement still has human approvals, audit trails, and the ability to say, &quot;Pause, this doesn&apos;t
+            feel right,&quot; without taking your whole business offline.
+          </p>
+
+          <h2>What This Means for You Right Now</h2>
+          <p>
+            If you&apos;re a small-business founder, you shouldn&apos;t have to become an AI expert to benefit from what
+            I&apos;ve been seeing at the edge. You also shouldn&apos;t be a test subject for half-baked tools. My job&mdash;and
+            the job of Bespoke Ethos&mdash;is to turn what we learn in that frontier work into calm, trustworthy
+            workflows and decision briefs that fit into the business you already run.
+          </p>
+          <p>
+            If you&apos;re curious what the Consensus Engine or our automations might do for your specific situation,
+            you don&apos;t have to start with a giant commitment. Bring one real question or one messy workflow. We&apos;ll
+            show you what these systems can do for you today, in plain English, with receipts.
+          </p>
+
+          <p>
+            That&apos;s what my last 180 days with the future of AI have really been about: taking something that feels
+            like Willy Wonka&apos;s chocolate factory from the inside and opening the gates just enough that small
+            businesses can walk through safely. No golden ticket required.
+          </p>
+        </div>
+      );
+    },
+  },
+  {
     slug: "cleveland-small-business-ai-automation-guide",
     title: "Cleveland Small Business Guide to AI Automation (Without Losing Control)",
     description:
@@ -202,7 +294,7 @@ export const BLOG_POSTS: BlogPost[] = [
           <ul>
             <li>The workflow touches revenue, compliance, or customer trust.</li>
             <li>You’ve already spent more than a day chasing the same error.</li>
-            <li>No one on your team “owns” the automation stack anymore.</li>
+            <li>No one on your team &quot;owns&quot; the automation setup anymore.</li>
           </ul>
           <p>
             Redbridging™ is designed for exactly these situations: we stabilize, monitor, and document brittle
@@ -271,7 +363,7 @@ export const BLOG_POSTS: BlogPost[] = [
             <li>Lower escalation volume for simple questions—and better context when humans do step in.</li>
           </ul>
 
-          <h2>Where Cadence™ Fits in Your Stack</h2>
+          <h2>Where Cadence™ Fits in Your Business</h2>
           <p>
             Cadence™ plays nicely with tools you already use. It can collect leads into Airtable, create tickets, and
             hand off to humans via email or your help desk—no custom platform required.

@@ -9,7 +9,7 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
   return (
     <div
       className={clsx(
-        "relative max-w-5xl mx-auto my-20 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900 rounded-2xl shadow-xl overflow-hidden",
+        "relative mx-auto my-20 max-w-5xl overflow-hidden rounded-2xl bg-gradient-to-br from-slate-50 to-slate-100 shadow-xl dark:from-slate-800 dark:to-slate-900",
         className,
       )}
     >
@@ -21,29 +21,35 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
       </div>
 
       {/* Header */}
-      <div className="p-10 md:p-14">
-        <div className="flex flex-col items-center gap-6 mb-6 md:flex-row">
+      <div className="p-8 md:p-12 lg:p-14">
+        <div className="mb-8 grid w-full items-center gap-6 text-center md:grid-cols-[auto,1fr]">
           {/* 4-agent grid image (kept as a card, not a hero) */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="https://user-gen-media-assets.s3.amazonaws.com/gemini_images/3263390b-6a39-48e3-a2ea-11fd016ef15d.png"
-            alt="Cadence, Brutus, Finch, and Rex — the four Consensus Engine AI agents"
-            className="h-40 w-40 rounded-2xl object-cover shadow-xl"
+            src="/assets/consensus-infographic.png"
+            alt="Four research lenses inside the Consensus Engine—copy, finance, legal, and future modeling—converging into one brief"
+            className="mx-auto h-40 w-40 rounded-3xl border border-white/60 bg-white/40 object-contain p-3 shadow-[0_40px_80px_rgba(15,23,42,0.4)] backdrop-blur-xl md:h-56 md:w-56 lg:h-72 lg:w-72"
             loading="lazy"
             decoding="async"
           />
 
-          <div className="flex-1 text-center md:text-left">
-            <h2
-              id="consensus-engine-heading"
-              className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white"
-            >
-              The Consensus Engine
-            </h2>
-            <p className="text-slate-600 dark:text-slate-400 text-sm font-semibold mb-3">
-              Exclusive to BespokeEthos clients
-            </p>
-            <div className="flex flex-wrap justify-center gap-3 md:justify-center">
+          <div className="flex flex-col items-center gap-4 md:justify-center">
+            <div className="max-w-xl text-center">
+              <h2
+                id="consensus-engine-heading"
+                className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white"
+              >
+                The Consensus Engine
+              </h2>
+              <p className="mt-1 text-sm font-semibold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-300">
+                Exclusive to Bespoke Ethos clients
+              </p>
+              <p className="mt-3 text-base text-slate-700 dark:text-slate-200">
+                Meet the four fine-tuned researchers that cross-verify 1,000+ sources before you ever see a
+                recommendation.
+              </p>
+            </div>
+            <div className="flex flex-wrap justify-center gap-3">
               <span className="rounded-full bg-orange-100 px-3 py-1 text-xs font-semibold text-orange-700 dark:bg-orange-900/30 dark:text-orange-300">
                 4 AI Agents
               </span>
@@ -58,7 +64,7 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
         </div>
 
         {/* Simplified Value Prop */}
-        <div className="mb-8 p-6 bg-orange-50 dark:bg-orange-900/20 rounded-xl border-2 border-orange-200 dark:border-orange-700">
+        <div className="mb-8 rounded-xl border border-orange-200 bg-orange-50/80 p-6 shadow-[0_30px_80px_rgba(249,115,22,0.35)] backdrop-blur-md dark:border-orange-700 dark:bg-orange-900/25">
           <p className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-3">
             Got a big question? Get real answers.
           </p>
@@ -81,17 +87,17 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
 
         {/* Simple 3-Step Process */}
         <div className="grid md:grid-cols-3 gap-6 mb-8">
-          <div className="text-center">
+          <div className="text-center rounded-2xl border border-white/60 bg-white/80 p-6 shadow-lg backdrop-blur-md dark:border-slate-700/70 dark:bg-slate-900/60">
             <div className="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center text-white text-4xl font-bold mx-auto mb-4">
               1
             </div>
             <h3 className="text-2xl font-bold mb-2">You Ask</h3>
             <p className="text-lg text-slate-600 dark:text-slate-300">
-              Any business question. Pricing, automation, marketing, compliance—anything.
+              Any business question. Pricing, automation, marketing, compliance-anything.
             </p>
           </div>
 
-          <div className="text-center">
+          <div className="text-center rounded-2xl border border-white/60 bg-white/80 p-6 shadow-lg backdrop-blur-md dark:border-slate-700/70 dark:bg-slate-900/60">
             <div className="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center text-white text-4xl font-bold mx-auto mb-4">
               2
             </div>
@@ -101,7 +107,7 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
             </p>
           </div>
 
-          <div className="text-center">
+          <div className="text-center rounded-2xl border border-white/60 bg-white/80 p-6 shadow-lg backdrop-blur-md dark:border-slate-700/70 dark:bg-slate-900/60">
             <div className="w-20 h-20 bg-orange-500 rounded-full flex items-center justify-center text-white text-4xl font-bold mx-auto mb-4">
               3
             </div>
@@ -132,20 +138,20 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
           >
             <div className="grid md:grid-cols-2 gap-4">
               <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-                <h5 className="font-bold mb-1">Cadence</h5>
-                <p className="text-sm text-slate-600 dark:text-slate-300">Copy &amp; messaging expert</p>
-              </div>
-              <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
-                <h5 className="font-bold mb-1">Brutus</h5>
-                <p className="text-sm text-slate-600 dark:text-slate-300">Brand strategy specialist</p>
+                <h5 className="font-bold mb-1">Clarice</h5>
+                <p className="text-sm text-slate-600 dark:text-slate-300">Copy &amp; narrative lens</p>
               </div>
               <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
-                <h5 className="font-bold mb-1">Finch</h5>
-                <p className="text-sm text-slate-600 dark:text-slate-300">Financial analysis pro</p>
+                <h5 className="font-bold mb-1">Brutus</h5>
+                <p className="text-sm text-slate-600 dark:text-slate-300">Finance &amp; numbers lens</p>
+              </div>
+              <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+                <h5 className="font-bold mb-1">Astrid</h5>
+                <p className="text-sm text-slate-600 dark:text-slate-300">Legal, tax, &amp; compliance lens</p>
               </div>
               <div className="p-4 bg-red-50 dark:bg-red-900/20 rounded-lg">
-                <h5 className="font-bold mb-1">Rex</h5>
-                <p className="text-sm text-slate-600 dark:text-slate-300">Risk &amp; compliance guard</p>
+                <h5 className="font-bold mb-1">Ember</h5>
+                <p className="text-sm text-slate-600 dark:text-slate-300">Future modeling &amp; predictive lens</p>
               </div>
             </div>
           </div>

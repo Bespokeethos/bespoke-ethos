@@ -22,7 +22,7 @@ export default function EssentialsPage() {
               { name: "Essentials" },
             ]}
           />
-          <Heading align="left" subtitle="Simple, reliable building blocks for your stack">
+          <Heading align="left" subtitle="Simple, reliable building blocks for your systems">
             <h1 className="font-hero-accent">Essentials</h1>
           </Heading>
           <p className="text-sm text-text-secondary dark:text-dark-text-secondary">
@@ -34,4 +34,3 @@ export default function EssentialsPage() {
     </main>
   );
 }
-

@@ -42,32 +42,33 @@ const questions = [
     _analyticsKey: "faq-5",
     _title: "Do you replace my team or work with them?",
     answer:
-      "We design automations that take the busywork off your team’s plate so they can stay focused on higher-value work. AI handles structured, repeatable tasks; humans still make the calls that matter.",
+      "We design automations that take the busywork off your team's plate so they can stay focused on higher-value work. AI handles structured, repeatable tasks; humans still make the calls that matter.",
   },
   {
     _analyticsKey: "faq-6",
     _title: "What does a typical first project cost?",
     answer:
-      "Most first projects land in the $799–$2,500 range depending on scope. The pricing page breaks down Flowstack™, Chatbots, Consensus Engine™, and Redbridging™ packages, plus one-time services.",
+      "Most first projects land in the $799–$2,500 range depending on scope. The pricing page breaks down FlowstackT, Chatbots, Consensus Engine™, and RedbridgingT packages, plus one-time services.",
   },
   {
     _analyticsKey: "faq-7",
     _title: "Can you rescue broken automations I already have?",
     answer:
-      "Yes—that’s exactly what Redbridging™ is for. We stabilize brittle Zapier/Make flows, add monitoring and alerts, and document everything so you’re not dependent on a single person who “knows the system.”",
+      "Yes—that's exactly what RedbridgingT is for. We stabilize brittle Zapier/Make flows, add monitoring and alerts, and document everything so you're not dependent on a single person who ‘knows the system’.",
   },
   {
     _analyticsKey: "faq-8",
     _title: "How do we get started?",
     answer:
-      "Book a free assessment or send a quick note through the contact form. Share your top one or two pain points, your tools, and your rough budget. We’ll respond with a concrete plan—not a generic sales deck.",
+      "Book a free assessment or send a quick note through the contact form. Share your top one or two pain points, your tools, and your rough budget. We'll respond with a concrete plan—not a generic sales deck.",
   },
-];
+] as const;
 
 function FaqJsonLd() {
   const json = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    image: ["/assets/generated/hero-consensus-desktop.webp"],
     mainEntity: questions.map((q) => ({
       "@type": "Question",
       name: q._title,
@@ -82,27 +83,27 @@ export default function FaqPage() {
     <main className="be-page-slate">
       <Section className="gap-5 -mt-14 md:gap-6 md:-mt-4">
         <div className="be-section-card space-y-6">
-      <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "FAQ" }]} />
-      <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame shadow-xl">
-        <div className="relative h-40 w-full sm:h-48 lg:h-56">
-          <Image
-            src="/assets/generated/hero-consensus-desktop.webp"
-            alt="Founder meeting at a small table reviewing clear strategy notes together"
-            fill
-            className="object-cover object-top"
-            sizes="(max-width: 768px) 100vw, 960px"
+          <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "FAQ" }]} />
+          <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame shadow-xl">
+            <div className="relative h-40 w-full sm:h-48 lg:h-56">
+              <Image
+                src="/assets/generated/hero-consensus-desktop.webp"
+                alt="Founder meeting at a small table reviewing clear strategy notes together"
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 768px) 100vw, 960px"
+              />
+            </div>
+          </div>
+          <Heading subtitle="Straight answers, no hype" align="left">
+            <h1 className="font-hero-accent">Frequently Asked Questions</h1>
+          </Heading>
+          <FaqJsonLd />
+          <Faq
+            heading={{ title: "Questions", subtitle: "What clients ask us most", align: "left", tag: null }}
+            layout="accordion"
+            questions={{ items: questions as any }}
           />
-        </div>
-      </div>
-      <Heading subtitle="Straight answers, no hype" align="left">
-        <h1 className="font-hero-accent">Frequently Asked Questions</h1>
-      </Heading>
-      <FaqJsonLd />
-      <Faq
-        heading={{ title: "Questions", subtitle: "What clients ask us most", align: "left", tag: null }}
-        layout="accordion"
-        questions={{ items: questions as any }}
-      />
         </div>
       </Section>
     </main>

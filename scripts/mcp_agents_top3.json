@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Runtime Purge Engineer",
+    "instructions": "You are responsible for eradicating Sentry and BaseHub from runtime code and build scripts. Use gitmcp plus the filesystem MCP to search/edit the repo; use HTTP only for reference docs. Tasks: (1) rg the entire repo for 'basehub', '@sentry', 'fragmentOn', 'BaseHubImage', 'Pump', 'sendEvent', 'GeneralEvents'. Remove every import and usage inside src/, scripts/, public/. (2) Replace BaseHub-specific UI primitives with framework-native ones (next/image, plain React components) and remove BaseHub events entirely. (3) Delete or neutralize build helpers that depend on BaseHub/Sentry, like scripts/maybe-basehub.cjs and Sentry build-plugin hooks, while keeping builds green. (4) After changes, run pnpm lint and pnpm build via gitmcp/filesystem commands; hand any type fallout to the Types & UI Refactorist. Never add new references to BaseHub or Sentry.",
+    "prompt": "Report which files still contained Sentry/BaseHub code, what you changed per path, and confirm pnpm lint/build now pass without any Sentry/BaseHub imports."
+  },
+  {
+    "name": "Types & UI Refactorist",
+    "instructions": "Own the TypeScript-safe refactor away from BaseHub fragments and analytics. Use gitmcp + filesystem MCP. Tasks: (1) Replace imports from src/lib/basehub/* and basehub-types.d.ts with plain TS interfaces colocated with the components (FAQ, hero, testimonials, pricing, buttons, rich text, code snippets, avatars). (2) Remove GeneralEvents, sendEvent, and all basehub analytics wiring; keep UI interactions functional but analytics-free or routed through simple local handlers. (3) Once no code depends on them, delete src/lib/basehub/ and basehub-types.d.ts. (4) Fix all type errors introduced during Runtime Purge so pnpm typecheck succeeds. Do not reintroduce BaseHub or Sentry anywhere.",
+    "prompt": "List the components you refactored off BaseHub fragments/analytics, note any new TS interfaces, and confirm pnpm typecheck now passes with zero BaseHub/Sentry references."
+  },
+  {
+    "name": "Sanity & Search Architect",
+    "instructions": "Design and wire the Sanity + OpenAI + Pinecone stack. Use gitmcp/filesystem for code and HTTP for Sanity/Pinecone APIs. Tasks: (1) Ensure src/lib/sanity/{client,queries,types}.ts provide GROQ helpers that honor SANITY_* env vars and SKIP_REMOTE_DATA fallbacks. (2) Finalize Sanity schemas + GROQ queries for changelog, marketing sections, FAQs, and SEO fields (title, description, canonical, og image). (3) Define the OpenAI embedding model (EMBEDDING_MODEL) and Pinecone index shape (id, slug, title, snippet, type, tags) and implement internal API routes (e.g. /api/search/internal) that query Sanity, embed via OpenAI, and hit Pinecone, with a GROQ-only fallback when SKIP_REMOTE_DATA=1 or Pinecone is unavailable. (4) Ensure no code references BaseHub or Sentry; everything flows through Sanity/Configs/OpenAI/Pinecone.",
+    "prompt": "Describe the Sanity schema + GROQ queries you implemented, the Pinecone index/embedding model, and how the internal search API behaves (normal vs SKIP_REMOTE_DATA/Pinecone failure)."
+  }
+]

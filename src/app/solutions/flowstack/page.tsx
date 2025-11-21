@@ -1,20 +1,61 @@
 import Image from "next/image";
-import { Heading } from "@/common/heading";
 import type { Metadata } from "next";
-import { Section } from "@/common/layout";
-import { ButtonLink } from "@/common/button";
-import { PRICING, planSummary } from "@/config/pricing";
+
 import { Breadcrumbs } from "@/app/_components/seo/breadcrumbs";
+import { ButtonLink } from "@/common/button";
+import { Heading } from "@/common/heading";
+import { Section } from "@/common/layout";
+import { PRICING, planSummary } from "@/config/pricing";
 import { VogueCard } from "@/components/vogue-card";
 
 export const revalidate = 1800;
 
 export const metadata: Metadata = {
-  title: "Flowstack™ - Automate Your #1 Task | Bespoke Ethos",
+  title: "FlowstackT - Automate Your #1 Task | Bespoke Ethos",
   description:
     "Proprietary general automation package. Discovery-led builds that keep human approvals, audit trails, and rollback. Enterprise-grade automation you own.",
   alternates: { canonical: "/solutions/flowstack" },
 };
+
+const FLOWSTACK_CALLOUTS = [
+  {
+    title: "Single trigger",
+    detail: "Form, SMS, or webhook kicks off the sequence with audit-friendly logging from the first step.",
+  },
+  {
+    title: "Human approvals",
+    detail: "Slack, email, or SMS checkpoints make sure risky steps pause for people first.",
+  },
+  {
+    title: "Rollback built in",
+    detail: "Every action ships with a mirrored undo path so ops teams can back out calmly.",
+  },
+  {
+    title: "Live observability",
+    detail: "Runs stream into a simple operator dashboard—no guessing where a workflow stands.",
+  },
+] as const;
+
+const FLOWSTACK_ASSETS = [
+  {
+    src: "/assets/generated/flowstack-card.png",
+    alt: "Flowstack dashboard card showing automation stats",
+    title: "Operator dashboard card",
+    description: "High-level run stats, approvals awaiting action, and audit links your ops lead needs nightly.",
+  },
+  {
+    src: "/assets/generated/service-flowstack-builder-desktop.webp",
+    alt: "Flowstack builder canvas",
+    title: "Builder canvas",
+    description: "Drag-to-connect steps with inline metadata so every stakeholder sees the rationale for each move.",
+  },
+  {
+    src: "/assets/generated/hero-flowstack-desktop.webp",
+    alt: "Founder reviewing Flowstack automation outputs",
+    title: "Exec-ready hero",
+    description: "Brand-safe creative you can reuse in decks, investor updates, and onboarding docs.",
+  },
+] as const;
 
 export default function FlowstackPage() {
   return (
@@ -25,99 +66,145 @@ export default function FlowstackPage() {
             items={[
               { name: "Home", href: "/" },
               { name: "Solutions", href: "/solutions" },
-              { name: "Flowstack™" },
+              { name: "FlowstackT" },
             ]}
           />
           <ProductJsonLd />
           <FlowstackServiceJsonLd />
 
-          <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame shadow-xl">
-            <div className="relative h-28 w-full sm:h-36 lg:h-44">
-              <Image
-                src="/assets/generated/hero-flowstack-desktop.webp"
-                alt="Founder's desk transformed from cluttered paperwork to a calm automation dashboard"
-                fill
-                className="object-cover object-top"
-                sizes="(max-width: 768px) 100vw, 960px"
-                priority
-              />
-              <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-                <div className="rounded-2xl bg-black/45 px-5 py-3 text-center text-sm sm:text-base font-medium text-white/95 shadow-2xl backdrop-blur-md">
-                  <div className="mb-1 text-xs uppercase tracking-[0.22em] text-amber-200">Flowstack™</div>
-                  <div className="text-sm sm:text-base">Automate Your #1 Task</div>
+          <div className="flowstack-hero relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-amber-50 via-white to-slate-100 p-6 shadow-xl dark:from-slate-900/70 dark:via-slate-900/50 dark:to-slate-900/30 md:p-8">
+            <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.9fr)]">
+              <div className="space-y-5 text-text-secondary dark:text-dark-text-secondary">
+                <div className="inline-flex flex-wrap items-center gap-2 rounded-full bg-white/90 px-4 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-amber-700 shadow-sm dark:bg-white/10 dark:text-amber-200">
+                  FlowstackT
+                  <span className="text-[11px] font-normal tracking-normal text-text-tertiary dark:text-dark-text-tertiary">
+                    Automate your #1 task
+                  </span>
                 </div>
+                <Heading subtitle="Proprietary general automation for any business task. Own the results." align="left">
+                  <h1 className="font-hero-accent">FlowstackT</h1>
+                </Heading>
+                <div className="space-y-3">
+                  <p>
+                    When I was drowning in my publishing business, I didn&rsquo;t need a fancy AI platform. I needed someone
+                    to automate the one task that was stealing hours from my week. So I built FlowstackT for myself first. It
+                    is our proprietary general automation package, designed to handle any business task&mdash;from lead routing to
+                    inventory updates.
+                  </p>
+                  <p>
+                    We map your real process, keep human approvals intact, and ship a production-ready automation in days. Every
+                    build ships with documentation, audit trails, and rollback&mdash;because I learned the hard way that automation
+                    without guardrails creates more problems than it solves.
+                  </p>
+                </div>
+                <ul className="list-disc space-y-1 pl-5 text-sm sm:text-base">
+                  <li>Keeps humans in the approval loop where it matters.</li>
+                  <li>Single source of truth with clear audit trails.</li>
+                  <li>Rollback paths and alerts for safe operations.</li>
+                  <li>Ships in days, not months—start with your worst task.</li>
+                </ul>
+                <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                  <ButtonLink className="w-full justify-center sm:w-auto" intent="primary" href="/contact">
+                    Automate my #1 task
+                  </ButtonLink>
+                  <ButtonLink
+                    className="w-full justify-center sm:w-auto"
+                    intent="secondary"
+                    href="/contact?service=llm-setups"
+                  >
+                    Schedule a free consultation
+                  </ButtonLink>
+                </div>
+                <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary">
+                  {planSummary(PRICING.flowstack.setup, PRICING.flowstack.monthly)}
+                </p>
+              </div>
+              <div className="space-y-4">
+                <div className="relative h-60 w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary">
+                  <Image
+                    src="/assets/generated/hero-flowstack-desktop.webp"
+                    alt="Founder's desk transformed from cluttered paperwork to a calm automation dashboard"
+                    fill
+                    className="object-cover object-center"
+                    sizes="(max-width: 768px) 100vw, 520px"
+                    priority
+                  />
+                </div>
+                <VogueCard
+                  imageSrc="/assets/logos/flowstack.png"
+                  imageAlt="Flowstack couture card"
+                  title="FlowstackT"
+                  tagline="Workflow Automation"
+                  description="Automation fabric for founders who need audit trails, approvals, and production-ready builds in days."
+                />
               </div>
             </div>
           </div>
 
-          <VogueCard
-            imageSrc="/assets/logos/flowstack.png"
-            imageAlt="Flowstack couture card"
-            title="Flowstack™"
-            tagline="Workflow Automation"
-            description="Automation fabric for founders who need audit trails, approvals, and production-ready builds in days."
-          />
-
-          <Heading
-            subtitle="Proprietary general automation for any business task. Own the results."
-            align="center"
-          >
-            <h1 className="font-hero-accent">Flowstack™</h1>
-          </Heading>
-
-          <div className="space-y-4 text-text-secondary">
-            <p>
-              When I was drowning in my publishing business, I didn&rsquo;t need a fancy AI platform. I needed someone
-              to automate the one task that was stealing hours from my week. So I built Flowstack™ for myself first. It
-              is our proprietary general automation package, designed to handle any business task&mdash;from lead routing
-              to inventory updates.
-            </p>
-            <p>
-              We map your real process, keep human approvals intact, and ship a production-ready automation in days.
-              Every build ships with documentation, audit trails, and rollback&mdash;because I learned the hard way that
-              automation without guardrails creates more problems than it solves.
-            </p>
-          </div>
-
-          <ul className="mt-2 list-disc pl-6 text-text-secondary">
-            <li>Keeps humans in the approval loop where it matters</li>
-            <li>Single source of truth with clear audit trails</li>
-            <li>Rollback paths and alerts for safe operations</li>
-            <li>Ships in days, not months - start with your worst task</li>
-          </ul>
-
-          <div className="flex gap-3">
-            <ButtonLink intent="primary" href="/contact">
-              Automate my #1 task
-            </ButtonLink>
-            <ButtonLink intent="secondary" href="/contact?service=llm-setups">
-              Schedule a free consultation
-            </ButtonLink>
-          </div>
-
-          <p className="mt-2 text-sm text-text-tertiary dark:text-dark-text-tertiary">
-            {planSummary(PRICING.flowstack.setup, PRICING.flowstack.monthly)}
-          </p>
-
-          <div className="mt-8 grid gap-4 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] items-start">
-            <div className="space-y-3 text-text-secondary">
-              <h2 className="text-base font-semibold text-text-primary dark:text-dark-text-primary">
-                See Flowstack™ in action
-              </h2>
-              <p>
-                Behind the scenes, FlowstackT is just a clean, auditable workflow: one trigger, a few well-designed
-                actions, and logs you can actually read. No mystery black box&mdash;just the steps you wish you had time
-                to connect yourself.
-              </p>
+          <div className="flowstack-infographic rounded-2xl border border-border bg-surface-secondary/70 p-6 dark:border-dark-border dark:bg-dark-surface-secondary/70 md:p-8">
+            <div className="lg:flex lg:items-start lg:gap-8">
+              <div className="space-y-4 text-text-secondary dark:text-dark-text-secondary lg:flex-1">
+                <h2 className="text-xl font-semibold text-text-primary dark:text-dark-text-primary">
+                  Flowstack blueprint at a glance
+                </h2>
+                <p>
+                  FlowstackT diagrams read like a magazine spread: the image anchors the eye while the copy wraps around it to
+                  walk stakeholders through each checkpoint.
+                </p>
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {FLOWSTACK_CALLOUTS.map((callout) => (
+                    <div
+                      key={callout.title}
+                      className="rounded-xl border border-border bg-white/85 p-4 text-sm shadow-sm dark:border-dark-border dark:bg-dark-surface"
+                    >
+                      <p className="text-base font-semibold text-text-primary dark:text-dark-text-primary">{callout.title}</p>
+                      <p className="text-text-secondary dark:text-dark-text-secondary">{callout.detail}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <figure className="mt-6 lg:mt-0 lg:flex-1">
+                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-border bg-white shadow-xl dark:border-dark-border dark:bg-black/40">
+                  <Image
+                    src="/assets/generated/service-flowstack-builder-desktop.webp"
+                    alt="Flowstack workflow automation builder showing approvals, alerts, and human steps"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 520px"
+                  />
+                </div>
+                <figcaption className="mt-3 text-xs uppercase tracking-[0.25em] text-text-tertiary dark:text-dark-text-tertiary">
+                  Builder view · every branch documents the owner, data source, and rollback pair.
+                </figcaption>
+              </figure>
             </div>
-            <div className="relative h-48 w-full overflow-hidden rounded-xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary">
-              <Image
-                src="/assets/generated/service-flowstack-builder-desktop.webp"
-                alt="Flowstack workflow automation builder showing a new customer signup sequence across forms, Airtable, email and Slack"
-                fill
-                className="h-full w-full object-cover"
-                sizes="(max-width: 768px) 100vw, 480px"
-              />
+          </div>
+
+          <div className="space-y-4">
+            <Heading align="left" subtitle="Comprehensive assets you keep after we hand off.">
+              <h2 className="text-2xl font-hero-accent">Flowstack deliverable library</h2>
+            </Heading>
+            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {FLOWSTACK_ASSETS.map((asset) => (
+                <article
+                  key={asset.title}
+                  className="rounded-2xl border border-border bg-surface-secondary/60 p-4 shadow-sm dark:border-dark-border dark:bg-dark-surface-secondary/60"
+                >
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl border border-border bg-white/80 dark:border-dark-border dark:bg-black/30">
+                    <Image
+                      src={asset.src}
+                      alt={asset.alt}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 360px"
+                    />
+                  </div>
+                  <h3 className="mt-4 text-base font-semibold text-text-primary dark:text-dark-text-primary">
+                    {asset.title}
+                  </h3>
+                  <p className="text-sm text-text-secondary dark:text-dark-text-secondary">{asset.description}</p>
+                </article>
+              ))}
             </div>
           </div>
         </div>
@@ -132,7 +219,7 @@ function ProductJsonLd() {
   const json = {
     "@context": "https://schema.org",
     "@type": "Product",
-    name: "Flowstack™",
+    name: "FlowstackT",
     description:
       "Custom automation for your most time-consuming task. Discovery-led build, human approvals, monitoring, documentation, and rollback.",
     offers: {
@@ -146,9 +233,7 @@ function ProductJsonLd() {
         price: PRICING.flowstack.setup,
       },
       availability: "https://schema.org/InStock",
-      url: `${
-        process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com"
-      }/solutions/flowstack`,
+      url: `${process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com"}/solutions/flowstack`,
     },
     additionalType: "https://schema.org/Service",
     provider: {
@@ -156,12 +241,7 @@ function ProductJsonLd() {
       name: "Bespoke Ethos",
     },
   };
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }}
-    />
-  );
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
 }
 
 function FlowstackServiceJsonLd() {
@@ -170,9 +250,9 @@ function FlowstackServiceJsonLd() {
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": `${base}/solutions/flowstack#service`,
-    name: "Flowstack™",
+    name: "FlowstackT",
     description:
-      "Flowstack™ is Bespoke Ethos’s proprietary general automation package for small businesses in Cleveland, Ohio. We Take the Busywork—you Keep Control by automating your worst busywork first while keeping human approvals, audit trails, and rollback in place. LGBTQ-owned businesses receive 25% off upfront project fees on approved scopes.",
+      "FlowstackT is Bespoke Ethos's proprietary general automation package for small businesses in Cleveland, Ohio. We Take the Busywork-you Keep Control by automating your worst busywork first while keeping human approvals, audit trails, and rollback in place. LGBTQ-owned businesses receive 25% off upfront project fees on approved scopes.",
     provider: {
       "@type": "Organization",
       name: "Bespoke Ethos",

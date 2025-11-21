@@ -51,7 +51,7 @@ export default function CaseStudiesPage() {
               <dd>~6 hours/week on manual updates</dd>
             </div>
             <div>
-              <dt className="font-semibold text-text-primary dark:text-dark-text-primary">Stack</dt>
+              <dt className="font-semibold text-text-primary dark:text-dark-text-primary">Tools Used</dt>
               <dd>Gmail · Sheets · Flowstack™</dd>
             </div>
           </dl>
@@ -79,7 +79,7 @@ export default function CaseStudiesPage() {
               <dd>30–40% fewer back‑and‑forth emails</dd>
             </div>
             <div>
-              <dt className="font-semibold text-text-primary dark:text-dark-text-primary">Stack</dt>
+              <dt className="font-semibold text-text-primary dark:text-dark-text-primary">Tools Used</dt>
               <dd>Website · Chatbot · Email</dd>
             </div>
           </dl>
@@ -107,7 +107,7 @@ export default function CaseStudiesPage() {
               <dd>Zero silent failures after launch</dd>
             </div>
             <div>
-              <dt className="font-semibold text-text-primary dark:text-dark-text-primary">Stack</dt>
+              <dt className="font-semibold text-text-primary dark:text-dark-text-primary">Tools Used</dt>
               <dd>Zapier/Make · Redbridging™ · Consensus Engine™</dd>
             </div>
           </dl>

@@ -20,7 +20,7 @@ const solutions = [
   {
     slug: "cadence",
     title: "Cadence™",
-    summary: "Premium chatbot trained on your products, voice, and stories-builds loyalty 24/7.",
+    summary: "Premium, relationship-first chatbot trained on your products, voice, and founder stories—built for people who hate generic bots.",
     logo: "/assets/logos/cadence_logo.png",
   },
   {
@@ -51,25 +51,25 @@ const solutions = [
 
 const flagshipTools = [
   {
-    name: "CadenceT",
+    name: "Cadence™",
     tagline: "Brand Rhythm",
     href: "/products/cadence",
     image: "/assets/logos/cadence.png",
   },
   {
-    name: "FlowstackT",
+    name: "Flowstack",
     tagline: "Workflow Automation",
     href: "/solutions/flowstack",
     image: "/assets/logos/flowstack.png",
   },
   {
-    name: "Consensus EngineT",
+    name: "Consensus Engine™",
     tagline: "Collaborative Decisions",
     href: "/solutions/consensus-engine",
     image: "/assets/logos/consensus.png",
   },
   {
-    name: "RedbridgingT",
+    name: "Redbridging",
     tagline: "AI Reliability",
     href: "/solutions/redbridging",
     image: "/assets/logos/RedBridging.png",
@@ -206,3 +206,13 @@ function SolutionsItemListJsonLd() {
   } as const;
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
 }
+
+
+
+
+
+
+
+
+
+

@@ -30,22 +30,24 @@ export function NavigationMenuHeader({
   className?: string;
 }) {
   return (
-    <NavigationMenu
-      className={clsx("relative z-1 flex-col justify-center xl:flex", className)}
-      delayDuration={50}
-    >
-      <NavigationMenuList className="flex flex-1 gap-0.5 px-4">
-        {links.map((link) =>
-          link.sublinks.items.length > 0 ? (
-            <NavigationMenuLinkWithMenu key={link._id} {...link} />
-          ) : (
-            <li key={link._id}>
-              <NavigationMenuLink href={link.href ?? "#"}>{link._title}</NavigationMenuLink>
-            </li>
-          ),
-        )}
-      </NavigationMenuList>
-    </NavigationMenu>
+    <nav aria-label="Primary" role="navigation">
+      <NavigationMenu
+        className={clsx("relative z-1 flex-col justify-center xl:flex", className)}
+        delayDuration={50}
+      >
+        <NavigationMenuList className="flex flex-1 gap-0.5 px-4">
+          {links.map((link) =>
+            link.sublinks.items.length > 0 ? (
+              <NavigationMenuLinkWithMenu key={link._id} {...link} />
+            ) : (
+              <li key={link._id}>
+                <NavigationMenuLink href={link.href ?? "#"}>{link._title}</NavigationMenuLink>
+              </li>
+            ),
+          )}
+        </NavigationMenuList>
+      </NavigationMenu>
+    </nav>
   );
 }
 
@@ -241,6 +243,8 @@ export function MobileMenu({ navbar, rightCtas }: HeaderData) {
     <>
       <button
         aria-label="Toggle menu"
+        aria-expanded={isOn}
+        aria-controls="mobile-navigation-panel"
         className="border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary col-start-3 flex items-center justify-center gap-2 justify-self-end rounded-sm border p-2 xl:hidden xl:h-7"
         onClick={handleToggle}
       >
@@ -249,17 +253,21 @@ export function MobileMenu({ navbar, rightCtas }: HeaderData) {
       <div className="block xl:hidden">
         {isOn ? (
           <div
-            className="be-mobile-menu-backdrop fixed inset-0 z-[120]"
+            className="be-mobile-menu-backdrop fixed inset-0 z-[120] bg-surface-primary/95 dark:bg-dark-surface-primary/95"
             onClick={handleOff}
             style={{ height: "100dvh", width: "100vw" }}
           >
             <div
-              className="be-mobile-menu-card top-2 bottom-4 mx-auto max-w-md sm:max-w-lg"
+              id="mobile-navigation-panel"
+              className="be-mobile-menu-card top-2 bottom-4 mx-auto max-w-md sm:max-w-lg rounded-2xl border border-border bg-surface-primary text-text-primary shadow-xl dark:border-dark-border dark:bg-dark-surface-primary dark:text-dark-text-primary"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Mobile navigation menu"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex h-full flex-col">
                 <div className="flex-1 overflow-y-auto px-4 py-4">
-                  <nav className="flex flex-col gap-1.5">
+                  <nav className="flex flex-col gap-1.5" aria-label="Mobile primary navigation">
                     {navbar.items.map((link) =>
                       link.sublinks.items.length > 0 ? (
                         <ItemWithSublinks
@@ -364,6 +372,7 @@ function ItemWithSublinks({
   const { isOn, handleOff, handleOn } = useToggleState(false);
   const hasRendered = useHasRendered();
   const listRef = React.useRef<HTMLUListElement>(null);
+  const submenuId = `${_id}-submenu`;
 
   React.useEffect(() => {
     if (!hasRendered) return;
@@ -393,7 +402,13 @@ function ItemWithSublinks({
 
   return (
     <div key={_id}>
-      <button className="flex items-center gap-2 px-3 py-2.5 text-base font-medium" onClick={handleToggle}>
+      <button
+        className="flex items-center gap-2 px-3 py-2.5 text-base font-medium"
+        onClick={handleToggle}
+        aria-expanded={isOn}
+        aria-controls={submenuId}
+        aria-haspopup="true"
+      >
         {_title}
         <ChevronDownIcon
           className={clsx(
@@ -403,10 +418,12 @@ function ItemWithSublinks({
         />
       </button>
       <ul
+        id={submenuId}
         ref={listRef}
         className={clsx(
           "flex h-0 origin-top transform-gpu flex-col gap-2 overflow-hidden pl-4 transition-transform",
         )}
+        aria-hidden={!isOn}
       >
         {sublinks.map((sublink) => {
           const link = sublink.link;

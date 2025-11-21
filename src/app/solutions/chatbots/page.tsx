@@ -10,7 +10,8 @@ export const revalidate = 1800;
 
 export const metadata: Metadata = {
   title: "Chatbots - On-Brand Answers 24/7 | Bespoke Ethos",
-  description: "Friendly, helpful chatbots trained on your voice with clear human handoff and lead capture.",
+  description:
+    "Friendly, on-brand chatbots that answer common questions, hand off cleanly to humans, and offer a more budget-friendly alternative to Cadence™.",
   alternates: { canonical: "/solutions/chatbots" },
 };
 
@@ -26,10 +27,13 @@ export default function ChatbotsPage() {
       </Heading>
       <div className="space-y-4 text-text-secondary dark:text-dark-text-secondary">
         <p>
-          As an author and publisher, I know the power of voice. Your customers don&rsquo;t want a robotic FAQ bot-they want to feel heard and helped. That&rsquo;s why I build chatbots that sound like you, not like a machine.
+          Your customers don&apos;t want a robotic FAQ widget-they want to feel heard and helped. Our standard chatbots
+          are the lighter-weight, more budget-friendly way to get there: trained on your content and tone, without the
+          deeper story work and conditional patent overhead that come with Cadence™.
         </p>
         <p>
-          We design helpful, friendly chatbots that resolve common questions and route the rest to your team. Always aligned to your tone, with clear handoffs-because your brand voice is too valuable to hand over to generic AI.
+          We design helpful, friendly chatbots that resolve common questions and route the rest to your team. Always
+          aligned to your tone, with clear handoffs-because your brand voice is too valuable to hand over to generic AI.
         </p>
       </div>
       <ul className="mt-2 list-disc pl-6 text-text-secondary dark:text-dark-text-secondary">
@@ -38,14 +42,23 @@ export default function ChatbotsPage() {
         <li>Works across site, help center, and email handoffs</li>
         <li>Analytics on deflection and customer satisfaction</li>
       </ul>
-      <div className="flex gap-3">
-        <ButtonLink intent="primary" href="/contact">
+      <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+        <ButtonLink className="w-full justify-center sm:w-auto" intent="primary" href="/contact">
           Try AI chatbot free
         </ButtonLink>
-        <ButtonLink intent="secondary" href="/contact?service=llm-setups">
+        <ButtonLink
+          className="w-full justify-center sm:w-auto"
+          intent="secondary"
+          href="/contact?service=llm-setups"
+        >
           Schedule a free consultation
         </ButtonLink>
       </div>
+      <p className="mt-3 text-xs text-text-tertiary dark:text-dark-text-tertiary">
+        Cost a stretch right now? Ask about our Helping Hand for Tech program. If you&apos;re LGBTQ-owned or just early
+        in your journey, reach out and we&apos;ll see if we can bring things closer to your budget—whether through our
+        25% LGBTQ discount, a smaller starter scope, or a more modest chatbot build.
+      </p>
         </div>
       </Section>
     </main>
@@ -76,3 +89,4 @@ function ProductJsonLd() {
 
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
 }
+

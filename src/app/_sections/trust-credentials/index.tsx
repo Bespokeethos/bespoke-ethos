@@ -64,11 +64,11 @@ export function TrustCredentials() {
               <IconRobot className="h-8 w-8 text-accent-500" />
             </div>
             <h3 className="text-xl font-semibold text-text-primary dark:text-dark-text-primary">
-              5+ Years AI Training
+              Frontier AI, Human in the Loop
             </h3>
-              <p className="mt-3 text-sm text-text-secondary dark:text-dark-text-secondary">
-                Extensive hands-on experience as a Human-in-the-Loop AI trainer with Appen, one of the world&rsquo;s leading AI data companies.
-              </p>
+            <p className="mt-3 text-sm text-text-secondary dark:text-dark-text-secondary">
+              5+ years as a human-in-the-loop AI trainer with Appen, contributing to the frontier models behind tools like ChatGPT, Copilot, and Gemini, plus selection into a Microsoft small-business founder program with enterprise Azure sponsorship.
+            </p>
             <div className="mt-6">
               <span className="inline-flex items-center rounded-full bg-accent-500/10 px-4 py-2 text-sm font-medium text-accent-500">
                 Since 2019

@@ -61,6 +61,16 @@ const DOCS = [
       "BESPOKE ETHOS MARKET RESEARCH & CONVERSION ANALYSIS.md",
     ),
   },
+  {
+    id: "cadence-product-page",
+    title: "Cadence Product Page Strategy",
+    file: path.join("Guides", "Cadence-Product-Page.md"),
+  },
+  {
+    id: "clarity-snapshot",
+    title: "Clarity Snapshot (Codex Session Alignment)",
+    file: path.join("claritytemp.json"),
+  },
 ];
 
 const CHUNK_SIZE = 3000;

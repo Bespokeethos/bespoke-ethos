@@ -27,6 +27,25 @@ export default function EnterpriseLandingPage() {
               keep your organization free, clear, and running on clean code whether you live in Azure, AWS, GCP, Alibaba,
               or sovereign infrastructure. Your cloud, your budget, we make it work.
             </p>
+            <p className="mx-auto max-w-2xl text-xs text-text-tertiary dark:text-dark-text-tertiary">
+              Heads up: this page leans into architecture and security jargon on purpose. If you&apos;d rather walk
+              through a plain-English version for your business, reach out and we&apos;ll translate the stack talk into
+              real outcomes.
+            </p>
+            <div className="mx-auto flex max-w-xs items-center justify-center gap-2 text-[11px] text-text-tertiary dark:text-dark-text-tertiary">
+              <div className="relative h-6 w-6 shrink-0 sm:h-7 sm:w-7">
+                <Image
+                  src="/assets/NERD.png"
+                  alt="Friendly nerd icon indicating this page leans into technical details"
+                  fill
+                  className="object-contain drop-shadow-[0_10px_24px_rgba(0,0,0,0.35)]"
+                />
+              </div>
+              <span>
+                Want to go full-nerd on architecture? Ask for an enterprise technical brief and we&apos;ll happily talk
+                cloud regions, tenants, and threat models.
+              </span>
+            </div>
             <div className="flex flex-wrap justify-center gap-3">
               <Link
                 href="mailto:contact@bespokeethos.com?subject=Enterprise%20Discovery"

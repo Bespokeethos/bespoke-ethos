@@ -40,22 +40,22 @@ export default async function ContactPage({ searchParams }: PageProps) {
           {/* Mobile hero heading above the card */}
           <div className="space-y-1 text-center md:hidden">
             <p className="inline-flex rounded-full bg-surface-secondary px-3 py-1 text-[11px] font-medium tracking-tight text-text-secondary dark:bg-dark-surface-secondary dark:text-dark-text-secondary">
-              {isLlmSetup ? "Automation setups · Stack mapping · Guardrails" : "Small business automation · Founder-friendly"}
+              {isLlmSetup ? "Automation setups · Tool mapping · Guardrails" : "Small business automation · Founder-friendly"}
             </p>
             <h1 className="font-hero-accent text-balance text-[1.5rem] font-semibold leading-snug">
-              {isLlmSetup ? "Let's map your LLM stack the right way." : "Tell us what you want off your plate."}
+              {isLlmSetup ? "Let's map your AI tools the right way." : "Tell us what you want off your plate."}
             </h1>
           </div>
 
           <div className="grid w-full items-start gap-4 -mt-2 sm:gap-8 sm:-mt-2 md:mt-0 md:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] md:items-stretch">
           <div className="hidden space-y-5 text-left md:block md:space-y-6">
             <p className="inline-flex rounded-full bg-surface-secondary px-3 py-1 text-xs font-medium tracking-tight text-text-secondary dark:bg-dark-surface-secondary dark:text-dark-text-secondary">
-              {isLlmSetup ? "Automation setups · Stack mapping · Guardrails" : "Small business automation • Founder-friendly"}
+              {isLlmSetup ? "Automation setups · Tool mapping · Guardrails" : "Small business automation • Founder-friendly"}
             </p>
 
             <div className="space-y-3">
               <h1 className="font-hero-accent text-balance text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl">
-                {isLlmSetup ? "Let's map your LLM stack the right way." : "Tell us what you want off your plate."}
+                {isLlmSetup ? "Let's map your AI tools the right way." : "Tell us what you want off your plate."}
               </h1>
               <p className="text-base leading-relaxed text-text-secondary dark:text-dark-text-secondary">
                 You don’t need a 40-page strategy deck. You need clear next steps. Share where you’re stuck and what a win
@@ -65,11 +65,11 @@ export default async function ContactPage({ searchParams }: PageProps) {
               {isLlmSetup ? (
                 <div className="rounded-2xl border border-border bg-surface-secondary/80 p-4 text-sm text-text-secondary shadow-sm dark:border-dark-border dark:bg-dark-surface-secondary/80 dark:text-dark-text-secondary">
                   <p className="font-semibold text-text-primary dark:text-dark-text-primary">
-                    You’re asking about automation & AI stack mapping.
+                    You’re asking about automation & AI tool mapping.
                   </p>
                   <p className="mt-2">
                     In the message box, tell us where your data lives (docs, CRM, tools), who needs access, and what’s
-                    breaking today. We’ll outline 1–2 stack options and what they’d cost—using tools that fit your size
+                    breaking today. We’ll outline 1–2 setup options and what they’d cost—using tools that fit your size
                     and budget.
                   </p>
                   <ul className="mt-3 list-disc space-y-1 pl-5 text-xs text-text-tertiary dark:text-dark-text-tertiary">

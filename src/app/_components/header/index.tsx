@@ -65,23 +65,23 @@ const FALLBACK_HEADER_NAV: HeaderNavLink[] = [
           children: [
             {
               _id: "nav-products-cadence",
-              _title: "CadenceT",
-              link: pageRef("/products/cadence", "CadenceT"),
+              _title: "Cadence™",
+              link: pageRef("/products/cadence", "Cadence™"),
             },
             {
               _id: "nav-products-flowstack",
-              _title: "FlowstackT",
-              link: pageRef("/solutions/flowstack", "FlowstackT"),
+              _title: "Flowstack",
+              link: pageRef("/solutions/flowstack", "Flowstack"),
             },
             {
               _id: "nav-products-consensus",
-              _title: "Consensus EngineT",
-              link: pageRef("/solutions/consensus-engine", "Consensus EngineT"),
+            _title: "Consensus Engine™",
+            link: pageRef("/solutions/consensus-engine", "Consensus Engine™"),
             },
             {
               _id: "nav-products-redbridging",
-              _title: "RedbridgingT",
-              link: pageRef("/solutions/redbridging", "RedbridgingT"),
+              _title: "Redbridging",
+              link: pageRef("/solutions/redbridging", "Redbridging"),
             },
           ],
         },
@@ -300,4 +300,6 @@ export async function Header() {
 
   return <HeaderShell headerData={headerData} logo={logo} />;
 }
+
+
 
