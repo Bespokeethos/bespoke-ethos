@@ -1,0 +1,21 @@
+<svg width="1920" height="320" viewBox="0 0 1920 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1920" height="320" fill="url(#paint0_linear)" />
+  <path d="M0 120C180 184 347 204 540 164C760 120 872 12 1108 8C1314 5 1422 124 1589 164C1736 200 1828 158 1920 112V320H0V120Z" fill="url(#paint1_linear)" opacity="0.75" />
+  <path d="M0 220C122 280 278 318 456 302C698 280 793 176 1032 156C1245 138 1364 226 1568 248C1706 263 1824 238 1920 208V320H0V220Z" fill="url(#paint2_radial)" opacity="0.6" />
+  <defs>
+    <linearGradient id="paint0_linear" x1="0" y1="0" x2="0" y2="320" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#09161B" />
+      <stop offset="1" stop-color="#03090C" />
+    </linearGradient>
+    <linearGradient id="paint1_linear" x1="180" y1="80" x2="1700" y2="360" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#27CBB4" stop-opacity="0.45" />
+      <stop offset="0.58" stop-color="#1CA4D3" stop-opacity="0.32" />
+      <stop offset="1" stop-color="#0A1E29" stop-opacity="0.7" />
+    </linearGradient>
+    <radialGradient id="paint2_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1020 226) rotate(89.4) scale(176 920)">
+      <stop stop-color="#1CAEE0" stop-opacity="0.35" />
+      <stop offset="0.8" stop-color="#061724" stop-opacity="0.65" />
+      <stop offset="1" stop-color="#040E14" stop-opacity="0.85" />
+    </radialGradient>
+  </defs>
+</svg>

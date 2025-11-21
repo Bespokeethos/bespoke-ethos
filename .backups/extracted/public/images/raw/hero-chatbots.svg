@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1536" height="1024" viewBox="0 0 1536 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background gradient: dark-to-teal -->
+    <linearGradient id="bggrad" x1="0" y1="0" x2="0" y2="1024" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#07131B"/>
+      <stop offset="100%" stop-color="#0A3D46"/>
+    </linearGradient>
+
+    <!-- Subtle vignette -->
+    <radialGradient id="vignette" cx="50%" cy="50%" r="75%">
+      <stop offset="30%" stop-color="#00000000"/>
+      <stop offset="100%" stop-color="#000000AA"/>
+    </radialGradient>
+
+    <!-- Aqua / Ultramarine gradients for glow accents -->
+    <linearGradient id="aqua" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#26FFE0"/>
+      <stop offset="100%" stop-color="#6DF6FF"/>
+    </linearGradient>
+    <linearGradient id="ultramarine" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1E3AFF"/>
+      <stop offset="100%" stop-color="#5B6CFF"/>
+    </linearGradient>
+
+    <!-- Soft bloom/glow filters -->
+    <filter id="softBloom" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="18" result="blur"/>
+      <feColorMatrix type="matrix" values="
+        1 0 0 0 0
+        0 1 0 0 0
+        0 0 1 0 0
+        0 0 0 0.6 0" result="soft"/>
+      <feBlend in="SourceGraphic" in2="soft" mode="screen"/>
+    </filter>
+
+    <filter id="outerGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="25" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Particle blur -->
+    <filter id="particleBlur" x="-200%" y="-200%" width="400%" height="400%">
+      <feGaussianBlur stdDeviation="2"/>
+    </filter>
+
+    <!-- Glass bubble style (approximate glassmorphism without backdrop-blur) -->
+    <linearGradient id="bubbleFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#B6FFF5" stop-opacity="0.06"/>
+    </linearGradient>
+
+    <!-- Device screen gradient -->
+    <linearGradient id="screenGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#061018"/>
+      <stop offset="100%" stop-color="#0E2F36"/>
+    </linearGradient>
+
+    <!-- Icon symbols -->
+    <!-- Clock icon -->
+    <symbol id="icon-clock" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="8.5" stroke="url(#aqua)" stroke-width="1.5" fill="none"/>
+      <path d="M12 6.5 V12 L16 14.5" stroke="url(#ultramarine)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <!-- Price tag icon -->
+    <symbol id="icon-tag" viewBox="0 0 24 24">
+      <path d="M3 12 L12 3 L21 12 L12 21 L3 12 Z" fill="none" stroke="url(#aqua)" stroke-width="1.6" stroke-linejoin="round"/>
+      <circle cx="12" cy="8.5" r="1.8" fill="none" stroke="url(#ultramarine)" stroke-width="1.4"/>
+    </symbol>
+    <!-- Location pin icon -->
+    <symbol id="icon-pin" viewBox="0 0 24 24">
+      <path d="M12 22 C12 22 5 14.5 5 10 A7 7 0 1 1 19 10 C19 14.5 12 22 12 22 Z" fill="none" stroke="url(#aqua)" stroke-width="1.6"/>
+      <circle cx="12" cy="10" r="2.5" fill="none" stroke="url(#ultramarine)" stroke-width="1.4"/>
+    </symbol>
+    <!-- Handoff arrow glyph -->
+    <symbol id="icon-handoff" viewBox="0 0 24 24">
+      <path d="M5 12 H17" stroke="url(#aqua)" stroke-width="2" stroke-linecap="round"/>
+      <path d="M13 8 L17 12 L13 16" fill="none" stroke="url(#ultramarine)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+
+    <!-- Rounded rectangle reusable path for bubbles -->
+    <symbol id="bubble-shape" viewBox="0 0 320 120" preserveAspectRatio="none">
+      <rect x="0" y="0" width="320" height="120" rx="24" ry="24" fill="url(#bubbleFill)" stroke="url(#aqua)" stroke-opacity="0.35" stroke-width="1.2"/>
+    </symbol>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="1536" height="1024" fill="url(#bggrad)"/>
+  <rect x="0" y="0" width="1536" height="1024" fill="url(#vignette)" opacity="0.50"/>
+
+  <!-- Negative space hint: subtle diagonal falloff -->
+  <ellipse cx="520" cy="380" rx="420" ry="260" fill="url(#ultramarine)" opacity="0.05" filter="url(#softBloom)"/>
+
+  <!-- Device group: high-end mobile device at 3/4 view -->
+  <g transform="translate(860, 290) rotate(-14) skewX(-6)">
+    <!-- Glow behind device -->
+    <ellipse cx="0" cy="260" rx="280" ry="190" fill="url(#aqua)" opacity="0.20" filter="url(#outerGlow)"/>
+    <ellipse cx="20" cy="260" rx="240" ry="170" fill="url(#ultramarine)" opacity="0.15" filter="url(#outerGlow)"/>
+
+    <!-- Device body -->
+    <g>
+      <!-- Outer chassis -->
+      <rect x="-210" y="40" width="420" height="760" rx="48" ry="48" fill="#0F1317" stroke="#1E2328" stroke-width="3"/>
+      <!-- Bezel / edge highlight -->
+      <rect x="-205" y="45" width="410" height="750" rx="44" ry="44" fill="#0B0F12" stroke="#2B3138" stroke-width="1"/>
+      <!-- Screen -->
+      <rect x="-190" y="70" width="380" height="700" rx="36" ry="36" fill="url(#screenGrad)"/>
+      <!-- Subtle corner sheen -->
+      <ellipse cx="140" cy="120" rx="120" ry="80" fill="url(#aqua)" opacity="0.10" filter="url(#softBloom)"/>
+      <ellipse cx="-60" cy="720" rx="140" ry="60" fill="url(#ultramarine)" opacity="0.08" filter="url(#softBloom)"/>
+    </g>
+  </g>
+
+  <!-- Luminous translucent chat bubbles around device (icons only, no text) -->
+  <!-- Bubble 1: Hours (clock) -->
+  <g transform="translate(320, 270) rotate(-4)">
+    <use href="#bubble-shape"/>
+    <g transform="translate(36, 24)">
+      <use href="#icon-clock" width="72" height="72"/>
+    </g>
+    <!-- Aqua glow -->
+    <rect x="-10" y="-10" width="340" height="140" rx="34" fill="url(#aqua)" opacity="0.10" filter="url(#outerGlow)"/>
+  </g>
+
+  <!-- Bubble 2: Price tag -->
+  <g transform="translate(230, 520) rotate(3)">
+    <use href="#bubble-shape"/>
+    <g transform="translate(36, 24)">
+      <use href="#icon-tag" width="72" height="72"/>
+    </g>
+    <rect x="-10" y="-10" width="340" height="140" rx="34" fill="url(#ultramarine)" opacity="0.10" filter="url(#outerGlow)"/>
+  </g>
+
+  <!-- Bubble 3: Location pin -->
+  <g transform="translate(1010, 120) rotate(-8)">
+    <use href="#bubble-shape"/>
+    <g transform="translate(36, 24)">
+      <use href="#icon-pin" width="72" height="72"/>
+    </g>
+    <rect x="-10" y="-10" width="340" height="140" rx="34" fill="url(#aqua)" opacity="0.10" filter="url(#outerGlow)"/>
+  </g>
+
+  <!-- Subtle particle trail implying responsiveness -->
+  <g opacity="0.5" filter="url(#particleBlur)">
+    <circle cx="880" cy="400" r="3.5" fill="#26FFE0"/>
+    <circle cx="920" cy="420" r="2.8" fill="#5B6CFF"/>
+    <circle cx="960" cy="445" r="2.2" fill="#26FFE0"/>
+    <circle cx="1000" cy="470" r="1.8" fill="#5B6CFF"/>
+    <circle cx="1040" cy="500" r="1.6" fill="#26FFE0"/>
+    <circle cx="1080" cy="530" r="1.4" fill="#5B6CFF"/>
+    <circle cx="1120" cy="560" r="1.2" fill="#26FFE0"/>
+  </g>
+
+  <!-- Gentle handoff glyph near a corner -->
+  <g transform="translate(1400, 880)">
+    <rect x="-24" y="-24" width="72" height="72" rx="18" ry="18" fill="url(#bubbleFill)" stroke="url(#aqua)" stroke-opacity="0.35" stroke-width="1.2"/>
+    <use href="#icon-handoff" width="48" height="48" x="0" y="0"/>
+    <rect x="-24" y="-24" width="72" height="72" rx="18" ry="18" fill="url(#ultramarine)" opacity="0.10" filter="url(#outerGlow)"/>
+  </g>
+
+  <!-- Extra negative space on the left for hero composition -->
+  <rect x="0" y="0" width="520" height="1024" fill="#000000" opacity="0.08"/>
+</svg>

@@ -140,7 +140,7 @@ export default function HomePage() {
               id="consensus-highlight-heading"
               className="text-2xl font-semibold text-text-primary dark:text-dark-text-primary"
             >
-              A research brief, not a black-box answer
+              A research brief, not a mystery answer
             </h2>
             <p className="text-sm text-text-secondary dark:text-dark-text-secondary">
               Consensus Engine turns one big strategic question into a calm, cited brief. During your free consultation,

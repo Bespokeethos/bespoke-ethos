@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="350" viewBox="0 0 1600 350" preserveAspectRatio="xMidYMid slice">
+  <title>Minimalist header accent strip – variant 04</title>
+  <desc>Teal-to-graphite base with flowing semi-transparent data streams and softly pulsing nodes. Variant 04.</desc>
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1600" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#10c7bb"/>
+      <stop offset="55%" stop-color="#0ea9b3"/>
+      <stop offset="100%" stop-color="#2b2e34"/>
+    </linearGradient>
+    <linearGradient id="streamGrad" x1="0" y1="0" x2="1600" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#81fff0" stop-opacity="0"/>
+      <stop offset="20%" stop-color="#5eead4" stop-opacity="0.65"/>
+      <stop offset="50%" stop-color="#a6fff7" stop-opacity="0.85"/>
+      <stop offset="80%" stop-color="#7aa0a8" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#9ba3ad" stop-opacity="0.10"/>
+    </linearGradient>
+    <radialGradient id="nodeGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#e9ffff" stop-opacity="1"/>
+      <stop offset="60%" stop-color="#67f3e3" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#1f8e9a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="arcGrad" x1="0" y1="0" x2="0" y2="350" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#bffcf6" stop-opacity="0.35"/>
+      <stop offset="40%" stop-color="#79e9dc" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#6d7682" stop-opacity="0.08"/>
+    </linearGradient>
+    <linearGradient id="glossTop" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.22"/>
+      <stop offset="70%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="glossBottom" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.16"/>
+      <stop offset="70%" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="0.8" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0" result="glow"/>
+      <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softGlowWide" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2.2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <mask id="avoidCenter">
+      <rect width="1600" height="350" fill="#fff"/>
+      <rect x="0" y="110" width="1600" height="110" fill="#000"/>
+    </mask>
+  </defs>
+  <style>
+    :root { --speed-1: 16.25s; --speed-2: 20.0s; --speed-3: 23.75s; }
+    .bg { fill: url(#bgGrad); }
+    .arc { fill: none; stroke: url(#arcGrad); stroke-linecap: round; stroke-linejoin: round; opacity: .14; filter: url(#softGlowWide); }
+    .arc.front { opacity: .20; }
+    .streams { mask: url(#avoidCenter); }
+    .stream { fill: none; stroke: url(#streamGrad); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 9 13; stroke-dashoffset: 0; opacity: .62; filter: url(#softGlow); animation: dash var(--speed,14s) linear infinite; animation-delay: var(--delay,0s); }
+    .stream.back { stroke-width: 2.4; opacity: .38; filter: url(#softGlowWide); }
+    .node { fill: url(#nodeGrad); opacity: .55; transform-box: fill-box; transform-origin: center; animation: pulse var(--pulse,4.6s) ease-in-out infinite; animation-delay: var(--delay,0s); }
+    @keyframes dash { to { stroke-dashoffset: -1000; } }
+    @keyframes pulse { 0%,100% { opacity:.28; transform: scale(1); } 50% { opacity:.95; transform: scale(1.7); } }
+    .gloss-top { fill: url(#glossTop); }
+    .gloss-bottom { fill: url(#glossBottom); }
+    @media (prefers-reduced-motion: reduce) { .stream, .node { animation: none; } }
+  </style>
+  <rect class="bg" width="1600" height="350" />
+  <g class="arcs" mask="url(#avoidCenter)">
+    <path class="arc" d="M -320 96 Q 800 -57 1920 96" stroke-width="100"/><path class="arc front" d="M -320 54 Q 800 -87 1920 54" stroke-width="120"/><path class="arc" d="M -320 309 Q 800 472 1920 309" stroke-width="120"/><path class="arc front" d="M -320 334 Q 800 547 1920 334" stroke-width="100"/>
+  </g>
+  <g class="streams">
+    <path id="t1" class="stream back" pathLength="1000" style="--speed: 16.25s; --delay: -1s" d="M -180 72 C 243 17, 732 22, 1184 78 S 1777 127, 1827 66"/><path id="t2" class="stream" pathLength="1000" style="--speed: 20.0s; --delay: -3s" d="M -180 92 C 217 44, 788 50, 1129 93 S 1734 149, 1815 90"/><path id="t3" class="stream" pathLength="1000" style="--speed: 23.75s; --delay: -6s" d="M -180 108 C 205 41, 691 62, 1201 112 S 1828 155, 1829 109"/><path id="b1" class="stream back" pathLength="1000" style="--speed: 20.0s; --delay: -2s" d="M -180 242 C 295 300, 943 301, 1376 214 S 1829 194, 1825 241"/><path id="b2" class="stream" pathLength="1000" style="--speed: 16.25s; --delay: -4s" d="M -180 266 C 301 298, 923 310, 1332 218 S 1829 217, 1816 272"/><path id="b3" class="stream" pathLength="1000" style="--speed: 23.75s; --delay: -7s" d="M -180 292 C 305 345, 993 340, 1366 246 S 1830 250, 1833 294"/>
+    <g filter="url(#softGlow)">
+      <circle class="node" r="2.2">
+        <animateMotion dur="17.01s" begin="-1.52s" repeatCount="indefinite"><mpath href="#t1"/></animateMotion>
+      </circle><circle class="node" r="2.2">
+        <animateMotion dur="20.79s" begin="-2.72s" repeatCount="indefinite"><mpath href="#t2"/></animateMotion>
+      </circle><circle class="node" r="2.4">
+        <animateMotion dur="23.64s" begin="-5.77s" repeatCount="indefinite"><mpath href="#t3"/></animateMotion>
+      </circle><circle class="node" r="2.0">
+        <animateMotion dur="19.35s" begin="-1.86s" repeatCount="indefinite"><mpath href="#b1"/></animateMotion>
+      </circle><circle class="node" r="2.2">
+        <animateMotion dur="15.71s" begin="-3.77s" repeatCount="indefinite"><mpath href="#b2"/></animateMotion>
+      </circle><circle class="node" r="2.2">
+        <animateMotion dur="23.61s" begin="-6.83s" repeatCount="indefinite"><mpath href="#b3"/></animateMotion>
+      </circle>
+    </g>
+    <g>
+      <circle class="node" cx="793" cy="45" r="2.0" style="--pulse: 5.4s; --delay: -1.14s"/><circle class="node" cx="1502" cy="87" r="2.0" style="--pulse: 5.94s; --delay: -0.63s"/><circle class="node" cx="648" cy="43" r="1.8" style="--pulse: 5.56s; --delay: -0.44s"/><circle class="node" cx="1283" cy="261" r="2.0" style="--pulse: 4.57s; --delay: -1.05s"/><circle class="node" cx="1200" cy="254" r="1.6" style="--pulse: 4.48s; --delay: -0.65s"/><circle class="node" cx="394" cy="293" r="1.6" style="--pulse: 5.32s; --delay: -2.08s"/>
+    </g>
+  </g>
+  <rect class="gloss-top" x="0" y="0" width="1600" height="130" opacity="0.65"/>
+  <rect class="gloss-bottom" x="0" y="220" width="1600" height="130" opacity="0.55"/>
+  <rect x="0" y="110" width="1600" height="110" fill="transparent" pointer-events="none"/>
+</svg>
