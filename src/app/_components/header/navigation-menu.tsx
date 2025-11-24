@@ -410,8 +410,8 @@ function ItemWithSublinks({
         id={submenuId}
         ref={listRef}
         className={clsx(
-          "flex origin-top transform-gpu flex-col gap-2 overflow-hidden pl-4 transition-all duration-300 ease-in-out",
-          isOn ? "h-auto opacity-100" : "h-0 opacity-0",
+          "flex origin-top transform-gpu flex-col gap-2 pl-4 transition-all duration-300 ease-in-out",
+          isOn ? "max-h-[500px] opacity-100 overflow-visible" : "max-h-0 opacity-0 overflow-hidden",
         )}
         aria-hidden={!isOn}
       >

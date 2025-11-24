@@ -39,7 +39,7 @@ const FLAGSHIP_PRODUCTS = [
 
 // --- Utility Components ---
 
-// Glass Card with Orange Glow Effect
+// Glass Card with Soft Trailing Tangerine Glow Effect
 const GlassCard = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
@@ -47,7 +47,7 @@ const GlassCard = React.forwardRef<
   <div
     ref={ref}
     className={clsx(
-      "relative p-4 rounded-xl border border-white/10 shadow-2xl backdrop-blur-md",
+      "relative p-4 rounded-xl border border-white/10 shadow-2xl backdrop-blur-md glass-card-glow",
       "bg-white/5 dark:bg-black/5",
       "transition-all duration-300 ease-in-out",
       className
@@ -56,13 +56,12 @@ const GlassCard = React.forwardRef<
       // Elegant glass container style
       background: "rgba(255, 255, 255, 0.05)",
       border: "1px solid rgba(255, 255, 255, 0.18)",
-      // Orange glow effect (simulated with a pseudo-element or box-shadow)
-      // Combined boxShadow for glass effect and orange glow
-      boxShadow: "0 0 10px rgba(255, 165, 0, 0.5), 0 8px 32px 0 rgba(31, 38, 135, 0.37)",
+      boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.37)",
     }}
     {...props}
   >
     {children}
+    <div className="glass-card-glow-effect" />
   </div>
 ));
 GlassCard.displayName = "GlassCard";
