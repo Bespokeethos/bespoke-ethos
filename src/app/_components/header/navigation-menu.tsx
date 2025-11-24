@@ -416,6 +416,51 @@ function ItemWithSublinks({
         aria-hidden={!isOn}
       >
         {sublinks.map((sublink) => {
+          // Handle groups with children
+          if (sublink.children && sublink.children.length > 0) {
+            return (
+              <li key={sublink._id} className="flex flex-col gap-2">
+                <div className="text-text-secondary dark:text-dark-text-secondary px-3 py-1 text-xs font-semibold uppercase tracking-wider">
+                  {sublink._title}
+                </div>
+                <ul className="flex flex-col gap-1">
+                  {sublink.children.map((child) => {
+                    const childLink = child.link;
+                    if (!childLink) {
+                      return null;
+                    }
+
+                    const { href: childHref, _title: childTitle } =
+                      childLink.__typename === "PageReferenceComponent" && childLink.page
+                        ? {
+                            href: childLink.page.pathname,
+                            _title: childLink.page._title,
+                          }
+                        : {
+                            href: childLink.text ?? "#",
+                            _title: child._title,
+                          };
+
+                    const childHrefValue = childHref || "#";
+
+                    return (
+                      <li key={child._id}>
+                        <Link
+                          className="text-text-tertiary dark:text-dark-text-tertiary flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-surface-secondary dark:hover:bg-dark-surface-secondary"
+                          href={childHrefValue}
+                          onClick={onClick}
+                        >
+                          {childTitle}
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </li>
+            );
+          }
+
+          // Handle direct links
           const link = sublink.link;
           if (!link) {
             return null;
@@ -437,7 +482,7 @@ function ItemWithSublinks({
           return (
             <li key={sublink._id}>
               <Link
-                className="text-text-tertiary dark:text-dark-text-tertiary flex items-center gap-2 rounded-md px-3 py-2 text-sm"
+                className="text-text-tertiary dark:text-dark-text-tertiary flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-surface-secondary dark:hover:bg-dark-surface-secondary"
                 href={hrefValue}
                 onClick={onClick}
               >

@@ -15,6 +15,13 @@ const FLAGSHIP_PRODUCTS = [
     caption: "A premium, relationship-first customer chatbot.",
   },
   {
+    id: "redbridging",
+    title: "Redbridging",
+    href: "/solutions/redbridging",
+    image: "/assets/generated/hero-redbridging-square.webp",
+    caption: "AI readiness audit and tissue engine deployment.",
+  },
+  {
     id: "flowstack",
     title: "Flowstack",
     href: "/solutions/flowstack",
@@ -28,82 +35,45 @@ const FLAGSHIP_PRODUCTS = [
     image: "/assets/generated/hero-consensus-square.webp",
     caption: "Deep research and decision-making support.",
   },
-  {
-    id: "redbridging",
-    title: "Redbridging",
-    href: "/solutions/redbridging",
-    image: "/assets/generated/hero-redbridging-square.webp",
-    caption: "AI readiness audit and tissue engine deployment.",
-  },
 ];
-
-// --- Utility Components ---
-
-// Glass Card with Frosted Glass Effect and Rotating Orange Glow
-const GlassCard = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, children, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={clsx(
-      "relative p-0 rounded-xl border border-white/20 shadow-2xl backdrop-blur-xl",
-      "bg-white/8 dark:bg-black/8",
-      "transition-all duration-300 ease-in-out",
-      "glass-card-container",
-      className
-    )}
-    style={{
-      background: "rgba(255, 255, 255, 0.08)",
-      border: "1px solid rgba(255, 255, 255, 0.2)",
-      boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.37), inset 0 1px 1px rgba(255, 255, 255, 0.3)",
-      backdropFilter: "blur(10px)",
-    }}
-    {...props}
-  >
-    {children}
-    <div className="glass-card-glow-effect" />
-  </div>
-));
-GlassCard.displayName = "GlassCard";
 
 // --- Main Component ---
 
-interface ProductCardProps {
+interface CubeFaceProps {
   product: typeof FLAGSHIP_PRODUCTS[0];
   isHovered: boolean;
   onMouseEnter: () => void;
   onMouseLeave: () => void;
 }
 
-const ProductCard: React.FC<ProductCardProps> = ({
+const CubeFace: React.FC<CubeFaceProps> = ({
   product,
   isHovered,
   onMouseEnter,
   onMouseLeave,
 }) => {
   return (
-    <Link href={product.href} passHref>
-      <GlassCard
+    <Link href={product.href} className="block w-full h-full">
+      <div
         className={clsx(
-          "w-[400px] h-[400px] cursor-pointer transform-gpu",
-          "transition-all duration-300 ease-in-out",
-          isHovered ? "scale-[1.08] z-20" : "scale-100 z-10"
+          "w-full h-full cursor-pointer transform-gpu transition-all duration-300 ease-in-out relative",
+          isHovered && "cube-face-hovered"
         )}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
+        style={{
+          transform: isHovered ? "scale(1.08)" : "scale(1)",
+        }}
       >
-        <div className="relative w-full h-full overflow-hidden rounded-xl">
-          <Image
-            src={product.image}
-            alt={product.title}
-            fill
-            sizes="(max-width: 768px) 100vw, 400px"
-            className="object-cover"
-            style={{ border: "5px solid black" }}
-          />
-        </div>
-      </GlassCard>
+        <Image
+          src={product.image}
+          alt={product.title}
+          width={400}
+          height={400}
+          className="object-cover w-full h-full"
+          style={{ border: "5px solid black" }}
+        />
+      </div>
     </Link>
   );
 };
@@ -113,13 +83,13 @@ export const FlagshipCarousel: React.FC = () => {
   const [isPaused, setIsPaused] = useState(false);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
-  const carouselRef = useRef<HTMLDivElement>(null);
+  const cubeRef = useRef<HTMLDivElement>(null);
 
   const startRotation = () => {
     if (intervalRef.current) clearInterval(intervalRef.current);
     intervalRef.current = setInterval(() => {
       setRotation((prev) => (prev + 90) % 360);
-    }, 5000); // Rotate every 5 seconds
+    }, 4000); // Rotate every 4 seconds
   };
 
   useEffect(() => {
@@ -147,91 +117,157 @@ export const FlagshipCarousel: React.FC = () => {
     setIsPaused(false);
   };
 
-  const faceCount = FLAGSHIP_PRODUCTS.length;
-  const angle = 360 / faceCount;
-  const radius = 400 / (2 * Math.tan(Math.PI / faceCount)); // Calculate radius for a 400px wide face
+  // Calculate translateZ for cube faces
+  // For a 400px face, translateZ should be half of face width = 200px
+  const translateZ = 200;
 
   return (
-    <div className="py-12 sm:py-16 bg-surface-primary dark:bg-dark-surface-primary">
+    <div className="py-16 sm:py-20 bg-surface-primary dark:bg-dark-surface-primary">
       <style>{`
-        @keyframes rotatingGlow {
+        @keyframes trailingGlow {
           0% {
             box-shadow: 
-              5px 0 15px rgba(255, 140, 0, 0.6),
-              0 5px 15px rgba(255, 140, 0, 0.4),
-              -5px 0 15px rgba(255, 140, 0, 0.2),
-              0 -5px 15px rgba(255, 140, 0, 0.3);
+              0 0 0 0 rgba(255, 140, 0, 0),
+              15px 0 20px -5px rgba(255, 140, 0, 0.8),
+              0 15px 20px -5px rgba(255, 140, 0, 0.4),
+              -15px 0 20px -5px rgba(255, 140, 0, 0.2),
+              0 -15px 20px -5px rgba(255, 140, 0, 0.3);
           }
           25% {
             box-shadow: 
-              0 5px 15px rgba(255, 140, 0, 0.6),
-              -5px 0 15px rgba(255, 140, 0, 0.4),
-              0 -5px 15px rgba(255, 140, 0, 0.2),
-              5px 0 15px rgba(255, 140, 0, 0.3);
+              0 0 0 0 rgba(255, 140, 0, 0),
+              0 15px 20px -5px rgba(255, 140, 0, 0.8),
+              -15px 0 20px -5px rgba(255, 140, 0, 0.4),
+              0 -15px 20px -5px rgba(255, 140, 0, 0.2),
+              15px 0 20px -5px rgba(255, 140, 0, 0.3);
           }
           50% {
             box-shadow: 
-              -5px 0 15px rgba(255, 140, 0, 0.6),
-              0 -5px 15px rgba(255, 140, 0, 0.4),
-              5px 0 15px rgba(255, 140, 0, 0.2),
-              0 5px 15px rgba(255, 140, 0, 0.3);
+              0 0 0 0 rgba(255, 140, 0, 0),
+              -15px 0 20px -5px rgba(255, 140, 0, 0.8),
+              0 -15px 20px -5px rgba(255, 140, 0, 0.4),
+              15px 0 20px -5px rgba(255, 140, 0, 0.2),
+              0 15px 20px -5px rgba(255, 140, 0, 0.3);
           }
           75% {
             box-shadow: 
-              0 -5px 15px rgba(255, 140, 0, 0.6),
-              5px 0 15px rgba(255, 140, 0, 0.4),
-              0 5px 15px rgba(255, 140, 0, 0.2),
-              -5px 0 15px rgba(255, 140, 0, 0.3);
+              0 0 0 0 rgba(255, 140, 0, 0),
+              0 -15px 20px -5px rgba(255, 140, 0, 0.8),
+              15px 0 20px -5px rgba(255, 140, 0, 0.4),
+              0 15px 20px -5px rgba(255, 140, 0, 0.2),
+              -15px 0 20px -5px rgba(255, 140, 0, 0.3);
           }
           100% {
             box-shadow: 
-              5px 0 15px rgba(255, 140, 0, 0.6),
-              0 5px 15px rgba(255, 140, 0, 0.4),
-              -5px 0 15px rgba(255, 140, 0, 0.2),
-              0 -5px 15px rgba(255, 140, 0, 0.3);
+              0 0 0 0 rgba(255, 140, 0, 0),
+              15px 0 20px -5px rgba(255, 140, 0, 0.8),
+              0 15px 20px -5px rgba(255, 140, 0, 0.4),
+              -15px 0 20px -5px rgba(255, 140, 0, 0.2),
+              0 -15px 20px -5px rgba(255, 140, 0, 0.3);
           }
         }
         
-        .carousel-cube-container {
-          animation: rotatingGlow 6s ease-in-out infinite;
+        .cube-face-hovered {
+          animation: trailingGlow 2s ease-in-out infinite;
         }
       `}</style>
       <div className="container mx-auto px-4 sm:px-6 text-center">
-        <h2 className="text-black dark:text-white mb-8 sm:mb-12 font-accent" style={{ fontSize: 'clamp(1.47rem, 2.24vw, 2.1rem)' }}>
+        <h2 
+          className="text-black dark:text-white mb-12 sm:mb-16 font-accent" 
+          style={{ fontSize: 'clamp(1.47rem, 2.24vw, 2.1rem)' }}
+        >
           Flagship Collection
         </h2>
-        <div className="flex justify-center items-center perspective-[1000px] h-[450px] sm:h-[500px]">
-          <div
-            ref={carouselRef}
-            className="relative w-[400px] h-[400px] preserve-3d transition-transform duration-1000 ease-in-out carousel-cube-container"
+        <div className="flex justify-center items-center min-h-[550px] sm:min-h-[600px]">
+          {/* Frosted glass container */}
+          <div 
+            className="relative p-8 sm:p-12 rounded-3xl"
             style={{
-              transform: `rotateY(${rotation}deg)`,
-              transition: isPaused ? "transform 0.3s ease-out" : "transform 1s ease-in-out",
+              background: "rgba(255, 255, 255, 0.5)",
+              backdropFilter: "blur(10px)",
+              WebkitBackdropFilter: "blur(10px)",
+              boxShadow: "0 20px 60px rgba(255, 140, 0, 0.4)",
             }}
           >
-            {FLAGSHIP_PRODUCTS.map((product, index) => {
-              const cardRotation = index * angle;
-              const isCurrent = (rotation % 360) === (360 - cardRotation) % 360;
-
-              return (
+            {/* 3D Perspective container */}
+            <div 
+              className="relative"
+              style={{ 
+                perspective: "1200px",
+              }}
+            >
+              {/* 3D Cube */}
+              <div
+                ref={cubeRef}
+                className="relative w-[400px] h-[400px] mx-auto"
+                style={{
+                  transformStyle: "preserve-3d",
+                  transform: `rotateY(${rotation}deg)`,
+                  transition: isPaused ? "transform 0.5s ease-out" : "transform 2s ease-in-out",
+                }}
+              >
+                {/* Front Face - Cadence */}
                 <div
-                  key={product.id}
-                  className="absolute inset-0 backface-hidden flex justify-center items-center"
+                  className="absolute w-full h-full"
                   style={{
-                    transform: `rotateY(${cardRotation}deg) translateZ(${radius}px)`,
-                    transition: "opacity 0.5s ease-in-out",
-                    opacity: isCurrent || hoveredIndex === index ? 1 : 0.5,
+                    transformStyle: "preserve-3d",
+                    transform: `rotateY(0deg) translateZ(${translateZ}px)`,
                   }}
                 >
-                  <ProductCard
-                    product={product}
-                    isHovered={hoveredIndex === index}
-                    onMouseEnter={() => handleMouseEnter(index)}
+                  <CubeFace
+                    product={FLAGSHIP_PRODUCTS[0]!}
+                    isHovered={hoveredIndex === 0}
+                    onMouseEnter={() => handleMouseEnter(0)}
                     onMouseLeave={handleMouseLeave}
                   />
                 </div>
-              );
-            })}
+                {/* Right Face - Redbridging */}
+                <div
+                  className="absolute w-full h-full"
+                  style={{
+                    transformStyle: "preserve-3d",
+                    transform: `rotateY(90deg) translateZ(${translateZ}px)`,
+                  }}
+                >
+                  <CubeFace
+                    product={FLAGSHIP_PRODUCTS[1]!}
+                    isHovered={hoveredIndex === 1}
+                    onMouseEnter={() => handleMouseEnter(1)}
+                    onMouseLeave={handleMouseLeave}
+                  />
+                </div>
+                {/* Back Face - Flowstack */}
+                <div
+                  className="absolute w-full h-full"
+                  style={{
+                    transformStyle: "preserve-3d",
+                    transform: `rotateY(180deg) translateZ(${translateZ}px)`,
+                  }}
+                >
+                  <CubeFace
+                    product={FLAGSHIP_PRODUCTS[2]!}
+                    isHovered={hoveredIndex === 2}
+                    onMouseEnter={() => handleMouseEnter(2)}
+                    onMouseLeave={handleMouseLeave}
+                  />
+                </div>
+                {/* Left Face - Consensus Engine */}
+                <div
+                  className="absolute w-full h-full"
+                  style={{
+                    transformStyle: "preserve-3d",
+                    transform: `rotateY(270deg) translateZ(${translateZ}px)`,
+                  }}
+                >
+                  <CubeFace
+                    product={FLAGSHIP_PRODUCTS[3]!}
+                    isHovered={hoveredIndex === 3}
+                    onMouseEnter={() => handleMouseEnter(3)}
+                    onMouseLeave={handleMouseLeave}
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
