@@ -1,19 +1,26 @@
 import { streamText } from "ai";
 import { createOpenAI } from "@ai-sdk/openai";
 
-const gatewayUrl = (process.env.AI_GATEWAY_URL ?? "").trim();
-const gatewayKey = (process.env.AI_GATEWAY_API_KEY ?? "").trim();
-const directKey = (process.env.OPENAI_API_KEY ?? "").trim();
+function buildOpenAIClient() {
+  const gatewayUrl = (process.env.AI_GATEWAY_URL ?? "").trim();
+  const gatewayKey = (process.env.AI_GATEWAY_API_KEY ?? "").trim();
+  const directKey = (process.env.OPENAI_API_KEY ?? "").trim();
 
-const useGateway = Boolean(gatewayUrl && gatewayKey);
+  const useGateway = Boolean(gatewayUrl && gatewayKey);
+  const apiKey = useGateway ? gatewayKey : directKey;
 
-const openai = createOpenAI({
-  apiKey: useGateway ? gatewayKey : directKey,
-  baseURL: useGateway ? gatewayUrl : undefined,
-  headers: {
-    "x-prompt-id": "pmpt_6917f65a884c8197b3dbde116161d7690be2e9c70148404b",
-  },
-});
+  if (!apiKey) {
+    throw new Error("No OpenAI or AI Gateway API key configured.");
+  }
+
+  return createOpenAI({
+    apiKey,
+    baseURL: useGateway ? gatewayUrl : undefined,
+    headers: {
+      "x-prompt-id": "pmpt_6917f65a884c8197b3dbde116161d7690be2e9c70148404b",
+    },
+  });
+}
 
 export async function POST(req: Request) {
   let body: unknown;
@@ -49,6 +56,16 @@ export async function POST(req: Request) {
 
   if (image) {
     content.push({ type: "image", image });
+  }
+
+  let openai;
+  try {
+    openai = buildOpenAIClient();
+  } catch (error) {
+    console.error("[CHAT] Configuration error:", error);
+    return new Response("AI Gateway/OpenAI configuration is missing.", {
+      status: 500,
+    });
   }
 
   const result = streamText({

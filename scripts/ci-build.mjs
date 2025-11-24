@@ -10,6 +10,9 @@ function run(cmd, args, opts = {}) {
   if (res.status !== 0) process.exit(res.status ?? 1);
 }
 
+// Check build environment and warn about missing API keys
+run('node', ['scripts/check-build-env.mjs']);
+
 // Pre-build image prep steps (non-fatal in their own scripts if assets missing)
 run('node', ['scripts/prepare-logo.cjs']);
 run('node', ['scripts/prepare-hero-webp.cjs']);
