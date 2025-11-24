@@ -1,19 +1,21 @@
 import { streamText } from "ai";
 import { createOpenAI } from "@ai-sdk/openai";
 
-const gatewayUrl = (process.env.AI_GATEWAY_URL ?? "").trim();
-const gatewayKey = (process.env.AI_GATEWAY_API_KEY ?? "").trim();
-const directKey = (process.env.OPENAI_API_KEY ?? "").trim();
+function buildOpenAIClient() {
+  const gatewayUrl = (process.env.AI_GATEWAY_URL ?? "").trim();
+  const gatewayKey = (process.env.AI_GATEWAY_API_KEY ?? "").trim();
+  const directKey = (process.env.OPENAI_API_KEY ?? "").trim();
 
-const useGateway = Boolean(gatewayUrl && gatewayKey);
+  const useGateway = Boolean(gatewayUrl && gatewayKey);
 
-const openai = createOpenAI({
-  apiKey: useGateway ? gatewayKey : directKey,
-  baseURL: useGateway ? gatewayUrl : undefined,
-  headers: {
-    "x-prompt-id": "pmpt_6917f65a884c8197b3dbde116161d7690be2e9c70148404b",
-  },
-});
+  return createOpenAI({
+    apiKey: useGateway ? gatewayKey : directKey,
+    baseURL: useGateway ? gatewayUrl : undefined,
+    headers: {
+      "x-prompt-id": "pmpt_6917f65a884c8197b3dbde116161d7690be2e9c70148404b",
+    },
+  });
+}
 
 export async function POST(req: Request) {
   let body: unknown;
@@ -44,6 +46,8 @@ export async function POST(req: Request) {
   if (!prompt.trim()) {
     return new Response("Prompt is required.", { status: 400 });
   }
+
+  const openai = buildOpenAIClient();
 
   const content: any[] = [{ type: "text", text: prompt }];
 
