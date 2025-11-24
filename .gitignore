@@ -54,3 +54,20 @@ vscode-profile-*.heapsnapshot
 
 # Sentry Config File
 .env.sentry-build-plugin
+
+# Temporary and research files
+tmp_*
+research_*
+openai_*
+bing*.html
+bing*.txt
+ddg*.html
+sprint*.html
+*_chatgpt.txt
+claritytemp.json
+gh_issue.txt
+hn_outage.xml
+so_timeout.txt
+manus.html
+manus-css-*.css
+New Text Document.txt
