@@ -496,6 +496,11 @@ header textarea,
   }
 }
 
+/* 3D Carousel CSS */
+.preserve-3d { transform-style: preserve-3d; }
+.backface-hidden { backface-visibility: hidden; }
+.perspective-\[1000px\] { perspective: 1000px; }
+
 /* Trust badges – "sweet & savory" finish */
 .trust-thin-pill {
   display: inline-flex;
