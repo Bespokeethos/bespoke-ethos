@@ -1,0 +1,503 @@
+MASTER FAQ (Use Across All Pages, Then Service-Specific Below)
+GENERAL QUESTIONS (All Three Services)
+Q: "Wait, you actually build this FOR me? I don't have to figure it out myself?"
+
+A: 100%. That's the whole point.
+
+You tell us what you need (or just describe your biggest problem). We design it. We build it. We test it. We deploy it. You wake up Monday morning and it's just... working.
+
+No learning curve. No "I have to hire a developer to maintain this" stress. We handle everything.
+
+Q: "I'm not technical. Will this work for me?"
+
+A: Absolutely. That's literally who we built this for.
+
+You don't need to know code. You don't need to know AI. You don't need to understand what's happening behind the scenes.
+
+You just need to know what your problem is. "My customers never get answered fast enough" or "I waste 20 hours a week on invoicing" or "I make big decisions alone and get them wrong."
+
+We take it from there.
+
+Q: "What if it doesn't work for my business?"
+
+A: 30-day money-back guarantee. No questions.
+
+Use it for a month. If it's not saving you time, solving your problem, or making you money, we refund you completely. Zero penalties.
+
+(We've only had a handful of refunds in 500+ customers because this actually works. But we never want you to feel trapped.)
+
+Q: "How much does this ACTUALLY cost? Are there hidden fees?"
+
+A: Nope. Here's the total cost for a year:
+
+Setup: One-time payment (varies by service: $199–$349.99)
+
+Monthly: Ongoing payment ($15–$59.99)
+
+Year 1 total: $349–$1,079
+
+That's it. No "per-use" charges. No surprise overage fees. No "oh, you need this add-on" upsells.
+
+If you cancel, you stop paying. Period.
+
+Q: "You're LGBTQ+-owned. Is that actually important to my business?"
+
+A: Not if you don't care about values. But it means something to us.
+
+We're not just another faceless tech company. We're NGLCC-certified. We built this for founders like us. We understand the pressures small business owners face because we live them.
+
+The 20% discount for LGBTQ+/allied businesses? That's real. Not performative. We literally discount our setup fees because we believe in supporting our community.
+
+Q: "Can I cancel whenever I want, or am I locked in?"
+
+A: Month-to-month. No contracts. Cancel anytime.
+
+Stop paying at the end of the month, and you stop paying. For some services (like Chatbot), your automation keeps working even after you cancel—you own it.
+
+We'd rather you stay because we're delivering value, not because you're trapped.
+
+Q: "I've tried automation before and it was a disaster. Why is this different?"
+
+A: Because you didn't have to build it yourself.
+
+Last time, you probably:
+
+Tried DIY tools (Zapier, Make)
+
+Spent 30+ hours figuring it out
+
+Got something half-working
+
+Then it broke and you gave up
+
+Here, we're the ones doing the heavy lifting. You just use the finished product. We monitor it. If it breaks, we fix it. You never babysit it.
+
+Q: "How long before I actually see results?"
+
+A: Week 1. Guaranteed.
+
+By the end of your first week using this, you should notice:
+
+Time freed up (fewer manual tasks)
+
+Better customer response times
+
+Clearer decisions (for Consensus)
+
+Fewer errors
+
+If you don't notice a difference by Week 1, tell us. We'll fix it or refund you.
+
+SERVICE-SPECIFIC FAQ
+CHATBOT SERVICES ($349.99 + $15/mo)
+Q: "My customers ask the same 5 questions over and over. Can your chatbot just handle those?"
+
+A: Exactly. That's the whole point.
+
+We train your chatbot on YOUR specific FAQ (the questions you get asked 100 times). It learns how you explain things, how you sell, what your business is about.
+
+Then when a customer asks one of those questions at 2 AM, the chatbot answers it instantly—just like you would.
+
+You don't train it manually. We do that part.
+
+Q: "What if the chatbot says something wrong?"
+
+A: First, it won't say things wildly wrong (it's trained on YOUR actual knowledge).
+
+But if there's a tricky question or edge case, the chatbot does one of two things:
+
+Escalates to you immediately (you see it, fix if needed)
+
+Gives the customer your contact info to follow up
+
+We also monitor the chatbot daily. If we notice patterns where it's struggling, we tune it.
+
+You never have to worry about your customer service reputation getting trashed.
+
+Q: "My customers will know it's a bot, right? Will they be annoyed?"
+
+A: Some will. But most won't care because:
+
+They get an answer instantly (vs. waiting 24 hours for you)
+
+If it's a real question, they can escalate to you in one click
+
+Your chatbot is polite and helpful (not robotic)
+
+The truth: Your customers would rather get a quick answer from a bot than wait overnight for you to respond.
+
+Test it yourself. You'll see.
+
+Q: "Can the chatbot sell for me? Like take orders?"
+
+A: Yes. That's one of its best uses.
+
+It can:
+
+Explain your products/services
+
+Check inventory
+
+Process orders (via Stripe integration)
+
+Collect customer info
+
+Answer payment questions
+
+You set it up once, and it handles order inquiries 24/7. You wake up to completed sales.
+
+Q: "How is this different from Intercom or Drift?"
+
+A: Same general idea (chatbot answering questions), but three key differences:
+
+You own it. Their chatbots lock you in. Ours? You own the code. You can take it anywhere.
+
+Way cheaper. Intercom = $50–$200/month. We're $15/month.
+
+Runs on YOUR server. Your data never leaves your control.
+
+You're not renting a tool. You're buying an asset.
+
+Q: "What if I want to remove the chatbot later?"
+
+A: It stays live (you own it).
+
+You stop paying us $15/month, and our monitoring stops. But the chatbot keeps working on your site, answering customer questions, taking orders.
+
+You can hire someone else to maintain it. You can modify it. You can leave it as-is.
+
+It's yours. Forever.
+
+Q: "How do I know if this is right for my business?"
+
+A: Ask yourself:
+
+Do I get asked the same questions over and over? (YES = good fit)
+
+Do I miss customer inquiries because I'm busy? (YES = good fit)
+
+Do my competitors respond faster than me? (YES = good fit)
+
+Am I leaving revenue on the table due to slow response? (YES = good fit)
+
+If you answer yes to 2+, this is for you.
+
+CONSENSUS ENGINE™ ($199 + $59.99/mo)
+Q: "What kind of questions should I actually ask Consensus?"
+
+A: The scary ones. The big ones. The ones that keep you up at night.
+
+Examples:
+
+"Should we raise prices?" (Consensus analyzes: market, competition, customer pain, revenue impact)
+
+"Should we rebrand?" (Consensus analyzes: customer perception, market fit, risk, opportunity cost)
+
+"Should we hire or outsource?" (Consensus analyzes: cost, quality, scalability, risk)
+
+"Should we enter this market?" (Consensus analyzes: competition, demand, resources needed, ROI)
+
+"Should I fire this client?" (Consensus analyzes: profitability, culture fit, opportunity cost)
+
+Basically: decisions worth $10K–$100K+ that you're making alone or with biased advisors.
+
+Q: "Wait, FOUR AI experts are analyzing my question? How is that not crazy expensive?"
+
+A: Because it's AI, not people.
+
+If you hired 4 human consultants to analyze your pricing decision, you'd pay $5K–$10K for a one-time meeting.
+
+We use 4 different AI models that each specialize in something different (market analysis, finance, operations, growth). They debate your question. They synthesize into one clear recommendation.
+
+Cost: $199 for the first one. $60/month for ongoing.
+
+It's what a 4-person consulting team would cost, at 1% of the price.
+
+Q: "How long does it take to get an answer?"
+
+A: 48 hours. Usually faster.
+
+You submit your question. We analyze it through 4 different lenses. We write it up (with pros/cons, recommended path, risks, metrics).
+
+Within 48 hours, you have a written report + video summary explaining it.
+
+Not weeks of back-and-forth. Not "here's my gut feeling." A real analysis.
+
+Q: "What if I disagree with Consensus's recommendation?"
+
+A: That's fine. You're the business owner.
+
+Consensus gives you the analysis + recommendation. You decide what to do.
+
+Sometimes founders take the recommendation. Sometimes they don't. Both are fine.
+
+The point isn't to tell you what to do. It's to remove blind spots and give you clarity so YOU can decide confidently.
+
+Q: "Is this for startups only, or can established businesses use it?"
+
+A: Both.
+
+Startups ask: "Should we pivot or double-down?"
+Established businesses ask: "Should we expand into this market?"
+Agencies ask: "Should we restructure our team?"
+E-commerce ask: "Should we raise prices?"
+
+Any business owner making high-stakes decisions benefits from a 4-expert analysis.
+
+Q: "What if my question is weird or specific to my niche?"
+
+A: Even better. We tune the AI specifically to your business.
+
+Consensus learns about your industry, your customers, your market. So when you ask the second question, it's even MORE tailored to YOUR situation.
+
+By Month 3, Consensus understands your business better than any external consultant would.
+
+Q: "Can I use Consensus for multiple decisions?"
+
+A: Yes. That's why there's a monthly option.
+
+$199 gets you one decision analyzed. But most founders use it multiple times.
+
+$59.99/month = up to 3 strategic questions per month.
+
+So over a year, you get 36 big decisions analyzed by 4 experts each. That's a $50K+ consulting engagement at $919/year.
+
+Q: "How is this different from asking my business coach / mentor / CPA?"
+
+A: Your mentor cares about you but has limited perspective (their bias).
+
+Your CPA is great for taxes but has one lens (financial).
+
+Your business coach is helpful but has their own framework (may not fit your situation).
+
+Consensus gives you 4 independent perspectives that debate each other before synthesizing. No personal bias. No single framework. Just analysis.
+
+FLOWSTACK™ ($199.99 + $59.99/mo)
+Q: "What is 'one task' exactly? Can you give me examples?"
+
+A: Any task you repeat multiple times per week that eats your time.
+
+Examples:
+
+Orders: Customer buys → extract details → send email → update inventory → notify warehouse → create shipping label → send tracking
+
+Leads: Lead form submitted → check against your ICP → send intake questions → qualify → book meeting → send prep materials
+
+Invoicing: Project ends → extract requirements → generate invoice → send → chase payment → mark complete
+
+Emails: Trigger event → send personalized sequence → track opens → follow-up → mark done
+
+If you can describe it step-by-step, we can automate it.
+
+Q: "How long until this actually saves me time?"
+
+A: Immediately. By day 1.
+
+You deploy on Day 7. On Day 8, your task is automated. By end of Week 1, you're running that workflow 10 hours per week faster.
+
+Some founders see 20–30 hours/week freed up in Month 1.
+
+Q: "What if the automation breaks? I'm stuck?"
+
+A: We're monitoring 24/7.
+
+If it breaks, we see it usually before you do. We alert you. We fix it (usually within 30 min).
+
+If something breaks on your end (your server goes down, API changes), we handle it.
+
+You never get stuck because we're on the hook for keeping it working.
+
+Q: "I tried Zapier. It was chaos. Why is this different?"
+
+A: Because you didn't have to figure it out.
+
+Zapier is powerful but requires YOU to:
+
+Understand 100 possible tools
+
+Figure out which ones you need
+
+Set up 50 trigger/action combinations
+
+Debug when it breaks
+
+Update it when tools change
+
+With FlowStack, we do all that. You just use it.
+
+It's the difference between building a house and hiring a contractor who builds it for you.
+
+Q: "Can I modify the automation after you build it?"
+
+A: Yes. Two ways:
+
+Have us modify it (included: 2 tweaks/month)
+
+"Change the email template"
+
+"Add a new email recipient"
+
+"Change timing (wait 1 hour instead of 5 min)"
+
+Modify it yourself (if you have technical skills)
+
+We give you documentation
+
+You can hire anyone to maintain it
+
+You own it completely
+
+Most founders do #1 (ask us to tweak it). Some do #2 (modify themselves).
+
+Q: "What if my task is more complex than 'just automate order processing'?"
+
+A: We handle complexity.
+
+We've built:
+
+Multi-step approvals (requires manager sign-off before proceeding)
+
+Conditional logic (if this happens, do that; if that happens, do this)
+
+Cross-system integrations (Shopify + HubSpot + Slack + Google Calendar)
+
+Error handling (if something goes wrong, escalate to human)
+
+Tell us your task. We'll scope it. If it's doable, we build it.
+
+Q: "How is this different from hiring someone to do the task manually?"
+
+A: Cost and reliability.
+
+Hiring someone:
+
+Cost: $3,000–$5,000/month salary + benefits
+
+Reliability: Dependent on one person (they get sick, leave, make mistakes)
+
+Scalability: Maxes out when person is full
+
+FlowStack:
+
+Cost: $259.99/month (setup amortized)
+
+Reliability: 99.9% uptime + monitored 24/7
+
+Scalability: Same cost handles 10x more volume
+
+After 3 months, FlowStack has paid for itself. After 6 months, it's 80% cheaper than hiring.
+
+Q: "What if I cancel? Does the automation disappear?"
+
+A: No. It keeps working.
+
+You own it (runs on your systems). Stop paying our $59.99/month monitoring fee, and the automation keeps running.
+
+If it breaks later, you can:
+
+Hire someone to fix it
+
+Call us back for support (hourly rates available)
+
+Leave it broken
+
+But it's yours. We don't pull a plug on you.
+
+Q: "Can I eventually add multiple automations?"
+
+A: Yes. Absolutely.
+
+Start with your biggest time-waster. Get that working. Then automate the next one.
+
+Each automation is $199.99 setup + $59.99/month. So 3 automations = $579.99 + $179.97/month.
+
+Most growing businesses end up with 3–5 automations running.
+
+Q: "How do I know if this is worth it for my business?"
+
+A: Do this math:
+
+Pick your biggest time-consuming task
+
+Count hours per week you spend on it
+
+Multiply by your hourly rate (use $50–$100 if unsure)
+
+That's the VALUE this automation creates
+
+Example:
+
+20 hours/week on order processing
+
+× $50/hour (your time value)
+
+= $1,000/week value
+
+= $52,000/year value
+
+FlowStack costs $920/year
+
+ROI: 5,652% (99.98% savings)
+
+If the value is >$1,000/month, FlowStack is obviously worth it.
+
+CLOSING / FINAL QUESTIONS
+Q: "I'm ready to go. What's the first step?"
+
+A:
+
+For Chatbot: Tell us about your most common customer questions.
+
+For Consensus Engine: Tell us your biggest strategic question right now.
+
+For FlowStack: Describe the task that eats most of your week.
+
+We'll take it from there. You'll have a working solution in 3–7 days.
+
+Q: "Can I try before I pay?"
+
+A: 30-day satisfaction guarantee.
+
+Pay. Use for 30 days. If you're not seeing results, we refund you completely.
+
+No risk. See it work first. Then decide.
+
+Q: "I have more questions."
+
+A: Email us: [support@bespokeethos.com]
+
+Or book a 15-min call: [Calendly link]
+
+We're LGBTQ+-owned and Catalant-vetted because we actually care. Ask your questions. We'll answer them.
+
+HOW TO USE THIS FAQ
+Landing Pages:
+
+Use general questions (top section) on all pages
+
+Use service-specific questions on each service page
+
+Email Sequences:
+
+Email 2: Answer "What if it doesn't work?"
+
+Email 3: Answer "How much does it cost?"
+
+Email 4: Answer service-specific objections
+
+Sales Calls:
+
+Reference these when prospects ask questions
+
+Use exact language to stay consistent
+
+Content/Blog:
+
+Expand each Q&A into longer-form posts
+
+Build SEO content from FAQ questions
+
+STATUS: HYPERPERSONALIZED FOR SMALL BUSINESS OWNERS
+MATCH: All 3 services (Chatbot, Consensus, FlowStack)
+TONE: Direct, founder-focused, no BS
+
