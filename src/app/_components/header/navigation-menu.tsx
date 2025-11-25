@@ -280,13 +280,14 @@ export function MobileMenu({ navbar, rightCtas }: HeaderData) {
               <div className="flex h-full flex-col">
                 <div className="flex-1 overflow-y-auto px-4 py-4">
                   <nav className="flex flex-col gap-1.5" aria-label="Mobile primary navigation">
-                    {navItems.map((link) =>
-                      link.sublinks.items.length > 0 ? (
+                    {navItems.map((link) => {
+                      const sublinkItems = link.sublinks?.items ?? [];
+                      return sublinkItems.length > 0 ? (
                         <ItemWithSublinks
                           key={link._id}
                           _id={link._id}
                           _title={link._title}
-                          sublinks={link.sublinks.items}
+                          sublinks={sublinkItems}
                           onClick={handleOff}
                         />
                       ) : (
@@ -298,8 +299,8 @@ export function MobileMenu({ navbar, rightCtas }: HeaderData) {
                         >
                           {link._title}
                         </Link>
-                      ),
-                    )}
+                      );
+                    })}
                   </nav>
                 </div>
                 <div className="border-t border-border bg-surface-secondary/70 px-4 py-4 dark:border-dark-border dark:bg-dark-surface-secondary/70">
