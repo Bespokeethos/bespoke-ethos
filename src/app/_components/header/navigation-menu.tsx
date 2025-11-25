@@ -36,15 +36,21 @@ export function NavigationMenuHeader({
         delayDuration={50}
       >
         <NavigationMenuList className="flex flex-1 gap-0.5 px-4">
-          {links.map((link) =>
-            link.sublinks.items.length > 0 ? (
-              <NavigationMenuLinkWithMenu key={link._id} {...link} />
-            ) : (
-              <li key={link._id}>
-                <NavigationMenuLink href={link.href ?? "#"}>{link._title}</NavigationMenuLink>
-              </li>
-            ),
-          )}
+          {(links ?? []).map((link) => {
+            const sublinkItems = link.sublinks?.items ?? [];
+
+            if (sublinkItems.length > 0) {
+              return <NavigationMenuLinkWithMenu key={link._id} {...link} sublinks={{ items: sublinkItems }} />;
+            }
+
+            const safeHref = link.href ?? "#";
+
+            return (
+              <NavigationMenuItem key={link._id}>
+                <NavigationMenuLink href={safeHref}>{link._title}</NavigationMenuLink>
+              </NavigationMenuItem>
+            );
+          })}
         </NavigationMenuList>
       </NavigationMenu>
     </nav>
@@ -76,6 +82,7 @@ function NavigationMenuLink({
 function NavigationMenuLinkWithMenu({ _title, href, sublinks }: HeaderNavLink) {
   const [closeOnClick, setCloseOnClick] = React.useState(false);
   const timeoutRef = React.useRef<number | null>(null);
+  const sublinkItems = sublinks?.items ?? [];
 
   const getPreviewSrc = (hrefOrTitle: string) => {
     const href = (hrefOrTitle || "").toLowerCase();
@@ -103,23 +110,23 @@ function NavigationMenuLinkWithMenu({ _title, href, sublinks }: HeaderNavLink) {
     setCloseOnClick(false);
   };
 
-  return (
-    <NavigationMenuItem key={`${href ?? ""}${_title}`} className="relative items-center gap-0.5">
-      <NavigationMenuTrigger
-        asChild
-        onClick={(e) => {
-          if (!closeOnClick) {
-            e.preventDefault();
-          }
-        }}
-        onPointerEnter={handleMouseEnter}
-        onPointerLeave={handleMouseLeave}
-      >
-        {href ? (
-          <NavigationMenuLink href={href}>{_title}</NavigationMenuLink>
-        ) : (
-          <Button
-            unstyled
+    return (
+      <NavigationMenuItem key={`${href ?? ""}${_title}`} className="relative items-center gap-0.5">
+        <NavigationMenuTrigger
+          asChild
+          onClick={(e) => {
+            if (!closeOnClick) {
+              e.preventDefault();
+            }
+          }}
+          onPointerEnter={handleMouseEnter}
+          onPointerLeave={handleMouseLeave}
+        >
+          {href ? (
+            <NavigationMenuLink href={href}>{_title}</NavigationMenuLink>
+          ) : (
+            <Button
+              unstyled
             className="hover:bg-surface-tertiary dark:hover:bg-dark-surface-tertiary inline-flex items-center gap-1 rounded-full pr-2 pb-px pl-4 tracking-tight lg:h-7 transition-colors duration-200"
             icon={<ChevronDownIcon className="text-text-tertiary dark:text-dark-text-tertiary" />}
           >
@@ -130,7 +137,7 @@ function NavigationMenuLinkWithMenu({ _title, href, sublinks }: HeaderNavLink) {
       <NavigationMenuContent className="border-border bg-surface-primary dark:border-dark-border dark:bg-dark-surface-primary absolute top-[calc(100%+8px)] w-[clamp(200px,32vw,320px)] rounded-lg border shadow-lg p-1">
         <div className="flex flex-col gap-1">
           <ul className="flex flex-col">
-            {sublinks.items.map((sublink) => {
+            {sublinkItems.map((sublink) => {
               if (sublink.children?.length) {
                 return (
                   <li key={sublink._id} className="px-2 py-2">
@@ -192,11 +199,14 @@ function resolveLinkMeta(item: HeaderNavLinkItem) {
 }
 
 export function DesktopMenu({ navbar, rightCtas }: HeaderData) {
+  const navItems = navbar?.items ?? [];
+  const ctaItems = rightCtas?.items ?? [];
+
   return (
     <>
-      <NavigationMenuHeader className="hidden xl:flex" links={navbar.items} />
+      <NavigationMenuHeader className="hidden xl:flex" links={navItems} />
       <div className="hidden items-center gap-2 justify-self-end xl:flex">
-        {rightCtas.items.map((cta) => {
+        {ctaItems.map((cta) => {
           return (
             <ButtonLink key={cta._id} className="px-3.5!" href={cta.href} intent={cta.type}>
               {cta.label}
@@ -215,6 +225,8 @@ export function DesktopMenu({ navbar, rightCtas }: HeaderData) {
 
 export function MobileMenu({ navbar, rightCtas }: HeaderData) {
   const { handleToggle, isOn, handleOff } = useToggleState();
+  const navItems = navbar?.items ?? [];
+  const ctaItems = rightCtas?.items ?? [];
 
   React.useEffect(() => {
     const body = document.body;
@@ -268,7 +280,7 @@ export function MobileMenu({ navbar, rightCtas }: HeaderData) {
               <div className="flex h-full flex-col">
                 <div className="flex-1 overflow-y-auto px-4 py-4">
                   <nav className="flex flex-col gap-1.5" aria-label="Mobile primary navigation">
-                    {navbar.items.map((link) =>
+                    {navItems.map((link) =>
                       link.sublinks.items.length > 0 ? (
                         <ItemWithSublinks
                           key={link._id}
@@ -337,7 +349,7 @@ export function MobileMenu({ navbar, rightCtas }: HeaderData) {
                       decoding="async"
                     />
                   </div>
-                  {rightCtas.items.map((cta) => (
+                  {ctaItems.map((cta) => (
                     <ButtonLink
                       key={cta._id}
                       href={cta.href}
@@ -373,6 +385,7 @@ function ItemWithSublinks({
   const hasRendered = useHasRendered();
   const listRef = React.useRef<HTMLUListElement>(null);
   const submenuId = `${_id}-submenu`;
+  const sublinkItems = sublinks ?? [];
 
   // Removed animation logic to fix mobile menu visibility issue.
   // The height transition will be handled by CSS classes.
@@ -415,33 +428,46 @@ function ItemWithSublinks({
         )}
         aria-hidden={!isOn}
       >
-        {sublinks.map((sublink) => {
-          const link = sublink.link;
-          if (!link) {
-            return null;
+        {sublinkItems.map((sublink) => {
+          if (sublink.children?.length) {
+            return (
+              <li key={sublink._id} className="space-y-1">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-text-tertiary dark:text-dark-text-tertiary">
+                  {sublink._title}
+                </p>
+                <ul className="flex flex-col gap-1 pl-1">
+                  {sublink.children.map((child) => {
+                    const { hrefValue, label } = resolveLinkMeta(child);
+                    if (!hrefValue) return null;
+
+                    return (
+                      <li key={child._id}>
+                        <Link
+                          className="flex items-center gap-2 rounded-md px-3 py-2 text-sm text-text-tertiary dark:text-dark-text-tertiary"
+                          href={hrefValue}
+                          onClick={onClick}
+                        >
+                          {label}
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </li>
+            );
           }
 
-          const { href, _title } =
-            link.__typename === "PageReferenceComponent" && link.page
-              ? {
-                  href: link.page.pathname,
-                  _title: link.page._title,
-                }
-              : {
-                  href: link.text ?? "#",
-                  _title: sublink._title,
-                };
-
-          const hrefValue = href || "#";
+          const { hrefValue, label } = resolveLinkMeta(sublink);
+          if (!hrefValue) return null;
 
           return (
             <li key={sublink._id}>
               <Link
-                className="text-text-tertiary dark:text-dark-text-tertiary flex items-center gap-2 rounded-md px-3 py-2 text-sm"
+                className="flex items-center gap-2 rounded-md px-3 py-2 text-sm text-text-tertiary dark:text-dark-text-tertiary"
                 href={hrefValue}
                 onClick={onClick}
               >
-                {_title}
+                {label}
               </Link>
             </li>
           );
