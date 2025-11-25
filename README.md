@@ -1,18 +1,3 @@
-# ⚠️ CRITICAL REPOSITORY UPDATE: HARD RESET PERFORMED ⚠️
-
-**Date:** Nov 24, 2025
-**Action:** The remote `main` branch was forcefully reset to commit `fc34ff815f22d4e426bb6c692fdf79c50e041b40` and all other remote branches were deleted.
-
-**ACTION REQUIRED FOR LOCAL REPOSITORIES:**
-To avoid conflicts and ensure you are working from the correct history, you **MUST** run the following commands on your local machine:
-
-```bash
-git fetch origin
-git reset --hard origin/main
-```
-
----
-
 # Bespoke Ethos Marketing Site
 
 Custom Next.js 16 + Tailwind CSS marketing site scaffolded for Bespoke Ethos. The project runs on a single production branch (`main`) with feature flags and CI guardrails to keep releases stable.
@@ -37,12 +22,21 @@ Local development uses static/Sanity-backed content and does not require any Bas
 ## Operational Guardrails
 
 1. **No branches.** Work directly on `main`. Guardrails are documented in `docs/system-guardrails.md`.
-2. **Run checks locally.**
+2. **Sync before editing.**
    ```bash
-pnpm run check # lint + typecheck
+   git fetch origin
+   git reset --hard origin/main
    ```
-3. **CI pipeline.** Every push to `main` triggers `.github/workflows/ci.yml` which installs dependencies, lints, type-checks, and executes a smoke `next build`.
-4. **Deploy on green.** Vercel production deploys only from `main` after CI succeeds.
+3. **Run checks locally.**
+   ```bash
+   pnpm install
+   pnpm run check # lint + typecheck
+   ```
+4. **CI pipeline.** Every push to `main` triggers `.github/workflows/ci.yml` which installs dependencies, lints, type-checks, and executes a smoke `next build`.
+5. **Deploy on green.** Vercel production deploys only from `main` after CI succeeds.
+6. **Rollback.** Revert bad commits with `git revert <sha>` and push to `main`.
+
+The canonical quick-reference for connectors and workflow lives in `Guides/manus-connectors.ts`.
 
 ## Feature Flags
 
@@ -97,9 +91,9 @@ Feature toggles allow new UI to ship dark while sharing the same branch.
 
 ## Deployment
 
-- GitHub repo: [Uptonr3421/bespoke-ethos](https://github.com/Uptonr3421/bespoke-ethos)
-- Vercel project: [vercel.com/upton-rands-projects/bespoke-ethos](https://vercel.com/upton-rands-projects/bespoke-ethos)
-- Branch policy: **single branch**. Always `git pull origin main` before work and `git push origin main` after commits. No feature branches.
+- GitHub repo: [Bespokeethos/bespoke-ethos](https://github.com/Bespokeethos/bespoke-ethos)
+- Vercel project ID: `prj_8cbai6JzE169NUytyFtCpSohZVka`; production URL: https://bespoke-ethos.vercel.app
+- Branch policy: **single branch**. Always sync with `git fetch origin && git reset --hard origin/main` before work and push back to `main`. No feature branches or force pushes.
 - Vercel project deploys automatically from `main`.
 - Preview deployments are disabled; run `pnpm dev` locally for QA.
 - Tag production releases after deploy: `git tag release-YYYYMMDDHHMM && git push --tags`.
@@ -118,25 +112,18 @@ Illustrations for the hero, header accent, and footer wave are generated on dema
 
 The `/contact` page submits to `src/app/api/contact/route.ts`.
 
-- Mode: accept-and-log + BaseHub persistence (no email provider)
-- Spam protection: Cloudflare Turnstile (`NEXT_PUBLIC_TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET`)
+- Mode: accept, log, and write to Airtable; optional confirmation email via Resend when `CONTACT_ENABLE_EMAIL=1` and `RESEND_API_KEY` are set.
+- Spam protection: Cloudflare Turnstile (`NEXT_PUBLIC_TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET`) when `CONTACT_ENABLE_TURNSTILE=1`.
 
 What happens on submit
-- Verifies Turnstile when secrets are set.
-- Logs a loud line tagged `CONTACT_FORM_SUBMISSION` and a single-line JSON payload.
-- Persists the submission to BaseHub in a collection named `Submissions`.
-
-Logged/persisted fields
-- `name`, `email`, `company`, `useCase`, `timeline`, `budget`, `message`
-- `timestamp` (ISO), `ip`, `userAgent`
+- Validates required fields (name, email, message ≥ 10 chars) and rate limits per IP.
+- Logs a JSON line tagged `AIRTABLE_CONTACT_SUBMISSION` plus structured tracing logs.
+- Creates a row in Airtable using `AIRTABLE_PERSONAL_ACCESS_TOKEN`, `AIRTABLE_BASE_ID`, and `AIRTABLE_TABLE_NAME` (falls back to legacy `AIRTABLE_API_KEY`/`AIRTABLE_CONTACT_TABLE_ID`).
+- Writes metadata: IP, user agent, ISO timestamp, use case, budget, timeline; redacts the message body in logs.
 
 Where to view
-- BaseHub: Content → `Submissions`
-- Vercel: Deployments → Runtime Logs → filter `CONTACT_FORM_SUBMISSION`
-
-Env
-- Required: `BASEHUB_TOKEN`, `NEXT_PUBLIC_TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET`
-- Optional: `CONTACT_EVENTS_INGEST_KEY` (BaseHub events ingest key if you want persistence)
+- Airtable base `appDG8eZQE9oG8gPY` in the configured table.
+- Vercel: Deployments → Runtime Logs → filter `AIRTABLE_CONTACT_SUBMISSION`.
 
 ## Next Steps
 

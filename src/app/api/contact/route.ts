@@ -260,6 +260,21 @@ export async function POST(req: NextRequest) {
       },
     };
 
+    console.log(
+      "AIRTABLE_CONTACT_SUBMISSION",
+      JSON.stringify({
+        timestamp,
+        email: contact.email,
+        name: `${contact.firstName} ${contact.lastName}`.trim(),
+        company: contact.company,
+        useCase: contact.meta.useCase,
+        timeline: contact.meta.timeline,
+        budget: contact.meta.budget,
+        ip: contact.meta.ip,
+        userAgent: contact.meta.userAgent,
+      }),
+    );
+
     console.info(
       "[CONTACT_FORM_SUBMISSION] Normalized contact",
       JSON.stringify({
@@ -358,16 +373,17 @@ export async function POST(req: NextRequest) {
 async function sendToAirtable(
   contact: NormalizedContact,
 ): Promise<ExternalResult> {
-  const apiKey = process.env.AIRTABLE_API_KEY;
+  const airtableToken =
+    process.env.AIRTABLE_PERSONAL_ACCESS_TOKEN || process.env.AIRTABLE_API_KEY;
   const baseId = process.env.AIRTABLE_BASE_ID;
   const tableName =
     process.env.AIRTABLE_TABLE_NAME ||
     process.env.AIRTABLE_CONTACT_TABLE_ID ||
     process.env.AIRTABLE_CONTACT_ID;
 
-  if (!apiKey || !baseId || !tableName) {
+  if (!airtableToken || !baseId || !tableName) {
     console.error(
-      "[CONTACT_FORM_SUBMISSION] Airtable configuration missing. Check AIRTABLE_API_KEY, AIRTABLE_BASE_ID, AIRTABLE_TABLE_NAME / AIRTABLE_CONTACT_TABLE_ID.",
+      "[CONTACT_FORM_SUBMISSION] Airtable configuration missing. Check AIRTABLE_PERSONAL_ACCESS_TOKEN / AIRTABLE_API_KEY, AIRTABLE_BASE_ID, AIRTABLE_TABLE_NAME / AIRTABLE_CONTACT_TABLE_ID.",
     );
     return {
       ok: false,
@@ -391,7 +407,10 @@ async function sendToAirtable(
     Message: contact.message,
     Consent: contact.meta.consent,
     "Submitted at": submittedDate,
+    "Submitted At (ISO)": contact.meta.submittedAt,
     Status: "NEW",
+    IP: contact.meta.ip,
+    "User Agent": contact.meta.userAgent,
   };
 
   if (contact.phone) {
@@ -415,11 +434,26 @@ async function sendToAirtable(
     JSON.stringify({ url, fields: { ...fields, Message: "[redacted]" } }),
   );
 
+  console.info(
+    "AIRTABLE_CONTACT_SUBMISSION_WRITE",
+    JSON.stringify({
+      timestamp: contact.meta.submittedAt,
+      email: contact.email,
+      name: `${contact.firstName} ${contact.lastName}`.trim(),
+      company: contact.company,
+      useCase: contact.meta.useCase,
+      timeline: contact.meta.timeline,
+      budget: contact.meta.budget,
+      ip: contact.meta.ip,
+      userAgent: contact.meta.userAgent,
+    }),
+  );
+
   try {
     const res = await fetch(url, {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${apiKey}`,
+        Authorization: `Bearer ${airtableToken}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ fields }),

@@ -36,7 +36,7 @@ export function FounderConsensusQA() {
           id="founder-consensus-qa-heading"
           className="text-base font-semibold text-text-primary dark:text-dark-text-primary"
         >
-          A few questions I'd ask before trusting an AI with big decisions
+          A few questions I’d ask before trusting an AI with big decisions
         </h2>
         <p className="text-xs text-text-tertiary dark:text-dark-text-tertiary">
           Answered by Upton, founder of Bespoke Ethos.

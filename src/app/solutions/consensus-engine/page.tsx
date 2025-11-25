@@ -227,7 +227,6 @@ function ProductJsonLd() {
     url: `${base}/solutions/consensus-engine`,
   } as const;
 
-  // eslint-disable-next-line @next/next/no-sync-scripts
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
 }
 
@@ -253,6 +252,5 @@ function ConsensusServiceJsonLd() {
     url: `${base}/solutions/consensus-engine`,
   } as const;
 
-  // eslint-disable-next-line @next/next/no-sync-scripts
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
 }

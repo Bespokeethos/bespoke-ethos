@@ -13,6 +13,7 @@ const config = [
       "coverage/**",
       ".vercel/**",
       "pnpm-lock.yaml",
+      ".backups/**",
     ],
   },
 ];
