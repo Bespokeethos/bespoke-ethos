@@ -56,7 +56,7 @@ const FALLBACK_HEADER_NAV: HeaderNavLink[] = [
   {
     _id: "nav-products",
     _title: "Products",
-    href: "/solutions",
+    href: undefined,
     sublinks: {
       items: [
         {

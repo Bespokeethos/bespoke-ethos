@@ -117,8 +117,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Flagship Collection Carousel */}
-      <FlagshipCarousel />
+      {/* Bespoke Solutions Header and Flagship Carousel (Cube) */}
+      <section className="home-section home-section--soft" aria-labelledby="bespoke-solutions-heading">
+        <div className="home-section-inner">
+          <h2 id="bespoke-solutions-heading" className="text-center text-3xl font-hero-accent text-text-primary dark:text-dark-text-primary mb-8">
+            Bespoke Solutions
+          </h2>
+          <FlagshipCarousel />
+        </div>
+      </section>
 
       {/* Consensus Engine cinematic card highlight */}
       <section className="home-section" aria-labelledby="consensus-highlight-heading">
