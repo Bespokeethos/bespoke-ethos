@@ -51,3 +51,26 @@ vscode-profile-*.heapsnapshot
 
 # Sentry Config File
 .env.sentry-build-plugin
+
+# Temporary files
+tmp_*
+*.tmp
+
+# Research and debug files
+research_*.html
+sprint*.html
+openai_*.txt
+openai_*.json
+openai_*.html
+bing*.html
+bing*.txt
+ddg*.html
+manus*.html
+manus*.css
+*.xml.tmp
+
+# ESLint cache
+.eslintcache
+
+# Backup directories
+.backups/
