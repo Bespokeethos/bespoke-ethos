@@ -386,11 +386,11 @@ async function sendToAirtable(
 
   const fields: Record<string, unknown> = {
     "First Name": contact.firstName,
-    "Last Name": contact.lastName,
+    "Last name": contact.lastName,
     Email: contact.email,
     Message: contact.message,
     Consent: contact.meta.consent,
-    "Submitted At": submittedDate,
+    "Submitted at": submittedDate,
     Status: "NEW",
   };
 
