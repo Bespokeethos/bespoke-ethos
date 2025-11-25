@@ -6,8 +6,8 @@ export function middleware(request: NextRequest) {
   const host = url.host.toLowerCase();
   const pathname = url.pathname;
 
-  // Simple HTTP Basic Auth for Brutus chat + APIs
-  const protectedPaths = ["/chat", "/api/chat", "/api/brutus", "/api/brutus/fs"];
+  // Simple HTTP Basic Auth for Brutus APIs
+  const protectedPaths = ["/api/brutus", "/api/brutus/fs"];
   const isProtected = protectedPaths.some((path) =>
     pathname === path || pathname.startsWith(path + "/"),
   );
@@ -35,7 +35,7 @@ export function middleware(request: NextRequest) {
         return new NextResponse("Authentication required.", {
           status: 401,
           headers: {
-            "WWW-Authenticate": 'Basic realm="Brutus Chat"',
+            "WWW-Authenticate": 'Basic realm="Brutus API"',
           },
         });
       }
@@ -50,11 +50,6 @@ export function middleware(request: NextRequest) {
   }
 
   const response = NextResponse.next();
-
-  // Ensure /chat is not indexed by search engines
-  if (pathname === "/chat" || pathname.startsWith("/chat/")) {
-    response.headers.set("X-Robots-Tag", "noindex, nofollow");
-  }
 
   return response;
 }

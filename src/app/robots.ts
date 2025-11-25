@@ -10,8 +10,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: [
           "/api/",
           "/api/*",
-          "/chat",
-          "/chat/*",
           "/api/brutus",
           "/api/brutus/*",
           "/api/brutus/fs",

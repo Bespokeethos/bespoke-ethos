@@ -99,11 +99,7 @@ const FALLBACK_HEADER_NAV: HeaderNavLink[] = [
               _title: "LLM Setups",
               link: pageRef("/contact?service=llm-setups", "LLM Setups"),
             },
-            {
-              _id: "nav-business-ai-chat",
-              _title: "AI Chat",
-              link: pageRef("/chat", "AI Chat"),
-            },
+
           ],
         },
         {
@@ -159,12 +155,7 @@ const FALLBACK_HEADER_NAV: HeaderNavLink[] = [
     href: "/faq",
     sublinks: { items: [] },
   },
-  {
-    _id: "nav-brutus-chat",
-    _title: "AI Chat",
-    href: "/chat",
-    sublinks: { items: [] },
-  },
+
   {
     _id: "nav-blog",
     _title: "Blog",
