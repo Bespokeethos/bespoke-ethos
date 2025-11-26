@@ -58,7 +58,7 @@ This file summarizes how the site talks to each external API, what env vars it e
 **Env vars**
 
 - Shared:
-  - `AIRTABLE_API_KEY`
+  - `AIRTABLE_TOKEN`
   - `AIRTABLE_BASE_ID`
 - Contact table:
   - `AIRTABLE_CONTACT_TABLE_ID`
@@ -69,7 +69,7 @@ This file summarizes how the site talks to each external API, what env vars it e
 
 - `POST https://api.airtable.com/v0/{BASE_ID}/{TABLE_ID}`
   - Headers:
-    - `Authorization: Bearer ${AIRTABLE_API_KEY}`
+    - `Authorization: Bearer ${AIRTABLE_TOKEN}`
     - `Content-Type: application/json`
 
 ### 2.1 Contact form → Airtable
@@ -85,7 +85,7 @@ This file summarizes how the site talks to each external API, what env vars it e
       - `"Submission Date"`: `YYYY-MM-DD`
       - `Status`: `"New"`
   - Logs non-200 responses and continues without failing the user.
-- If any of `AIRTABLE_API_KEY`, `AIRTABLE_BASE_ID`, `AIRTABLE_CONTACT_TABLE_ID` are missing:
+- If any of `AIRTABLE_TOKEN`, `AIRTABLE_BASE_ID`, `AIRTABLE_CONTACT_TABLE_ID` are missing:
   - Logs a warning and **skips** Airtable; user still sees success.
 
 ### 2.2 Newsletter → Airtable

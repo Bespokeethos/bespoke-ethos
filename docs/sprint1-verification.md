@@ -24,7 +24,7 @@ This log recreates every "done" item from prior agent work and flags the gaps th
 | `BASEHUB_TOKEN` | ✅ | Optional | Legacy content source retained for backwards compatibility. |
 | `RESEND_API_KEY` | ✅ | **Yes** | Present locally; confirm mirrors Vercel dashboard before live email test. |
 | `NEXT_PUBLIC_TURNSTILE_SITE_KEY` / `TURNSTILE_SECRET` | ✅ | Yes | Verified in `.env.local`; still needs browser challenge to exercise. |
-| `AIRTABLE_API_KEY` | ✅ | **Yes** | Derived from PAT `Airtable_API` (renamed for clarity). |
+| `AIRTABLE_TOKEN` | ✅ | **Yes** | Derived from PAT `Airtable_API` (renamed for clarity). |
 | `AIRTABLE_BASE_ID` | ✅ (`appDG8eZQE9oG8gPY`) | **Yes** | Points to "Client Engagement Hub". |
 | `AIRTABLE_CONTACT_TABLE_ID` | ✅ (`tblIWtgkqJd2mhWj6`) | **Yes** | "Contact Form Submissions". |
 | `AIRTABLE_NEWSLETTER_TABLE_ID` | ✅ (`tbllMAx256vCwKVFq`) | **Yes** | "Leads" table used for newsletter opt-ins. |

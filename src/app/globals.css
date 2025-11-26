@@ -1404,3 +1404,44 @@ html.dark .be-page-slate {
     opacity: 0.7;
   }
 }
+
+/* Founder story text wrap around portrait */
+.founder-story-wrap {
+  position: relative;
+  clear: both;
+}
+
+.founder-story-portrait {
+  float: left;
+  width: clamp(140px, 22vw, 208px);
+  height: clamp(140px, 22vw, 208px);
+  margin: 0 clamp(16px, 3vw, 24px) clamp(10px, 2vw, 18px) 0;
+  shape-outside: inset(0 round 18px);
+}
+
+.founder-story-copy {
+  clear: none;
+}
+
+.founder-story-wrap::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+@media (max-width: 768px) {
+  .founder-story-portrait {
+    float: none;
+    margin: 0 auto 18px;
+    display: block;
+    shape-outside: none;
+  }
+
+  .founder-story-wrap {
+    text-align: center;
+  }
+
+  .founder-story-wrap .founder-story-copy {
+    text-align: left;
+  }
+}

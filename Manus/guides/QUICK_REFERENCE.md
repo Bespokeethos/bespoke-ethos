@@ -31,7 +31,7 @@ git push origin main
 ## Environment Variables Needed
 
 ```env
-AIRTABLE_API_KEY=pat...
+AIRTABLE_TOKEN=pat...
 AIRTABLE_BASE_ID=app...
 AIRTABLE_CONTACT_TABLE_ID=tbl...
 AIRTABLE_NEWSLETTER_TABLE_ID=tbl...
@@ -70,7 +70,7 @@ Email (primary), Subscribed At, Status, Source
 
 ## Common Issues
 
-1. **"AIRTABLE_API_KEY not configured"** → Check `.env.local`, restart dev server
+1. **"AIRTABLE_TOKEN not configured"** → Check `.env.local`, restart dev server
 2. **401/403 from Airtable** → Verify token scopes and base access
 3. **No email** → Check Resend dashboard logs
 4. **Build fails** → Run `pnpm install`, check for syntax errors

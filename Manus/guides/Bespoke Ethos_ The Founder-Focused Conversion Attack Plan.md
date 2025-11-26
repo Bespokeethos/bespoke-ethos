@@ -63,7 +63,7 @@ pnpm run check
 This is a pass/fail checklist. The agents must ensure every item is checked before handing off.
 
 #### **Code & Environment**
-- [ ] **Airtable Variables Added:** The `.env.example` file contains `AIRTABLE_API_KEY`, `AIRTABLE_BASE_ID`, `AIRTABLE_CONTACT_TABLE_ID`, and `AIRTABLE_NEWSLETTER_TABLE_ID`.
+- [ ] **Airtable Variables Added:** The `.env.example` file contains `AIRTABLE_TOKEN`, `AIRTABLE_BASE_ID`, `AIRTABLE_CONTACT_TABLE_ID`, and `AIRTABLE_NEWSLETTER_TABLE_ID`.
 - [ ] **No Build Errors:** `pnpm run build` completes successfully.
 - [ ] **No Console Errors:** The browser console is clean when running the site locally.
 
@@ -171,7 +171,7 @@ This section translates my MCP-powered workflow into steps your agents can take 
       {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${process.env.AIRTABLE_API_KEY}`,
+          'Authorization': `Bearer ${process.env.AIRTABLE_TOKEN}`,
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ fields: { /* Your form data here */ } }),

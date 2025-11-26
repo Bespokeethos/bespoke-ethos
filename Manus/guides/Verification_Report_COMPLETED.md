@@ -15,7 +15,7 @@
 - **Base ID:** `appDG8eZQE9oG8gPY`
 - **Contact Table ID:** `tblIWtgkqJd2mhWj6`
 - **Newsletter Table ID:** `tbllMAx256vCwKVFq`
-- **API Token Created:** ✅ Yes (token stored as `AIRTABLE_API_KEY`)
+- **API Token Created:** ✅ Yes (token stored as `AIRTABLE_TOKEN`)
 - **Token Scopes:** `data.records:read`, `data.records:write`
 
 ---
@@ -90,7 +90,7 @@
 **Deployment URL:** https://www.bespokeethos.com
 
 **Environment Variables Added to Vercel:**
-- [ ] AIRTABLE_API_KEY
+- [ ] AIRTABLE_TOKEN
 - [ ] AIRTABLE_BASE_ID
 - [ ] AIRTABLE_CONTACT_TABLE_ID
 - [ ] AIRTABLE_NEWSLETTER_TABLE_ID

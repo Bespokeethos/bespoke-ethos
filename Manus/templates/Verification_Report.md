@@ -90,7 +90,7 @@
 **Deployment URL:** https://www.bespokeethos.com  
 
 **Environment Variables Added to Vercel:**
-- ☐ AIRTABLE_API_KEY
+- ☐ AIRTABLE_TOKEN
 - ☐ AIRTABLE_BASE_ID
 - ☐ AIRTABLE_CONTACT_TABLE_ID
 - ☐ AIRTABLE_NEWSLETTER_TABLE_ID

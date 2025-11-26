@@ -131,7 +131,7 @@ bespoke-ethos/
 - `BASEHUB_TOKEN` - (Will be removed)
 - `SKIP_REMOTE_DATA` - Set to "1" (Will be removed)
 - `RESEND_API_KEY` - Email service
-- `AIRTABLE_API_KEY` - CRM integration
+- `AIRTABLE_TOKEN` - CRM integration
 - `AIRTABLE_BASE_ID` - Airtable base
 - `AIRTABLE_CONTACT_TABLE_ID` - Contact form submissions
 - `AIRTABLE_NEWSLETTER_TABLE_ID` - Newsletter signups

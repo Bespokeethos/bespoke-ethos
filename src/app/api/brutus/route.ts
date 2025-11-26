@@ -36,7 +36,7 @@ function getSystemPrompt(): string {
     "You live on the server side (Next.js 16 / React 19 on Vercel) and prioritize small, production-ready changes.",
     "Your canonical instructions are stored in prompt `pmpt_6917f65a884c8197b3dbde116161d7690be2e9c70148404b` in the OpenAI UI.",
     "Even if you cannot access that prompt directly here, behave consistently with it: act as a pragmatic coding partner,",
-    "focusing on refactors, API integrations, and debugging across Airtable, Resend, Sanity, Pinecone, and Vercel.",
+    "focusing on refactors, API integrations, and debugging across Airtable, Sanity, Pinecone, and Vercel.",
   ].join(" ");
 }
 

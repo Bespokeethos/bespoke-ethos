@@ -48,7 +48,7 @@ _Updated: November 14, 2025 -- keep this open during the API key & server-side e
 | Vercel Guardrail | `REQUIRED_VERCEL_PROJECT_ID` | Confirm matches `prj_8cbai6JzE169NUytyFtCpSohZVka`; Vercel MCP should warn if not. |
 | Resend | `RESEND_API_KEY` | Send a test notification (Gmail MCP fallback) and verify Sentry logs show success. |
 | Cloudflare Turnstile | `NEXT_PUBLIC_TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET` | Exercise via Playwright to ensure challenges pass. |
-| Airtable CRM | `AIRTABLE_API_KEY`, `AIRTABLE_BASE_ID`, `AIRTABLE_CONTACT_TABLE_ID`, `AIRTABLE_NEWSLETTER_TABLE_ID` | Use Airtable MCP to confirm schemas + insert/delete test rows. |
+| Airtable CRM | `AIRTABLE_TOKEN`, `AIRTABLE_BASE_ID`, `AIRTABLE_CONTACT_TABLE_ID`, `AIRTABLE_NEWSLETTER_TABLE_ID` | Use Airtable MCP to confirm schemas + insert/delete test rows. |
 | Remote data toggle | `SKIP_REMOTE_DATA` | Keep `1` until Sanity rollout is complete; document rationale when flipping. |
 | Legacy CMS | `BASEHUB_TOKEN` | Should stay unset post-migration; GitHub MCP greps help ensure no code path requires it. |
 | Event ingest | `CONTACT_EVENTS_INGEST_KEY` | Decide whether we still stream analytics; remove unused listeners. |

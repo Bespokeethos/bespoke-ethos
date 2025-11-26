@@ -16,7 +16,7 @@
 **Environment Variables** (all synced to Vercel):
 - `BASEHUB_TOKEN` - BaseHub CMS integration (currently used)
 - `RESEND_API_KEY` - Email notifications (configured for contact form)
-- `AIRTABLE_API_KEY` - Available for migration from BaseHub
+- `AIRTABLE_TOKEN` - Available for migration from BaseHub
 - `NEXT_PUBLIC_TURNSTILE_SITE_KEY` + `TURNSTILE_SECRET` - Cloudflare spam protection
 - `CONTACT_EVENTS_INGEST_KEY` - BaseHub events persistence (optional)
 
@@ -191,7 +191,7 @@ Replace the BaseHub `sendEvent()` section (lines 170-178) with Airtable API call
 // Note: No Airtable SDK needed - use fetch API
 
 // Replace BaseHub persistence section with:
-const airtableApiKey = process.env.AIRTABLE_API_KEY;
+const airtableApiKey = process.env.AIRTABLE_TOKEN;
 const airtableBaseId = process.env.AIRTABLE_BASE_ID;
 const airtableTableId = process.env.AIRTABLE_CONTACT_TABLE_ID;
 
@@ -247,7 +247,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Valid email required" }, { status: 400 });
     }
 
-    const airtableApiKey = process.env.AIRTABLE_API_KEY;
+    const airtableApiKey = process.env.AIRTABLE_TOKEN;
     const airtableBaseId = process.env.AIRTABLE_BASE_ID;
     const airtableTableId = process.env.AIRTABLE_NEWSLETTER_TABLE_ID;
 
@@ -372,7 +372,7 @@ export function Newsletter() {
 
 Add to `.env.local` and Vercel:
 ```
-AIRTABLE_API_KEY=your_api_key_here
+AIRTABLE_TOKEN=your_api_key_here
 AIRTABLE_BASE_ID=appXXXXXXXXXXXXXX
 AIRTABLE_CONTACT_TABLE_ID=tblXXXXXXXXXXXXXX
 AIRTABLE_NEWSLETTER_TABLE_ID=tblXXXXXXXXXXXXXX

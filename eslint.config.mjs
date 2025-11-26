@@ -8,6 +8,8 @@ const config = [
     ignores: [
       "public/**",
       ".vscode/**",
+      ".backups/**",
+      ".next/**",
       "tsconfig.json",
       "dist/**",
       "coverage/**",

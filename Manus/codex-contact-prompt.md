@@ -16,7 +16,7 @@ You are an expert full-stack developer specializing in Vercel serverless functio
 
 ### Environment Variables Required
 The function must use these environment variables (provided via Vercel dashboard):
-- `AIRTABLE_API_KEY`: Airtable personal access token
+- `AIRTABLE_TOKEN`: Airtable personal access token
 - `AIRTABLE_BASE_ID`: Base ID (starts with "app")
 - `AIRTABLE_TABLE_NAME`: Table name (e.g., "Contacts")
 - `RESEND_API_KEY`: Resend API key (starts with "re_")

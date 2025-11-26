@@ -1,5 +1,6 @@
 'use client';
 
+import Image from "next/image";
 import { useState } from "react";
 import clsx from "clsx";
 
@@ -24,14 +25,17 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
       <div className="p-8 md:p-12 lg:p-14">
         <div className="mb-8 grid w-full items-center gap-6 text-center md:grid-cols-[auto,1fr]">
           {/* 4-agent grid image (kept as a card, not a hero) */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/assets/consensus-infographic.png"
-            alt="Four research lenses inside the Consensus Engine—copy, finance, legal, and future modeling—converging into one brief"
-            className="mx-auto h-40 w-40 rounded-3xl border border-white/60 bg-white/40 object-contain p-3 shadow-[0_40px_80px_rgba(15,23,42,0.4)] backdrop-blur-xl md:h-56 md:w-56 lg:h-72 lg:w-72"
-            loading="lazy"
-            decoding="async"
-          />
+          <div className="mx-auto rounded-3xl border border-white/60 bg-white/40 p-3 shadow-[0_40px_80px_rgba(15,23,42,0.4)] backdrop-blur-xl">
+            <Image
+              src="/assets/consensus-infographic.png"
+              alt="Four research lenses inside the Consensus Engine—copy, finance, legal, and future modeling—converging into one brief"
+              width={300}
+              height={200}
+              className="h-[200px] w-[300px] object-contain"
+              sizes="(max-width: 640px) 90vw, 300px"
+              priority={false}
+            />
+          </div>
 
           <div className="flex flex-col items-center gap-4 md:justify-center">
             <div className="max-w-xl text-center">

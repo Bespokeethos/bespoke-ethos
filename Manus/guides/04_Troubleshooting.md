@@ -2,14 +2,14 @@
 
 This guide covers common problems you may encounter during testing and their solutions.
 
-## Issue 1: "AIRTABLE_API_KEY not configured"
+## Issue 1: "AIRTABLE_TOKEN not configured"
 
 **Symptoms:**
 - API route returns error about missing Airtable configuration
 - Terminal shows "Missing required environment variables"
 
 **Solution:**
-1. Verify `c:\vercel\.env.local` contains `AIRTABLE_API_KEY`
+1. Verify `c:\vercel\.env.local` contains `AIRTABLE_TOKEN`
 2. Restart your dev server (`Ctrl+C` then `pnpm dev`)
 3. Check that the key starts with `pat` (personal access token format)
 

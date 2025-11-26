@@ -11,7 +11,7 @@ Before deploying, you must add your Airtable credentials to the Vercel project.
 
 | Name | Value |
 | :--- | :--- |
-| `AIRTABLE_API_KEY` | Your Personal Access Token |
+| `AIRTABLE_TOKEN` | Your Personal Access Token |
 | `AIRTABLE_BASE_ID` | Your Base ID (`app...`) |
 | `AIRTABLE_CONTACT_TABLE_ID` | Your Contact Table ID (`tbl...`) |
 | `AIRTABLE_NEWSLETTER_TABLE_ID` | Your Newsletter Table ID (`tbl...`) |

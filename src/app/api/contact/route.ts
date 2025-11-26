@@ -288,26 +288,13 @@ export async function POST(req: NextRequest) {
       }),
     );
 
-    // Execute Airtable + (optionally) Resend in parallel and wait BEFORE responding.
-    // Email sending is gated by CONTACT_ENABLE_EMAIL; by default, only Airtable
-    // must succeed for the request to be treated as successful.
-    const emailEnabled = process.env.CONTACT_ENABLE_EMAIL === "1";
+    const airtableResult = await sendToAirtable(contact);
 
-    const [airtableResult, emailResult] = await Promise.all([
-      sendToAirtable(contact),
-      emailEnabled
-        ? sendConfirmationEmail(contact)
-        : Promise.resolve<ExternalResult>({ ok: true, status: 200 }),
-    ]);
-
-    const allOk = airtableResult.ok && emailResult.ok;
-    const primaryError = !airtableResult.ok ? airtableResult : emailResult;
-    const status = primaryError.status ?? 500;
-
-    if (!allOk) {
-      const code = primaryError.code || "EXTERNAL_SERVICE_ERROR";
+    if (!airtableResult.ok) {
+      const status = airtableResult.status ?? 500;
+      const code = airtableResult.code || "AIRTABLE_ERROR";
       const errorMessage =
-        primaryError.error ||
+        airtableResult.error ||
         "We couldn't process your request right now. Please try again shortly.";
 
       console.error(
@@ -323,12 +310,7 @@ export async function POST(req: NextRequest) {
 
       return withCors(
         NextResponse.json(
-          {
-            success: false,
-            error: errorMessage,
-            code,
-            timestamp,
-          },
+          { success: false, error: errorMessage, code, timestamp },
           { status },
         ),
       );
@@ -374,7 +356,9 @@ async function sendToAirtable(
   contact: NormalizedContact,
 ): Promise<ExternalResult> {
   const airtableToken =
-    process.env.AIRTABLE_PERSONAL_ACCESS_TOKEN || process.env.AIRTABLE_API_KEY;
+    process.env.AIRTABLE_TOKEN ||
+    process.env.AIRTABLE_PERSONAL_ACCESS_TOKEN ||
+    process.env.AIRTABLE_API_KEY;
   const baseId = process.env.AIRTABLE_BASE_ID;
   const tableName =
     process.env.AIRTABLE_TABLE_NAME ||
@@ -383,7 +367,7 @@ async function sendToAirtable(
 
   if (!airtableToken || !baseId || !tableName) {
     console.error(
-      "[CONTACT_FORM_SUBMISSION] Airtable configuration missing. Check AIRTABLE_PERSONAL_ACCESS_TOKEN / AIRTABLE_API_KEY, AIRTABLE_BASE_ID, AIRTABLE_TABLE_NAME / AIRTABLE_CONTACT_TABLE_ID.",
+      "[CONTACT_FORM_SUBMISSION] Airtable configuration missing. Check AIRTABLE_TOKEN (or AIRTABLE_PERSONAL_ACCESS_TOKEN / AIRTABLE_API_KEY), AIRTABLE_BASE_ID, AIRTABLE_TABLE_NAME / AIRTABLE_CONTACT_TABLE_ID.",
     );
     return {
       ok: false,
@@ -525,137 +509,6 @@ async function sendToAirtable(
       status: 500,
       code: "AIRTABLE_NETWORK_ERROR",
       error: "Airtable request failed.",
-    };
-  }
-}
-
-async function sendConfirmationEmail(
-  contact: NormalizedContact,
-): Promise<ExternalResult> {
-  const apiKey = process.env.RESEND_API_KEY;
-  const fromEmail = process.env.FROM_EMAIL || "contact@bespokeethos.com";
-
-  if (!apiKey) {
-    console.error(
-      "[CONTACT_FORM_SUBMISSION] RESEND_API_KEY missing; cannot send email.",
-    );
-    return {
-      ok: false,
-      status: 500,
-      code: "RESEND_CONFIG_ERROR",
-      error: "Email configuration is missing.",
-    };
-  }
-
-  const fromAddress = `Bespoke Ethos <${fromEmail}>`;
-  const toAddresses = [contact.email];
-
-  // Also send internal notification
-  const internalEmail = "contact@bespokeethos.com";
-  if (internalEmail && internalEmail !== contact.email) {
-    toAddresses.push(internalEmail);
-  }
-
-  const submittedAt = contact.meta.submittedAt;
-
-  const html = `
-    <div style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; color: #0f172a;">
-      <h2 style="margin-bottom: 0.5rem;">Thanks for reaching out, ${contact.firstName}.</h2>
-      <p>We received your message at Bespoke Ethos and will get back to you within one business day.</p>
-      <p style="margin-top: 1rem; font-weight: 500;">HereΓÇÖs what you sent:</p>
-      <p><strong>Name:</strong> ${contact.firstName} ${contact.lastName}</p>
-      <p><strong>Email:</strong> ${contact.email}</p>
-      ${contact.company ? `<p><strong>Company:</strong> ${contact.company}</p>` : ""}
-      ${contact.phone ? `<p><strong>Phone:</strong> ${contact.phone}</p>` : ""}
-      ${
-        contact.meta.useCase
-          ? `<p><strong>What youΓÇÖre hoping to achieve:</strong> ${contact.meta.useCase}</p>`
-          : ""
-      }
-      <p><strong>Message:</strong></p>
-      <p style="white-space: pre-line; padding: 0.75rem 1rem; border-radius: 0.75rem; background: #f1f5f9; border: 1px solid #e2e8f0;">
-        ${contact.message.replace(/</g, "&lt;").replace(/>/g, "&gt;")}
-      </p>
-      <p style="margin-top: 1.5rem; font-size: 12px; color: #64748b;">
-        Submitted at ${submittedAt}. IP: ${contact.meta.ip}. User agent: ${contact.meta.userAgent}
-      </p>
-      <p style="margin-top: 0.5rem; font-size: 12px; color: #64748b;">
-        If you didnΓÇÖt submit this form, you can safely ignore this email.
-      </p>
-    </div>
-  `;
-
-  console.info("[CONTACT_FORM_SUBMISSION] Sending email via Resend");
-
-  try {
-    const res = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: fromAddress,
-        to: toAddresses,
-        subject: "We received your message at Bespoke Ethos",
-        html,
-        reply_to: "noreply@bespokeethos.com",
-      }),
-    });
-
-    const text = await res.text();
-
-    if (res.status === 429) {
-      console.error(
-        "[CONTACT_FORM_SUBMISSION] Resend rate limit reached",
-        text,
-      );
-      return {
-        ok: false,
-        status: 429,
-        code: "RESEND_RATE_LIMIT",
-        error: "Rate limit exceeded when sending email.",
-      };
-    }
-
-    if (res.status === 401) {
-      console.error(
-        "[CONTACT_FORM_SUBMISSION] Resend authentication error",
-        text,
-      );
-      return {
-        ok: false,
-        status: 401,
-        code: "RESEND_AUTH_ERROR",
-        error: "Email authentication failed.",
-      };
-    }
-
-    if (!res.ok) {
-      console.error(
-        "[CONTACT_FORM_SUBMISSION] Resend non-200 response",
-        text,
-      );
-      return {
-        ok: false,
-        status: res.status || 500,
-        code: "RESEND_ERROR",
-        error: "Failed to send confirmation email.",
-      };
-    }
-
-    console.info("[CONTACT_FORM_SUBMISSION] Email sent successfully via Resend");
-    return { ok: true, status: 200 };
-  } catch (err) {
-    console.error(
-      "[CONTACT_FORM_SUBMISSION] Network or Resend error",
-      err,
-    );
-    return {
-      ok: false,
-      status: 500,
-      code: "RESEND_NETWORK_ERROR",
-      error: "Resend request failed.",
     };
   }
 }

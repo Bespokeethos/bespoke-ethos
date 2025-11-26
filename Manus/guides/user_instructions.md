@@ -72,7 +72,7 @@ Your agent will guide you through:
 ### Current Environment Variables (Vercel)
 - `BASEHUB_TOKEN` - (Will be removed)
 - `RESEND_API_KEY` - (Keep)
-- `AIRTABLE_API_KEY` - (Keep)
+- `AIRTABLE_TOKEN` - (Keep)
 - `AIRTABLE_BASE_ID` - (Keep)
 - `AIRTABLE_CONTACT_TABLE_ID` - (Keep)
 - `AIRTABLE_NEWSLETTER_TABLE_ID` - (Keep)

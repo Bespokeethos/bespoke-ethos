@@ -5,6 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import clsx from "clsx";
 
+const FACE_SIZE = 340;
+
 // Data for the flagship products
 const FLAGSHIP_PRODUCTS = [
   {
@@ -86,19 +88,20 @@ const ProductCard: React.FC<ProductCardProps> = ({
     <Link href={product.href} passHref>
       <GlassCard
         className={clsx(
-          "w-[400px] h-[400px] cursor-pointer transform-gpu",
+          "cursor-pointer transform-gpu",
           "transition-all duration-300 ease-in-out",
           isHovered ? "scale-[1.08] z-20" : "scale-100 z-10"
         )}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
+        style={{ width: "min(90vw, 340px)", height: "min(90vw, 340px)" }}
       >
         <div className="relative w-full h-full overflow-hidden rounded-xl">
           <Image
             src={product.image}
             alt={product.title}
             fill
-            sizes="(max-width: 768px) 100vw, 400px"
+            sizes="(max-width: 640px) 90vw, 340px"
             className="object-cover"
             style={{ border: "5px solid black" }}
           />
@@ -149,7 +152,7 @@ export const FlagshipCarousel: React.FC = () => {
 
   const faceCount = FLAGSHIP_PRODUCTS.length;
   const angle = 360 / faceCount;
-  const radius = 400 / (2 * Math.tan(Math.PI / faceCount)); // Calculate radius for a 400px wide face
+  const radius = FACE_SIZE / (2 * Math.tan(Math.PI / faceCount)); // radius tuned to face size
 
   return (
     <div className="py-12 sm:py-16 bg-surface-primary dark:bg-dark-surface-primary">
@@ -197,14 +200,19 @@ export const FlagshipCarousel: React.FC = () => {
         }
       `}</style>
       <div className="container mx-auto px-4 sm:px-6 text-center">
-        <h2 className="text-black dark:text-white mb-8 sm:mb-12 font-accent" style={{ fontSize: 'clamp(1.47rem, 2.24vw, 2.1rem)' }}>
+        <p className="mb-2 text-sm italic text-muted-foreground text-text-secondary dark:text-dark-text-secondary">
+          Bespoke Solutions
+        </p>
+        <h2 className="text-black dark:text-white mb-8 sm:mb-12 font-accent" style={{ fontSize: 'clamp(1.05rem, 1.6vw, 1.5rem)' }}>
           Flagship Collection
         </h2>
-        <div className="flex justify-center items-center perspective-[1000px] h-[450px] sm:h-[500px]">
+        <div className="flex justify-center items-center perspective-[1000px] h-[420px] sm:h-[470px]">
           <div
             ref={carouselRef}
-            className="relative w-[400px] h-[400px] preserve-3d transition-transform duration-1000 ease-in-out carousel-cube-container"
+            className="relative preserve-3d transition-transform duration-1000 ease-in-out carousel-cube-container"
             style={{
+              width: "min(90vw, 340px)",
+              height: "min(90vw, 340px)",
               transform: `rotateY(${rotation}deg)`,
               transition: isPaused ? "transform 0.3s ease-out" : "transform 1s ease-in-out",
             }}

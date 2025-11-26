@@ -102,7 +102,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="mt-8 mx-auto max-w-md sm:max-w-lg lg:max-w-2xl">
+          <div className="mt-12 mx-auto max-w-md sm:max-w-lg lg:max-w-2xl">
             <div className="relative aspect-[5/3] w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame">
               <Image
                 src="/assets/generated/hero-ai-automation-dashboard-desktop.webp"

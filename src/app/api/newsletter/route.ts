@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
     const source = clean(body?.source) || "Website";
     const path = clean(body?.path, 256);
 
-    const airtableApiKey = process.env.AIRTABLE_API_KEY;
+    const airtableApiKey = process.env.AIRTABLE_TOKEN;
     const airtableBaseId = process.env.AIRTABLE_BASE_ID;
     const airtableTableId = process.env.AIRTABLE_NEWSLETTER_TABLE_ID;
 
