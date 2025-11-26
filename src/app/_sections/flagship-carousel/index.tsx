@@ -155,7 +155,7 @@ export const FlagshipCarousel: React.FC = () => {
   const radius = FACE_SIZE / (2 * Math.tan(Math.PI / faceCount)); // radius tuned to face size
 
   return (
-    <div className="py-12 sm:py-16 bg-surface-primary dark:bg-dark-surface-primary">
+    <div className="pt-8 pb-12 sm:pt-10 sm:pb-16 bg-surface-primary dark:bg-dark-surface-primary">
       <style>{`
         @keyframes rotatingGlow {
           0% {
@@ -199,17 +199,17 @@ export const FlagshipCarousel: React.FC = () => {
           animation: rotatingGlow 6s ease-in-out infinite;
         }
       `}</style>
-      <div className="container mx-auto px-4 sm:px-6 text-center">
-        <p className="mb-2 text-sm italic text-muted-foreground text-text-secondary dark:text-dark-text-secondary">
-          Bespoke Solutions
-        </p>
-        <h2 className="text-black dark:text-white mb-8 sm:mb-12 font-accent" style={{ fontSize: 'clamp(1.05rem, 1.6vw, 1.5rem)' }}>
-          Flagship Collection
-        </h2>
-        <div className="flex justify-center items-center perspective-[1000px] h-[420px] sm:h-[470px]">
-          <div
-            ref={carouselRef}
-            className="relative preserve-3d transition-transform duration-1000 ease-in-out carousel-cube-container"
+        <div className="container mx-auto px-4 sm:px-6 text-center">
+          <p className="mb-1 text-sm font-semibold tracking-wide uppercase text-muted-foreground text-text-secondary dark:text-dark-text-secondary">
+            Bespoke Solutions
+          </p>
+          <h2 className="text-black dark:text-white mb-8 sm:mb-12 font-hero-accent text-3xl sm:text-4xl font-extrabold tracking-tight">
+            Flagship Collection
+          </h2>
+          <div className="flex justify-center items-center perspective-[1000px] h-[420px] sm:h-[470px]">
+            <div
+              ref={carouselRef}
+              className="relative preserve-3d transition-transform duration-1000 ease-in-out carousel-cube-container"
             style={{
               width: "min(90vw, 340px)",
               height: "min(90vw, 340px)",

@@ -23,14 +23,14 @@ export function AlexMollyStory() {
                 {/* Main image container - CLICKABLE */}
                 <button
                   onClick={() => setIsImageEnlarged(true)}
-                  className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-2xl border border-accent-200/50 dark:border-accent-800/50 cursor-zoom-in hover:shadow-3xl transition-shadow duration-300 group"
+                  className="relative aspect-[3/4] sm:aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-2xl border border-accent-200/50 dark:border-accent-800/50 cursor-zoom-in hover:shadow-3xl transition-shadow duration-300 group"
                   aria-label="Click to enlarge Alex's photo with Molly on screen"
                 >
                   <Image
                     src="/assets/Real-Customers/Alex-with-Molly.jpg"
                     alt="Alex with laptop showing Molly AI tutor interface"
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover object-[50%_32%] sm:object-center group-hover:scale-105 transition-transform duration-500"
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     priority
                   />
@@ -72,7 +72,7 @@ export function AlexMollyStory() {
                   Why we do this:
                 </p>
                 <div className="flex items-start gap-5 bg-gradient-to-br from-accent-50/80 to-accent-100/40 dark:from-accent-950/40 dark:to-accent-900/20 p-5 rounded-xl border border-accent-200/60 dark:border-accent-800/60 shadow-md">
-                  <div className="flex-shrink-0 w-20 h-20 relative">
+                  <div className="flex-shrink-0 w-24 h-24 sm:w-28 sm:h-28 relative">
                     <Image
                       src="/assets/we-heart-founders-mug.avif"
                       alt="We love founders mug with heart icon"
