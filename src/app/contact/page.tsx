@@ -47,68 +47,70 @@ export default async function ContactPage({ searchParams }: PageProps) {
           </div>
 
           <div className="grid w-full items-start gap-4 -mt-2 sm:gap-8 sm:-mt-2 md:mt-0 md:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] md:items-stretch">
-          <div className="space-y-5 text-left md:block md:space-y-6">
-            <p className="inline-flex rounded-full bg-surface-secondary px-3 py-1 text-xs font-medium tracking-tight text-text-secondary dark:bg-dark-surface-secondary dark:text-dark-text-secondary">
-              {isLlmSetup ? "Automation setups · Tool mapping · Guardrails" : "Small business automation • Founder-friendly"}
-            </p>
-
-            <div className="space-y-3">
-              <h1 className="font-hero-accent text-balance text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl">
-                {isLlmSetup ? "Let&rsquo;s map your AI tools the right way." : "Let’s fix the thing that’s keeping you up at night."}
-              </h1>
-              <p className="text-base leading-relaxed text-text-secondary dark:text-dark-text-secondary">
-                You don&rsquo;t need a 40‑page deck. You need to know if this is fixable and what it costs. Tell me what’s broken.
-                <span className="inline-flex items-center gap-2">
-                  <Image
-                    src="/founder-upton-rand.jpg"
-                    alt="Upton Rand, Founder."
-                    width={32}
-                    height={32}
-                    className="rounded-full object-cover"
-                  />
-                  I read every email myself, and I’ll give you a straight answer—even if that answer is ‘don’t hire me, use this $20 tool instead.’
-                </span>
+            <div className="space-y-5 text-left md:block md:space-y-6">
+              <p className="inline-flex rounded-full bg-surface-secondary px-3 py-1 text-xs font-medium tracking-tight text-text-secondary dark:bg-dark-surface-secondary dark:text-dark-text-secondary">
+                {isLlmSetup ? "Automation setups · Tool mapping · Guardrails" : "Small business automation • Founder-friendly"}
               </p>
 
-              {isLlmSetup ? (
-              <div className="rounded-2xl border border-border bg-surface-secondary/80 p-4 text-sm text-text-secondary shadow-sm dark:border-dark-border dark:bg-dark-surface-secondary/80 dark:text-dark-text-secondary space-y-2">
-                  <p className="font-semibold text-text-primary dark:text-dark-text-primary">
-                    You&rsquo;re asking about automation & AI tool mapping.
-                  </p>
-                  <p>
-                    Use the message box to tell us where your data lives (docs, CRM, tools), who needs access, and what&rsquo;s
-                    breaking today. We&rsquo;ll outline 1-2 setup options and what they&rsquo;d cost-using tools that fit your size
-                    and budget.
-                  </p>
-                  <ul className="mt-3 list-disc space-y-1 pl-5 text-xs text-text-tertiary dark:text-dark-text-tertiary">
-                    <li>Mention 2-3 workflows you&rsquo;d love to hand off (intake, reporting, customer support triage, etc.).</li>
-                    <li>If you have broken Zaps/Scenarios, link them and we&rsquo;ll include a &quot;rescue plan.&quot;</li>
-                  </ul>
-                </div>
-              ) : (
-                <div className="rounded-2xl border border-border bg-surface-secondary/80 p-4 text-sm text-text-secondary shadow-sm dark:border-dark-border dark:bg-dark-surface-secondary/80 dark:text-dark-text-secondary">
-                  <p className="font-semibold text-text-primary dark:text-dark-text-primary">
-                    What happens after you hit &quot;Send&quot;?
-                  </p>
-                  <ul className="mt-2 list-disc space-y-1 pl-5 text-xs md:text-sm">
-                    <li>We read every message ourselves-no AI auto-replies.</li>
-                    <li>You&rsquo;ll get a plain-English response within one business day.</li>
-                    <li>If there&rsquo;s a fit, we&rsquo;ll suggest a call; if not, we&rsquo;ll still point you in the right direction.</li>
-                  </ul>
-                </div>
-              )}
-
-              <div className="rounded-xl border-2 border-accent-400/60 bg-gradient-to-br from-accent-50/90 to-orange-50/80 dark:from-accent-900/40 dark:to-orange-900/30 p-5 text-sm text-text-primary dark:text-dark-text-primary shadow-md dark:border-accent-600/50">
-                <p className="leading-relaxed">
-                  <strong className="font-bold text-accent-700 dark:text-accent-300">LGBTQ+ discount:</strong>{" "}
-                  If you're an LGBTQ+-owned business, mention it in your message. You may qualify for{" "}
-                  <span className="font-bold text-accent-600 dark:text-accent-400">25% off upfront project costs</span> (not subscriptions).
+              <div className="space-y-3">
+                <h1 className="font-hero-accent text-balance text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl">
+                  {isLlmSetup ? "Let&rsquo;s map your AI tools the right way." : "Let’s fix the thing that’s keeping you up at night."}
+                </h1>
+                <p className="text-base leading-relaxed text-text-secondary dark:text-dark-text-secondary">
+                  You don&rsquo;t need a 40‑page deck. You need to know if this is fixable and what it costs. Tell me what’s broken.
+                  <div className="mt-2 flex flex-wrap items-center gap-2 text-left">
+                    <Image
+                      src="/founder-upton-rand.jpg"
+                      alt="Upton Rand, Founder."
+                      width={32}
+                      height={32}
+                      className="shrink-0 rounded-full object-cover"
+                    />
+                    <span className="inline-block max-w-[38ch] text-pretty sm:max-w-none">
+                      I read every email myself, and I’ll give you a straight answer—even if that answer is ‘don’t hire me, use this $20 tool instead.’
+                    </span>
+                  </div>
                 </p>
+
+                {isLlmSetup ? (
+                  <div className="rounded-2xl border border-border bg-surface-secondary/80 p-4 text-sm text-text-secondary shadow-sm dark:border-dark-border dark:bg-dark-surface-secondary/80 dark:text-dark-text-secondary space-y-2">
+                    <p className="font-semibold text-text-primary dark:text-dark-text-primary">
+                      You&rsquo;re asking about automation & AI tool mapping.
+                    </p>
+                    <p>
+                      Use the message box to tell us where your data lives (docs, CRM, tools), who needs access, and what&rsquo;s
+                      breaking today. We&rsquo;ll outline 1-2 setup options and what they&rsquo;d cost-using tools that fit your size
+                      and budget.
+                    </p>
+                    <ul className="mt-3 list-disc space-y-1 pl-5 text-xs text-text-tertiary dark:text-dark-text-tertiary">
+                      <li>Mention 2-3 workflows you&rsquo;d love to hand off (intake, reporting, customer support triage, etc.).</li>
+                      <li>If you have broken Zaps/Scenarios, link them and we&rsquo;ll include a &quot;rescue plan.&quot;</li>
+                    </ul>
+                  </div>
+                ) : (
+                  <div className="rounded-2xl border border-border bg-surface-secondary/80 p-4 text-sm text-text-secondary shadow-sm dark:border-dark-border dark:bg-dark-surface-secondary/80 dark:text-dark-text-secondary">
+                    <p className="font-semibold text-text-primary dark:text-dark-text-primary">
+                      What happens after you hit &quot;Send&quot;?
+                    </p>
+                    <ul className="mt-2 list-disc space-y-1 pl-5 text-xs md:text-sm">
+                      <li>We read every message ourselves-no AI auto-replies.</li>
+                      <li>You&rsquo;ll get a plain-English response within one business day.</li>
+                      <li>If there&rsquo;s a fit, we&rsquo;ll suggest a call; if not, we&rsquo;ll still point you in the right direction.</li>
+                    </ul>
+                  </div>
+                )}
+
+                <div className="rounded-xl border-2 border-accent-400/60 bg-gradient-to-br from-accent-50/90 to-orange-50/80 dark:from-accent-900/40 dark:to-orange-900/30 p-5 text-sm text-text-primary dark:text-dark-text-primary shadow-md dark:border-accent-600/50">
+                  <p className="leading-relaxed">
+                    <strong className="font-bold text-accent-700 dark:text-accent-300">LGBTQ+ discount:</strong>{" "}
+                    If you're an LGBTQ+-owned business, mention it in your message. You may qualify for{" "}
+                    <span className="font-bold text-accent-600 dark:text-accent-400">25% off upfront project costs</span> (not subscriptions).
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="be-form-glass-card max-w-md w-full mx-auto md:max-w-none md:mx-0 sm:p-6">
+            <div className="be-form-glass-card max-w-md w-full mx-auto md:max-w-none md:mx-0 sm:p-6">
             {sent ? (
               <div className="mb-6 rounded-md border border-green-700/30 bg-green-500/10 p-4 text-sm text-green-700 dark:border-green-300/20 dark:text-green-300">
                 <p className="font-medium">Got it. I’m reading this shortly. No auto‑responder, just me.</p>
@@ -118,34 +120,71 @@ export default async function ContactPage({ searchParams }: PageProps) {
             ) : null}
 
             {/* Jotform Embed */}
-            <div className="w-full">
+            <div className="w-full overflow-hidden rounded-2xl shadow-[0_12px_40px_rgba(0,0,0,0.12),0_4px_18px_rgba(0,0,0,0.06)]">
               <iframe
-                id="JotFormIFrame-bespoke-ethos-contact"
+                id="JotFormIFrame-253292960463058"
                 title="Bespoke Ethos Contact Form"
-                onLoad="window.parent.scrollTo(0,0)"
                 allowFullScreen
                 allow="geolocation; microphone; camera"
-                src="https://form.jotform.com/bespoke-ethos-contact"
+                src="https://form.jotform.com/253292960463058"
                 frameBorder="0"
                 style={{
                   minWidth: "100%",
-                  height: "541px",
+                  minHeight: "640px",
+                  height: "700px",
                   border: "none",
+                  display: "block",
                 }}
               />
               <script type="text/javascript">
-                {`var ifr = document.getElementById("JotFormIFrame-bespoke-ethos-contact");
-                if (ifr) {
-                  var src = ifr.src;
+                {`(function() {
+                  var formId = "253292960463058";
+                  var iframeId = "JotFormIFrame-" + formId;
+                  var ifr = document.getElementById(iframeId);
+                  if (!ifr) return;
+
+                  var src = ifr.src.split("?")[0];
                   var iframeParams = [];
-                  if (window.location.href && window.location.href.indexOf("?") > -1) {
-                    iframeParams = iframeParams.concat(window.location.href.substr(window.location.href.indexOf("?") + 1).split('&'));
+                  if (window.location.search.length > 1) {
+                    iframeParams = iframeParams.concat(window.location.search.substring(1).split('&'));
                   }
                   if (iframeParams.length) {
-                    src = src + "?" + iframeParams.join('&');
-                    ifr.src = src;
+                    ifr.src = src + "?" + iframeParams.join('&');
                   }
-                }`}
+
+                  var handleMessage = function(e) {
+                    if (!e.data || typeof e.data !== "string") return;
+                    var args = e.data.split(":");
+                    if (args.length > 2 && args[0] === formId) {
+                      var command = args[1];
+                      var value = args[2];
+
+                      if (command === "setHeight") {
+                        var newHeight = Number(value);
+                        if (!isNaN(newHeight) && newHeight > 0) {
+                          ifr.style.height = newHeight + "px";
+                        }
+                      }
+
+                      if (command === "scrollIntoView") {
+                        try {
+                          if (typeof window.scrollTo === "function") {
+                            window.scrollTo(0, 0);
+                          }
+                        } catch (_) {}
+                      }
+                    }
+                  };
+
+                  window.addEventListener("message", handleMessage, false);
+                  ifr.addEventListener("load", function() {
+                    try {
+                      if (window.parent && typeof window.parent.scrollTo === "function") {
+                        window.parent.scrollTo(0, 0);
+                      }
+                    } catch (_) {}
+                  }, { once: true });
+                })();`}
               </script>
             </div>
 
