@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 import { Breadcrumbs } from "@/app/_components/seo/breadcrumbs";
+import Image from "next/image";
 import { Section } from "@/common/layout";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { SuccessNotice } from "./success-notice";
@@ -41,23 +42,32 @@ export default async function ContactPage({ searchParams }: PageProps) {
               {isLlmSetup ? "Automation setups · Tool mapping · Guardrails" : "Small business automation · Founder-friendly"}
             </p>
             <h1 className="font-hero-accent text-balance text-[1.5rem] font-semibold leading-snug">
-              {isLlmSetup ? "Let&rsquo;s map your AI tools the right way." : "Tell us what you want off your plate."}
+              {isLlmSetup ? "Let&rsquo;s map your AI tools the right way." : "Let’s fix the thing that’s keeping you up at night."}
             </h1>
           </div>
 
           <div className="grid w-full items-start gap-4 -mt-2 sm:gap-8 sm:-mt-2 md:mt-0 md:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] md:items-stretch">
-          <div className="hidden space-y-5 text-left md:block md:space-y-6">
+          <div className="space-y-5 text-left md:block md:space-y-6">
             <p className="inline-flex rounded-full bg-surface-secondary px-3 py-1 text-xs font-medium tracking-tight text-text-secondary dark:bg-dark-surface-secondary dark:text-dark-text-secondary">
               {isLlmSetup ? "Automation setups · Tool mapping · Guardrails" : "Small business automation • Founder-friendly"}
             </p>
 
             <div className="space-y-3">
               <h1 className="font-hero-accent text-balance text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl">
-                {isLlmSetup ? "Let&rsquo;s map your AI tools the right way." : "Tell us what you want off your plate."}
+                {isLlmSetup ? "Let&rsquo;s map your AI tools the right way." : "Let’s fix the thing that’s keeping you up at night."}
               </h1>
               <p className="text-base leading-relaxed text-text-secondary dark:text-dark-text-secondary">
-                You don&rsquo;t need a 40-page strategy deck. You need clear next steps. Share where you&rsquo;re stuck and what a win
-                would look like, and we&rsquo;ll respond with practical options-no pressure, no hard sell.
+                You don&rsquo;t need a 40‑page deck. You need to know if this is fixable and what it costs. Tell me what’s broken.
+                <span className="inline-flex items-center gap-2">
+                  <Image
+                    src="/founder-upton-rand.jpg"
+                    alt="Upton Rand, Founder."
+                    width={32}
+                    height={32}
+                    className="rounded-full object-cover"
+                  />
+                  I read every email myself, and I’ll give you a straight answer—even if that answer is ‘don’t hire me, use this $20 tool instead.’
+                </span>
               </p>
 
               {isLlmSetup ? (
@@ -101,7 +111,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
           <div className="be-form-glass-card max-w-md w-full mx-auto md:max-w-none md:mx-0 sm:p-6">
             {sent ? (
               <div className="mb-6 rounded-md border border-green-700/30 bg-green-500/10 p-4 text-sm text-green-700 dark:border-green-300/20 dark:text-green-300">
-                <p className="font-medium">Thanks! Your message is on its way.</p>
+                <p className="font-medium">Got it. I’m reading this shortly. No auto‑responder, just me.</p>
                 <p className="mt-1 opacity-90">We’ll get back to you soon. Redirecting to the homepage.</p>
                 <SuccessNotice />
               </div>
@@ -147,9 +157,12 @@ export default async function ContactPage({ searchParams }: PageProps) {
               </label>
 
               <label className="flex flex-col gap-1">
-                <span className="text-xs text-white sm:text-sm">
-                  Message <span className="text-red-600">*</span>
-                </span>
+<span className="text-xs text-white sm:text-sm">
+	                  Message <span className="text-red-600">*</span>
+	                  <span className="block text-[10px] font-normal text-text-tertiary dark:text-dark-text-tertiary">
+	                    Don’t worry about jargon. Just describe the pain.
+	                  </span>
+	                </span>
                 <textarea
                   name="message"
                   rows={4}
@@ -170,6 +183,9 @@ export default async function ContactPage({ searchParams }: PageProps) {
               ) : null}
 
                 <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:mt-6 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+	                <p className="text-center text-xs text-text-tertiary dark:text-dark-text-tertiary">
+	                  If you’re family (LGBTQ+ owned), tell me. I take 25% off setup fees because I know how hard it is to get started.
+	                </p>
                 <button
                   type="submit"
                   className="inline-flex items-center justify-center gap-2 rounded-md bg-accent-600 px-6 py-2.5 text-sm font-medium text-white shadow-sm hover:brightness-110"
@@ -190,7 +206,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
       </Section>
 
       <Section className="pt-0">
-        <div className="relative mx-auto mb-12 mt-10 max-w-2xl">
+        <div className="relative mx-auto mb-12 mt-10 max-w-2xl hidden">
           <BorderBeam borderWidth={2} lightWidth={360} duration={10} />
           <div className="relative rounded-xl bg-gradient-to-br from-slate-50 to-slate-100 p-8 shadow-lg dark:from-slate-800 dark:to-slate-900">
             <h3 className="mb-4 text-3xl font-bold text-slate-900 dark:text-white">

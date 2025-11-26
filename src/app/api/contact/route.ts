@@ -143,7 +143,7 @@ export async function POST(req: NextRequest) {
         timeline: sanitize(formData.get("timeline")),
         message: sanitize(formData.get("message")),
         consent: formData.get("consent")?.toString() ?? "",
-        captchaToken: sanitize(formData.get("cf-turnstile-response")),
+        // captchaToken: sanitize(formData.get("cf-turnstile-response")),
       };
     } else {
       const json = (await req.json()) as Body;
@@ -153,34 +153,7 @@ export async function POST(req: NextRequest) {
     }
 
     // Optional: verify Cloudflare Turnstile
-    // Controlled via CONTACT_ENABLE_TURNSTILE to avoid blocking
-    // submissions while Airtable integration is being verified.
-    const turnstileEnabled =
-      process.env.CONTACT_ENABLE_TURNSTILE === "1";
-    const turnstileSecret = process.env.TURNSTILE_SECRET;
-    const captchaToken = sanitize(data.captchaToken);
-    if (turnstileEnabled && turnstileSecret && captchaToken) {
-      const verifyRes = await fetch(
-        "https://challenges.cloudflare.com/turnstile/v0/siteverify",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: new URLSearchParams({
-            secret: turnstileSecret,
-            response: captchaToken,
-          }),
-        },
-      );
-      const verify = (await verifyRes.json()) as { success?: boolean };
-      if (!verify.success) {
-        return validationError(
-          "Captcha failed. Please try again.",
-          isFormPost,
-          req,
-          errorRedirect,
-        );
-      }
-    }
+
 
     const timestamp = new Date().toISOString();
     const userAgent = sanitize(req.headers.get("user-agent"));
