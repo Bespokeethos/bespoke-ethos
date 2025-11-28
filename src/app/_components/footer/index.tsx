@@ -19,8 +19,14 @@ type SocialLink = {
 const FALLBACK_NAV_LINKS: NavLink[] = [
   { title: "Home", url: "/" },
   { title: "Products", url: "/solutions" },
-  { title: "Cadence", url: "/products/cadence" },
+  { title: "Pricing", url: "/pricing" },
+  { title: "About", url: "/about" },
+  { title: "Blog", url: "/blog" },
+  { title: "FAQ", url: "/faq" },
+  { title: "LGBTQ Discount", url: "/lgbtq-discount" },
   { title: "Contact", url: "/contact" },
+  { title: "Privacy", url: "/privacy-policy" },
+  { title: "Terms", url: "/terms" },
 ];
 
 const FALLBACK_SOCIAL_LINKS: SocialLink[] = [

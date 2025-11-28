@@ -33,8 +33,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     // Blog index and legal
     { url: `${siteUrl}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.6 },
+    { url: `${siteUrl}/changelog`, lastModified: now, changeFrequency: "weekly", priority: 0.5 },
     { url: `${siteUrl}/privacy-policy`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
     { url: `${siteUrl}/terms`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
+
+    // Enterprise pages
+    { url: `${siteUrl}/enterprise/automation-fabric`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${siteUrl}/enterprise/cloud-chatbot`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${siteUrl}/enterprise/decision-room`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${siteUrl}/enterprise/reliability-ops`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+
+    // AI Chat
+    { url: `${siteUrl}/chat`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
   ];
 
   const blogRoutes: MetadataRoute.Sitemap = BLOG_POSTS.map((post) => ({
