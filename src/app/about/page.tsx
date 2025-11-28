@@ -10,7 +10,7 @@ export const revalidate = 1800;
 export const metadata: Metadata = {
   title: "About Bespoke Ethos | Small Business AI Automation",
   description:
-    "NGLCC-certified, Catalant-vetted, 5 years in AI. We take busywork; you keep control - with approvals, logs, and rollback.",
+    "NGLCC-certified, Catalant-vetted, 5 years training AI models. Tool & die technician building cognitive prosthetics for founders who need proof, not jargon.",
   alternates: { canonical: "/about" },
 };
 
@@ -20,7 +20,7 @@ export default function AboutPage() {
       <Section className="gap-5 -mt-14 md:gap-6 md:-mt-4">
         <AboutPageJsonLd />
         <AboutVideoJsonLd />
-        <div className="be-section-card space-y-6">
+        <div className="be-section-card space-y-6 page-hero-shell">
           <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "About" }]} />
 
       <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame be-video-hero shadow-xl">
@@ -42,52 +42,65 @@ export default function AboutPage() {
           <Heading subtitle="AI automation you can trust" align="left">
             <h1>About Bespoke Ethos</h1>
           </Heading>
+          <div className="pill-row">
+            <span className="pill">Tool &amp; die technician + AI trainer</span>
+            <span className="pill">NGLCC-certified</span>
+            <span className="pill">Catalant-vetted</span>
+            <span className="pill">25% LGBTQ-owned discount</span>
+          </div>
           <div className="prose max-w-none mt-6">
             <p>
-              We help small businesses reclaim time with auditable, human-in-the-loop automations. Our approach is
-              simple on purpose: map the real process first, ship in small, testable pieces, and keep you in control with
-              approvals, logs, and rollback paths so nothing disappears into a system you can&apos;t inspect.
+              I&apos;m Upton Rand—a Cleveland tool &amp; die technician by day and AI trainer by night. I spent 5+ years
+              training the same frontier models everyone is buying now, and I build automations that stay simple: static
+              sites, serverless when needed, approvals and audit trails always on.
             </p>
             <p>
-              Based in Cleveland and proudly LGBTQ-owned, we exist for the Davids, not the Goliaths: founders who want
-              modern tools without giving up judgment, ownership, or their customers&apos; trust.
+              Bespoke Ethos exists for founders who can&apos;t afford McKinsey: fixed scopes, clear prices, and a
+              90-day “break it, we fix it” safety net. NGLCC-certified, Catalant-vetted, and proudly LGBTQ-owned—with a
+              25% discount on upfront fees for LGBTQ-owned teams and a few need-based slots each year.
             </p>
           </div>
         </div>
         
-        <div className="flex items-center justify-center">
-          <div className="rounded-lg border border-border p-6 bg-surface-secondary/50">
+        <div className="rail-shell">
+          <div className="ghost-card ghost-card--soft">
             <h2 className="text-xl font-semibold mb-4">Our Credentials</h2>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
                 <span className="text-accent-500 font-bold">✓</span>
-                <span><strong>NGLCC Certified</strong> - Nationally recognized LGBTQ+ business enterprise</span>
+                <span><strong>NGLCC Certified</strong> - LGBTQ+ business enterprise with supplier diversity access</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent-500 font-bold">✓</span>
-                <span><strong>Catalant Vetted</strong> - Approved consultant on enterprise platform</span>
+                <span><strong>Catalant Vetted</strong> - Independently verified enterprise consultant</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent-500 font-bold">✓</span>
-                <span><strong>5 Years in AI</strong> - Deep experience with automation and LLMs</span>
+                <span><strong>5+ Years training AI</strong> - Human-in-the-loop model training (Appen)</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-accent-500 font-bold">✓</span>
-                <span><strong>Small Business Focus</strong> - Enterprise-grade tools at affordable prices</span>
+                <span><strong>Small Business Focus</strong> - Productized outcomes, not hourly mystery work</span>
               </li>
             </ul>
           </div>
         </div>
       </div>
 
-      <div className="mt-8 rounded-lg border border-border p-8 bg-gradient-to-br from-surface-secondary/30 to-surface-secondary/10">
-        <h2 className="text-2xl font-semibold mb-4">Our Mission</h2>
-        <p className="text-lg text-text-secondary leading-relaxed">
-          We believe small businesses deserve the same caliber of tools the Fortune 500 enjoy—without the complexity,
-          lock-in, or loss of control. Every solution we build includes human oversight, clear audit trails, and the
-          ability to roll back changes. We&apos;re not here to replace your team; we&apos;re here to give them back the
-          hours they lose to busywork so they can focus on the parts of the business only humans can do.
-        </p>
+      <div className="mt-8 rail-shell">
+        <div className="ghost-card ghost-card--soft">
+          <h2 className="text-2xl font-semibold mb-4">Why I built this</h2>
+          <p className="text-lg text-text-secondary leading-relaxed">
+            I live between two extremes: “the Torrent”—hyper-systemizing bursts where solutions click into place like
+            spinning padlocks—and the need for a steady anchor as my mother navigates Alzheimer&apos;s. I needed a
+            cognitive prosthetic before I needed it to survive. That&apos;s why everything we ship is designed to catch
+            ideas without hallucinating and to hold context without breaking trust.
+          </p>
+          <p className="text-lg text-text-secondary leading-relaxed mt-4">
+            Rust Belt roots mean we hold tight tolerances: audit trails, approvals, rollbacks, and documentation on every
+            engagement. No black-box infra, no surprise servers—just resilient workflows you can explain to your team.
+          </p>
+        </div>
       </div>
 
       <div className="mt-8">
@@ -105,26 +118,20 @@ export default function AboutPage() {
           <div className="prose max-w-none">
             <h3 className="text-xl font-semibold mt-0">Upton Rand</h3>
             <p className="text-text-secondary">
-              I built Bespoke Ethos after years of watching small businesses get handed automation and AI that felt
-              magical in the demo and chaotic in real life. Tools were powerful, but they were also opaque—no paper
-              trail, no guardrails, and no way to see how a decision was made. Raw power isn&apos;t the point. Vantage
-              points, accountability, and alignment are.
+              Tool &amp; die technician (journeyman track), AI trainer (Appen), 10 years sober, and founder who learned
+              the hard way that automation without alignment just breaks louder. I bridge manufacturing precision with
+              AI orchestration so small teams get enterprise-grade clarity without enterprise overhead.
             </p>
             <p className="text-text-secondary">
-              For the past eighteen months I&apos;ve been working hands-on with a frontier AI model that may become a
-              household name. I also run my own small business outside Bespoke Ethos, so none of these founder pressure
-              points are hypothetical. I&apos;ve seen up close how much good these systems can do—and how quickly they
-              can drift if nobody is steering for ethics and real-world impact. We&apos;ve walked away from work when
-              the intended use didn&apos;t line up with our values, and we&apos;ll keep doing that. Bespoke Ethos exists
-              to nudge the path a few degrees toward better, one project at a time.
+              Human-in-the-loop is non-negotiable: we design with bottom-up thinkers in mind (autistic/ADHD founders,
+              demisexual “slow burn” connection patterns) so your systems stay patient, consistent, and aligned to real
+              intent. We walk away from work that ignores ethics or trust.
             </p>
             <p className="text-text-secondary">
-              As a proud member of the LGBTQ+ community, I&apos;m committed to making that future accessible to the
-              Davids of the world, not just the Goliaths. Unlike shops that simply resell ChatGPT, Copilot, or Gemini,
-              we use our training and evaluation experience to choose where these tools help, where they hurt, and when
-              we should reach for something else. We offer a 25% discount on upfront project fees for LGBTQ-owned teams
-              and center clear communication over jargon. The goal is simple: AI and humans working together, with
-              small-business founders still firmly in control.
+              As an NGLCC-certified LGBTQ+ founder, I keep a 25% discount for LGBTQ-owned teams and offer productized
+              scopes that start at $997: Cadence premium chatbot, Flowstack automations, Consensus Engine research,
+              Redbridging for brittle workflows—all delivered with documentation, rollback paths, and a 90-day “break it
+              we fix it” guarantee.
             </p>
           </div>
         </div>

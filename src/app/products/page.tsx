@@ -18,7 +18,7 @@ export default function ProductsPage() {
   return (
     <main className="be-page-slate">
       <Section className="gap-5 -mt-14 md:gap-6 md:-mt-4">
-        <div className="be-section-card space-y-6">
+        <div className="be-section-card space-y-6 page-hero-shell">
           <Breadcrumbs
             items={[
               { name: "Home", href: "/" },
@@ -28,13 +28,20 @@ export default function ProductsPage() {
           <Heading subtitle="Flagship tools for founders in the thick of it" align="left">
             <h1>Small Business Solutions</h1>
           </Heading>
+          <div className="pill-row">
+            <span className="pill">Cadence Chat Concierge</span>
+            <span className="pill">Automation Runbook (Flowstack™)</span>
+            <span className="pill">Decision Briefs (Consensus Engine™)</span>
+            <span className="pill">Automation Rescue (Redbridging™)</span>
+          </div>
           <p className="max-w-2xl text-sm text-text-secondary dark:text-dark-text-secondary">
             These are the tools we reach for most often when a small-business founder asks for help: Cadence for
-            relationship-first chat, Flowstack for auditable automation, Consensus Engine for big decisions, and
-            Redbridging for keeping critical workflows from falling apart.
+            relationship-first chat, Automation Runbook for auditable automation, Decision Briefs for big decisions, and
+            Automation Rescue for keeping critical workflows from falling apart.
           </p>
-
-          <StackedProductCards />
+          <div className="rail-shell">
+            <StackedProductCards />
+          </div>
         </div>
       </Section>
     </main>

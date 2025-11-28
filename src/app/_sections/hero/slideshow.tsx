@@ -109,7 +109,7 @@ export function HeroSlideshow({ slides = defaultSlides }: { slides?: Slide[] }) 
               </figcaption>
               {/* Enhanced badge with better contrast */}
               <div className="absolute right-3 top-3 rounded-lg bg-black/80 px-3 py-2 text-xs font-medium text-white shadow-2xl backdrop-blur-md border border-white/10">
-                Enterprise-grade • Affordable • Small-business fit
+                Enterprise-grade | Affordable | Small-business fit
               </div>
             </figure>
           </div>

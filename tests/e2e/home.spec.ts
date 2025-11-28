@@ -83,8 +83,7 @@ test.describe("Home page", () => {
     const mainNav = page.getByRole("navigation", { name: /main/i });
     const productsLink = mainNav.getByRole("link", { name: /products/i });
 
-    await productsLink.hover();
-
+    await productsLink.click();
     await expect(mainNav.getByRole("link", { name: /cadence/i })).toBeVisible();
     await expect(mainNav.getByRole("link", { name: /flowstack/i })).toBeVisible();
     await expect(mainNav.getByRole("link", { name: /consensus engine/i })).toBeVisible();

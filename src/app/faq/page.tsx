@@ -30,7 +30,7 @@ const questions = [
     _analyticsKey: "faq-3",
     _title: "Which tools do you work with?",
     answer:
-      "Zapier, Make, Airtable, HubSpot, QuickBooks, Google Workspace, and more—plus custom connectors when needed. If you already have tools in place, we start there instead of ripping them out.",
+      "Zapier, Make, Jotform, Calendly, HubSpot, QuickBooks, Google Workspace, and more—plus custom connectors when needed. If you already have tools in place, we start there instead of ripping them out.",
   },
   {
     _analyticsKey: "faq-4",
@@ -82,7 +82,7 @@ export default function FaqPage() {
   return (
     <main className="be-page-slate">
       <Section className="gap-5 -mt-14 md:gap-6 md:-mt-4">
-        <div className="be-section-card space-y-6">
+        <div className="be-section-card space-y-6 page-hero-shell">
           <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "FAQ" }]} />
           <div className="relative w-full overflow-hidden rounded-2xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary be-image-frame shadow-xl">
             <div className="relative h-40 w-full sm:h-48 lg:h-56">
@@ -98,12 +98,21 @@ export default function FaqPage() {
           <Heading subtitle="Straight answers, no hype" align="left">
             <h1 className="font-hero-accent">Frequently Asked Questions</h1>
           </Heading>
+          <div className="pill-row">
+            <span className="pill">Human-in-loop approvals</span>
+            <span className="pill">Static-first · serverless when needed</span>
+            <span className="pill">25% LGBTQ-owned discount</span>
+          </div>
           <FaqJsonLd />
-          <Faq
-            heading={{ title: "Questions", subtitle: "What clients ask us most", align: "left", tag: null }}
-            layout="accordion"
-            questions={{ items: questions as any }}
-          />
+          <div className="rail-shell">
+            <div className="ghost-card ghost-card--soft">
+              <Faq
+                heading={{ title: "Questions", subtitle: "What clients ask us most", align: "left", tag: null }}
+                layout="accordion"
+                questions={{ items: questions as any }}
+              />
+            </div>
+          </div>
         </div>
       </Section>
     </main>

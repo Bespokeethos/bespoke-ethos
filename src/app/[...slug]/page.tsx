@@ -50,7 +50,7 @@ const SOLUTION_DATA = [
       {
         title: "Custom Build (2 hours)",
         description:
-          "We wire your workflow in the tools you already trust—Zapier, Make, Airtable, HubSpot, QuickBooks, and more.",
+          "We wire your workflow in the tools you already trust—Zapier, Make, Jotform, Calendly, HubSpot, QuickBooks, and more.",
       },
       {
         title: "Deploy & Iterate",
@@ -226,7 +226,7 @@ const SOLUTION_DATA = [
       "Included with Flowstack™ retainers.",
     ],
     highlights: [
-      "Covers Zapier, Make, Airtable, HubSpot, QuickBooks, and Stripe.",
+      "Covers Zapier, Make, Jotform, Calendly, HubSpot, QuickBooks, and Stripe.",
       "Real-time monitoring and alerting before clients feel the pain.",
       "Documentation and video walk-through of every remediation.",
     ],

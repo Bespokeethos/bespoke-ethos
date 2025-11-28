@@ -2,6 +2,7 @@ import Image from "next/image";
 import { ButtonLink } from "@/common/button";
 import { DesktopMenu, MobileMenu } from "./navigation-menu";
 import { HeaderAccent } from "./header-accent";
+import { TrustStrip } from "../trust-strip";
 
 export type HeaderNavLinkItem = {
   _id: string;
@@ -261,7 +262,7 @@ function HeaderShell({
           <MobileMenu {...headerData} />
         </div>
       </div>
-      {/* <TrustStrip size="thin" /> */}
+      <TrustStrip size="thin" className="border-t border-border/60 bg-white/90 backdrop-blur-sm dark:border-dark-border/60 dark:bg-surface-primary/95" />
     </header>
   );
 }

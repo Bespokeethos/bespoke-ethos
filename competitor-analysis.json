@@ -1,0 +1,82 @@
+I don't have browsing capabilities to perform live searches. However, I can provide a detailed example of how to analyze the top 5 competitor websites for "Cleveland AI consulting firms" and "Northeast Ohio business automation services" based on typical industry patterns and best practices. You can then apply this template to your actual competitors.
+
+---
+
+```json
+{
+  "competitors_analysis": [
+    {
+      "name": "AI Cleveland Consulting",
+      "hero_copy_structure": {
+        "headline": "Unlock Your Business Potential with AI-Driven Solutions",
+        "subheadline": "Custom AI consulting services tailored for Northeast Ohio companies.",
+        "value_proposition": "Boost efficiency, reduce costs, and innovate with our expert AI team."
+      },
+      "pricing_transparency": "hidden",
+      "social_proof_placement": "Homepage below hero section featuring client logos and testimonials",
+      "cta_language": "Get Your Free AI Strategy Session",
+      "service_positioning": "SMB-focused with some enterprise clients"
+    },
+    {
+      "name": "Northeast Ohio Automation Experts",
+      "hero_copy_structure": {
+        "headline": "Automate Your Business Processes Seamlessly",
+        "subheadline": "Leading automation services for SMBs and enterprises in Northeast Ohio.",
+        "value_proposition": "Save time and money with our cutting-edge automation technology."
+      },
+      "pricing_transparency": "upfront - starting at $5,000 per project",
+      "social_proof_placement": "Homepage sidebar with rotating testimonials",
+      "cta_language": "Request a Demo Today",
+      "service_positioning": "Balanced SMB and enterprise focus"
+    },
+    {
+      "name": "Cleveland AI & Automation Solutions",
+      "hero_copy_structure": {
+        "headline": "AI and Automation Tailored for Your Industry",
+        "subheadline": "Helping Cleveland businesses innovate through intelligent automation.",
+        "value_proposition": "From strategy to implementation, we deliver measurable ROI."
+      },
+      "pricing_transparency": "hidden",
+      "social_proof_placement": "Dedicated 'Case Studies' page linked prominently in the hero area",
+      "cta_language": "Schedule a Consultation",
+      "service_positioning": "Enterprise-focused"
+    },
+    {
+      "name": "SmartOps Northeast Ohio",
+      "hero_copy_structure": {
+        "headline": "Transform Your Operations with AI & Automation",
+        "subheadline": "Expert consulting for SMBs looking to scale efficiently.",
+        "value_proposition": "Innovative solutions that streamline workflows and increase productivity."
+      },
+      "pricing_transparency": "hidden",
+      "social_proof_placement": "Homepage footer with client testimonials and trust badges",
+      "cta_language": "Contact Us for a Custom Quote",
+      "service_positioning": "SMB-focused"
+    },
+    {
+      "name": "NextGen AI Consulting",
+      "hero_copy_structure": {
+        "headline": "Next-Level AI Consulting for Northeast Ohio Businesses",
+        "subheadline": "Enterprise-grade AI and automation services with a personal touch.",
+        "value_proposition": "Drive growth with scalable, secure AI solutions designed for your needs."
+      },
+      "pricing_transparency": "upfront - pricing tiers displayed on pricing page",
+      "social_proof_placement": "Homepage hero carousel featuring client success stories",
+      "cta_language": "Start Your AI Journey Today",
+      "service_positioning": "Enterprise-focused"
+    }
+  ]
+}
+```
+
+---
+
+### Explanation:
+
+- **Hero copy structure**: Includes headline, subheadline, and value proposition to understand messaging hierarchy.
+- **Pricing transparency**: Notes if pricing is openly displayed or requires contact.
+- **Social proof placement**: Where testimonials, logos, or case studies appear.
+- **CTA language**: The exact call-to-action phrasing used.
+- **Service positioning**: Whether the firm targets SMBs, enterprises, or both.
+
+If you provide URLs or specific competitor names, I can help you analyze their content based on the data you share.

@@ -53,7 +53,7 @@ export function AlexMollyStory() {
                   ✦ Real Student. Real Results.
                 </h2>
                 <h3 className="mt-3 text-4xl md:text-5xl font-black tracking-tight text-text-primary dark:text-dark-text-primary font-hero-accent">
-                  Alex's B+ Changed Everything.
+                  Alex&rsquo;s B+ Changed Everything.
                 </h3>
               </div>
 
@@ -62,7 +62,7 @@ export function AlexMollyStory() {
                   Alex from Orock Brewery in Michigan has dyslexia. After years away from school, he decided to return and reach out to us for help with statistics. We built <span className="font-semibold text-text-primary dark:text-dark-text-primary">Molly</span>—a custom AI tutor that adapts to his pace and humor.
                 </p>
                 <p>
-                  Weeks later, Alex walked into finals carrying a <span className="font-bold text-accent-600 dark:text-accent-400">B+</span>. For someone who grew up with dyslexia, that's not just a grade—it's proof that the right tools unlock potential.
+                  Weeks later, Alex walked into finals carrying a <span className="font-bold text-accent-600 dark:text-accent-400">B+</span>. For someone who grew up with dyslexia, that&rsquo;s not just a grade—it&rsquo;s proof that the right tools unlock potential.
                 </p>
               </div>
 
@@ -81,7 +81,7 @@ export function AlexMollyStory() {
                     />
                   </div>
                   <p className="text-lg text-text-primary dark:text-dark-text-primary font-semibold leading-relaxed pt-2">
-                    We get where founders are coming from because we've been there. Human proof matters.
+                    We get where founders are coming from because we&apos;ve been there. Human proof matters.
                   </p>
                 </div>
               </div>

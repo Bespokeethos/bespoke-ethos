@@ -182,8 +182,8 @@ export const BLOG_POSTS: BlogPost[] = [
           <p>If you’re not sure which workflow to pick, here are three “starter automations” we routinely implement:</p>
           <ul>
             <li>
-              <strong>Intake + triage for service businesses.</strong> Form submissions flow into Airtable, get tagged by service type, and
-              auto-create tasks in your project tool—no more hunting through inbox folders.
+              <strong>Intake + triage for service businesses.</strong> Form submissions flow through Jotform, get tagged by service type, and
+              auto-create tasks in your project tool-no more hunting through inbox folders.
             </li>
             <li>
               <strong>Invoice and payment hygiene.</strong> When an invoice is paid, customer records update automatically, follow-up sequences
@@ -286,7 +286,7 @@ export const BLOG_POSTS: BlogPost[] = [
           <ul>
             <li>Add alerts when a Zap or scenario errors more than a few times in a row.</li>
             <li>Introduce “circuit breakers” that stop automation instead of looping on bad input.</li>
-            <li>Log every run into Airtable or your database for easier forensics next time.</li>
+            <li>Log every run into your database or data warehouse for easier forensics next time.</li>
           </ul>
 
           <h2>When to Bring in Redbridging™</h2>
@@ -365,7 +365,7 @@ export const BLOG_POSTS: BlogPost[] = [
 
           <h2>Where Cadence™ Fits in Your Business</h2>
           <p>
-            Cadence™ plays nicely with tools you already use. It can collect leads into Airtable, create tickets, and
+            Cadence™ plays nicely with tools you already use. It can collect leads from Jotform, create tickets, and
             hand off to humans via email or your help desk—no custom platform required.
           </p>
 
@@ -401,3 +401,4 @@ export function getAllPosts() {
 export function getPostBySlug(slug: string) {
   return BLOG_POSTS.find((post) => post.slug === slug);
 }
+

@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { IconBrandLinkedin } from "@tabler/icons-react";
 
-import { ThemeSwitcher } from "../theme-switcher";
 import { ButtonLink } from "@/common/button";
 import { DarkLightImageAutoscale } from "@/common/dark-light-image";
 

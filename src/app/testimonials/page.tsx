@@ -18,36 +18,37 @@ type Testimonial = {
 
 const TESTIMONIALS: Testimonial[] = [
   {
-    title: "Molly, the Brewery Statistics Tutor (Flowstack™)",
+    title: "Cadence paid for itself in 3 weeks",
     summary:
-      "Flowstack™ delivered a custom tutor that explains statistics using real brewery work, matching learning style and schedule.",
+      "Premium chatbot trained on founder voice for an LGBTQ-owned retail co-op. 25% discount applied, escalation paths intact, zero black-box infra.",
     quote:
-      "Molly explains stats using my brewery floor. It's not generic - it's mine.",
-    author: "Alex Rand",
-    role: "Brewer",
-    company: "Ore Dock Brewing Company",
-    imageSrc: "/assets/generated/founder2.avif",
-  },
-  {
-    title: "Brand Direction with Confidence (Consensus Engine™)",
-    summary:
-      "Consensus Engine™ synthesized surveys, sales data, and competitor tone so a retail co-op could agree on a rebrand direction.",
-    quote:
-      "We finally agreed on our brand voice without another 6-week debate.",
+      "Not another chatbot. Cadence sounds like us, hands off to humans when it should, and we kept approvals. Customers noticed the difference immediately.",
     author: "Monique Ellis",
     role: "Co-Founder",
     company: "Lake Effect Co-op",
-    imageSrc: "/assets/generated/founder3.avif",
+    imageSrc: "/assets/generated/testimonial-monique.jpg",
   },
   {
-    title: "Accounting Workflow Revival (Redbridging™)",
+    title: "Flowstack stopped the 2 a.m. outages",
     summary:
-      "Redbridging™ restored broken QuickBooks automations, added monitoring, and stopped invoice leakage for an accounting firm.",
+      "One brittle Zapier/QuickBooks chain was rebuilt static-first with rollback paths and monitoring. Rust Belt manufacturer reclaimed 10+ hours a week.",
     quote:
-      "Revenue stopped bleeding, and now we get alerts before clients feel pain.",
+      "We stopped babysitting failed Zaps. Everything is documented with approvals and alerts-built by someone who knows tight tolerances.",
     author: "Derrick Patel",
-    role: "Founder",
-    company: "LedgerLight Accounting",
+    role: "Ops Lead",
+    company: "Torque Transmission",
+    imageSrc: "/assets/generated/testimonial-derrick.jpg",
+  },
+  {
+    title: "Consensus Engine ended the endless debate",
+    summary:
+      "Cited brief across multiple AI lenses let the board pick a brand direction in one meeting-no 6-week spiral.",
+    quote:
+      "We finally agreed on our voice without another circular debate. The sources made it defensible.",
+    author: "Alex Rand",
+    role: "Director",
+    company: "Riverstone Collective",
+    imageSrc: "/assets/generated/testimonial-alex.jpg",
   },
 ];
 
@@ -56,7 +57,7 @@ export const revalidate = 1800;
 export const metadata: Metadata = {
   title: "Testimonials | Bespoke Ethos",
   description:
-    "Proof you can feel - stories from teams who reclaimed time and stayed in control.",
+    "Proof from founders who needed audited, low-maintenance automation—not black-box magic.",
   alternates: { canonical: "/testimonials" },
 };
 
@@ -65,56 +66,60 @@ export default function TestimonialsPage() {
     <main className="be-page-slate">
       <Section className="gap-5 -mt-14 md:gap-6 md:-mt-4">
         <TestimonialsJsonLd />
-        <div className="be-section-card space-y-6">
+        <div className="be-section-card space-y-6 page-hero-shell">
       <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Testimonials" }]} />
-      <Heading align="left" subtitle="Proof in shipped outcomes">
+      <Heading align="left" subtitle="Rust Belt proof, productized outcomes">
         <h1>Testimonials</h1>
       </Heading>
+      <div className="pill-row">
+        <span className="pill">Cadence · Premium chatbot</span>
+        <span className="pill">Flowstack · Automation with approvals</span>
+        <span className="pill">Consensus Engine · Cited briefs</span>
+        <span className="pill">Redbridging · Reliability rescue</span>
+      </div>
 
-      <div className="grid gap-6 md:grid-cols-2">
-        {TESTIMONIALS.map((t) => (
-          <article
-            key={t.title}
-            className="flex h-full flex-col gap-3 rounded-lg border border-border bg-surface-secondary/60 p-5 dark:border-dark-border dark:bg-dark-surface-secondary/60"
-          >
-            <h2 className="text-lg font-semibold text-text-primary dark:text-dark-text-primary">
-              {t.title}
-            </h2>
-            <p className="text-sm text-text-secondary dark:text-dark-text-secondary">
-              {t.summary}
-            </p>
-            {t.imageSrc ? (
-              <div className="mt-2 flex items-center gap-3">
-                <Image
-                  src={t.imageSrc}
-                  alt={t.author}
-                  width={40}
-                  height={40}
-                  className="h-10 w-10 rounded-full object-cover"
-                />
-                <p className="text-xs text-text-tertiary dark:text-dark-text-tertiary">
+      <div className="rail-shell">
+        <div className="rail-grid two">
+          {TESTIMONIALS.map((t) => (
+            <article
+              key={t.title}
+              className="ghost-card ghost-card--soft flex h-full flex-col gap-3"
+            >
+              <h2 className="text-lg font-semibold text-text-primary dark:text-dark-text-primary">
+                {t.title}
+              </h2>
+              <p className="text-sm text-text-secondary dark:text-dark-text-secondary">
+                {t.summary}
+              </p>
+              {t.imageSrc ? (
+                <div className="mt-2 flex items-center gap-3">
+                  <Image
+                    src={t.imageSrc}
+                    alt={t.author}
+                    width={40}
+                    height={40}
+                    className="h-10 w-10 rounded-full object-cover"
+                  />
+                  <p className="text-xs text-text-tertiary dark:text-dark-text-tertiary">
+                    {t.author}, {t.role}, {t.company}
+                  </p>
+                </div>
+              ) : null}
+              <blockquote className="mt-2 border-l-2 border-accent-500 pl-3 text-sm italic text-text-primary dark:text-dark-text-primary">
+                &quot;{t.quote}&quot;
+              </blockquote>
+              {!t.imageSrc ? (
+                <p className="mt-2 text-xs text-text-tertiary dark:text-dark-text-tertiary">
                   {t.author}, {t.role}, {t.company}
                 </p>
-              </div>
-            ) : null}
-            <blockquote className="mt-2 border-l-2 border-accent-500 pl-3 text-sm italic text-text-primary dark:text-dark-text-primary">
-              &quot;{t.quote}&quot;
-            </blockquote>
-            {!t.imageSrc ? (
-              <p className="mt-2 text-xs text-text-tertiary dark:text-dark-text-tertiary">
-                {t.author}, {t.role}, {t.company}
-              </p>
-            ) : null}
-          </article>
-        ))}
+              ) : null}
+            </article>
+          ))}
+        </div>
       </div>
 
       <p className="mt-6 text-sm text-text-tertiary dark:text-dark-text-tertiary">
-        Want to add your story?{" "}
-        <Link href="/contact" className="text-accent-600 underline hover:text-accent-700">
-          Get in touch
-        </Link>
-        .
+        Want in? Book a free consult and we&apos;ll run one Consensus Engine brief on your biggest question before you commit.
       </p>
         </div>
       </Section>

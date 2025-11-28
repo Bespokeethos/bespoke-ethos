@@ -1,5 +1,10 @@
+"use client";
+
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 import type { Metadata } from "next";
+import { motion } from "framer-motion";
 
 import { Breadcrumbs } from "@/app/_components/seo/breadcrumbs";
 import Image from "next/image";
@@ -7,299 +12,153 @@ import { Section } from "@/common/layout";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { SuccessNotice } from "./success-notice";
 
-// Render on each request to honor querystring messages like ?sent=1
-export const dynamic = "force-dynamic";
-
-export const metadata: Metadata = {
-  title: "Contact Bespoke Ethos | Talk About Your Automation Project",
-  description:
-    "Tell us about your small business and where you’re stuck with automation or AI. We usually respond within one business day with honest, practical next steps.",
-  alternates: { canonical: "/contact" },
-};
-
-type PageProps = {
-  searchParams?: Promise<{ sent?: string; error?: string; service?: string }>;
-};
-
-export default async function ContactPage({ searchParams }: PageProps) {
-  const params = (await searchParams) ?? {};
-  const sent = params.sent === "1";
-  const error = params.error;
-  const service = params.service;
+function ContactForm() {
+  const searchParams = useSearchParams();
+  const sent = searchParams.get("sent") === "1";
+  const error = searchParams.get("error");
+  const service = searchParams.get("service");
   const isLlmSetup = service === "llm-setups";
 
   return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+      className="be-section-card space-y-6 page-hero-shell"
+    >
+      <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Contact" }]} />
+
+      {/* Mobile hero heading above the card */}
+      <div className="space-y-1 text-center md:hidden">
+        <p className="inline-flex rounded-full bg-surface-secondary px-3 py-1 text-[11px] font-medium tracking-tight text-text-secondary dark:bg-dark-surface-secondary dark:text-dark-text-secondary">
+          {isLlmSetup ? "Automation setups · Tool mapping · Guardrails" : "Productized AI · Fixed scopes · No enterprise fluff"}
+        </p>
+        <h1 className="font-hero-accent text-balance text-[1.5rem] font-semibold leading-snug">
+          {isLlmSetup ? "Let’s map your AI tools the right way." : "Fix the bottleneck, keep the lights on."}
+        </h1>
+      </div>
+
+      <div className="grid w-full items-start gap-4 -mt-2 sm:gap-8 sm:-mt-2 md:mt-0 md:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] md:items-stretch">
+        <div className="space-y-5 text-left md:block md:space-y-6">
+          <p className="inline-flex rounded-full bg-surface-secondary px-3 py-1 text-xs font-medium tracking-tight text-text-secondary dark:bg-dark-surface-secondary dark:text-dark-text-secondary">
+            {isLlmSetup ? "Automation setups · Tool mapping · Guardrails" : "Productized AI · 25% LGBTQ discount · Founder-run"}
+          </p>
+
+          <div className="space-y-3">
+            <h1 className="font-hero-accent text-balance text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl">
+              {isLlmSetup ? "Let’s map your AI tools the right way." : "Fix the thing that’s keeping you up at night."}
+            </h1>
+            <div className="pill-row">
+              <span className="pill">Static-first · serverless when required</span>
+              <span className="pill">Human replies · no AI auto-responder</span>
+              <span className="pill">25% LGBTQ-owned discount</span>
+            </div>
+            <p className="text-base leading-relaxed text-text-secondary dark:text-dark-text-secondary">
+              No decks, no enterprise retainers. Tell me what’s broken, what tools you use, and your budget ceiling. I’ll reply with a
+              yes/no, a price, and the fastest path using static/serverless, audited builds.
+              <div className="mt-2 flex flex-wrap items-center gap-2 text-left">
+                <Image
+                  src="/founder-upton-rand.jpg"
+                  alt="Upton Rand, Founder."
+                  width={32}
+                  height={32}
+                  className="shrink-0 rounded-full object-cover"
+                />
+                <span className="inline-block max-w-[38ch] text-pretty sm:max-w-none">
+                  Tool &amp; die tech + AI trainer. I read every note and will tell you if a $20 tool is all you need.
+                </span>
+              </div>
+            </p>
+
+            {isLlmSetup ? (
+              <div className="rounded-2xl border border-border bg-surface-secondary/80 p-4 text-sm text-text-secondary shadow-sm dark:border-dark-border dark:bg-dark-surface-secondary/80 dark:text-dark-text-secondary space-y-2">
+                <p className="font-semibold text-text-primary dark:text-dark-text-primary">
+                  You&rsquo;re asking about automation & AI tool mapping.
+                </p>
+                <p>
+                  Tell me where your data lives (docs, CRM, tools), who needs access, and what’s breaking. I’ll outline 1-2 setup options
+                  and costs—favoring static/serverless so maintenance stays low.
+                </p>
+                <ul className="mt-3 list-disc space-y-1 pl-5 text-xs text-text-tertiary dark:text-dark-text-tertiary">
+                  <li>Mention 2-3 workflows you’d love to hand off (intake, reporting, support triage).</li>
+                  <li>If you have broken Zaps/Scenarios, link them; I’ll include a rescue plan.</li>
+                  <li>Want Cadence chatbot? Note tone/FAQ sources you’d train on.</li>
+                </ul>
+              </div>
+            ) : (
+              <div className="rounded-2xl border border-border bg-surface-secondary/80 p-4 text-sm text-text-secondary shadow-sm dark:border-dark-border dark:bg-dark-surface-secondary/80 dark:text-dark-text-secondary">
+                <p className="font-semibold text-text-primary dark:text-dark-text-primary">
+                  What happens after you hit “Send”?
+                </p>
+                <ul className="mt-2 list-disc space-y-1 pl-5 text-xs md:text-sm">
+                  <li>I read and reply—no AI auto-responder.</li>
+                  <li>Plain-English response within one business day with a price or a no-go.</li>
+                  <li>If it&apos;s not a fit, I&apos;ll still point you to a cheaper/faster option.</li>
+                </ul>
+              </div>
+            )}
+
+            <div className="rounded-xl border-2 border-accent-400/60 bg-gradient-to-br from-accent-50/90 to-orange-50/80 dark:from-accent-900/40 dark:to-orange-900/30 p-5 text-sm text-text-primary dark:text-dark-text-primary shadow-md dark:border-accent-600/50">
+              <p className="leading-relaxed">
+                <strong className="font-bold text-accent-700 dark:text-accent-300">LGBTQ+ discount:</strong>{" "}
+                If you&apos;re an LGBTQ+-owned business, mention it in your message. You may qualify for{" "}
+                <span className="font-bold text-accent-600 dark:text-accent-400">25% off upfront project costs</span> (not subscriptions).
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="be-form-glass-card max-w-md w-full mx-auto md:max-w-none md:mx-0 sm:p-6">
+        {sent ? (
+          <div className="mb-6 rounded-md border border-green-700/30 bg-green-500/10 p-4 text-sm text-green-700 dark:border-green-300/20 dark:text-green-300">
+            <p className="font-medium">Got it. I’m reading this shortly. No auto‑responder, just me.</p>
+            <SuccessNotice />
+          </div>
+        ) : null}
+
+        {/* Jotform Embed */}
+        <div className="w-full overflow-hidden rounded-2xl shadow-[0_12px_40px_rgba(0,0,0,0.12),0_4px_18px_rgba(0,0,0,0.06)]">
+          <iframe
+            id="JotFormIFrame-253292960463058"
+            title="Bespoke Ethos Contact Form"
+            allowFullScreen
+            allow="geolocation; microphone; camera"
+            src="https://form.jotform.com/253292960463058"
+            frameBorder="0"
+            style={{
+              minWidth: "100%",
+              minHeight: "640px",
+              height: "700px",
+              border: "none",
+              display: "block",
+            }}
+          />
+          <script type="text/javascript" dangerouslySetInnerHTML={{ __html: `(function() { var formId = "253292960463058"; var iframeId = "JotFormIFrame-" + formId; var ifr = document.getElementById(iframeId); if (!ifr) return; var src = ifr.src.split("?")[0]; var iframeParams = []; if (window.location.search.length > 1) { iframeParams = iframeParams.concat(window.location.search.substring(1).split('&')); } if (iframeParams.length) { ifr.src = src + "?" + iframeParams.join('&'); } var handleMessage = function(e) { if (!e.data || typeof e.data !== "string") return; var args = e.data.split(":"); if (args.length > 2 && args[0] === formId) { var command = args[1]; var value = args[2]; if (command === "setHeight") { var newHeight = Number(value); if (!isNaN(newHeight) && newHeight > 0) { ifr.style.height = newHeight + "px"; } } if (command === "scrollIntoView") { try { if (typeof window.scrollTo === "function") { window.scrollTo(0, 0); } } catch (_) {} } } }; window.addEventListener("message", handleMessage, false); ifr.addEventListener("load", function() { try { if (window.parent && typeof window.parent.scrollTo === "function") { window.parent.scrollTo(0, 0); } } catch (_) {} }, { once: true }); })();` }} />
+        </div>
+
+        <p className="mt-4 text-center text-xs text-text-tertiary dark:text-dark-text-tertiary">
+          If you’re family (LGBTQ+ owned), tell me. I take 25% off setup fees because I know how hard it is to get started.
+        </p>
+
+        {/* Legacy form removed */}
+      </div>
+      </div>
+    </motion.div>
+  );
+}
+
+
+export default function ContactPage() {
+  return (
     <main className="be-page-slate">
       <ContactPageJsonLd />
-
       <Section className="gap-5 -mt-14 md:gap-6 md:-mt-4">
-        <div className="be-section-card space-y-6">
-          <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Contact" }]} />
-
-          {/* Mobile hero heading above the card */}
-          <div className="space-y-1 text-center md:hidden">
-            <p className="inline-flex rounded-full bg-surface-secondary px-3 py-1 text-[11px] font-medium tracking-tight text-text-secondary dark:bg-dark-surface-secondary dark:text-dark-text-secondary">
-              {isLlmSetup ? "Automation setups · Tool mapping · Guardrails" : "Small business automation · Founder-friendly"}
-            </p>
-            <h1 className="font-hero-accent text-balance text-[1.5rem] font-semibold leading-snug">
-              {isLlmSetup ? "Let&rsquo;s map your AI tools the right way." : "Let’s fix the thing that’s keeping you up at night."}
-            </h1>
-          </div>
-
-          <div className="grid w-full items-start gap-4 -mt-2 sm:gap-8 sm:-mt-2 md:mt-0 md:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)] md:items-stretch">
-            <div className="space-y-5 text-left md:block md:space-y-6">
-              <p className="inline-flex rounded-full bg-surface-secondary px-3 py-1 text-xs font-medium tracking-tight text-text-secondary dark:bg-dark-surface-secondary dark:text-dark-text-secondary">
-                {isLlmSetup ? "Automation setups · Tool mapping · Guardrails" : "Small business automation • Founder-friendly"}
-              </p>
-
-              <div className="space-y-3">
-                <h1 className="font-hero-accent text-balance text-2xl font-semibold tracking-tight sm:text-3xl md:text-4xl">
-                  {isLlmSetup ? "Let&rsquo;s map your AI tools the right way." : "Let’s fix the thing that’s keeping you up at night."}
-                </h1>
-                <p className="text-base leading-relaxed text-text-secondary dark:text-dark-text-secondary">
-                  You don&rsquo;t need a 40‑page deck. You need to know if this is fixable and what it costs. Tell me what’s broken.
-                  <div className="mt-2 flex flex-wrap items-center gap-2 text-left">
-                    <Image
-                      src="/founder-upton-rand.jpg"
-                      alt="Upton Rand, Founder."
-                      width={32}
-                      height={32}
-                      className="shrink-0 rounded-full object-cover"
-                    />
-                    <span className="inline-block max-w-[38ch] text-pretty sm:max-w-none">
-                      I read every email myself, and I’ll give you a straight answer—even if that answer is ‘don’t hire me, use this $20 tool instead.’
-                    </span>
-                  </div>
-                </p>
-
-                {isLlmSetup ? (
-                  <div className="rounded-2xl border border-border bg-surface-secondary/80 p-4 text-sm text-text-secondary shadow-sm dark:border-dark-border dark:bg-dark-surface-secondary/80 dark:text-dark-text-secondary space-y-2">
-                    <p className="font-semibold text-text-primary dark:text-dark-text-primary">
-                      You&rsquo;re asking about automation & AI tool mapping.
-                    </p>
-                    <p>
-                      Use the message box to tell us where your data lives (docs, CRM, tools), who needs access, and what&rsquo;s
-                      breaking today. We&rsquo;ll outline 1-2 setup options and what they&rsquo;d cost-using tools that fit your size
-                      and budget.
-                    </p>
-                    <ul className="mt-3 list-disc space-y-1 pl-5 text-xs text-text-tertiary dark:text-dark-text-tertiary">
-                      <li>Mention 2-3 workflows you&rsquo;d love to hand off (intake, reporting, customer support triage, etc.).</li>
-                      <li>If you have broken Zaps/Scenarios, link them and we&rsquo;ll include a &quot;rescue plan.&quot;</li>
-                    </ul>
-                  </div>
-                ) : (
-                  <div className="rounded-2xl border border-border bg-surface-secondary/80 p-4 text-sm text-text-secondary shadow-sm dark:border-dark-border dark:bg-dark-surface-secondary/80 dark:text-dark-text-secondary">
-                    <p className="font-semibold text-text-primary dark:text-dark-text-primary">
-                      What happens after you hit &quot;Send&quot;?
-                    </p>
-                    <ul className="mt-2 list-disc space-y-1 pl-5 text-xs md:text-sm">
-                      <li>We read every message ourselves-no AI auto-replies.</li>
-                      <li>You&rsquo;ll get a plain-English response within one business day.</li>
-                      <li>If there&rsquo;s a fit, we&rsquo;ll suggest a call; if not, we&rsquo;ll still point you in the right direction.</li>
-                    </ul>
-                  </div>
-                )}
-
-                <div className="rounded-xl border-2 border-accent-400/60 bg-gradient-to-br from-accent-50/90 to-orange-50/80 dark:from-accent-900/40 dark:to-orange-900/30 p-5 text-sm text-text-primary dark:text-dark-text-primary shadow-md dark:border-accent-600/50">
-                  <p className="leading-relaxed">
-                    <strong className="font-bold text-accent-700 dark:text-accent-300">LGBTQ+ discount:</strong>{" "}
-                    If you're an LGBTQ+-owned business, mention it in your message. You may qualify for{" "}
-                    <span className="font-bold text-accent-600 dark:text-accent-400">25% off upfront project costs</span> (not subscriptions).
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="be-form-glass-card max-w-md w-full mx-auto md:max-w-none md:mx-0 sm:p-6">
-            {sent ? (
-              <div className="mb-6 rounded-md border border-green-700/30 bg-green-500/10 p-4 text-sm text-green-700 dark:border-green-300/20 dark:text-green-300">
-                <p className="font-medium">Got it. I’m reading this shortly. No auto‑responder, just me.</p>
-                <p className="mt-1 opacity-90">We’ll get back to you soon. Redirecting to the homepage.</p>
-                <SuccessNotice />
-              </div>
-            ) : null}
-
-            {/* Jotform Embed */}
-            <div className="w-full overflow-hidden rounded-2xl shadow-[0_12px_40px_rgba(0,0,0,0.12),0_4px_18px_rgba(0,0,0,0.06)]">
-              <iframe
-                id="JotFormIFrame-253292960463058"
-                title="Bespoke Ethos Contact Form"
-                allowFullScreen
-                allow="geolocation; microphone; camera"
-                src="https://form.jotform.com/253292960463058"
-                frameBorder="0"
-                style={{
-                  minWidth: "100%",
-                  minHeight: "640px",
-                  height: "700px",
-                  border: "none",
-                  display: "block",
-                }}
-              />
-              <script type="text/javascript">
-                {`(function() {
-                  var formId = "253292960463058";
-                  var iframeId = "JotFormIFrame-" + formId;
-                  var ifr = document.getElementById(iframeId);
-                  if (!ifr) return;
-
-                  var src = ifr.src.split("?")[0];
-                  var iframeParams = [];
-                  if (window.location.search.length > 1) {
-                    iframeParams = iframeParams.concat(window.location.search.substring(1).split('&'));
-                  }
-                  if (iframeParams.length) {
-                    ifr.src = src + "?" + iframeParams.join('&');
-                  }
-
-                  var handleMessage = function(e) {
-                    if (!e.data || typeof e.data !== "string") return;
-                    var args = e.data.split(":");
-                    if (args.length > 2 && args[0] === formId) {
-                      var command = args[1];
-                      var value = args[2];
-
-                      if (command === "setHeight") {
-                        var newHeight = Number(value);
-                        if (!isNaN(newHeight) && newHeight > 0) {
-                          ifr.style.height = newHeight + "px";
-                        }
-                      }
-
-                      if (command === "scrollIntoView") {
-                        try {
-                          if (typeof window.scrollTo === "function") {
-                            window.scrollTo(0, 0);
-                          }
-                        } catch (_) {}
-                      }
-                    }
-                  };
-
-                  window.addEventListener("message", handleMessage, false);
-                  ifr.addEventListener("load", function() {
-                    try {
-                      if (window.parent && typeof window.parent.scrollTo === "function") {
-                        window.parent.scrollTo(0, 0);
-                      }
-                    } catch (_) {}
-                  }, { once: true });
-                })();`}
-              </script>
-            </div>
-
-            {/* Legacy form - hidden but kept for fallback */}
-            <form method="post" action="/api/contact" className="hidden grid grid-cols-1 gap-3 sm:gap-4">
-              <input type="hidden" name="successRedirect" value="/contact?sent=1" />
-              <input type="hidden" name="errorRedirect" value="/contact?error=1" />
-
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                <label className="flex flex-col gap-1">
-                  <span className="text-xs text-white sm:text-sm">
-                    Name <span className="text-red-600">*</span>
-                  </span>
-                  <input
-                    name="name"
-                    type="text"
-                    required
-                    className="rounded-md border border-border bg-surface-primary px-3 py-2 outline-none ring-0 focus:border-accent-primary/60 dark:border-dark-border dark:bg-dark-surface-primary"
-                  />
-                </label>
-                <label className="flex flex-col gap-1">
-                  <span className="text-xs text-white sm:text-sm">
-                    Email <span className="text-red-600">*</span>
-                  </span>
-                  <input
-                    name="email"
-                    type="email"
-                    required
-                    className="rounded-md border border-border bg-surface-primary px-3 py-2 outline-none ring-0 focus:border-accent-primary/60 dark:border-dark-border dark:bg-dark-surface-primary"
-                  />
-                </label>
-              </div>
-
-              <label className="flex flex-col gap-1">
-                <span className="text-xs text-white sm:text-sm">Phone (optional)</span>
-                <input
-                  name="phone"
-                  type="tel"
-                  placeholder="If you&rsquo;d like us to call you back"
-                  className="rounded-md border border-border bg-surface-primary px-3 py-2 outline-none ring-0 focus:border-accent-primary/60 dark:border-dark-border dark:bg-dark-surface-primary"
-                />
-              </label>
-
-              <label className="flex flex-col gap-1">
-<span className="text-xs text-white sm:text-sm">
-	                  Message <span className="text-red-600">*</span>
-	                  <span className="block text-[10px] font-normal text-text-tertiary dark:text-dark-text-tertiary">
-	                    Don’t worry about jargon. Just describe the pain.
-	                  </span>
-	                </span>
-                <textarea
-                  name="message"
-                  rows={4}
-                  placeholder="Tell us what&rsquo;s on your plate and what a win would look like."
-                  required
-                  minLength={10}
-                  className="rounded-md border border-border bg-surface-primary px-3 py-2 outline-none ring-0 focus:border-accent-primary/60 dark:border-dark-border dark:bg-dark-surface-primary"
-                />
-              </label>
-
-              <label className="mt-2 flex items-start gap-2 text-sm text-white">
-                <input name="consent" type="checkbox" value="yes" className="mt-1" />
-                <span>You agree we may contact you about this request. We’ll never share your email.</span>
-              </label>
-
-              {error ? (
-                <p className="text-sm text-red-600 dark:text-red-400">Failed to send. Please try again.</p>
-              ) : null}
-
-                <div className="mt-4 flex flex-col items-center justify-center gap-3 sm:mt-6 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
-	                <p className="text-center text-xs text-text-tertiary dark:text-dark-text-tertiary">
-	                  If you’re family (LGBTQ+ owned), tell me. I take 25% off setup fees because I know how hard it is to get started.
-	                </p>
-                <button
-                  type="submit"
-                  className="inline-flex items-center justify-center gap-2 rounded-md bg-accent-600 px-6 py-2.5 text-sm font-medium text-white shadow-sm hover:brightness-110"
-                >
-                  Send message
-                </button>
-                <Link
-                  className="text-center text-sm text-white underline-offset-4 hover:underline"
-                  href="https://calendly.com/contact-bespokeethos/30min"
-                >
-                  Prefer to book a call?
-                </Link>
-              </div>
-            </form>
-          </div>
-        </div>
-        </div>
-      </Section>
-
-      <Section className="pt-0">
-        <div className="relative mx-auto mb-12 mt-10 max-w-2xl hidden">
-          <BorderBeam borderWidth={2} lightWidth={360} duration={10} />
-          <div className="relative rounded-xl bg-gradient-to-br from-slate-50 to-slate-100 p-8 shadow-lg dark:from-slate-800 dark:to-slate-900">
-            <h3 className="mb-4 text-3xl font-bold text-slate-900 dark:text-white">
-              25% Off for LGBTQ+ Businesses
-            </h3>
-            <p className="mb-6 text-lg text-slate-700 dark:text-slate-300">
-              Starting a business as a minority is hard as hell. I know&mdash;I&apos;ve been there.
-              That&apos;s why LGBTQ-owned businesses get 25% off upfront project costs on approved scopes.
-              No hoops, no fine print. Just mention it when you reach out.
-            </p>
-            <Link
-              href="/lgbtq-discount"
-              className="inline-flex items-center rounded-lg bg-white px-8 py-3 text-sm font-semibold text-slate-900 shadow-md transition-colors duration-200 hover:bg-slate-100 dark:bg-slate-900 dark:text-white dark:hover:bg-slate-800"
-            >
-              Learn More About Our Commitment
-            </Link>
-          </div>
-        </div>
+        <Suspense fallback={<div>Loading...</div>}>
+          <ContactForm />
+        </Suspense>
       </Section>
     </main>
-  );
+  )
 }
 
 function ContactPageJsonLd() {

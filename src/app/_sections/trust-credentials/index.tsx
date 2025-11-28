@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Section } from "@/common/layout";
-import { IconCertificate, IconBriefcase, IconRobot, IconCheck } from "@tabler/icons-react";
 import { BorderBeam } from "@/components/ui/border-beam";
 
 export function TrustCredentials() {
@@ -21,9 +20,6 @@ export function TrustCredentials() {
           <div className="mt-12 grid gap-8 md:grid-cols-3 items-stretch">
           {/* NGLCC Certified */}
           <div className="flex h-full flex-col items-center rounded-xl border border-border bg-surface-secondary p-8 text-center dark:border-dark-border dark:bg-dark-surface-secondary">
-            <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-accent-500/10">
-              <IconCertificate className="h-8 w-8 text-accent-500" />
-            </div>
             <h3 className="text-xl font-semibold text-text-primary dark:text-dark-text-primary">
               NGLCC Certified
             </h3>
@@ -32,20 +28,17 @@ export function TrustCredentials() {
             </p>
             <div className="mt-6 flex items-center justify-center">
               <Image
-                src="/assets/badge-nglcc.png"
+                src="/assets/generated/trust/nglcc-square-light.webp"
                 alt="NGLCC Certified LGBT Business Enterprise"
-                width={180}
-                height={180}
-                className="h-auto w-44"
+                width={220}
+                height={220}
+                className="h-auto w-48"
               />
             </div>
           </div>
 
           {/* Catalant Vetted */}
           <div className="flex h-full flex-col items-center rounded-xl border border-border bg-surface-secondary p-8 text-center dark:border-dark-border dark:bg-dark-surface-secondary">
-            <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-accent-500/10">
-              <IconBriefcase className="h-8 w-8 text-accent-500" />
-            </div>
             <h3 className="text-xl font-semibold text-text-primary dark:text-dark-text-primary">
               Catalant Certified
             </h3>
@@ -54,30 +47,31 @@ export function TrustCredentials() {
             </p>
             <div className="mt-6 flex items-center justify-center">
               <Image
-                src="/assets/catalant-modern-badge.png"
+                src="/assets/generated/trust/catalant-square-light.webp"
                 alt="Catalant Vetted Consultant"
-                width={180}
-                height={180}
-                className="h-auto w-44"
+                width={220}
+                height={220}
+                className="h-auto w-48"
               />
             </div>
           </div>
 
           {/* AI Experience */}
           <div className="flex h-full flex-col items-center rounded-xl border border-border bg-surface-secondary p-8 text-center dark:border-dark-border dark:bg-dark-surface-secondary">
-            <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-accent-500/10">
-              <IconRobot className="h-8 w-8 text-accent-500" />
-            </div>
             <h3 className="text-xl font-semibold text-text-primary dark:text-dark-text-primary">
               Frontier AI, Human in the Loop
             </h3>
             <p className="mt-3 text-sm text-text-secondary dark:text-dark-text-secondary">
               5+ years as a human-in-the-loop AI trainer with Appen, contributing to the frontier models behind tools like ChatGPT, Copilot, and Gemini, plus selection into a Microsoft small-business founder program with enterprise Azure sponsorship.
             </p>
-            <div className="mt-6">
-              <span className="inline-flex items-center rounded-full bg-accent-500/10 px-4 py-2 text-sm font-medium text-accent-500">
-                Since 2019
-              </span>
+            <div className="mt-6 flex items-center justify-center">
+              <Image
+                src="/assets/generated/trust/experience-5yrs-square-square-light.webp"
+                alt="5+ years frontier AI trainer experience badge"
+                width={220}
+                height={220}
+                className="h-auto w-48"
+              />
             </div>
           </div>
         </div>

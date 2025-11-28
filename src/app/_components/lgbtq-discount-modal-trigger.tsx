@@ -94,7 +94,7 @@ export function LGBTQDiscountModalTrigger({ children }: LGBTQDiscountModalTrigge
         <button
           ref={triggerRef}
           type="button"
-          className="relative z-[1] rounded-lg bg-white px-8 py-3 text-base font-semibold text-slate-900 shadow-lg transition-colors duration-200 hover:bg-slate-100"
+          className="lgbtq-discount-btn relative z-[1] px-8 py-3 text-base font-semibold"
           onClick={openModal}
         >
           {children ?? "Find Out More"}

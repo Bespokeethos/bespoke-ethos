@@ -30,17 +30,17 @@ export function FounderStory() {
               a logistics expert or a CRM guru. Every minute felt like an hour.
             </p>
             <p>
-              That's when I turned to my five years of experience as a human-in-the-loop AI trainer, working with foundational models. I taught an AI to be my second brain, automating the overwhelming tasks
-              that were holding me back. It saved my business.
+               That&apos;s when I turned to my five years of experience as a human-in-the-loop AI trainer, working with foundational models. I taught an AI to be my second brain, automating the overwhelming tasks
+               that were holding me back. It saved my business.
             </p>
             <p>
               I founded <strong className="text-text-primary dark:text-dark-text-primary">Bespoke Ethos</strong> for one reason: to bring that same relief
-              to fellow entrepreneurs and creators. With NGLCC certification and approval from Catalant enterprise consulting, I've proven that the power of AI shouldn't be reserved for Fortune 500 companies. It belongs in the hands
+               to fellow entrepreneurs and creators. With NGLCC certification and approval from Catalant enterprise consulting, I&apos;ve proven that the power of AI shouldn&apos;t be reserved for Fortune 500 companies. It belongs in the hands
               of small businesses, solo founders, and the teams who actually talk to customers every day.
             </p>
             <p className="text-text-primary dark:text-dark-text-primary font-medium">
-              I’m not just a consultant; I’m a guide who has walked this path and can show you the way through, one pragmatic workflow at a
-              time.
+               I&rsquo;m not just a consultant; I&rsquo;m a guide who has walked this path and can show you the way through, one pragmatic workflow at a
+               time.
             </p>
             <p className="text-xs md:text-sm italic text-text-tertiary dark:text-dark-text-tertiary">
               – Upton Rand, Founder &amp; CEO

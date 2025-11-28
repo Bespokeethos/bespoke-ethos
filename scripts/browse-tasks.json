@@ -1,0 +1,25 @@
+{
+  "context": {
+    "timeout": 20000,
+    "waitAfterNav": 500,
+    "screenshotDir": "test-results/browser"
+  },
+  "tasks": [
+    {
+      "name": "Visit bespokeethos",
+      "url": "https://bespokeethos.com/",
+      "actions": [
+        { "type": "waitForSelector", "selector": "body" },
+        { "type": "screenshot", "path": "bespoke-home.png" }
+      ]
+    },
+    {
+      "name": "Visit example.com",
+      "url": "https://example.com/",
+      "actions": [
+        { "type": "waitForSelector", "selector": "body" },
+        { "type": "screenshot", "path": "example.png" }
+      ]
+    }
+  ]
+}
