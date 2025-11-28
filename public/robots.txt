@@ -1,7 +1,15 @@
 User-agent: *
 Allow: /
-Disallow: /admin/
-Disallow: /private/
-Disallow: /api/
 
-Sitemap: https://bespokeethos.com/sitemap.xml
+# Block API and experimental routes from indexing
+Disallow: /api/
+Disallow: /api/*
+Disallow: /chat
+Disallow: /chat/*
+Disallow: /api/brutus
+Disallow: /api/brutus/*
+Disallow: /api/brutus/fs
+Disallow: /api/brutus/fs/*
+
+Sitemap: https://www.bespokeethos.com/sitemap.xml
+Host: www.bespokeethos.com
