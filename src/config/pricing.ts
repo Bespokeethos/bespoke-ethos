@@ -1,6 +1,6 @@
 export const PRICING = {
   currency: "$",
-  flowstack: {
+  workflowAutomationSetup: {
     setup: 399,
     monthly: 59.99,
   },
@@ -11,7 +11,7 @@ export const PRICING = {
     rangeMin: 79.99,
     rangeMax: 199,
   },
-  redbridging: {
+  automationRescue: {
     // Standalone a la carte price for non-members
    standaloneALaCarte: 149.99,
     aiToolStackConsultation: 99.99,
@@ -22,11 +22,11 @@ export const PRICING = {
     standaloneLow: 49.99,
     standaloneHigh: 99,
   },
-  consensusEngine: {
+  aiResearchAssistant: {
     monthly: 299.99,
     queryLimit: 4,
   },
-  cadence: {
+  aiStrategySprint: {
     setup: 899.99,
     monthly: 139.99,
     pilot: 500,

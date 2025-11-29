@@ -11,7 +11,7 @@ export const revalidate = 1800;
 export const metadata: Metadata = {
   title: "Help & Product Overview | Bespoke Ethos",
   description:
-    "What Flowstack™, Chatbots, Consensus Engine™, and Redbridging™ do (and don’t). Packages, SLAs, and links to pricing.",
+    "What Cadence  Your AI Concierge, Consensus Engine  Your AI Strategy Sprint, Automation Rescue, and Workflow Automation Setup do (and don't). Packages, SLAs, and links to pricing.",
   alternates: { canonical: "/help" },
 };
 
@@ -29,7 +29,7 @@ export default function HelpPage() {
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <ProductCard
-              title="Flowstack™"
+              title="Workflow Automation Setup"
               summary="Automate your most time-consuming task without losing approvals."
               learnHref="/solutions/flowstack"
             >
@@ -42,15 +42,15 @@ export default function HelpPage() {
                 ]}
               />
               <Column
-                heading="Doesn’t"
+                heading="Doesn't"
                 items={["Replace your ownership or create lock-in", "Ship a fragile, unmonitored prototype"]}
               />
             </ProductCard>
 
             <ProductCard
-              title="Chatbots"
-              summary="On-brand, helpful answers 24/7 with a human handoff when needed."
-              learnHref="/solutions/chatbots"
+              title="Cadence  Your AI Concierge"
+              summary="On-brand, helpful answers 24/7 with a human handoff when it matters."
+              learnHref="/products/cadence"
             >
               <Column
                 heading="Does"
@@ -61,14 +61,14 @@ export default function HelpPage() {
                 ]}
               />
               <Column
-                heading="Doesn’t"
+                heading="Doesn't"
                 items={["Replace your brand voice", "Hide handoffs when a human is required"]}
               />
             </ProductCard>
 
             <ProductCard
-              title="Consensus Engine™"
-              summary="Four AI perspectives debate your strategic question and ship one clear answer."
+              title="Consensus Engine  Your AI Strategy Sprint"
+              summary="Four AI perspectives debate your strategic question and ship one clear, approvals-intact answer."
               learnHref="/solutions/consensus-engine"
             >
               <Column
@@ -86,7 +86,7 @@ export default function HelpPage() {
             </ProductCard>
 
             <ProductCard
-              title="Redbridging™"
+              title="Automation Rescue"
               summary="Rescue brittle automations; add monitoring, alerts, and documentation."
               learnHref="/solutions/redbridging"
             >
@@ -99,7 +99,7 @@ export default function HelpPage() {
                 ]}
               />
               <Column
-                heading="Doesn’t"
+                heading="Doesn't"
                 items={["Introduce lock-in or hidden dependencies", "Leave you without visibility or recourse"]}
               />
             </ProductCard>
@@ -120,8 +120,9 @@ export default function HelpPage() {
           </div>
           <p className="mt-4 max-w-3xl text-sm text-text-secondary dark:text-dark-text-secondary">
             We work hard to avoid opaque tooling that gives you an answer without showing how it got there. With
-            FlowstackT, Cadence™, Consensus Engine™, and RedbridgingT you can always ask, &quot;Why did it do that?&quot;
-            and expect a plain-English explanation and a paper trail, not just &quot;because the AI said so.&quot;
+            Workflow Automation Setup, Cadence, Consensus Engine, and Automation Rescue you can always ask, &quot;Why did
+            it do that?&quot; and expect a plain-English explanation and a paper trail, not just &quot;because the AI said
+            so.&quot;
           </p>
 
           <FounderBadge />

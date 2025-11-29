@@ -28,7 +28,7 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
           <div className="mx-auto rounded-3xl border border-white/60 bg-white/40 p-3 shadow-[0_40px_80px_rgba(15,23,42,0.4)] backdrop-blur-xl">
             <Image
               src="/assets/consensus-infographic.png"
-              alt="Four research lenses inside the Consensus Engine—copy, finance, legal, and future modeling—converging into one brief"
+              alt="Four research lenses inside the Consensus Engine-copy, finance, legal, and future modeling-converging into one brief"
               width={300}
               height={200}
               className="h-[200px] w-[300px] object-contain"
@@ -43,7 +43,7 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
                 id="consensus-engine-heading"
                 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white"
               >
-                The Consensus Engine
+                Consensus Engine  Your AI Strategy Sprint
               </h2>
               <p className="mt-1 text-sm font-semibold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-300">
                 Exclusive to Bespoke Ethos clients
@@ -72,10 +72,10 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
           <p className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-3">
             Got a big question? Get real answers.
           </p>
-          <p className="text-xl text-slate-700 dark:text-slate-300 mb-4 leading-relaxed">
-            Our proprietary AI research platform analyzes <strong>1000+ sources</strong> at superhuman speed—SEC filings,
-            patents, medical journals, tax regulations, and more—then delivers one actionable report with citations.
-          </p>
+            <p className="text-xl text-slate-700 dark:text-slate-300 mb-4 leading-relaxed">
+              Our proprietary research sprint analyzes <strong>1000+ sources</strong> at superhuman speed—SEC filings,
+              patents, journals, tax regulations, and more—then delivers one actionable brief with citations.
+            </p>
           <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-slate-600 dark:text-slate-400">
             <span className="px-3 py-1 bg-white dark:bg-slate-800 rounded-full font-semibold">
               4 Specialized AI Agents
@@ -138,7 +138,7 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
             id="consensus-agents-panel"
             className="bg-white dark:bg-slate-800 rounded-lg p-6 mb-8 border border-slate-200 dark:border-slate-700"
             role="region"
-            aria-label="Details about the four Consensus Engine AI agents"
+            aria-label="Details about the four Consensus Engine research agents"
           >
             <div className="grid md:grid-cols-2 gap-4">
               <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
@@ -167,7 +167,7 @@ export function ConsensusEngineCard({ className }: { className?: string }) {
             Free With Your Consultation
           </p>
           <p className="text-xl text-slate-700 dark:text-slate-300 mb-2">
-            Every 30-minute consultation includes <strong>one free Consensus Engine report</strong>
+            Every 30-minute consultation includes <strong>one free Consensus Engine brief</strong>
           </p>
           <p className="text-sm text-slate-600 dark:text-slate-400">
             (Normally $79.99  Ask any business question)

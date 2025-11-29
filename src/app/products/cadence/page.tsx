@@ -6,9 +6,9 @@ import { Section } from "@/common/layout";
 import { Heading } from "@/common/heading";
 import { ButtonLink } from "@/common/button";
 import { Breadcrumbs } from "@/app/_components/seo/breadcrumbs";
-import { FounderCadenceQA } from "@/app/_components/founder-cadence-qa";
+import { FounderAiStrategySprintQA } from "@/app/_components/founder-ai-strategy-sprint-qa";
 import { TrustStrip } from "@/app/_components/trust-strip";
-import { CadenceLogoCard } from "@/common/cadence-logo-card";
+import { AiStrategySprintLogoCard } from "@/common/ai-strategy-sprint-logo-card";
 import { PRICING, formatMoney } from "@/config/pricing";
 import { VogueCard } from "@/components/vogue-card";
 import { TechNerdCard } from "@/components/tech-nerd-card";
@@ -16,26 +16,27 @@ import { TechNerdCard } from "@/components/tech-nerd-card";
 export const revalidate = 1800;
 
 export const metadata: Metadata = {
-  title: "Cadence: For People Who Hate Chatbots | Bespoke Ethos",
+  title: "Meet Cadence  Your AI Concierge | Bespoke Ethos",
   description:
-    "Cadence is a highly tailored customer chatbot for people who hate generic bots—trained on your stories so every conversation sounds like you.",
+    "Meet Cadence  Your AI Concierge: a relationship-first AI front door built from the AI Strategy Sprint playbook, trained on your stories so every conversation still sounds like you.",
   alternates: { canonical: "/products/cadence" },
 };
 
 const ALT = {
-  hero: "Soft-focus shot of a small-business owner at a workbench, warm lighting, with an overlay card describing Cadence—your brand's rhythm.",
+  hero:
+    "Soft-focus shot of a small-business owner at a workbench, warm lighting, with an overlay card describing Cadence-your on-brand AI concierge.",
   newAsset:
     "Operations lead working on a laptop in a small office, smiling while reviewing a simple automation dashboard, candid natural-light photo",
   infographic:
-    "Three-panel infographic showing how Cadence turns founder stories into a human-sounding chatbot for people who hate generic bots, using a conditionally patented orchestration process",
+    "Three-panel infographic showing how Cadence turns founder stories into a human-sounding AI concierge for people who hate generic bots, using a conditionally patented orchestration process",
 };
 
-export default function CadencePage() {
+export default function AiStrategySprintPage() {
   return (
     <main className="be-page-slate">
       <Section className="gap-5 -mt-14 md:gap-6 md:-mt-4">
         <div className="be-section-card space-y-8">
-          <CadenceProductJsonLd />
+          <AiStrategySprintProductJsonLd />
 
           {/* Hero */}
           <section className="relative cadence-card rounded-2xl">
@@ -52,28 +53,33 @@ export default function CadencePage() {
             <div className="relative z-10 flex min-h-[260px] flex-col justify-center pb-10 pt-10 md:min-h-[320px] md:pt-14">
               <div className="cadence-card-text max-w-(--breakpoint-md)">
                 <div className="mb-2 flex items-center gap-2">
-                  <CadenceLogoCard size={48} />
-                  <span className="cadence-badge inline-block rounded px-2 py-1 text-xs font-semibold">Cadence</span>
+                  <AiStrategySprintLogoCard size={48} />
+                  <span className="cadence-badge inline-block rounded px-2 py-1 text-xs font-semibold">
+                    Cadence  Your AI Concierge
+                  </span>
                 </div>
 
                 <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-black/30 px-4 py-2 text-xs sm:text-sm font-medium text-white/90 shadow-lg backdrop-blur-md">
-                  <span>Cadence</span>
-                  <span className="opacity-90">Your Brand&apos;s Rhythm</span>
+                  <span>Meet Cadence</span>
+                  <span className="opacity-90">Your AI Concierge</span>
                 </div>
 
                 <Heading
                   align="left"
                   subtitle="A highly tailored customer chatbot for people who think chatbots are just the worst."
                 >
-                  <h1 className="font-hero-accent">Cadence: For People Who Hate Chatbots.</h1>
+                  <h1 className="font-hero-accent">Meet Cadence  Your AI Concierge.</h1>
                 </Heading>
+                <p className="text-sm text-text-secondary dark:text-dark-text-secondary md:text-base">
+                  One focused engagement. Walk away with clear AI implementation roadmap tailored to your business.
+                </p>
 
                 <div className="mt-4 flex flex-wrap gap-3">
                   <p className="text-sm text-white/80">
-                    Starts at {formatMoney(PRICING.cadence.setup)} setup + {formatMoney(PRICING.cadence.monthly)}/mo.
-                    <Link href="/solutions/flowstack" className="ml-1 underline">
-                      Need something simpler? Try FlowstackT.
-                    </Link>
+                    Starts at {formatMoney(PRICING.aiStrategySprint.setup)} setup + {formatMoney(PRICING.aiStrategySprint.monthly)}/mo.
+                  <Link href="/solutions/flowstack" className="ml-1 underline">
+                    Need something simpler? Try Workflow Automation Setup™.
+                  </Link>
                   </p>
                   <ButtonLink intent="primary" href="#demo">
                     See a Live Demo (2 min)
@@ -84,7 +90,7 @@ export default function CadencePage() {
                   <ButtonLink
                     unstyled
                     className="underline underline-offset-4 text-white/90"
-                    href="/contact?subject=Cadence%20pilot"
+                    href="/contact?subject=AI Strategy Sprint%20pilot"
                   >
                     Start a 30-day pilot
                   </ButtonLink>
@@ -100,9 +106,9 @@ export default function CadencePage() {
           <VogueCard
             imageSrc="/assets/logos/cadence.png"
             imageAlt="Cadence couture card"
-            title="Cadence"
-            tagline="Your Brand's Rhythm"
-            description="Introducing Cadence—a highly tailored customer chatbot for people who think chatbots are just the worst, powered by a conditionally patented orchestration process so every conversation sounds like you."
+            title="Meet Cadence  Your AI Concierge"
+            tagline="Your Brand's Rhythm, On Autopilot"
+            description="Introducing Cadence  Your AI Concierge—a highly tailored customer chatbot for people who think chatbots are just the worst, powered by a conditionally patented orchestration process so every conversation still sounds like you."
           />
 
           {/* Personality ad banner (keeps the fun campaign visible) */}
@@ -113,7 +119,7 @@ export default function CadencePage() {
             <div className="relative h-48 w-full sm:h-56 lg:h-64">
               <Image
                 src="/assets/ads/cadence.jpg"
-                alt='Playful Cadence ad showing “Everyone knows Julie keeps blaming her farts on the dog. Cadence gets it.”'
+                alt='Playful AI Strategy Sprint ad showing “Everyone knows Julie keeps blaming her farts on the dog. AI Strategy Sprint gets it.”'
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 960px"
@@ -124,7 +130,7 @@ export default function CadencePage() {
               id="cadence-ad-banner"
               className="px-5 py-3 text-center text-sm font-medium text-text-secondary dark:text-dark-text-secondary"
             >
-              Cadence keeps your brand human—even when your customers get weird at 4 AM.
+              AI Strategy Sprint keeps your brand human—even when your customers get weird at 4 AM.
             </p>
           </section>
 
@@ -134,12 +140,12 @@ export default function CadencePage() {
               items={[
                 { name: "Home", href: "/" },
                 { name: "Products", href: "/solutions" },
-                { name: "Cadence" },
+                { name: "AI Strategy Sprint" },
               ]}
             />
-            <Heading align="left">
-              <h2>Meet Cadence: From Specs to Story</h2>
-            </Heading>
+              <Heading align="left">
+                <h2>Meet Cadence  From Specs to Story</h2>
+              </Heading>
             <div className="prose prose-zinc max-w-prose dark:prose-invert">
               <p>
                 Cadence isn&apos;t just some computer program you install. It&apos;s a relationship-first assistant
@@ -310,9 +316,43 @@ export default function CadencePage() {
                 recommendation on whether to scale up, adjust, or pause.
               </p>
             </div>
+
+            {/* Alex testimonial highlight for Cadence */}
+            <div className="mt-10 grid gap-6 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] items-start">
+              <div className="space-y-3">
+                <Heading align="left">
+                  <h2 className="text-xl font-semibold text-text-primary dark:text-dark-text-primary">
+                    “Feels like us, not a robot.”
+                  </h2>
+                </Heading>
+                <p className="text-sm text-text-secondary dark:text-dark-text-secondary md:text-base">
+                  Cadence grew out of the same orchestration we used to build AI Strategy Sprint for real Cleveland
+                  businesses. Alex&apos;s co-op chat assistant isn&apos;t a novelty widget—it&apos;s a patient teammate
+                  trained on their stories, approvals, and edge cases.
+                </p>
+                <p className="text-sm text-text-secondary dark:text-dark-text-secondary md:text-base">
+                  &ldquo;AI Strategy Sprint feels like us, not a robot. It hands off when it should and keeps approvals
+                  intact.&rdquo;
+                </p>
+                <p className="text-xs uppercase tracking-[0.18em] text-text-tertiary dark:text-dark-text-tertiary">
+                  Retail co-op ú Premium chat
+                </p>
+              </div>
+              <div className="ghost-card ghost-card--soft">
+                <div className="relative h-64 w-full overflow-hidden rounded-xl border border-border/60 bg-surface-secondary dark:border-dark-border/60 dark:bg-dark-surface-secondary md:h-72">
+                  <Image
+                    src="/assets/Real-Customers/Alex-with-Molly.jpg"
+                    alt="Alex with Molly open on his laptop, smiling at the camera"
+                    fill
+                    className="object-cover object-center"
+                    sizes="(max-width: 768px) 100vw, 480px"
+                  />
+                </div>
+              </div>
+            </div>
           </Section>
 
-          <FounderCadenceQA />
+          <FounderAiStrategySprintQA />
 
           <TechNerdCard product="cadence" />
         </div>
@@ -321,26 +361,26 @@ export default function CadencePage() {
   );
 }
 
-function CadenceProductJsonLd() {
+function AiStrategySprintProductJsonLd() {
   const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com";
   const currency = PRICING.currency === "$" ? "USD" : "USD";
 
   const json = {
     "@context": "https://schema.org",
     "@type": "Product",
-    name: "Cadence",
+    name: "Cadence  Your AI Concierge",
     description:
-      "Cadence is Bespoke Ethos's highly tailored customer chatbot for small businesses in Cleveland, Ohio—built for founders who hate generic chatbots. It is trained on your products, voice, and stories so every conversation sounds like you, while deflecting repetitive questions and keeping your brand human.",
+      "One focused engagement. Walk away with clear AI implementation roadmap tailored to your business. Cadence is trained on your products, voice, and stories so every conversation deflects repetitive questions and keeps your brand human.",
     image: [`${base}/assets/generated/cadence-feature-voice-desktop.webp`],
     offers: {
       "@type": "Offer",
       priceCurrency: currency,
-      price: PRICING.cadence.setup,
+      price: PRICING.aiStrategySprint.setup,
       priceSpecification: {
         "@type": "PriceSpecification",
         name: "Initial setup",
         priceCurrency: currency,
-        price: PRICING.cadence.setup,
+        price: PRICING.aiStrategySprint.setup,
       },
       availability: "https://schema.org/InStock",
       url: `${base}/products/cadence`,

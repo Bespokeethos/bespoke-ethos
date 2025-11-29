@@ -1,0 +1,20 @@
+{
+  "short_name": "Consensus",
+  "name": "Consensus Engine: Cleveland LGBTQ+ Calendar",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "og-image.png",
+      "type": "image/png",
+      "sizes": "1200x630"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#FFD600",
+  "background_color": "#ffffff"
+}

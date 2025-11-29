@@ -1,0 +1,44 @@
+// New Recurring Events (Focus: Trans and Lesbian/Women)
+
+// From LGBT Center of Greater Cleveland Program Guide
+// Source: https://lgbtcleveland.org/program-guide/
+// Category: Community
+
+// Transgender/Non-Binary
+{
+  id: "r4",
+  title: "Trans+ West Support Group",
+  date: "Weekly (Wed/Fri)",
+  time: "5:00 PM - 7:00 PM",
+  location: "LGBT Center, 6705 Detroit Ave",
+  source: "Bespoke Ethos Research",
+  status: "VERIFIED",
+  category: "Community",
+  description: "Opportunities for transgender and non-binary individuals to discuss their journeys and share resources.",
+  price: "Free",
+},
+{
+  id: "r5",
+  title: "Trans+ East Support Group",
+  date: "Weekly (Thu)",
+  time: "5:00 PM - 7:00 PM",
+  location: "Central Outreach, 2040 Lee Road, Cleveland Heights, OH",
+  source: "Bespoke Ethos Research",
+  status: "VERIFIED",
+  category: "Community",
+  description: "Opportunities for transgender and non-binary individuals to discuss their journeys and share resources.",
+  price: "Free",
+},
+
+// Lesbian/Women
+// From Meetup Group: Cleveland Lesbian Meetup Group
+// Source: https://www.meetup.com/cleveland-lesbian-meetup-group/
+// Note: Specific events need to be checked, but the group itself is a source.
+
+// From Facebook Group: Lezz Gather
+// Source: https://www.facebook.com/groups/382951635918867/
+// Note: Specific events need to be checked, but the group itself is a source.
+
+// From Reddit/Other sources:
+// FTM Support Group at Cleveland Liberation Center (9801 Denison Ave) - All trans males 18+. (Need to verify recurrence/time)
+// Cleveland Lesbian Meetup Christmas Party (Faulty event f4 in original data, but the group exists and has events)

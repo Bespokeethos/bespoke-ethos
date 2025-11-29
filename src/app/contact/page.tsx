@@ -82,7 +82,7 @@ function ContactForm() {
                 <ul className="mt-3 list-disc space-y-1 pl-5 text-xs text-text-tertiary dark:text-dark-text-tertiary">
                   <li>Mention 2-3 workflows you’d love to hand off (intake, reporting, support triage).</li>
                   <li>If you have broken Zaps/Scenarios, link them; I’ll include a rescue plan.</li>
-                  <li>Want Cadence chatbot? Note tone/FAQ sources you’d train on.</li>
+                  <li>Want AI Strategy Sprint chatbot? Note tone/FAQ sources you’d train on.</li>
                 </ul>
               </div>
             ) : (

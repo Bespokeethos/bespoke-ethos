@@ -1,6 +1,12 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { NextConfig } from "next";
+import bundleAnalyzer from "@next/bundle-analyzer";
+
+const withBundleAnalyzer = bundleAnalyzer({
+  enabled: process.env.ANALYZE === "true",
+  openAnalyzer: false,
+});
 
 const securityHeaders = [
   {
@@ -91,6 +97,12 @@ const nextConfig = {
       { source: "/case-studies/:path*", destination: "/solutions", permanent: true },
     ];
   },
+  async rewrites() {
+    return [
+      { source: "/calendar", destination: "/calendar/index.html" },
+      { source: "/calendar/", destination: "/calendar/index.html" },
+    ];
+  },
 } satisfies NextConfig;
 
-export default nextConfig;
+export default withBundleAnalyzer(nextConfig);

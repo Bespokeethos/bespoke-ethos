@@ -6,12 +6,12 @@ type TechNerdCardProps = {
 };
 
 export function TechNerdCard({ product }: TechNerdCardProps) {
-  const isCadence = product === "cadence";
+  const isAiStrategySprint = product === "cadence";
 
   const href =
     product === "cadence"
-      ? "/contact?service=llm-setups&topic=cadence-technical-brief"
-      : "/contact?service=llm-setups&topic=consensus-technical-brief";
+      ? "/contact?service=llm-setups&topic=ai-strategy-sprint-technical-brief"
+      : "/contact?service=llm-setups&topic=consensus-engine-technical-brief";
 
   return (
     <section className="flex flex-col gap-3 rounded-2xl border border-border bg-surface-secondary/70 p-4 text-sm text-text-secondary shadow-sm dark:border-dark-border dark:bg-dark-surface-secondary/70 sm:flex-row sm:items-center sm:gap-4 sm:p-5">
@@ -28,12 +28,12 @@ export function TechNerdCard({ product }: TechNerdCardProps) {
           Want the nerdy version?
         </h3>
         <p className="text-xs text-text-secondary dark:text-dark-text-secondary sm:text-sm">
-          {isCadence
-            ? "Curious how Cadence\u2122 actually works behind the scenes—from API calls to Z-codes (A to Z), safety rails, and integrations?"
-            : "Curious how Consensus Engine\u2122 turns one big question into a calm, cited brief without being a pile of prompts?"}
+          {isAiStrategySprint
+            ? "Curious how Cadence actually works behind the scenes—from API calls to safety rails and handoffs?"
+            : "Curious how Consensus Engine turns one big question into a calm, cited brief without being a pile of prompts?"}
         </p>
         <Link href={href} className="text-xs font-semibold text-accent-600 hover:underline sm:text-sm">
-          Ask for the {isCadence ? "Cadence\u2122" : "Consensus Engine\u2122"} technical brief
+          Ask for the {isAiStrategySprint ? "Cadence" : "Consensus Engine"} technical brief
         </Link>
       </div>
       <div className="pt-1 sm:pt-0">

@@ -11,9 +11,9 @@ import { VogueCard } from "@/components/vogue-card";
 export const revalidate = 1800;
 
 export const metadata: Metadata = {
-  title: "FlowstackT - Automate Your #1 Task | Bespoke Ethos",
+  title: "Workflow Automation Setup™ - Automate Your #1 Task | Bespoke Ethos",
   description:
-    "Proprietary general automation package. Discovery-led builds that keep human approvals, audit trails, and rollback. Enterprise-grade automation you own.",
+    "Map your process, keep approvals intact, build production-ready automation in days, not months.",
   alternates: { canonical: "/solutions/flowstack" },
 };
 
@@ -39,25 +39,25 @@ const FLOWSTACK_CALLOUTS = [
 const FLOWSTACK_ASSETS = [
   {
     src: "/assets/generated/flowstack-card.png",
-    alt: "Flowstack dashboard card showing automation stats",
+    alt: "Workflow Automation Setup dashboard card showing automation stats",
     title: "Operator dashboard card",
     description: "High-level run stats, approvals awaiting action, and audit links your ops lead needs nightly.",
   },
   {
     src: "/assets/generated/service-flowstack-builder-desktop.webp",
-    alt: "Flowstack builder canvas",
+    alt: "Workflow Automation Setup builder canvas",
     title: "Builder canvas",
     description: "Drag-to-connect steps with inline metadata so every stakeholder sees the rationale for each move.",
   },
   {
     src: "/assets/generated/hero-flowstack-desktop.webp",
-    alt: "Founder reviewing Flowstack automation outputs",
+    alt: "Founder reviewing Workflow Automation Setup automation outputs",
     title: "Exec-ready hero",
     description: "Brand-safe creative you can reuse in decks, investor updates, and onboarding docs.",
   },
 ] as const;
 
-export default function FlowstackPage() {
+export default function WorkflowAutomationSetupPage() {
   return (
     <main className="be-page-slate">
       <Section className="gap-6 -mt-6 md:-mt-4">
@@ -66,28 +66,28 @@ export default function FlowstackPage() {
             items={[
               { name: "Home", href: "/" },
               { name: "Solutions", href: "/solutions" },
-              { name: "FlowstackT" },
+              { name: "Workflow Automation Setup™" },
             ]}
           />
           <ProductJsonLd />
-          <FlowstackServiceJsonLd />
+          <WorkflowAutomationSetupServiceJsonLd />
 
           <div className="flowstack-hero relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-amber-50 via-white to-slate-100 p-6 shadow-xl dark:from-slate-900/70 dark:via-slate-900/50 dark:to-slate-900/30 md:p-8">
             <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.9fr)]">
               <div className="space-y-5 text-text-secondary dark:text-dark-text-secondary">
                 <div className="inline-flex flex-wrap items-center gap-2 rounded-full bg-white/90 px-4 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-amber-700 shadow-sm dark:bg-white/10 dark:text-amber-200">
-                  FlowstackT
+                  Workflow Automation Setup™
                   <span className="text-[11px] font-normal tracking-normal text-text-tertiary dark:text-dark-text-tertiary">
                     Automate your #1 task
                   </span>
                 </div>
                 <Heading subtitle="Proprietary general automation for any business task. Own the results." align="left">
-                  <h1 className="font-hero-accent">FlowstackT</h1>
+                  <h1 className="font-hero-accent">Workflow Automation Setup™</h1>
                 </Heading>
                 <div className="space-y-3">
                   <p>
                     When I was drowning in my publishing business, I didn&rsquo;t need a fancy AI platform. I needed someone
-                    to automate the one task that was stealing hours from my week. So I built FlowstackT for myself first. It
+                    to automate the one task that was stealing hours from my week. So I built Workflow Automation Setup™ for myself first. It
                     is our proprietary general automation package, designed to handle any business task&mdash;from lead routing to
                     inventory updates.
                   </p>
@@ -116,7 +116,7 @@ export default function FlowstackPage() {
                   </ButtonLink>
                 </div>
                 <p className="text-sm text-text-tertiary dark:text-dark-text-tertiary">
-                  {planSummary(PRICING.flowstack.setup, PRICING.flowstack.monthly)}
+                  {planSummary(PRICING.workflowAutomationSetup.setup, PRICING.workflowAutomationSetup.monthly)}
                 </p>
               </div>
               <div className="space-y-4">
@@ -132,8 +132,8 @@ export default function FlowstackPage() {
                 </div>
                 <VogueCard
                   imageSrc="/assets/logos/flowstack.png"
-                  imageAlt="Flowstack couture card"
-                  title="FlowstackT"
+                  imageAlt="Workflow Automation Setup couture card"
+                  title="Workflow Automation Setup™"
                   tagline="Workflow Automation"
                   description="Automation fabric for founders who need audit trails, approvals, and production-ready builds in days."
                 />
@@ -145,10 +145,10 @@ export default function FlowstackPage() {
             <div className="lg:flex lg:items-start lg:gap-8">
               <div className="space-y-4 text-text-secondary dark:text-dark-text-secondary lg:flex-1">
                 <h2 className="text-xl font-semibold text-text-primary dark:text-dark-text-primary">
-                  Flowstack blueprint at a glance
+                  Workflow Automation Setup blueprint at a glance
                 </h2>
                 <p>
-                  FlowstackT diagrams read like a magazine spread: the image anchors the eye while the copy wraps around it to
+                  Workflow Automation Setup™ diagrams read like a magazine spread: the image anchors the eye while the copy wraps around it to
                   walk stakeholders through each checkpoint.
                 </p>
                 <div className="grid gap-4 sm:grid-cols-2">
@@ -167,7 +167,7 @@ export default function FlowstackPage() {
                 <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-border bg-white shadow-xl dark:border-dark-border dark:bg-black/40">
                   <Image
                     src="/assets/generated/service-flowstack-builder-desktop.webp"
-                    alt="Flowstack workflow automation builder showing approvals, alerts, and human steps"
+                    alt="Workflow Automation Setup workflow automation builder showing approvals, alerts, and human steps"
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 520px"
@@ -182,7 +182,7 @@ export default function FlowstackPage() {
 
           <div className="space-y-4">
             <Heading align="left" subtitle="Comprehensive assets you keep after we hand off.">
-              <h2 className="text-2xl font-hero-accent">Flowstack deliverable library</h2>
+              <h2 className="text-2xl font-hero-accent">Workflow Automation Setup deliverable library</h2>
             </Heading>
             <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {FLOWSTACK_ASSETS.map((asset) => (
@@ -214,23 +214,23 @@ export default function FlowstackPage() {
 }
 
 function ProductJsonLd() {
-  const price = planSummary(PRICING.flowstack.setup, PRICING.flowstack.monthly);
+  const price = planSummary(PRICING.workflowAutomationSetup.setup, PRICING.workflowAutomationSetup.monthly);
   const currency = PRICING.currency === "$" ? "USD" : "USD";
   const json = {
     "@context": "https://schema.org",
     "@type": "Product",
-    name: "FlowstackT",
+    name: "Workflow Automation Setup™",
     description:
-      "Custom automation for your most time-consuming task. Discovery-led build, human approvals, monitoring, documentation, and rollback.",
+      "Map your process, keep approvals intact, build production-ready automation in days, not months.",
     offers: {
       "@type": "Offer",
       priceCurrency: currency,
-      price: PRICING.flowstack.setup,
+      price: PRICING.workflowAutomationSetup.setup,
       priceSpecification: {
         "@type": "PriceSpecification",
         name: "Initial setup",
         priceCurrency: currency,
-        price: PRICING.flowstack.setup,
+        price: PRICING.workflowAutomationSetup.setup,
       },
       availability: "https://schema.org/InStock",
       url: `${process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com"}/solutions/flowstack`,
@@ -244,15 +244,15 @@ function ProductJsonLd() {
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(json) }} />;
 }
 
-function FlowstackServiceJsonLd() {
+function WorkflowAutomationSetupServiceJsonLd() {
   const base = process.env.NEXT_PUBLIC_SITE_URL || "https://www.bespokeethos.com";
   const json = {
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": `${base}/solutions/flowstack#service`,
-    name: "FlowstackT",
+    name: "Workflow Automation Setup™",
     description:
-      "FlowstackT is Bespoke Ethos's proprietary general automation package for small businesses in Cleveland, Ohio. We Take the Busywork-you Keep Control by automating your worst busywork first while keeping human approvals, audit trails, and rollback in place. LGBTQ-owned businesses receive 25% off upfront project fees on approved scopes.",
+      "Map your process, keep approvals intact, build production-ready automation in days, not months.",
     provider: {
       "@type": "Organization",
       name: "Bespoke Ethos",

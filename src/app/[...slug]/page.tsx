@@ -12,28 +12,27 @@ import {
   IconSparkles,
 } from "@tabler/icons-react";
 
-import { HeroSlideshow, type Slide } from "../_sections/hero/slideshow";
 import { PRICING, formatMoney } from "@/config/pricing";
 
 const SOLUTION_DATA = [
   {
     slug: "flowstack",
-    name: "Flowstack™",
+    name: "Workflow Automation Setup",
     summary:
       "Automate the single, soul-sucking task stealing hours from your week—while you stay in the approval loop.",
     stat: "Clients regain 15+ hours every week on average.",
     href: "/solutions/flowstack",
     Icon: IconSparkles,
-    heroEyebrow: "Flowstack™",
+    heroEyebrow: "Workflow Automation Setup",
     heroTitle: "Automate Your Worst Task. Own the Results.",
-    heroSubtitle: `We map your real process, keep human approvals intact, and ship a production-ready automation in days. ${formatMoney(PRICING.flowstack.setup)} setup + ${formatMoney(PRICING.flowstack.monthly)}/mo.`,
+    heroSubtitle: `We map your real process, keep human approvals intact, and ship a production-ready automation in days. ${formatMoney(PRICING.workflowAutomationSetup.setup)} setup + ${formatMoney(PRICING.workflowAutomationSetup.monthly)}/mo.`,
     heroDescription:
-      "Flowstack™ eliminates swivel-chair work without inviting AI chaos. Discovery-first builds capture your nuance, document every dependency, and keep audit trails and rollback paths in reach.",
+      "Workflow Automation Setup eliminates swivel-chair work without inviting AI chaos. Discovery-first builds capture your nuance, document every dependency, and keep audit trails and rollback paths in reach.",
     primaryCTA: { label: "Automate My #1 Task", href: "/contact" },
     secondaryCTA: { label: "Schedule a Free Consultation", href: "/contact?service=llm-setups" },
     pricing: [
-      `${formatMoney(PRICING.flowstack.setup)} setup - process mapping + architecture`,
-      `${formatMoney(PRICING.flowstack.monthly)}/month - monitoring, tweaks, and on-call fixes`,
+      `${formatMoney(PRICING.workflowAutomationSetup.setup)} setup - process mapping + architecture`,
+      `${formatMoney(PRICING.workflowAutomationSetup.monthly)}/month - monitoring, tweaks, and on-call fixes`,
       "Includes documentation, audit trails, and approval checkpoints.",
     ],
     highlights: [
@@ -45,7 +44,7 @@ const SOLUTION_DATA = [
       {
         title: "Discovery Session (1 hour)",
         description:
-          "We interview the people doing the work today so Flowstack™ mirrors your unique rules, exceptions, and tone.",
+          "We interview the people doing the work today so Workflow Automation Setup mirrors your unique rules, exceptions, and tone.",
       },
       {
         title: "Custom Build (2 hours)",
@@ -64,13 +63,13 @@ const SOLUTION_DATA = [
       { label: "Documentation delivered", value: "Audit + SOP" },
     ],
     caseStudy: {
-      solutionName: "Flowstack™",
+      solutionName: "Workflow Automation Setup",
       title: "Molly, the Brewery Statistics Tutor",
       summary:
-        "Alex, a brewer in Marquette, Michigan, had to finish college statistics with learning disabilities and zero time. Flowstack™ delivered Molly-an AI tutor that explains stats through brewery analogies.",
+        "Alex, a brewer in Marquette, Michigan, had to finish college statistics with learning disabilities and zero time. Workflow Automation Setup delivered Molly-an AI tutor that explains stats through brewery analogies.",
       bullets: [
         "1 hour discovery, 2 hour build, ongoing 24/7 access.",
-        `Costs ${formatMoney(PRICING.flowstack.setup)} down + ${formatMoney(PRICING.flowstack.monthly)}/mo—far less than $30-$50/hr tutoring.`,
+        `Costs ${formatMoney(PRICING.workflowAutomationSetup.setup)} down + ${formatMoney(PRICING.workflowAutomationSetup.monthly)}/mo—far less than $30-$50/hr tutoring.`,
         "Confidence skyrocketed because explanations finally matched real life.",
       ],
       testimonial:
@@ -80,18 +79,18 @@ const SOLUTION_DATA = [
   },
   {
     slug: "consensus-engine",
-    name: "Consensus Engine™",
+    name: "AI Research Assistant",
     summary:
-      "Stop guessing on critical decisions. Consensus Engine™ fuses numbers, brand tone, and customer signals into one clear brief.",
+      "Stop guessing on critical decisions. AI Research Assistant fuses numbers, brand tone, and customer signals into one clear brief.",
     stat: "First strategic decision is always free.",
     href: "/solutions/consensus-engine",
     Icon: IconChecklist,
-    heroEyebrow: "Consensus Engine™",
+    heroEyebrow: "AI Research Assistant",
     heroTitle: "Decide with Confidence. No Committee Needed.",
     heroSubtitle:
       "Upload surveys, sales data, transcripts, or competitor copy. We deliver multi-perspective analysis that ends stalemates.",
     heroDescription:
-      "Consensus Engine™ compares qualitative insight and financial impact so your next rebrand, launch, or pricing move lands with certainty.",
+      "AI Research Assistant compares qualitative insight and financial impact so your next rebrand, launch, or pricing move lands with certainty.",
     primaryCTA: { label: "Get Your Free Answer", href: "/solutions/consensus-engine" },
     secondaryCTA: { label: "Book a Strategy Session", href: "/contact?service=llm-setups" },
     pricing: [
@@ -113,7 +112,7 @@ const SOLUTION_DATA = [
       {
         title: "Multi-Perspective Analysis",
         description:
-          "Consensus Engine™ evaluates each scenario through customer, operator, and finance lenses with transparent rationale.",
+          "AI Research Assistant evaluates each scenario through customer, operator, and finance lenses with transparent rationale.",
       },
       {
         title: "Actionable Brief",
@@ -127,10 +126,10 @@ const SOLUTION_DATA = [
       { label: "Conversion lift (avg.)", value: "+22%" },
     ],
     caseStudy: {
-      solutionName: "Consensus Engine™",
+      solutionName: "AI Research Assistant",
       title: "Retail Co-Op Rebrand Alignment",
       summary:
-        "A Cleveland retail co-op was split on two brand directions. Consensus Engine™ synthesized customer interviews, Shopify sales, and competitive audits into a clear creative brief everyone trusted.",
+        "A Cleveland retail co-op was split on two brand directions. AI Research Assistant synthesized customer interviews, Shopify sales, and competitive audits into a clear creative brief everyone trusted.",
       bullets: [
         "Initial rebrand recommendation delivered in 48 hours.",
         "Landing-page conversion jumped 22% after implementation.",
@@ -206,16 +205,16 @@ const SOLUTION_DATA = [
   },
   {
     slug: "redbridging",
-    name: "Redbridging™",
+    name: "Automation Rescue",
     summary:
       "Automation rescue and monitoring that keeps revenue-critical workflows alive when Zapier or Make decide to stall out.",
     stat: "Emergency fixes delivered same day for most stacks.",
     href: "/solutions/redbridging",
     Icon: IconCircuitSwitchClosed,
-    heroEyebrow: "Redbridging™",
+    heroEyebrow: "Automation Rescue",
     heroTitle: "Automation Rescue. Revenue Guarded.",
     heroSubtitle:
-      "When your Zapier or Make scenario breaks, Redbridging™ restores operations, adds monitoring, and prevents repeat outages.",
+      "When your Zapier or Make scenario breaks, Automation Rescue restores operations, adds monitoring, and prevents repeat outages.",
     heroDescription:
       "We treat every automation as mission-critical: restore service, document the fix, and install guardrails so the panic never returns.",
     primaryCTA: { label: "Protect My Automations", href: "/contact" },
@@ -223,7 +222,7 @@ const SOLUTION_DATA = [
     pricing: [
       "Emergency rescue: $49 one-time (credited toward plans).",
       "Standard plan: $99/mo for proactive monitoring + unlimited fixes.",
-      "Included with Flowstack™ retainers.",
+      "Included with Workflow Automation Setup retainers.",
     ],
     highlights: [
       "Covers Zapier, Make, Jotform, Calendly, HubSpot, QuickBooks, and Stripe.",
@@ -253,14 +252,14 @@ const SOLUTION_DATA = [
       { label: "Alert lead time", value: "10 min" },
     ],
     caseStudy: {
-      solutionName: "Redbridging™",
+      solutionName: "Automation Rescue",
       title: "Accounting Workflow Revival",
       summary:
-        "LedgerLight Accounting lost two days of invoices when Zapier failed silently. Redbridging™ restored their QuickBooks sync, added monitoring, and stopped revenue leakage overnight.",
+        "LedgerLight Accounting lost two days of invoices when Zapier failed silently. Automation Rescue restored their QuickBooks sync, added monitoring, and stopped revenue leakage overnight.",
       bullets: [
         "Recovered every invoice in under four hours with zero data loss.",
         "Installed proactive alerts so month-end close stays clean.",
-        `Flat ${formatMoney(PRICING.redbridging.standaloneLow)} rescue rolled into a ${formatMoney(PRICING.redbridging.standaloneHigh)}/mo safeguard plan.`,
+        `Flat ${formatMoney(PRICING.automationRescue.standaloneLow)} rescue rolled into a ${formatMoney(PRICING.automationRescue.standaloneHigh)}/mo safeguard plan.`,
       ],
       testimonial:
         "Revenue stopped bleeding, and now we get alerted before clients feel pain. Worth every penny.",
@@ -333,40 +332,16 @@ export async function generateMetadata({
 }
 
 function FallbackStaticPage({ slug }: { slug?: string[] }) {
-  // Local slideshow slides from generated assets
-  const publicDir = path.join(process.cwd(), "public", "assets", "generated");
-  const webp: Array<{ file: string; alt: string; caption: string }> = [
-    { file: "hero-flowstack-desktop.webp", alt: "Flowstack automation visual with connected tasks", caption: "Flowstack - Automate your #1 task" },
-    { file: "hero-chatbots-desktop.webp", alt: "Chatbots answering a question on mobile", caption: "Chatbots - On-brand answers 24/7" },
-    { file: "hero-consensus-desktop.webp", alt: "Consensus Engine converging lines", caption: "Consensus - Four perspectives, one answer" },
-    { file: "hero-redbridging-desktop.webp", alt: "Redbridging reliability bridge with shield", caption: "Redbridging - Rescue brittle automations" },
-  ];
-  const png: Array<{ file: string; alt: string; caption: string }> = [
-    { file: "flowstack-hero.png", alt: "Flowstack automation visual with connected tasks", caption: "Flowstack - Automate your #1 task" },
-    { file: "chatbots-hero.png", alt: "Chatbots answering a question on mobile", caption: "Chatbots - On-brand answers 24/7" },
-    { file: "chatbot-hero.png", alt: "Chatbots answering a question on mobile", caption: "Chatbots - On-brand answers 24/7" },
-    { file: "consensus-hero.png", alt: "Consensus Engine converging lines", caption: "Consensus - Four perspectives, one answer" },
-    { file: "redbridging-hero.png", alt: "Redbridging reliability bridge with shield", caption: "Redbridging - Rescue brittle automations" },
-    { file: "research_hero.png", alt: "Founder reviewing insights on a clean AI dashboard", caption: "Research - Decisions backed by learning and context" },
-    { file: "research-hero.png", alt: "Founder reviewing insights on a clean AI dashboard", caption: "Research - Decisions backed by learning and context" },
-  ];
-  const webpSlides = webp
-    .filter((c) => fs.existsSync(path.join(publicDir, c.file)))
-    .map((c) => ({ src: `/assets/generated/${c.file}`, alt: c.alt, caption: c.caption }));
-  const pngSlides = png
-    .filter((c) => fs.existsSync(path.join(publicDir, c.file)))
-    .map((c) => ({ src: `/assets/generated/${c.file}`, alt: c.alt, caption: c.caption }));
-  const slides: Slide[] = (webpSlides.length ? webpSlides : pngSlides) as Slide[];
   const offerings = [
     {
-      name: "Flowstack™",
+      name: "Workflow Automation Setup",
       href: "/solutions/flowstack",
       description: "Automate the single task stealing the most hours from your week—while you keep approvals, ownership, and audit trails.",
       stat: "Clients regain 15+ hours every week on average.",
       Icon: IconSparkles,
     },
     {
-      name: "Consensus Engine™",
+      name: "AI Research Assistant",
       href: "/solutions/consensus-engine",
       description: "Multi-perspective AI analysis that compares brand, customer, and financial data so you stop guessing on your next move.",
       stat: "First strategic decision is always free.",
@@ -380,7 +355,7 @@ function FallbackStaticPage({ slug }: { slug?: string[] }) {
       Icon: IconMessage2Bolt,
     },
     {
-      name: "Redbridging™",
+      name: "Automation Rescue",
       href: "/solutions/redbridging",
       description: "Automation rescue and monitoring that keeps your revenue-critical workflows alive when Zapier or Make decide to stall out.",
       stat: "Emergency fixes delivered same day for most SMB stacks.",
@@ -408,22 +383,22 @@ function FallbackStaticPage({ slug }: { slug?: string[] }) {
 
   const caseStudies = [
     {
-      title: "Molly, the Brewery Statistics Tutor (Flowstack™)",
+      title: "Molly, the Brewery Statistics Tutor (Workflow Automation Setup)",
       summary:
-        "Alex, a brewer in Marquette, Michigan, needed statistics to finish college. Flowstack™ delivered a custom Gemini tutor that speaks in fermentation batches, remembers his humor, and adapts to learning disabilities.",
+        "Alex, a brewer in Marquette, Michigan, needed statistics to finish college. Workflow Automation Setup delivered a custom Gemini tutor that speaks in fermentation batches, remembers his humor, and adapts to learning disabilities.",
       bullets: [
         "1 hour discovery, 2 hours build, 24/7 availability forever.",
         "Time-to-understanding dropped from weeks to a single evening.",
-        `Cost certainty: ${formatMoney(PRICING.flowstack.setup)} setup + ${formatMoney(PRICING.flowstack.monthly)}/mo beats $30-50/hr tutors.`,
+        `Cost certainty: ${formatMoney(PRICING.workflowAutomationSetup.setup)} setup + ${formatMoney(PRICING.workflowAutomationSetup.monthly)}/mo beats $30-50/hr tutors.`,
       ],
       testimonial:
         "“Molly explains stats using my brewery floor. It&rsquo;s not generic—it&rsquo;s mine.”",
       author: "Alex Rand, Brewer, Ore Dock Brewing Company",
     },
     {
-      title: "Brand Direction with Confidence (Consensus Engine™)",
+      title: "Brand Direction with Confidence (AI Research Assistant)",
       summary:
-        "A Main Street retail co-op in Cleveland faced a rebrand showdown. Consensus Engine™ synthesized survey data, Shopify sales, and competitor tone to deliver a creative brief the whole founding team trusted.",
+        "A Main Street retail co-op in Cleveland faced a rebrand showdown. AI Research Assistant synthesized survey data, Shopify sales, and competitor tone to deliver a creative brief the whole founding team trusted.",
       bullets: [
         "First report delivered free in 48 hours with clear &lsquo;why&rsquo;.",
         "Consensus-backed direction increased landing-page conversion 22%.",
@@ -434,9 +409,9 @@ function FallbackStaticPage({ slug }: { slug?: string[] }) {
       author: "Monique Ellis, Co-Founder, Lake Effect Co-op",
     },
     {
-      title: "Accounting Workflow Revival (Redbridging™)",
+      title: "Accounting Workflow Revival (Automation Rescue)",
       summary:
-        "An Akron bookkeeping firm lost two days of invoices when a Zapier update broke their QuickBooks sync. Redbridging™ restored the automations, added monitoring, and put approvals back in human hands.",
+        "An Akron bookkeeping firm lost two days of invoices when a Zapier update broke their QuickBooks sync. Automation Rescue restored the automations, added monitoring, and put approvals back in human hands.",
       bullets: [
         "Recovery within four hours, zero data loss.",
         "Automated alerting prevents repeat failures during month-end close.",
@@ -514,10 +489,20 @@ function FallbackStaticPage({ slug }: { slug?: string[] }) {
                 className="h-6 w-auto hidden dark:block"
               />
             </div>
-            <p className="mt-3 text-xs text-text-tertiary dark:text-dark-text-tertiary">Consensus Engine™ and Redbridging™ are trademark pending.</p>
+            <p className="mt-3 text-xs text-text-tertiary dark:text-dark-text-tertiary">AI Research Assistant and Automation Rescue are trademark pending.</p>
           </div>
           <div className="order-1 md:order-2 motion-safe:animate-enterFromRight">
-            <HeroSlideshow slides={slides.length ? slides : undefined} />
+            <div className="relative h-[320px] w-full overflow-hidden rounded-3xl border border-border bg-surface-secondary dark:border-dark-border dark:bg-dark-surface-secondary">
+              <Image
+                src="/assets/generated/hero-cadence-desktop.webp"
+                alt="AI Strategy Sprint concierge dashboard"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 520px"
+                priority
+              />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-black/10 dark:from-black/70" />
+            </div>
           </div>
         </div>
       </section>
@@ -585,7 +570,7 @@ function FallbackStaticPage({ slug }: { slug?: string[] }) {
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
               <h2 className="text-pretty text-3xl font-semibold text-text-primary dark:text-dark-text-primary">
-                Proof that Flowstack™, Consensus Engine™, and Redbridging™ deliver
+                Proof that Workflow Automation Setup, AI Research Assistant, and Automation Rescue deliver
               </h2>
               <p className="mt-2 max-w-3xl text-text-tertiary dark:text-dark-text-tertiary">
                 Real owners, real outcomes. Discovery-led builds that respect how your business actually runs.
@@ -636,7 +621,7 @@ function FallbackStaticPage({ slug }: { slug?: string[] }) {
             <div className="mt-6 grid gap-4 md:grid-cols-2">
               {[
                 "No one-size-fits-all playbooks—everything is trained on your approvals, brand, and risk tolerance.",
-                "We start with discovery, not dashboards. That&rsquo;s why Flowstack™ builds often ship in under 3 hours.",
+                "We start with discovery, not dashboards. That&rsquo;s why Workflow Automation Setup builds often ship in under 3 hours.",
                 "You keep control with human-in-the-loop reviews, rollback paths, and transparent pricing.",
                 "Decision support that blends qualitative brand tone and hard numbers into actionable briefs.",
               ].map((point) => (

@@ -25,9 +25,9 @@ export const ENTERPRISE_OFFERINGS: EnterpriseOffering[] = [
   {
     slug: "automation-fabric",
     title: "Automation Fabric",
-    subtitle: "Flowstack™ for regulated teams",
+    subtitle: "Workflow Automation Setup™ for regulated teams",
     summary:
-      "We architect Flowstack™ deployments that can pass infosec, live in your cloud, and keep every approval + audit trail your compliance lead obsesses over.",
+      "We architect Workflow Automation Setup™ deployments that can pass infosec, live in your cloud, and keep every approval + audit trail your compliance lead obsesses over.",
     heroImage: {
       src: "/assets/generated/hero-flowstack-desktop.webp",
       alt: "Enterprise automation command center with approvals and monitoring dashboards",
@@ -52,16 +52,16 @@ export const ENTERPRISE_OFFERINGS: EnterpriseOffering[] = [
     card: {
       image: "/assets/logos/flowstack.png",
       alt: "Automation Fabric title card",
-      tagline: "Flowstack™ for regulated teams",
+      tagline: "Workflow Automation Setup™ for regulated teams",
       description: "Automation fabric for enterprises that need approvals, audits, and telemetry on every run.",
     },
   },
   {
     slug: "cloud-chatbot",
     title: "Cloud Chatbot Control Room",
-    subtitle: "Cadence™ deployed at enterprise scale",
+    subtitle: "AI Strategy Sprint™ deployed at enterprise scale",
     summary:
-      "Cadence™ becomes a governed omnichannel assistant—voice, chat, ticketing—trained on your brand canon and wired into approvals so legal sleeps at night.",
+      "AI Strategy Sprint™ becomes a governed omnichannel assistant—voice, chat, ticketing—trained on your brand canon and wired into approvals so legal sleeps at night.",
     heroImage: {
       src: "/assets/generated/hero-cadence-desktop.webp",
       alt: "Enterprise chatbot workflow showing knowledge sources and escalation paths",
@@ -78,22 +78,22 @@ export const ENTERPRISE_OFFERINGS: EnterpriseOffering[] = [
     ],
     deliverables: [
       "Knowledge harvest + empathy interviews across product, legal, CX",
-      "Cadence™ orchestration in your preferred channels + CRM/Ticketing",
+      "AI Strategy Sprint™ orchestration in your preferred channels + CRM/Ticketing",
       "CX ops package: analytics, QA workflows, compliance playbooks",
     ],
     cloudNote:
-      "Ship it in Azure OpenAI, AWS Bedrock, GCP Vertex, or a sovereign LLM—Cadence™ speaks all three clouds. We happen to love Azure because we’re Microsoft-backed, but we know how to avoid its vendor lock-in traps so you can move if you ever need to.",
+      "Ship it in Azure OpenAI, AWS Bedrock, GCP Vertex, or a sovereign LLM—AI Strategy Sprint™ speaks all three clouds. We happen to love Azure because we’re Microsoft-backed, but we know how to avoid its vendor lock-in traps so you can move if you ever need to.",
     card: {
       image: "/assets/logos/cadence.png",
       alt: "Cloud Chatbot Control Room card",
-      tagline: "Cadence™ at enterprise scale",
+      tagline: "AI Strategy Sprint™ at enterprise scale",
       description: "Governed omnichannel assistants that speak every language your brand does.",
     },
   },
   {
     slug: "decision-room",
     title: "Decision Room",
-    subtitle: "Consensus Engine™ with executive guardrails",
+    subtitle: "AI Research Assistant™ with executive guardrails",
     summary:
       "Multi-agent research cells that debate billion-dollar calls, cite every source, and plug into your BI stack so finance, product, and strategy share one brain.",
     heroImage: {
@@ -116,18 +116,18 @@ export const ENTERPRISE_OFFERINGS: EnterpriseOffering[] = [
       "Integration sprint to expose results in the tools your board already reads",
     ],
     cloudNote:
-      "Consensus Engine™ runs wherever your governance requires: Azure confidential compute, AWS Nitro, private data centers—you pick, we harden it. Our experience as Microsoft-backed founders means we know how to leverage Azure without letting it box you in.",
+      "AI Research Assistant™ runs wherever your governance requires: Azure confidential compute, AWS Nitro, private data centers—you pick, we harden it. Our experience as Microsoft-backed founders means we know how to leverage Azure without letting it box you in.",
     card: {
       image: "/assets/logos/consensus.png",
       alt: "Decision Room title card",
-      tagline: "Consensus Engine™ for execs",
+      tagline: "AI Research Assistant™ for execs",
       description: "Adversarial research rooms with citations, dissent, and API hooks into your BI stack.",
     },
   },
   {
     slug: "reliability-ops",
     title: "Reliability Ops",
-    subtitle: "Redbridging™ for enterprise automation rescue",
+    subtitle: "Automation Rescue™ for enterprise automation rescue",
     summary:
       "Stabilize brittle Zapier/Make/RPA and shadow IT before it blows up quarter close. Then wrap it with monitoring, rollback, and on-call you can trust.",
     heroImage: {
@@ -154,7 +154,7 @@ export const ENTERPRISE_OFFERINGS: EnterpriseOffering[] = [
     card: {
       image: "/assets/logos/RedBridging.png",
       alt: "Reliability Ops title card",
-      tagline: "Redbridging™ Enterprise",
+      tagline: "Automation Rescue™ Enterprise",
       description: "Stabilize, monitor, and own every automation before it can blow up quarter close.",
     },
   },

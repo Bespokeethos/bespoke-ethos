@@ -1,0 +1,209 @@
+{
+  "genkit": {
+    "command": "npx",
+    "args": [
+      "-y",
+      "genkit-cli@^1.22.0",
+      "mcp",
+      "--",
+      "--no-update-notification",
+      "--non-interactive"
+    ],
+    "cwd": "${extensionPath}/genkit",
+    "timeout": 30000,
+    "trust": false,
+    "excludeTools": [
+      "run_shell_command(genkit start)",
+      "run_shell_command(npx genkit start)"
+    ]
+  },
+  "nanobanana": {
+    "command": "node",
+    "args": ["${extensionPath}/nanobanana/mcp-server/dist/index.js"],
+    "env": {},
+    "cwd": "${extensionPath}/nanobanana"
+  },
+  "redis": {
+    "command": "uvx",
+    "args": [
+      "--from",
+      "redis-mcp-server@latest",
+      "redis-mcp-server",
+      "--url", "${REDIS_URL}"
+    ],
+    "cwd": "${extensionPath}/mcp-redis"
+  },
+  "gemini-flow-Redis": {
+    "command": "npx",
+    "args": ["-y", "@modelcontextprotocol/server-redis", "redis://localhost:6379"],
+    "description": "Redis MCP server for key-value storage and caching",
+    "cwd": "${extensionPath}/gemini-flow"
+  },
+  "gemini-flow-Git Tools": {
+    "command": "python3",
+    "args": ["-m", "mcp_server_git"],
+    "description": "Git operations through MCP protocol",
+    "cwd": "${extensionPath}/gemini-flow"
+  },
+  "gemini-flow-Puppeteer": {
+    "command": "npx",
+    "args": ["-y", "@modelcontextprotocol/server-puppeteer"],
+    "description": "Browser automation with Puppeteer MCP server",
+    "cwd": "${extensionPath}/gemini-flow"
+  },
+  "gemini-flow-Sequential Thinking": {
+    "command": "npx",
+    "args": ["-y", "@modelcontextprotocol/server-sequential-thinking"],
+    "description": "Sequential thinking and planning MCP server",
+    "cwd": "${extensionPath}/gemini-flow"
+  },
+  "gemini-flow-Filesystem": {
+    "command": "npx",
+    "args": ["-y", "@modelcontextprotocol/server-filesystem", "/Users/chrisdukes/Desktop"],
+    "description": "Filesystem operations MCP server",
+    "cwd": "${extensionPath}/gemini-flow"
+  },
+  "gemini-flow-GitHub": {
+    "command": "npx",
+    "args": ["-y", "@modelcontextprotocol/server-github"],
+    "env": {
+      "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN}"
+    },
+    "description": "GitHub integration MCP server",
+    "cwd": "${extensionPath}/gemini-flow"
+  },
+  "gemini-flow-Mem0 Memory": {
+    "command": "npx",
+    "args": ["-y", "@modelcontextprotocol/server-memory"],
+    "description": "Memory management MCP server",
+    "cwd": "${extensionPath}/gemini-flow"
+  },
+  "gemini-flow-Supabase": {
+    "command": "npx",
+    "args": ["-y", "@supabase/mcp-server-supabase@latest", "--access-token=${SUPABASE_ACCESS_TOKEN}"],
+    "env": {
+      "SUPABASE_ACCESS_TOKEN": "${SUPABASE_ACCESS_TOKEN}"
+    },
+    "description": "Supabase database integration MCP server",
+    "cwd": "${extensionPath}/gemini-flow"
+  },
+  "gemini-flow-Omnisearch": {
+    "command": "npx",
+    "args": ["-y", "mcp-omnisearch"],
+    "env": {
+      "TAVILY_API_KEY": "${TAVILY_API_KEY}",
+      "PERPLEXITY_API_KEY": "${PERPLEXITY_API_KEY}",
+      "KAGI_API_KEY": "${KAGI_API_KEY}",
+      "JINA_AI_API_KEY": "${JINA_AI_API_KEY}",
+      "BRAVE_API_KEY": "${BRAVE_API_KEY}",
+      "FIRECRAWL_API_KEY": "${FIRECRAWL_API_KEY}"
+    },
+    "description": "Multi-source search and research MCP server",
+    "cwd": "${extensionPath}/gemini-flow"
+  },
+  "open-websearch": {
+    "command": "npx",
+    "args": ["-y", "mcp-omnisearch"],
+    "env": {
+      "TAVILY_API_KEY": "${TAVILY_API_KEY}",
+      "PERPLEXITY_API_KEY": "${PERPLEXITY_API_KEY}",
+      "KAGI_API_KEY": "${KAGI_API_KEY}",
+      "JINA_AI_API_KEY": "${JINA_AI_API_KEY}",
+      "BRAVE_API_KEY": "${BRAVE_API_KEY}",
+      "FIRECRAWL_API_KEY": "${FIRECRAWL_API_KEY}"
+    },
+    "description": "Alias for Omnisearch web search MCP server (\"open websearch\")",
+    "cwd": "${extensionPath}/gemini-flow"
+  },
+  "securityServer": {
+    "command": "node",
+    "args": [
+      "${extensionPath}/security/mcp-server/dist/index.js"
+    ],
+    "cwd": "${extensionPath}/security"
+  },
+  "osvScanner": {
+    "command": "${extensionPath}/security/osv-scanner",
+    "args": [
+      "experimental-mcp"
+    ],
+    "cwd": "${extensionPath}/security"
+  },
+  "julesServer": {
+    "command": "node",
+    "args": [
+      "${extensionPath}/jules/mcp-server/dist/jules.js"
+    ],
+    "cwd": "${extensionPath}/jules"
+  },
+  "google-workspace": {
+    "command": "node",
+    "args": [
+      "${extensionPath}/workspace/scripts/start.js"
+    ],
+    "cwd": "${extensionPath}/workspace"
+  },
+  "firebase": {
+    "command": "npx",
+    "args": ["-y", "firebase-tools@latest", "mcp"],
+    "env": {
+      "IS_GEMINI_CLI_EXTENSION": "true"
+    },
+    "cwd": "${extensionPath}/firebase"
+  },
+  "figma": {
+    "httpUrl": "https://mcp.figma.com/mcp",
+    "oauth": {
+      "enabled": true
+    },
+    "cwd": "${extensionPath}/figma-gemini-cli-extension"
+  },
+  "mcp_toolbox": {
+    "command": "${extensionPath}/mcp-toolbox/toolbox",
+    "args": [
+      "--stdio"
+    ],
+    "cwd": "${extensionPath}/mcp-toolbox"
+  },
+  "gemini-cloud-assist-mcp": {
+    "command": "npm",
+    "args": ["run", "start:fresh"],
+    "cwd": "${extensionPath}/gemini-cloud-assist-mcp",
+    "timeout": 600000
+  },
+  "computerUse": {
+    "command": "bash",
+    "args": ["${extensionPath}/GeminiCLI_ComputerUse_Extension/servers/run.sh"],
+    "cwd": "${extensionPath}/GeminiCLI_ComputerUse_Extension"
+  },
+  "gcloud": {
+    "command": "npx",
+    "args": [
+      "-y",
+      "@google-cloud/gcloud-mcp"
+    ],
+    "cwd": "${extensionPath}/gcloud"
+  },
+  "FileSearch": {
+    "command": "bash",
+    "args": ["${extensionPath}/GeminiCLI_File_Search_Extension/servers/run.sh"],
+    "cwd": "${extensionPath}/GeminiCLI_File_Search_Extension"
+  },
+  "extension-browser": {
+    "command": "node",
+    "args": ["${extensionPath}/extension-browser/dist/server.js"],
+    "cwd": "${extensionPath}/extension-browser"
+  },
+  "file-search-store-extension": {
+    "command": "node",
+    "args": [
+      "${extensionPath}/FileSearchStore-extension/mcp-server/src/file-search-store-extension.js"
+    ],
+    "cwd": "${extensionPath}/FileSearchStore-extension"
+  },
+  "daily-grind": {
+    "command": "node",
+    "args": ["${extensionPath}/daily-grind-extension/dist/daily-grind.js"],
+    "cwd": "${extensionPath}/daily-grind-extension"
+  }
+}

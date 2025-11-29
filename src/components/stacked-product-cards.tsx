@@ -15,43 +15,43 @@ type StackCard = {
 const STACKED_CARDS: StackCard[] = [
   {
     key: "cadence",
-    title: "Cadence Chat Concierge (Cadence™)",
-    tagline: "Premium chat, human tone",
+    title: "Meet Cadence  Your AI Concierge",
+    tagline: "On-brand AI front door",
     description:
-      "A premium, relationship-first customer chatbot trained on your products, voice, and founder stories-built for people who hate generic bots.",
+      "Customer-facing AI concierge that answers common questions, routes work, and hands off to you when it matters.",
     href: "/products/cadence",
     imageSrc: "/assets/generated/hero-chatbots-desktop.webp",
-    imageAlt: "Cadence chat concierge hero image",
+    imageAlt: "AI Strategy Sprint hero image",
   },
   {
     key: "flowstack",
-    title: "Automation Runbook (Flowstack™)",
-    tagline: "Lock-tight workflows",
+    title: "Workflow Automation Setup",
+    tagline: "Process mapped, approvals kept",
     description:
-      "Automate the single task stealing the most hours from your week-without giving up approvals, audit trails, or rollback.",
+      "Map your process, keep approvals intact, build production-ready automation in days, not months.",
     href: "/solutions/flowstack",
     imageSrc: "/assets/generated/hero-flowstack-desktop.webp",
-    imageAlt: "Automation runbook flow view",
+    imageAlt: "Workflow automation setup hero image",
   },
   {
     key: "consensus",
-    title: "Decision Briefs (Consensus Engine™)",
-    tagline: "Cited clarity fast",
+    title: "Consensus Engine  Your AI Strategy Sprint",
+    tagline: "Clarity with receipts",
     description:
-      "Turn one big strategic question into a calm, cited brief by running it through several AI research lenses instead of one guess.",
+      "Multi-lens research sprint that synthesizes sources, surfaces options, and delivers a cited brief for confident decisions.",
     href: "/solutions/consensus-engine",
     imageSrc: "/assets/generated/hero-consensus-desktop.webp",
-    imageAlt: "Decision brief research deck",
+    imageAlt: "AI research assistant hero image",
   },
   {
     key: "redbridging",
-    title: "Automation Rescue (Redbridging™)",
-    tagline: "Rescue & monitor",
+    title: "Automation Rescue",
+    tagline: "Fix, fortify, monitor",
     description:
-      "Rescue brittle automations-stabilize, document, and maintain them so they stop breaking the night before your launch.",
+      "Broken workflow? Duct-taped integrations? We fix what's failing and build it rightfast.",
     href: "/solutions/redbridging",
     imageSrc: "/assets/generated/hero-redbridging-desktop.webp",
-    imageAlt: "Automation rescue monitoring screen",
+    imageAlt: "Automation rescue hero image",
   },
 ] as const;
 
@@ -100,4 +100,3 @@ export function StackedProductCards() {
     </div>
   );
 }
-

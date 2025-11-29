@@ -8,14 +8,16 @@ export type HeaderNavLinkItem = {
   _id: string;
   _title: string;
   href?: string;
-  link?: {
-    __typename: "PageReferenceComponent" | "CustomTextComponent";
-    page?: {
-      pathname: string;
-      _title: string;
-    };
-    text?: string;
-  } | null;
+  link?:
+    | {
+        __typename: "PageReferenceComponent" | "CustomTextComponent";
+        page?: {
+          pathname: string;
+          _title: string;
+        };
+        text?: string;
+      }
+    | null;
   children?: HeaderNavLinkItem[];
 };
 
@@ -62,74 +64,27 @@ const FALLBACK_HEADER_NAV: HeaderNavLink[] = [
       items: [
         {
           _id: "nav-products-flagship-group",
-          _title: "Bespoke Ethos Flagship Line",
+          _title: "Flagship offerings",
           children: [
             {
               _id: "nav-products-cadence",
-              _title: "Cadence™",
-              link: pageRef("/products/cadence", "Cadence™"),
-            },
-            {
-              _id: "nav-products-flowstack",
-              _title: "Flowstack",
-              link: pageRef("/solutions/flowstack", "Flowstack"),
+              _title: "Cadence – Your AI Concierge",
+              link: pageRef("/products/cadence", "Meet Cadence – Your AI Concierge"),
             },
             {
               _id: "nav-products-consensus",
-            _title: "Consensus Engine™",
-            link: pageRef("/solutions/consensus-engine", "Consensus Engine™"),
+              _title: "Consensus Engine – Your AI Strategy Sprint",
+              link: pageRef("/solutions/consensus-engine", "Consensus Engine – Your AI Strategy Sprint"),
             },
             {
               _id: "nav-products-redbridging",
-              _title: "Redbridging",
-              link: pageRef("/solutions/redbridging", "Redbridging"),
-            },
-          ],
-        },
-        {
-          _id: "nav-products-essentials-group",
-          _title: "Business Essentials",
-          children: [
-            {
-              _id: "nav-business-chatbots",
-              _title: "Chatbots",
-              link: pageRef("/solutions/chatbots", "Chatbots"),
+              _title: "Automation Rescue",
+              link: pageRef("/solutions/redbridging", "Automation Rescue"),
             },
             {
-              _id: "nav-business-llm",
-              _title: "LLM Setups",
-              link: pageRef("/contact?service=llm-setups", "LLM Setups"),
-            },
-            {
-              _id: "nav-business-ai-chat",
-              _title: "AI Chat",
-              link: pageRef("/chat", "AI Chat"),
-            },
-          ],
-        },
-        {
-          _id: "nav-products-enterprise-group",
-          _title: "Enterprise Services",
-          children: [
-            {
-              _id: "nav-enterprise-automation",
-              _title: "Automation Fabric",
-              link: pageRef("/enterprise/automation-fabric", "Automation Fabric"),
-            },
-            {
-              _id: "nav-enterprise-chatbot",
-              _title: "Cloud Chatbot Control Room",
-              link: pageRef("/enterprise/cloud-chatbot", "Cloud Chatbot Control Room"),
-            },
-            {
-              _id: "nav-enterprise-decision",
-              _title: "Decision Room",
-              link: pageRef("/enterprise/decision-room", "Decision Room"),
-            },
-            {
-              _id: "nav-enterprise-reliability",
-              _title: "Reliability Ops",
-              link: pageRef("/enterprise/reliability-ops", "Reliability Ops"),
+              _id: "nav-products-flowstack",
+              _title: "Workflow Automation Setup",
+              link: pageRef("/solutions/flowstack", "Workflow Automation Setup"),
             },
           ],
         },
@@ -160,11 +115,16 @@ const FALLBACK_HEADER_NAV: HeaderNavLink[] = [
     href: "/faq",
     sublinks: { items: [] },
   },
-
   {
     _id: "nav-blog",
     _title: "Blog",
     href: "/blog",
+    sublinks: { items: [] },
+  },
+  {
+    _id: "nav-calendar",
+    _title: "Consensus Calendar",
+    href: "/calendar",
     sublinks: { items: [] },
   },
   {
@@ -229,10 +189,7 @@ type HeaderShellProps = {
   logo: LogoData;
 };
 
-function HeaderShell({
-  headerData,
-  logo,
-}: HeaderShellProps) {
+function HeaderShell({ headerData, logo }: HeaderShellProps) {
   return (
     <header className="sticky left-0 top-0 z-100 flex w-full flex-col border-b border-border bg-surface-primary/98 backdrop-blur-md dark:border-dark-border dark:bg-dark-surface-primary/98">
       <div className="relative flex h-16 sm:h-20 overflow-visible">
@@ -262,7 +219,10 @@ function HeaderShell({
           <MobileMenu {...headerData} />
         </div>
       </div>
-      <TrustStrip size="thin" className="border-t border-border/60 bg-white/90 backdrop-blur-sm dark:border-dark-border/60 dark:bg-surface-primary/95" />
+      <TrustStrip
+        size="thin"
+        className="border-t border-border/60 bg-white/90 backdrop-blur-sm dark:border-dark-border/60 dark:bg-surface-primary/95"
+      />
     </header>
   );
 }
@@ -272,12 +232,10 @@ export async function Header() {
     navbar: { items: FALLBACK_HEADER_NAV },
     rightCtas: { items: FALLBACK_HEADER_CTAS },
   };
-  const lightHeader = "/assets/logo-light-2.png";
-  const darkHeader = "/assets/logo-dark.png";
 
   const logo: LogoData = {
     dark: {
-      url: darkHeader,
+      url: "/assets/logo-dark.png",
       alt: FALLBACK_HEADER_LOGO.dark.alt,
       width: 200,
       height: 60,
@@ -285,7 +243,7 @@ export async function Header() {
       blurDataURL: "",
     },
     light: {
-      url: lightHeader,
+      url: "/assets/logo-light-2.png",
       alt: FALLBACK_HEADER_LOGO.light.alt,
       width: 200,
       height: 60,
@@ -296,6 +254,4 @@ export async function Header() {
 
   return <HeaderShell headerData={headerData} logo={logo} />;
 }
-
-
 

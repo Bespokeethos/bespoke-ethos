@@ -11,7 +11,7 @@ export const revalidate = 1800;
 export const metadata: Metadata = {
   title: "LGBTQ+ Founder Discount | Bespoke Ethos",
   description:
-    "We offer LGBTQ+ owned businesses a standing 25% discount on upfront project fees for Flowstack™, Cadence™, Redbridging™, and one-time services. Subscription fees are excluded.",
+    "We offer LGBTQ+ owned businesses a standing 25% discount on upfront project fees for Workflow Automation Setup™, AI Strategy Sprint™, Automation Rescue™, and one-time services. Subscription fees are excluded.",
   alternates: { canonical: "/lgbtq-discount" },
 };
 
@@ -47,9 +47,9 @@ export default function LGBTQDiscountPage() {
                 What the discount covers
               </h2>
               <ul className="list-disc pl-5 text-sm text-text-secondary dark:text-dark-text-secondary">
-                <li>25% off Flowstack™ setup fees.</li>
-                <li>25% off Cadence™ setup and training packages.</li>
-                <li>25% off Redbridging™ rescue engagements.</li>
+                <li>25% off Workflow Automation Setup™ setup fees.</li>
+                <li>25% off AI Strategy Sprint™ setup and training packages.</li>
+                <li>25% off Automation Rescue™ rescue engagements.</li>
                 <li>25% off one-time strategy, LLM setup, and automation audits.</li>
               </ul>
             </div>

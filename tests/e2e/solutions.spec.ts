@@ -4,7 +4,7 @@ test.describe("Solutions overview", () => {
   test("shows all core offers with clean labels", async ({ page }) => {
     await page.goto("/solutions");
 
-    const titles = ["Cadence", "Flowstack", "Chatbots", "Consensus Engine", "Redbridging"];
+    const titles = ["AI Strategy Sprint", "Workflow Automation Setup", "Chatbots", "AI Research Assistant", "Automation Rescue"];
 
     for (const title of titles) {
       await expect(
@@ -15,7 +15,7 @@ test.describe("Solutions overview", () => {
       ).toBeVisible();
     }
 
-    const badLabels = ["CadenceT", "FlowstackT", "Consensus EngineT", "RedbridgingT"];
+    const badLabels = ["Cadence", "Flowstack", "Consensus Engine", "Redbridging"];
     for (const bad of badLabels) {
       await expect(page.getByText(bad)).toHaveCount(0);
     }

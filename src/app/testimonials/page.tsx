@@ -18,18 +18,18 @@ type Testimonial = {
 
 const TESTIMONIALS: Testimonial[] = [
   {
-    title: "Cadence paid for itself in 3 weeks",
+    title: "AI Strategy Sprint paid for itself in 3 weeks",
     summary:
       "Premium chatbot trained on founder voice for an LGBTQ-owned retail co-op. 25% discount applied, escalation paths intact, zero black-box infra.",
     quote:
-      "Not another chatbot. Cadence sounds like us, hands off to humans when it should, and we kept approvals. Customers noticed the difference immediately.",
+      "Not another chatbot. AI Strategy Sprint sounds like us, hands off to humans when it should, and we kept approvals. Customers noticed the difference immediately.",
     author: "Monique Ellis",
     role: "Co-Founder",
     company: "Lake Effect Co-op",
     imageSrc: "/assets/generated/testimonial-monique.jpg",
   },
   {
-    title: "Flowstack stopped the 2 a.m. outages",
+    title: "Workflow Automation Setup stopped the 2 a.m. outages",
     summary:
       "One brittle Zapier/QuickBooks chain was rebuilt static-first with rollback paths and monitoring. Rust Belt manufacturer reclaimed 10+ hours a week.",
     quote:
@@ -40,7 +40,7 @@ const TESTIMONIALS: Testimonial[] = [
     imageSrc: "/assets/generated/testimonial-derrick.jpg",
   },
   {
-    title: "Consensus Engine ended the endless debate",
+    title: "AI Research Assistant ended the endless debate",
     summary:
       "Cited brief across multiple AI lenses let the board pick a brand direction in one meeting-no 6-week spiral.",
     quote:
@@ -72,10 +72,10 @@ export default function TestimonialsPage() {
         <h1>Testimonials</h1>
       </Heading>
       <div className="pill-row">
-        <span className="pill">Cadence · Premium chatbot</span>
-        <span className="pill">Flowstack · Automation with approvals</span>
-        <span className="pill">Consensus Engine · Cited briefs</span>
-        <span className="pill">Redbridging · Reliability rescue</span>
+        <span className="pill">AI Strategy Sprint · Premium chatbot</span>
+        <span className="pill">Workflow Automation Setup · Automation with approvals</span>
+        <span className="pill">AI Research Assistant · Cited briefs</span>
+        <span className="pill">Automation Rescue · Reliability rescue</span>
       </div>
 
       <div className="rail-shell">
@@ -119,7 +119,7 @@ export default function TestimonialsPage() {
       </div>
 
       <p className="mt-6 text-sm text-text-tertiary dark:text-dark-text-tertiary">
-        Want in? Book a free consult and we&apos;ll run one Consensus Engine brief on your biggest question before you commit.
+        Want in? Book a free consult and we&apos;ll run one AI Research Assistant brief on your biggest question before you commit.
       </p>
         </div>
       </Section>

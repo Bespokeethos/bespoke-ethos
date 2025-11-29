@@ -39,14 +39,12 @@ if (!header.includes('/changelog')) {
 }
 log('Header links/logos OK');
 
-// 4) Hero slideshow present
-mustExist('src/app/_sections/hero/index.tsx');
-mustExist('src/app/_sections/hero/slideshow.tsx');
-const slide = fs.readFileSync('src/app/_sections/hero/slideshow.tsx','utf8');
-if (!/prefers-reduced-motion/.test(slide)) fail('Slideshow should handle reduced motion');
-if (!/useEmblaCarousel|embla/.test(slide)) fail('Slideshow should use Embla or equivalent carousel');
-if (!/onMouseEnter\s*=\s*{\s*\([^)]*\)\s*=>\s*setPaused\(true\)/.test(slide)) fail('Slideshow should pause on hover');
-log('Hero slideshow behavior OK');
+// 4) Conversion hero present (replaces legacy slideshow)
+mustExist('src/components/conversion-optimized-hero.tsx');
+const conversionHero = fs.readFileSync('src/components/conversion-optimized-hero.tsx','utf8');
+if (!conversionHero.includes('hero-cadence-desktop.webp')) fail('Conversion hero should feature the Cadence hero image');
+if (!conversionHero.includes('Book a free consult')) fail('Conversion hero CTA missing expected copy');
+log('Conversion hero component OK');
 
 // 5) Sitemap + robots exist
 mustExist('src/app/sitemap.ts');

@@ -51,7 +51,7 @@ export function ConsensusResearchers({ className }: ConsensusResearchersProps) {
             id="consensus-researchers-heading"
             className="text-base font-semibold text-text-primary dark:text-dark-text-primary"
           >
-            Meet the four research lenses inside Consensus Engine\u2122
+            Meet the four research lenses inside the Consensus Engine
           </h2>
           <p className="mt-1 text-xs text-text-tertiary dark:text-dark-text-tertiary">
             Each run brings these lenses to your question, then synthesizes what they find into one calm, cited brief.

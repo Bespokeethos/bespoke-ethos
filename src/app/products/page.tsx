@@ -10,7 +10,7 @@ export const revalidate = 1800;
 export const metadata: Metadata = {
   title: "Small Business AI Products | Bespoke Ethos",
   description:
-    "Cadence, Flowstack, Consensus Engine, and Redbridging—our flagship small-business AI products for chat, automation, research, and reliability.",
+    "Cadence, Consensus Engine, Workflow Automation Setup, and Automation Rescue—our flagship small-business AI products for chat, research sprints, automation, and reliability.",
   alternates: { canonical: "/products" },
 };
 
@@ -29,14 +29,14 @@ export default function ProductsPage() {
             <h1>Small Business Solutions</h1>
           </Heading>
           <div className="pill-row">
-            <span className="pill">Cadence Chat Concierge</span>
-            <span className="pill">Automation Runbook (Flowstack™)</span>
-            <span className="pill">Decision Briefs (Consensus Engine™)</span>
-            <span className="pill">Automation Rescue (Redbridging™)</span>
+            <span className="pill">Cadence  Your AI Concierge</span>
+            <span className="pill">Workflow Automation Setup</span>
+            <span className="pill">Consensus Engine  Your AI Strategy Sprint</span>
+            <span className="pill">Automation Rescue</span>
           </div>
           <p className="max-w-2xl text-sm text-text-secondary dark:text-dark-text-secondary">
             These are the tools we reach for most often when a small-business founder asks for help: Cadence for
-            relationship-first chat, Automation Runbook for auditable automation, Decision Briefs for big decisions, and
+            relationship-first chat, Workflow Automation Setup for auditable automation, Consensus Engine for big decisions, and
             Automation Rescue for keeping critical workflows from falling apart.
           </p>
           <div className="rail-shell">
@@ -47,4 +47,3 @@ export default function ProductsPage() {
     </main>
   );
 }
-

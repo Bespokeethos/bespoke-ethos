@@ -11,7 +11,7 @@ const summaries = {
     "Master positioning index: identity angles, offers, trust signals, geo/local angles, neurodivergent platform angles, copy blocks, Vertex AI prompt architecture.",
   "gfounderapp.txt": "Narrative polish log for application 'Why Me' section using torrent/padlocks imagery and APOE/Alzheimer’s anchor.",
   "Past-Instance-Addl-Context-.txt":
-    "Canonical bio dossier: identities (Upton/Owen), sobriety, neurodivergence, schedule, discount rules, philosophy, goals, ops rhythms, kink identity, AI partner protocol.",
+    "Canonical bio dossier: founder identity (Upton Rand), sobriety, neurodivergence, schedule, discount rules, philosophy, goals, ops rhythms, kink identity, AI partner protocol.",
   "The Vertex Architect_ Structuring Gemini Prompts for Seamless, Low-Maintenance Digital Acceleration.txt":
     "Vertex AI/Antigravity blueprint: system vs task prompt hierarchy, artifact mandates, Framer/Figma static-site flow, chatbot persona/narrative/data strategy, MLOps governance.",
   "Upton-Rand-Edge-User.txt":

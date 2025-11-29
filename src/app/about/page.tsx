@@ -50,9 +50,11 @@ export default function AboutPage() {
           </div>
           <div className="prose max-w-none mt-6">
             <p>
-              I&apos;m Upton Rand—a Cleveland tool &amp; die technician by day and AI trainer by night. I spent 5+ years
-              training the same frontier models everyone is buying now, and I build automations that stay simple: static
-              sites, serverless when needed, approvals and audit trails always on.
+              I&apos;m Upton Rand-a Cleveland tool &amp; die technician by day and AI trainer by night. I spent 5+ years
+              training the same frontier models everyone is buying now, sharpened my teeth in Azure alongside Microsoft
+              enterprise developers in 2024, and I&apos;m currently building in the cloud with Google while in
+              application for their Founders program. I build automations that stay simple: static sites, serverless
+              when needed, approvals and audit trails always on.
             </p>
             <p>
               Bespoke Ethos exists for founders who can&apos;t afford McKinsey: fixed scopes, clear prices, and a
@@ -129,9 +131,10 @@ export default function AboutPage() {
             </p>
             <p className="text-text-secondary">
               As an NGLCC-certified LGBTQ+ founder, I keep a 25% discount for LGBTQ-owned teams and offer productized
-              scopes that start at $997: Cadence premium chatbot, Flowstack automations, Consensus Engine research,
-              Redbridging for brittle workflows—all delivered with documentation, rollback paths, and a 90-day “break it
-              we fix it” guarantee.
+              scopes that start at $997: Cadence  Your AI Concierge, Consensus Engine  Your AI Strategy Sprint, Workflow
+              Automation Setup automations, and Automation Rescue for brittle workflows-all delivered with
+              documentation, rollback paths, and a 90-day "break it we fix it" guarantee. Built by the Goliaths, choosing
+              to work with the Davids of the world.
             </p>
           </div>
         </div>

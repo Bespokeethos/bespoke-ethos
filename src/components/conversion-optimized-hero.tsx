@@ -31,7 +31,7 @@ export function ConversionOptimizedHero() {
               Ship AI automation in weeks—not quarters—with a founder who trained the models you use.
             </h1>
             <p className="text-lg text-slate-700">
-              Fixed scopes from $997. We handle the busywork—Cadence chat concierge, Flowstack automations, Consensus research briefs, and Redbridging rescues—so you keep control and time.
+              Fixed scopes from $997. We handle the busywork-Cadence, your AI concierge; Workflow Automation Setup automations; Consensus Engine decision briefs; and Automation Rescue-so you keep control and time.
             </p>
           </motion.div>
 
@@ -87,7 +87,7 @@ export function ConversionOptimizedHero() {
           <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-4">
             <TrustBadge src="/assets/generated/trust/nglcc-square-light.webp" alt="NGLCC Certified LGBTQ+ Owned" />
             <TrustBadge src="/assets/generated/trust/catalant-square-light.webp" alt="Catalant Vetted" />
-            <TrustBadge src="/assets/generated/trust/experience-5yrs-square-light.webp" alt="5 years AI HIL" />
+            <TrustBadge src="/assets/generated/trust/experience-5yrs-square-square-light.webp" alt="5 years AI HIL" />
             <span className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-600">
               Cleveland · Rust Belt manufacturing friendly
             </span>
@@ -101,18 +101,34 @@ export function ConversionOptimizedHero() {
           className="relative"
         >
           <div className="absolute inset-0 -z-10 rounded-3xl bg-white/70 shadow-2xl shadow-orange-100/50 ring-1 ring-slate-200" />
-          <div className="overflow-hidden rounded-3xl ring-1 ring-slate-200">
-            <Image
-              src="/assets/generated/hero-cadence-desktop.webp"
-              alt="Cadence concierge and automation dashboard"
-              width={960}
-              height={780}
-              className="h-full w-full object-cover"
-              sizes="(max-width: 1024px) 100vw, 520px"
-              priority
-              loading="eager"
-              quality={95}
-            />
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#fff7ec] via-white to-[#fde7cf] ring-1 ring-slate-200">
+            <div className="relative mx-auto flex max-w-md items-center justify-center px-6 pt-8 pb-4 sm:max-w-lg sm:pt-10 lg:pt-12">
+              <div className="relative w-full max-w-xs sm:max-w-sm">
+                <div className="absolute -inset-3 rounded-[2.25rem] bg-white/70 blur-lg" aria-hidden="true" />
+                <div className="relative overflow-hidden rounded-[2rem] bg-white/90 p-4 shadow-xl shadow-orange-200/50">
+                  <div className="relative aspect-[4/3]">
+                    <Image
+                      src="/assets/we-heart-founders-mug.avif"
+                      alt="We love founders mug on a warm workspace"
+                      fill
+                      className="object-contain object-center"
+                      sizes="(max-width: 1024px) 80vw, 420px"
+                      priority
+                      loading="eager"
+                      quality={95}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="border-t border-orange-100/70 bg-white/80 px-6 py-4 sm:px-8">
+              <p className="text-xs font-medium uppercase tracking-[0.2em] text-orange-700">
+                We love overwhelmed founders ú Cleveland ú Rust Belt
+              </p>
+              <p className="mt-1 text-sm text-slate-700">
+                Built by the Goliaths, choosing to work with the Davids of the world.
+              </p>
+            </div>
           </div>
         </motion.div>
       </div>

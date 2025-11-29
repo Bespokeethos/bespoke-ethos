@@ -36,7 +36,8 @@ const FALLBACK_SOCIAL_LINKS: SocialLink[] = [
   },
 ];
 
-const FALLBACK_COPYRIGHT = "© 2025 Bespoke Ethos. All rights reserved.";
+const FALLBACK_COPYRIGHT =
+  "c 2025 Gaymensfieldguide DBA Bespoke Ethos. All rights reserved.";
 
 type LogoVariant = {
   url: string;
@@ -98,23 +99,51 @@ function FooterLayout({
     <footer className="relative overflow-hidden border-t border-border py-5 dark:border-dark-border">
       <div className="container relative z-10 mx-auto px-4 sm:px-6">
         <div className="flex w-full items-center justify-center gap-2.5 opacity-80">
-        {/* NGLCC with caption */}
-        <figure className="flex flex-col items-center">
-          {/* light theme */}
+          {/* NGLCC with caption */}
+          <figure className="flex flex-col items-center">
+            {/* light theme */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/assets/nglcc-badge-dark.svg"
+              alt="NGLCC Certified"
+              height={12}
+              className="h-3 w-auto block dark:hidden"
+              loading="lazy"
+              decoding="async"
+            />
+            {/* dark theme */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/assets/nglcc-badge-light.svg"
+              alt="NGLCC Certified"
+              height={12}
+              className="h-3 w-auto hidden dark:block"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption className="mt-1 text-center text-[7pt] text-text-tertiary dark:text-dark-text-tertiary">
+              Gaymensfieldguide DBA Bespoke Ethos
+            </figcaption>
+          </figure>
+          {/* Catalant (theme-aware) */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/assets/nglcc-badge-dark.svg" alt="NGLCC Certified" height={12} className="h-3 w-auto block dark:hidden" loading="lazy" decoding="async" />
-          {/* dark theme */}
+          <img
+            src="/assets/catalant-badge-dark.svg"
+            alt="Catalant Vetted Consultant"
+            height={12}
+            className="h-3 w-auto block dark:hidden"
+            loading="lazy"
+            decoding="async"
+          />
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/assets/nglcc-badge-light.svg" alt="NGLCC Certified" height={12} className="h-3 w-auto hidden dark:block" loading="lazy" decoding="async" />
-          <figcaption className="mt-1 text-center text-[7pt] text-text-tertiary dark:text-dark-text-tertiary">
-            Gay Mens Field Guide LLC.
-          </figcaption>
-        </figure>
-        {/* Catalant (theme-aware) */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/assets/catalant-badge-dark.svg" alt="Catalant Vetted Consultant" height={12} className="h-3 w-auto block dark:hidden" loading="lazy" decoding="async" />
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/assets/catalant-badge-light.svg" alt="Catalant Vetted Consultant" height={12} className="h-3 w-auto hidden dark:block" loading="lazy" decoding="async" />
+          <img
+            src="/assets/catalant-badge-light.svg"
+            alt="Catalant Vetted Consultant"
+            height={12}
+            className="h-3 w-auto hidden dark:block"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
       </div>
       {backgroundSrc ? (
@@ -171,9 +200,22 @@ function FooterLayout({
           aria-label="Product offerings"
           className="w-full space-y-2 sm:col-span-1 sm:col-start-2 sm:row-start-2"
         >
-          <p className="text-sm font-semibold text-text-primary dark:text-dark-text-primary">Offerings</p>
+          <p className="text-sm font-semibold text-text-primary dark:text-dark-text-primary">
+            Offerings
+          </p>
           <ul className="grid grid-cols-2 gap-2 sm:grid-cols-4">
-            {[{ label: 'FlowstackT', href: '/solutions/flowstack' }, { label: 'Chatbots', href: '/solutions/chatbots' }, { label: 'Consensus Engine™', href: '/solutions/consensus-engine' }, { label: 'RedbridgingT', href: '/solutions/redbridging' }].map((i) => (
+            {[
+              {
+                label: "Cadence  Your AI Concierge",
+                href: "/products/cadence",
+              },
+              {
+                label: "Consensus Engine  Your AI Strategy Sprint",
+                href: "/solutions/consensus-engine",
+              },
+              { label: "Automation Rescue", href: "/solutions/redbridging" },
+              { label: "Workflow Automation Setup", href: "/solutions/flowstack" },
+            ].map((i) => (
               <li key={i.href}>
                 <ButtonLink
                   unstyled
@@ -194,32 +236,44 @@ function FooterLayout({
 
         <ul className="w-full flex items-center justify-start gap-x-3 gap-y-3 sm:col-span-1 sm:col-start-3 sm:row-start-2 sm:w-auto sm:flex-wrap sm:justify-self-end">
           {socialLinks
-            .filter((link) => (link.title || '').toLowerCase().includes('linkedin'))
+            .filter((link) => (link.title || "").toLowerCase().includes("linkedin"))
             .map((link) => {
-            const IconComponent = link.Icon;
-            return (
-              <li key={link.title} className="shrink-0 sm:first:ml-auto">
-                <ButtonLink
-                  unstyled
-                  className="flex aspect-square items-center justify-center rounded-full p-2 hover:brightness-90 dark:brightness-90 dark:hover:brightness-110"
-                  href={link.url}
-                  target="_blank"
-                  aria-label={link.title}
-                >
-                  {IconComponent ? (
-                    <IconComponent className="size-5" />
-                  ) : link.iconAsset ? (
-                    <Image alt={link.title} height={24} src={link.iconAsset} width={24} />
-                  ) : link.iconUrl ? (
-                    <Image alt={link.title} height={24} src={link.iconUrl} width={24} />
-                  ) : (
-                    <span className="text-xs font-semibold uppercase">{link.title}</span>
-                  )}
-                </ButtonLink>
-              </li>
-            );
-          })}
-      </ul>
+              const IconComponent = link.Icon;
+              return (
+                <li key={link.title} className="shrink-0 sm:first:ml-auto">
+                  <ButtonLink
+                    unstyled
+                    className="flex aspect-square items-center justify-center rounded-full p-2 hover:brightness-90 dark:brightness-90 dark:hover:brightness-110"
+                    href={link.url}
+                    target="_blank"
+                    aria-label={link.title}
+                  >
+                    {IconComponent ? (
+                      <IconComponent className="size-5" />
+                    ) : link.iconAsset ? (
+                      <Image
+                        alt={link.title}
+                        height={24}
+                        src={link.iconAsset}
+                        width={24}
+                      />
+                    ) : link.iconUrl ? (
+                      <Image
+                        alt={link.title}
+                        height={24}
+                        src={link.iconUrl}
+                        width={24}
+                      />
+                    ) : (
+                      <span className="text-xs font-semibold uppercase">
+                        {link.title}
+                      </span>
+                    )}
+                  </ButtonLink>
+                </li>
+              );
+            })}
+        </ul>
       </div>
     </footer>
   );
@@ -238,4 +292,3 @@ export async function Footer() {
     />
   );
 }
-

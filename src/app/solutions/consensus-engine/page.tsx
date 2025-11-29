@@ -16,9 +16,9 @@ import { ConsensusResearchers } from "@/components/consensus-researchers";
 export const revalidate = 1800;
 
 export const metadata: Metadata = {
-  title: "Consensus Engine - Decision Clarity | Bespoke Ethos",
+  title: "Consensus Engine  Your AI Strategy Sprint | Bespoke Ethos",
   description:
-    "Consensus Engine turns your toughest strategic question into a calm, cited brief by running it through multiple AI perspectives that surface risk, tradeoffs, and a clear recommendation.",
+    "Consensus Engine runs an AI Strategy Sprint so your biggest decisions get approvals-intact briefs, tradeoffs, and a clear path you trust—without a full research team.",
   alternates: { canonical: "/solutions/consensus-engine" },
 };
 
@@ -31,7 +31,7 @@ export default function ConsensusEnginePage() {
             items={[
               { name: "Home", href: "/" },
               { name: "Solutions", href: "/solutions" },
-              { name: "Consensus Engine" },
+              { name: "Consensus Engine  Your AI Strategy Sprint" },
             ]}
           />
           <ProductJsonLd />
@@ -53,8 +53,10 @@ export default function ConsensusEnginePage() {
               />
               <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
                 <div className="rounded-2xl bg-black/45 px-5 py-3 text-center text-sm sm:text-base font-medium text-white/95 shadow-2xl backdrop-blur-md">
-                  <div className="mb-1 text-xs uppercase tracking-[0.22em] text-amber-200">Consensus Engine</div>
-                  <div className="text-sm sm:text-base">Decision clarity when it actually matters</div>
+                  <div className="mb-1 text-xs uppercase tracking-[0.22em] text-amber-200">
+                    Consensus Engine  Your AI Strategy Sprint
+                  </div>
+                  <div className="text-sm sm:text-base">Decision clarity when the stakes feel heavy</div>
                 </div>
               </div>
             </div>
@@ -67,13 +69,16 @@ export default function ConsensusEnginePage() {
               subtitle="When a decision is big enough to keep you up at night, you need more than one opinion and a gut check."
             >
               <h1 id="consensus-hero-heading" className="font-hero-accent">
-                Consensus Engine: Decision clarity for the calls that count
+                Consensus Engine  Your AI Strategy Sprint
               </h1>
             </Heading>
             <p className="text-sm text-text-secondary dark:text-dark-text-secondary md:text-base">
               Most AI tools give you one very smart answer and hope that&apos;s enough. Consensus Engine runs a
               coordinated research process that looks at your question from multiple vantage points, lets those
               perspectives challenge each other, and hands you back a calm, cited brief you can actually act on.
+            </p>
+            <p className="text-sm text-text-secondary dark:text-dark-text-secondary md:text-base">
+              Always-on research partner. Synthesizes data, surfaces insights, delivers briefs for confident decisions.
             </p>
 
             <div className="mt-3 rounded-2xl border border-border bg-surface-secondary/70 p-4 text-sm text-text-secondary shadow-sm dark:border-dark-border dark:bg-dark-surface-secondary/70 dark:text-dark-text-secondary md:flex md:items-center md:justify-between md:gap-4">
@@ -101,7 +106,7 @@ export default function ConsensusEnginePage() {
           <VogueCard
             imageSrc="/assets/logos/consensus.png"
             imageAlt="Consensus Engine couture card"
-            title="Consensus Engine\u2122"
+            title="Consensus Engine  Your AI Strategy Sprint"
             tagline="Collaborative decisions"
             description="Coordinated AI perspectives with citations and clear tradeoffs so your biggest calls come with receipts instead of guesses."
           />
@@ -136,7 +141,7 @@ export default function ConsensusEnginePage() {
             <div className="home-section-card">
               <p className="home-section-card-title">Pricing at a glance</p>
               <p className="mb-2 text-lg font-semibold text-text-primary dark:text-dark-text-primary">
-                {formatMoney(PRICING.consensusEngine.monthly)}/mo for up to {PRICING.consensusEngine.queryLimit} research
+                {formatMoney(PRICING.aiResearchAssistant.monthly)}/mo for up to {PRICING.aiResearchAssistant.queryLimit} research
                 queries.
               </p>
               <p className="text-sm text-text-secondary dark:text-dark-text-secondary">
@@ -169,6 +174,35 @@ export default function ConsensusEnginePage() {
           <ConsensusEngineCard className="my-10" />
 
           <ConsensusResearchers />
+
+          {/* Real-world case: Cleveland LGBTQ+ Consensus Calendar */}
+          <section className="mt-8 space-y-3 text-sm text-text-secondary dark:text-dark-text-secondary md:text-base">
+            <Heading align="left" subtitle="Built for real stakes, not lab demos.">
+              <h2 className="text-base font-semibold text-text-primary dark:text-dark-text-primary">
+                Case study: Consensus Calendar for Cleveland&apos;s LGBTQ+ community
+              </h2>
+            </Heading>
+            <p>
+              In Cleveland, there wasn&apos;t a single, trustworthy place for queer folks to see what was happening this
+              week. Events were scattered across Instagram posts, flyers, and half-updated websites—which meant people
+              often heard about shows and meetups only after they were over.
+            </p>
+            <p>
+              We turned that into a Consensus Engine problem. Three AI research agents went on independent sprints to
+              find and verify events. Each agent knew it was competing with two others, would lose points for
+              hallucinated or outdated listings, and would earn bonus points for catching bad data from the others. A
+              simple scorecard—verified events, faulty events, unique finds—kept the game honest.
+            </p>
+            <p>
+              After several rounds, we promoted the winner&apos;s findings into a verified feed and manually spot-checked
+              the riskiest entries. The result is{" "}
+              <ButtonLink href="/calendar" intent="tertiary" className="inline px-0 align-baseline underline">
+                Consensus Calendar
+              </ButtonLink>
+              —a Cleveland LGBTQ+ social calendar hosted on this site and updated on a quarterly cadence so people can
+              actually find each other instead of guessing where to go.
+            </p>
+          </section>
 
           {/* How it looks in practice */}
           <section className="mt-6 grid gap-4 md:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)] items-start">
@@ -215,9 +249,9 @@ function ProductJsonLd() {
   const json = {
     "@context": "https://schema.org",
     "@type": "Service",
-    name: "Consensus Engine",
+    name: "Consensus Engine  Your AI Strategy Sprint",
     description:
-      "Consensus Engine is Bespoke Ethos's AI-assisted research service for small-business founders. Multiple AI perspectives debate your toughest strategic question, surface disagreements, and synthesize one actionable brief with citations.",
+      "Always-on research partner. Synthesizes data, surfaces insights, delivers briefs for confident decisions.",
     image: [`${base}/assets/generated/hero-consensus-desktop.webp`],
     provider: {
       "@type": "Organization",
@@ -236,9 +270,9 @@ function ConsensusServiceJsonLd() {
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": `${base}/solutions/consensus-engine#service`,
-    name: "Consensus Engine",
+    name: "Consensus Engine  Your AI Strategy Sprint",
     description:
-      "Consensus Engine is Bespoke Ethos's AI research service for small-business founders in Cleveland, Ohio. Multiple AI research lenses debate your toughest question, surface risk, and synthesize one recommendation so you can move forward with confidence. LGBTQ-owned businesses receive 25% off upfront project fees on approved scopes.",
+      "Always-on research partner. Synthesizes data, surfaces insights, delivers briefs for confident decisions. LGBTQ-owned businesses receive 25% off upfront project fees on approved scopes.",
     image: [`${base}/assets/generated/hero-consensus-desktop.webp`],
     provider: {
       "@type": "Organization",

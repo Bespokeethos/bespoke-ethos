@@ -48,13 +48,13 @@ const questions = [
     _analyticsKey: "faq-6",
     _title: "What does a typical first project cost?",
     answer:
-      "Most first projects land in the $799–$2,500 range depending on scope. The pricing page breaks down FlowstackT, Chatbots, Consensus Engine™, and RedbridgingT packages, plus one-time services.",
+      "Most first projects land in the $799-$2,500 range depending on scope. The pricing page breaks down Cadence  Your AI Concierge, Consensus Engine  Your AI Strategy Sprint, Workflow Automation Setup, and Automation Rescue packages, plus one-time services.",
   },
   {
     _analyticsKey: "faq-7",
     _title: "Can you rescue broken automations I already have?",
     answer:
-      "Yes—that's exactly what RedbridgingT is for. We stabilize brittle Zapier/Make flows, add monitoring and alerts, and document everything so you're not dependent on a single person who ‘knows the system’.",
+      "Yes—that's exactly what Automation Rescue is for. We stabilize brittle Zapier/Make flows, add monitoring and alerts, and document everything so you're not dependent on a single person who `knows the system`.",
   },
   {
     _analyticsKey: "faq-8",
@@ -100,7 +100,7 @@ export default function FaqPage() {
           </Heading>
           <div className="pill-row">
             <span className="pill">Human-in-loop approvals</span>
-            <span className="pill">Static-first · serverless when needed</span>
+            <span className="pill">Static-first ú serverless when needed</span>
             <span className="pill">25% LGBTQ-owned discount</span>
           </div>
           <FaqJsonLd />
@@ -118,3 +118,4 @@ export default function FaqPage() {
     </main>
   );
 }
+

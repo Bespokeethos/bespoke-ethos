@@ -39,51 +39,26 @@ if (process.env.BASEHUB_TOKEN) {
   log('BASEHUB_TOKEN not set (expected post-migration).');
 }
 
-// 5) Required assets (allow either responsive webp set OR new hero pngs)
+// 5) Required assets
 const requiredLogos = [
   'public/assets/logo-dark.png',
   'public/assets/logo-light.png',
 ];
 for (const p of requiredLogos) if (!fs.existsSync(p)) fail(`Missing logo asset: ${p}`);
 
-const webpSet = [
-  'public/assets/generated/hero-flowstack-desktop.webp',
-  'public/assets/generated/hero-flowstack-tablet.webp',
-  'public/assets/generated/hero-flowstack-mobile.webp',
-  'public/assets/generated/hero-chatbots-desktop.webp',
-  'public/assets/generated/hero-chatbots-tablet.webp',
-  'public/assets/generated/hero-chatbots-mobile.webp',
-  'public/assets/generated/hero-consensus-desktop.webp',
-  'public/assets/generated/hero-consensus-tablet.webp',
-  'public/assets/generated/hero-consensus-mobile.webp',
-  'public/assets/generated/hero-redbridging-desktop.webp',
-  'public/assets/generated/hero-redbridging-tablet.webp',
-  'public/assets/generated/hero-redbridging-mobile.webp',
+const heroCadenceSet = [
+  'public/assets/generated/hero-cadence-desktop.webp',
+  'public/assets/generated/hero-cadence-tablet.webp',
+  'public/assets/generated/hero-cadence-mobile.webp',
 ];
-const pngSet = [
-  'public/assets/generated/flowstack-hero.png',
-  // Chatbots file may be singular (chatbot-hero.png) or plural (chatbots-hero.png)
-  ['public/assets/generated/chatbots-hero.png','public/assets/generated/chatbot-hero.png'],
-  'public/assets/generated/consensus-hero.png',
-  'public/assets/generated/redbridging-hero.png',
-];
-
-const hasAllWebp = webpSet.every((p)=>fs.existsSync(p));
-const hasAllPng = pngSet.every((p)=>Array.isArray(p) ? p.some(x=>fs.existsSync(x)) : fs.existsSync(p));
-if (!hasAllWebp && !hasAllPng) {
-  const missingWebp = webpSet.filter(p=>!fs.existsSync(p));
-  const missingPng = pngSet
-    .map(p=>Array.isArray(p)?(p.some(x=>fs.existsSync(x))?null:p.join(' | ')):(fs.existsSync(p)?null:p))
-    .filter(Boolean);
-  fail(`Missing hero assets. Provide either full webp set OR png set.\n- Missing webp: ${missingWebp.join(', ')}\n- Missing png: ${missingPng.join(', ')}`);
-}
-log(`Hero assets OK (${hasAllWebp ? 'webp' : 'png'} set detected)`);
+const missingCadence = heroCadenceSet.filter((p) => !fs.existsSync(p));
+if (missingCadence.length) fail(`Missing ConversionOptimizedHero assets: ${missingCadence.join(', ')}`);
+log('Hero Cadence assets OK');
 
 // 6) Key files exist
 const keyFiles = [
   'src/app/_components/header/index.tsx',
-  'src/app/_sections/hero/index.tsx',
-  'src/app/_sections/hero/slideshow.tsx',
+  'src/components/conversion-optimized-hero.tsx',
   'src/app/_components/seo/organization-jsonld.tsx',
   'src/proxy.ts',
   'src/app/layout.tsx',

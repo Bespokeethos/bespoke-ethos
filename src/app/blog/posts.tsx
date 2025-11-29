@@ -21,7 +21,7 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "last-180-days-with-the-future-of-ai",
     title: "My Last 180 Days With the Future of AI",
     description:
-      "What it feels like to work daily with a frontier AI model, why we built the Consensus Engine, and how small businesses can benefit without becoming test subjects.",
+      "What it feels like to work daily with a frontier AI model, why we built the Consensus Engine  Your AI Strategy Sprint, and how small businesses can benefit without becoming test subjects.",
     publishedAt: "2025-11-20",
     readingTimeMinutes: 9,
     hero: {
@@ -40,7 +40,7 @@ export const BLOG_POSTS: BlogPost[] = [
           </p>
           <p>
             By magic, I don&apos;t mean tricks or hype. I mean the moments where I run a question all the way through
-            our Consensus Engine™ and it hands back an option I never would have considered in a million years&mdash;and
+            our Consensus Engine and it hands back an option I never would have considered in a million years&mdash;and
             it&apos;s better than anything I had on the table. Same constraints, same facts, completely different
             vantage point.
           </p>
@@ -52,7 +52,7 @@ export const BLOG_POSTS: BlogPost[] = [
             is how many honest angles we can look at a problem from without ever hiding the reasoning.
           </p>
           <p>
-            The Consensus Engine is what happens when you coordinate a small fleet of those Ferraris instead of just
+            Consensus Engine is what happens when you coordinate a small fleet of those Ferraris instead of just
             one. You don&apos;t need to learn to drive like a race-car driver. You&apos;re effectively hiring someone to
             run three cars in the same race and bring back first, second, and third place perspectives in a calm, cited
             brief you can actually use.
@@ -61,7 +61,7 @@ export const BLOG_POSTS: BlogPost[] = [
           <h2>Why We Built It for Davids, Not Goliaths</h2>
           <p>
             There are already tools built for the Goliaths: hedge funds, global consultancies, and teams with Bloomberg
-            terminals. I built the Consensus Engine because I wanted that level of research and perspective for people
+            terminals. I built what became the Consensus Engine because I wanted that level of research and perspective for people
             who don&apos;t have a quant team in the next building. I wanted it for my own work first, and then for the
             founders who kept asking questions that were too big for a yes/no answer.
           </p>
@@ -153,7 +153,7 @@ export const BLOG_POSTS: BlogPost[] = [
           <p>
             That first workflow is where a service like{" "}
             <Link href="/solutions/flowstack" className="underline">
-              Flowstack™
+              Workflow Automation Setup
             </Link>{" "}
             shines: narrow scope, clear inputs/outputs, and very measurable time saved.
           </p>
@@ -164,7 +164,7 @@ export const BLOG_POSTS: BlogPost[] = [
             <li>
               <strong>Approvals stay human for anything money- or relationship-critical.</strong> AI proposes; you approve. Tools like{" "}
               <Link href="/solutions/consensus-engine" className="underline">
-                Consensus Engine™
+                AI Research Assistant
               </Link>{" "}
               can support strategic decisions, but they don’t get the final say.
             </li>
@@ -192,7 +192,7 @@ export const BLOG_POSTS: BlogPost[] = [
             <li>
               <strong>On-brand FAQ responses.</strong> A{" "}
               <Link href="/products/cadence" className="underline">
-                Cadence™
+                AI Strategy Sprint
               </Link>{" "}
               style chatbot handles first-touch questions while keeping your voice and values intact.
             </li>
@@ -224,14 +224,14 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: "rescue-broken-zapier-make-automations",
     title: "How to Rescue a Broken Zapier or Make Automation (Without Nuking Revenue)",
     description:
-      "A founder-friendly troubleshooting checklist for broken Zapier/Make automations—and when it’s time to call in Redbridging™.",
+      "A founder-friendly troubleshooting checklist for broken Zapier/Make automations—and when it’s time to call in Automation Rescue.",
     publishedAt: "2025-11-15",
     readingTimeMinutes: 9,
     hero: {
       src: "/assets/generated/blog-redbridging-zapier-rescue-desktop.webp",
       alt: "Candid photo of an operations lead reviewing error logs with a developer in a small office",
     },
-    tags: ["Zapier", "Make", "Redbridging", "incident response"],
+    tags: ["Zapier", "Make", "Automation Rescue", "incident response"],
     content: function PostContent() {
       return (
         <div className="prose prose-zinc max-w-none dark:prose-invert">
@@ -259,7 +259,7 @@ export const BLOG_POSTS: BlogPost[] = [
           <p>
             This is exactly the kind of evidence a rescue service like{" "}
             <Link href="/solutions/redbridging" className="underline">
-              Redbridging™
+              Automation Rescue
             </Link>{" "}
             relies on to fix things quickly.
           </p>
@@ -289,7 +289,7 @@ export const BLOG_POSTS: BlogPost[] = [
             <li>Log every run into your database or data warehouse for easier forensics next time.</li>
           </ul>
 
-          <h2>When to Bring in Redbridging™</h2>
+          <h2>When to Bring in Automation Rescue</h2>
           <p>Call in outside help when:</p>
           <ul>
             <li>The workflow touches revenue, compliance, or customer trust.</li>
@@ -297,7 +297,7 @@ export const BLOG_POSTS: BlogPost[] = [
             <li>No one on your team &quot;owns&quot; the automation setup anymore.</li>
           </ul>
           <p>
-            Redbridging™ is designed for exactly these situations: we stabilize, monitor, and document brittle
+            Automation Rescue is designed for exactly these situations: we stabilize, monitor, and document brittle
             automations so the next outage doesn’t blindside you.
           </p>
 
@@ -308,7 +308,7 @@ export const BLOG_POSTS: BlogPost[] = [
               send a quick note
             </Link>{" "}
             with a short description, screenshots, and which tools are involved. We’ll let you know whether it’s a quick
-            fix or a better fit for a structured Redbridging™ engagement.
+            fix or a better fit for a structured Automation Rescue engagement.
           </p>
         </div>
       );
@@ -316,16 +316,16 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     slug: "on-brand-ai-chatbots-vs-generic",
-    title: "On-Brand AI Chatbots vs Generic Bots: Why Cadence™ Converts Better",
+    title: "On-Brand AI Chatbots vs Generic Bots: Why AI Strategy Sprint Converts Better",
     description:
-      "Most chatbots feel robotic because they’re trained on generic data. Here’s how an on-brand chatbot like Cadence™ can actually build loyalty.",
+      "Most chatbots feel robotic because they’re trained on generic data. Here’s how an on-brand chatbot like AI Strategy Sprint can actually build loyalty.",
     publishedAt: "2025-11-15",
     readingTimeMinutes: 8,
     hero: {
       src: "/assets/generated/blog-on-brand-ai-chatbots-desktop.webp",
       alt: "Candid photo of a founder smiling with a laptop open to a chat interface in a cozy shop",
     },
-    tags: ["Cadence", "chatbots", "customer experience"],
+    tags: ["AI Strategy Sprint", "chatbots", "customer experience"],
     content: function PostContent() {
       return (
         <div className="prose prose-zinc max-w-none dark:prose-invert">
@@ -334,7 +334,7 @@ export const BLOG_POSTS: BlogPost[] = [
             but they don’t sound like you—and your customers can feel that.
           </p>
           <p>
-            Cadence™ was built to do the opposite: a chatbot that feels like part of your team. Here’s what makes an
+            AI Strategy Sprint was built to do the opposite: a chatbot that feels like part of your team. Here’s what makes an
             on-brand chatbot different, and why it converts better.
           </p>
 
@@ -346,8 +346,8 @@ export const BLOG_POSTS: BlogPost[] = [
             <li>It understands when to escalate to a human and how to hand off gracefully.</li>
           </ul>
 
-          <h2>What Goes Into Training Cadence™</h2>
-          <p>When we build Cadence™ for a client, we don’t start with prompts. We start with:</p>
+          <h2>What Goes Into Training AI Strategy Sprint</h2>
+          <p>When we build AI Strategy Sprint for a client, we don’t start with prompts. We start with:</p>
           <ul>
             <li>Recorded conversations with you or your best customer-facing team member.</li>
             <li>Real emails, DMs, and support tickets that show how you talk when stakes are high.</li>
@@ -363,14 +363,14 @@ export const BLOG_POSTS: BlogPost[] = [
             <li>Lower escalation volume for simple questions—and better context when humans do step in.</li>
           </ul>
 
-          <h2>Where Cadence™ Fits in Your Business</h2>
+          <h2>Where AI Strategy Sprint Fits in Your Business</h2>
           <p>
-            Cadence™ plays nicely with tools you already use. It can collect leads from Jotform, create tickets, and
+            AI Strategy Sprint plays nicely with tools you already use. It can collect leads from Jotform, create tickets, and
             hand off to humans via email or your help desk—no custom platform required.
           </p>
 
-          <h2>Is Cadence™ Right for You?</h2>
-          <p>Cadence™ is a good fit if:</p>
+          <h2>Is AI Strategy Sprint Right for You?</h2>
+          <p>AI Strategy Sprint is a good fit if:</p>
           <ul>
             <li>Your brand voice is a real asset (founder-led, story-driven, values-heavy).</li>
             <li>You get repeat questions that a well-trained bot could handle.</li>
@@ -380,10 +380,10 @@ export const BLOG_POSTS: BlogPost[] = [
           <p>
             If that sounds like you,{" "}
             <Link href="/products/cadence" className="underline">
-              explore the Cadence™ product page
+              explore the AI Strategy Sprint product page
             </Link>{" "}
             or{" "}
-            <Link href="/contact?subject=Cadence%20pilot" className="underline">
+            <Link href="/contact?subject=AI Strategy Sprint%20pilot" className="underline">
               ask about a 30-day pilot
             </Link>
             .

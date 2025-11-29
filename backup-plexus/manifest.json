@@ -1,0 +1,27 @@
+{
+    "manifest_version": 3,
+    "name": "Plexus Member Scraper",
+    "version": "1.0",
+    "description": "Extract Plexus member directory data to CSV",
+    "permissions": [
+        "activeTab",
+        "scripting"
+    ],
+    "host_permissions": [
+        "https://thinkplexus.chambermaster.com/*"
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_title": "Scrape Plexus Members"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://thinkplexus.chambermaster.com/*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ]
+}

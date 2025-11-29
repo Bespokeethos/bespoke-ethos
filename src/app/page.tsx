@@ -1,64 +1,90 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 
 import { FounderStory } from "./_sections/founder-story";
 import { TrustCredentials } from "./_sections/trust-credentials";
 import { HomepageTestimonialsStrip } from "./_sections/testimonials";
 import { AlexMollyStory } from "./_sections/alex-molly-story";
-import { LGBTQDiscountModalTrigger } from "./_components/lgbtq-discount-modal-trigger";
 import { Accordion } from "./_sections/accordion-faq";
 import { BorderBeam } from "@/components/ui/border-beam";
-import { ConsensusEngineCard } from "@/components/ConsensusEngineCard";
 import { StackedProductCards } from "@/components/stacked-product-cards";
-import { FlagshipCarousel } from "./_sections/flagship-carousel";
 import { ButtonLink } from "@/common/button";
-import { ConversionOptimizedHero } from "@/components/conversion-optimized-hero";
+
+const ConversionOptimizedHero = dynamic(
+  () =>
+    import("@/components/conversion-optimized-hero").then((m) => ({
+      default: m.ConversionOptimizedHero,
+    })),
+  { loading: () => <HeroSectionSkeleton /> },
+);
+
+const ConsensusEngineCard = dynamic(
+  () =>
+    import("@/components/ConsensusEngineCard").then((m) => ({
+      default: m.ConsensusEngineCard,
+    })),
+  {
+    loading: () => <ConsensusEngineCardSkeleton />,
+  },
+);
+
+const LGBTQDiscountModalTrigger = dynamic(
+  () =>
+    import("./_components/lgbtq-discount-modal-trigger").then((m) => ({
+      default: m.LGBTQDiscountModalTrigger,
+    })),
+  {
+    loading: () => <DiscountButtonFallback />,
+  },
+);
 
 // Prefer static generation with periodic refresh for SEO stability.
 export const revalidate = 1800;
 
 const homeFaqItems = [
   {
-    question: "What kinds of businesses do you work with?",
+    question: "Who is Bespoke Ethos actually for?",
     answer:
-      'We focus on small businesses and founders in Cleveland, Ohio and similar markets—especially teams in "survival mode" who need practical wins, not 40-page decks.',
+      'Small business founders and lean teams who are in “survival mode” and can’t afford a McKinsey-style engagement. If you are drowning in busywork, have broken automations, or know you need AI but don’t know where to start, you are the target user.',
   },
   {
     question: "What problems do you actually solve?",
     answer:
-      "We take the busywork—you keep control. That means automating repetitive workflows, adding Cadence, our flagship premium chatbot, and rescuing brittle automations so you get your time back without losing visibility.",
+      "We take the busywork-you keep control. That means: rescuing brittle Zapier/Make automations with Automation Rescue, shipping Workflow Automation Setup with approvals and rollback, launching Cadence  Your AI Concierge for customer conversations, and running Consensus Engine  Your AI Strategy Sprint when you need a clear, evidence-backed answer.",
   },
   {
     question: "How does the 25% LGBTQ+ discount work?",
     answer:
-      "If you're an LGBTQ-owned business, you get 25% off all upfront project fees on approved scopes. Monthly subscriptions are billed at standard rates.",
+      "If you're an LGBTQ-owned business, you get 25% off all upfront project fees on approved scopes. Monthly subscriptions are billed at standard rates, and we’ll confirm eligibility on the intake call—no hoops or performative rainbow-washing.",
   },
 ] as const;
 
 export const metadata: Metadata = {
-  title: "Cleveland AI Consulting That Actually Makes Sense | Bespoke Ethos",
+  title: "NO RESOURCES. NO PROBLEM. JUST YOU AND AI. | Bespoke Ethos",
   description:
-    "Cleveland-based AI consulting for small businesses: free readiness audit + Decision Brief, fixed scopes from $997, NGLCC-certified, 25% LGBTQ discount, static/serverless builds.",
+    "Bespoke Ethos builds cognitive-prosthetic AI automation for small business founders who can't afford enterprise consulting. Fixed scopes from $997, Workflow Automation Setup, Cadence  Your AI Concierge, Consensus Engine  Your AI Strategy Sprint (including the Cleveland Consensus Calendar), and Automation Rescue for Zapier/Make-all with human-in-the-loop approvals.",
   keywords: [
     "AI consulting Cleveland",
-    "AI automation consultant Cleveland",
     "Cleveland small business AI",
-    "AI readiness audit Cleveland",
-    "chatbot setup Cleveland",
-    "Zapier Make rescue Cleveland",
+    "workflow automation setup",
+    "Zapier automation rescue",
+    "Make.com automation rescue",
+    "Cadence AI concierge",
+    "Consensus Engine AI Strategy Sprint",
+    "Consensus Calendar Cleveland LGBTQ events",
     "LGBTQ owned AI consulting",
-    "Decision Briefs AI research",
-    "static site automation",
-    "Appen AI trainer",
+    "NGLCC certified AI firm",
+    "tool and die AI consultant",
   ],
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     url: "https://www.bespokeethos.com",
-    title: "Cleveland AI Consulting | Bespoke Ethos",
+    title: "NO RESOURCES. NO PROBLEM. JUST YOU AND AI. | Bespoke Ethos",
     description:
-      "Free AI readiness audit and Decision Brief for Cleveland small businesses. Fixed scopes from $997; NGLCC-certified and LGBTQ-owned.",
+      "AI for founders who can’t afford McKinsey. Bespoke Ethos ships Workflow Automation SetupT, AI Strategy Sprint chat concierge, Decision Briefs, and Automation Rescue so you get reliable automation without losing control.",
     images: [
       {
         url: "/assets/generated/logo-square-dark.png",
@@ -69,6 +95,41 @@ export const metadata: Metadata = {
     ],
   },
 };
+
+function HeroSectionSkeleton() {
+  return (
+    <section className="relative overflow-hidden bg-gradient-to-br from-[#fff7ec] via-white to-[#f5f3ff]" aria-hidden="true">
+      <div className="container mx-auto max-w-6xl px-4 py-16">
+        <div className="h-[480px] rounded-3xl border border-orange-100/60 bg-white/60 shadow-inner animate-pulse" />
+      </div>
+    </section>
+  );
+}
+
+function ConsensusEngineCardSkeleton() {
+  return (
+    <div className="mx-auto my-20 max-w-5xl rounded-3xl border border-border/50 bg-surface-secondary/60 p-10 shadow-lg animate-pulse dark:border-dark-border/40 dark:bg-dark-surface-secondary/50">
+      <div className="h-10 w-40 rounded-full bg-border/80 dark:bg-dark-border/60" />
+      <div className="mt-6 h-[260px] rounded-2xl bg-white/70 dark:bg-dark-surface-primary/60" />
+      <div className="mt-6 grid gap-4 md:grid-cols-3">
+        <div className="h-32 rounded-2xl bg-white/90 dark:bg-dark-surface-secondary/70" />
+        <div className="h-32 rounded-2xl bg-white/90 dark:bg-dark-surface-secondary/70" />
+        <div className="h-32 rounded-2xl bg-white/90 dark:bg-dark-surface-secondary/70" />
+      </div>
+    </div>
+  );
+}
+
+function DiscountButtonFallback() {
+  return (
+    <Link
+      href="/lgbtq-discount"
+      className="relative inline-flex items-center gap-2 rounded-full border border-accent-400 bg-white px-5 py-2 text-sm font-semibold text-accent-600 shadow-sm transition hover:bg-accent-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-500"
+    >
+      Claim LGBTQ+ discount
+    </Link>
+  );
+}
 
 export default function HomePage() {
   return (
@@ -113,26 +174,26 @@ export default function HomePage() {
               <h2 id="real-customers-heading" className="home-section-title font-hero-accent">Proof before promises</h2>
             </div>
             <ButtonLink intent="secondary" href="/testimonials">
-              See testimonials
+              See all testimonials
             </ButtonLink>
           </div>
-          <div className="grid gap-4 md:grid-cols-2">
-            <div className="ghost-card ghost-card--soft space-y-3">
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl border border-border/60 dark:border-dark-border/60">
+          <div className="grid gap-4 max-w-3xl mx-auto">
+            <div className="ghost-card ghost-card--soft space-y-3 max-w-3xl">
+              <div className="relative h-72 w-full overflow-hidden rounded-xl border border-border/60 bg-surface-secondary dark:border-dark-border/60 dark:bg-dark-surface-secondary md:h-80">
                 <Image
                   src="/assets/Real-Customers/Alex-with-Molly.jpg"
-                  alt="Alex with Molly AI tutor open on his laptop"
+                  alt="Alex with Molly open on his laptop, smiling at the camera"
                   fill
                   className="object-cover object-center"
-                  sizes="(max-width: 640px) 100vw, 45vw"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
               <p className="text-sm text-text-secondary dark:text-dark-text-secondary">
-                “Cadence sounds like us, not a robot. It hands off when it should and keeps approvals intact.”
+                &ldquo;AI Strategy Sprint feels like us, not a robot. It hands off when it should and keeps approvals intact.&rdquo;
               </p>
               <p className="text-xs uppercase tracking-[0.18em] text-text-tertiary dark:text-dark-text-tertiary">Retail co-op · Premium chat</p>
             </div>
-            <div className="ghost-card ghost-card--soft space-y-3">
+            <div className="ghost-card ghost-card--soft space-y-3 hidden">
               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl border border-border/60 dark:border-dark-border/60">
                 <Image
                   src="/assets/Real-Customers/Alex-Ordedock-Coffee-Marquette-Mi.jpg"
@@ -143,7 +204,7 @@ export default function HomePage() {
                 />
               </div>
               <p className="text-sm text-text-secondary dark:text-dark-text-secondary">
-                “We stopped babysitting automations. Everything is documented with approvals and alerts.”
+                &ldquo;Automation Rescue stabilized our automations. Everything is documented with approvals and alerts.&rdquo;
               </p>
               <p className="text-xs uppercase tracking-[0.18em] text-text-tertiary dark:text-dark-text-tertiary">Service &amp; ops · Automation Runbook</p>
             </div>
@@ -223,9 +284,9 @@ export default function HomePage() {
                   give you a price or a no-go—no enterprise retainers, no AI auto-responder.
                 </p>
                 <ul className="home-section-list space-y-2">
-                  <li>Broken Zaps/Make/QuickBooks? Redbridging rescues with monitoring and rollback.</li>
-                  <li>Need a real chatbot? Cadence trains on your voice and knows when to escalate.</li>
-                  <li>Big decision gridlock? Consensus Engine gives you a cited brief before you spend.</li>
+                  <li>Broken Zaps/Make/QuickBooks? Automation Rescue fixes what&apos;s failing and keeps monitoring + rollback documented.</li>
+                  <li>Need a real strategy partner? AI Strategy Sprint maps the roadmap and keeps your voice in the plan.</li>
+                  <li>Big decision gridlock? AI Research Assistant delivers a cited brief before you spend.</li>
                   <li>LGBTQ-owned? Mention it—25% off upfront costs.</li>
                 </ul>
                 <div className="flex flex-col gap-3 sm:flex-row">
@@ -270,9 +331,22 @@ export default function HomePage() {
                   when required, and zero surprise infrastructure. You get ownership, documentation, and founder-friendly pricing.
                 </p>
                 <ul className="home-section-list space-y-2">
-                  <li>Cadence premium chatbot — $949 setup + $149/mo, tuned to your voice and founder story.</li>
-                  <li>Flowstack automation — one painful workflow stabilized and documented (starts at $1,497).</li>
-                  <li>Consensus Engine — cited research briefs on your biggest decision before you commit budget.</li>
+                  <li>
+                    AI Strategy Sprint - One focused engagement. Walk away with a clear AI implementation roadmap tailored to
+                    your business (starts at $949).
+                  </li>
+                  <li>
+                    Workflow Automation Setup - Map your process, keep approvals intact, build production-ready automation in
+                    days, not months (starts at $1,497).
+                  </li>
+                  <li>
+                    Automation Rescue - Broken workflow? Duct-taped integrations? We fix what&apos;s failing and build it
+                    rightfast with monitoring and rollback.
+                  </li>
+                  <li>
+                    AI Research Assistant - Always-on research partner. Synthesizes data, surfaces insights, delivers briefs
+                    for confident decisions.
+                  </li>
                   <li>25% discount for LGBTQ-owned businesses; need-based slots for under-resourced founders.</li>
                 </ul>
                 <div className="flex flex-col gap-3 sm:flex-row">
@@ -295,14 +369,7 @@ export default function HomePage() {
       {/* Alex & Molly Story */}
       <AlexMollyStory />
 
-      {/* Flagship Carousel (Cube) */}
-      <section className="home-section home-section--soft" aria-labelledby="bespoke-solutions-heading">
-        <div className="home-section-inner">
-          <FlagshipCarousel />
-        </div>
-      </section>
-
-      {/* Consensus Engine cinematic card highlight */}
+      {/* Consensus Engine cinematic highlight (with Consensus Calendar tie-in) */}
       <section className="home-section" aria-labelledby="consensus-highlight-heading">
         <div className="home-section-inner">
           <div className="rail-shell">
@@ -315,9 +382,11 @@ export default function HomePage() {
                   A research brief, not a mystery answer
                 </h2>
                 <p className="text-sm text-text-secondary dark:text-dark-text-secondary">
-                  Consensus Engine turns one big strategic question into a calm, cited brief. During your free consultation,
-                  we’ll run one reasonable question through the engine so you can see what it feels like to have your problem
-                  fully surrounded before you decide anything.
+                  Consensus Engine turns one big strategic question into a calm, cited brief-and it&apos;s the same
+                  engine we used to build Consensus Calendar, a Cleveland LGBTQ+ social calendar that filters out stale
+                  or hallucinated events. During your free consultation, we&apos;ll run one reasonable question through
+                  the engine so you can see what it feels like to have your problem fully surrounded before you decide
+                  anything.
                 </p>
               </div>
               <div className="ghost-card ghost-card--soft">

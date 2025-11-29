@@ -53,7 +53,7 @@ test.describe("Home page", () => {
       return;
     }
 
-    await searchInput.fill("Cadence");
+    await searchInput.fill("AI Strategy Sprint");
 
     // Wait for either results, loading, or empty state
     const dropdown = page.locator(
@@ -77,19 +77,19 @@ test.describe("Home page", () => {
     }
   });
 
-  test("products nav includes Cadence and clean labels", async ({ page }) => {
+  test("products nav includes AI Strategy Sprint and clean labels", async ({ page }) => {
     await page.goto("/");
 
     const mainNav = page.getByRole("navigation", { name: /main/i });
     const productsLink = mainNav.getByRole("link", { name: /products/i });
 
     await productsLink.click();
-    await expect(mainNav.getByRole("link", { name: /cadence/i })).toBeVisible();
-    await expect(mainNav.getByRole("link", { name: /flowstack/i })).toBeVisible();
-    await expect(mainNav.getByRole("link", { name: /consensus engine/i })).toBeVisible();
-    await expect(mainNav.getByRole("link", { name: /redbridging/i })).toBeVisible();
+    await expect(mainNav.getByRole("link", { name: /ai strategy sprint/i })).toBeVisible();
+    await expect(mainNav.getByRole("link", { name: /workflow automation setup/i })).toBeVisible();
+    await expect(mainNav.getByRole("link", { name: /ai research assistant/i })).toBeVisible();
+    await expect(mainNav.getByRole("link", { name: /automation rescue/i })).toBeVisible();
 
-    const badLabels = ["CadenceT", "FlowstackT", "Consensus EngineT", "RedbridgingT"];
+    const badLabels = ["Cadence", "Flowstack", "Consensus Engine", "Redbridging"];
     for (const bad of badLabels) {
       await expect(page.getByText(bad)).toHaveCount(0);
     }

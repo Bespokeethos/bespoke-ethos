@@ -62,7 +62,7 @@ export function TrustCredentials() {
               Frontier AI, Human in the Loop
             </h3>
             <p className="mt-3 text-sm text-text-secondary dark:text-dark-text-secondary">
-              5+ years as a human-in-the-loop AI trainer with Appen, contributing to the frontier models behind tools like ChatGPT, Copilot, and Gemini, plus selection into a Microsoft small-business founder program with enterprise Azure sponsorship.
+              5+ years training and evaluating frontier models behind tools like ChatGPT, Copilot, and Gemini—sharpening teeth in Azure with Microsoft enterprise developers in 2024, and now building in Google&apos;s cloud while applying to their Founders program.
             </p>
             <div className="mt-6 flex items-center justify-center">
               <Image

@@ -6,7 +6,7 @@ import { ENTERPRISE_OFFERINGS, ENTERPRISE_CONTACT } from "./data";
 export const metadata: Metadata = {
   title: "Enterprise AI Services | Bespoke Ethos",
   description:
-    "Flowstack™, Cadence™, Consensus Engine™, and Redbridging™ reimagined for enterprise teams that need compliance-ready automation, chat, research, and reliability.",
+    "Workflow Automation Setup, Cadence, Consensus Engine, and Automation Rescue reimagined for enterprise teams that need compliance-ready automation, chat, research, and reliability.",
   alternates: { canonical: "/enterprise" },
 };
 
@@ -21,16 +21,15 @@ export default function EnterpriseLandingPage() {
             </p>
             <h1 className="font-hero-accent text-3xl md:text-4xl">Enterprise AI Services</h1>
             <p className="mx-auto max-w-3xl text-base text-text-secondary dark:text-dark-text-secondary">
-              Flowstack™, Cadence™, Consensus Engine™, and Redbridging™—rewired for infosec reviews, multi-cloud
-              deployments, and executive accountability. We&apos;re Microsoft-backed founders, so we know Azure inside
-              and out—specifically where its vendor lock-in starts and where it can be avoided. We use that experience to
-              keep your organization free, clear, and running on clean code whether you live in Azure, AWS, GCP, Alibaba,
-              or sovereign infrastructure. Your cloud, your budget, we make it work.
+              Workflow Automation Setup, Cadence, Consensus Engine, and Automation Rescue—rewired for infosec reviews, multi-cloud
+              deployments, and executive accountability. We&apos;re Microsoft-backed and Google cloud-native, so we know Azure and GCP
+              inside and out—specifically where vendor lock-in starts and where it can be avoided. We use that experience to keep your
+              organization free, clear, and running on clean code whether you live in Azure, AWS, GCP, Alibaba, or sovereign infrastructure.
+              Your cloud, your budget, we make it work.
             </p>
             <p className="mx-auto max-w-2xl text-xs text-text-tertiary dark:text-dark-text-tertiary">
-              Heads up: this page leans into architecture and security jargon on purpose. If you&apos;d rather walk
-              through a plain-English version for your business, reach out and we&apos;ll translate the stack talk into
-              real outcomes.
+              Heads up: this page leans into architecture and security jargon on purpose. If you&apos;d rather walk through a plain-English
+              version for your business, reach out and we&apos;ll translate the stack talk into real outcomes.
             </p>
             <div className="mx-auto flex max-w-xs items-center justify-center gap-2 text-[11px] text-text-tertiary dark:text-dark-text-tertiary">
               <div className="relative h-6 w-6 shrink-0 sm:h-7 sm:w-7">
@@ -42,8 +41,8 @@ export default function EnterpriseLandingPage() {
                 />
               </div>
               <span>
-                Want to go full-nerd on architecture? Ask for an enterprise technical brief and we&apos;ll happily talk
-                cloud regions, tenants, and threat models.
+                Want to go full-nerd on architecture? Ask for an enterprise technical brief and we&apos;ll happily talk cloud regions,
+                tenants, and threat models.
               </span>
             </div>
             <div className="flex flex-wrap justify-center gap-3">
@@ -83,7 +82,7 @@ export default function EnterpriseLandingPage() {
                 </h2>
                 <p className="mt-2 text-sm text-text-secondary dark:text-dark-text-secondary">{offering.summary}</p>
                 <span className="mt-4 inline-flex items-center text-sm font-semibold text-accent-primary">
-                  Explore offering →
+                  Explore offering 
                 </span>
               </Link>
             ))}
