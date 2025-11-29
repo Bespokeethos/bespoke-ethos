@@ -67,7 +67,7 @@ export default function HomePage() {
       <section className="home-hero" aria-labelledby="home-hero-heading">
         <div className="be-hero-aurora" aria-hidden />
         <div className="home-hero-inner">
-          <div className="home-hero-panel">
+        <div className="home-hero-panel text-center"> text-center">
             <h1 id="home-hero-heading" className="home-hero-title font-hero-accent">
               Stop guessing. Start growing. AI automation for Cleveland small businesses.
             </h1>
