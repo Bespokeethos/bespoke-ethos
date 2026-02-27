@@ -1,8 +1,0 @@
-{
-  "project_id": "bespokeethos-analytics-475007",
-  "location": "us-central1",
-  "api_scopes": [
-    "https://www.googleapis.com/auth/cloud-platform",
-    "https://www.googleapis.com/auth/generative-language"
-  ]
-}

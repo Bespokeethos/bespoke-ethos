@@ -1,5 +1,0 @@
-# Vercel API Token
-# Token: m0QJybyr0d99rVsncJmsqUtH
-# Saved: 2025-11-29
-
-VERCEL_TOKEN=m0QJybyr0d99rVsncJmsqUtH

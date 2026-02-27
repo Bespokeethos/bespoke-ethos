@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="260" height="32" viewBox="0 0 260 32" fill="none">
-  <!-- Modern horizontal lockup: geometric mark + single-line text, for light headers -->
-  <path d="M16 7l8 6v6l-8 6-8-6v-6l8-6z" stroke="#0F172A" stroke-width="2" fill="none"/>
-  <path d="M12.5 16.5l3 3 5-6.5" stroke="#0F172A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <text x="32" y="21" fill="#0F172A" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="700">Catalant</text>
-  <text x="104" y="21" fill="#0F172A" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="600">Vetted Consultant</text>
-</svg>

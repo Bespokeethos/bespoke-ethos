@@ -1,9 +1,0 @@
-SEO & Messaging Anchors:
-- Page titles/descriptions:
-  * Homepage title: "Cleveland AI Automation for Small Business | BespokeEthos" with description about auditable AI workflows and free assessment.
-  * Services page title: "Services | Bespoke Ethos" with description "AI consulting and automation services for small business."
-  * FAQ title: "FAQ | Bespoke Ethos".
-  * About title: "About Bespoke Ethos | Our Philosophy on AI and Automation".
-- Keywords and phrases to retain: "AI Sherpa", "trigger-based workflows", "audit trails", "human-in-the-loop", "Cleveland small business", "LGBTQ-owned", "reclaim 15+ hours per week", "automate busywork", "auditable & maintainable".
-- Structured data: previously included Person and Organization schemas on the homepage plus FAQPage schema. Currently removed on request but keep snippets handy in case they’re reintroduced.
-- CTAs and meta messaging emphasize free assessments, staying in control, and human oversight.
